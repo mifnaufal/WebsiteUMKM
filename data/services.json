@@ -1,0 +1,58 @@
+{
+  "services": [
+    {
+      "id": 1,
+      "name": "Pembuatan KTP Elektronik",
+      "description": "Layanan pembuatan KTP Elektronik bagi warga yang telah berusia 17 tahun atau sudah menikah.",
+      "requirements": [
+        "Surat Pengantar RT/RW",
+        "Kartu Keluarga",
+        "Akta Kelahiran",
+        "Pas Foto 3x4 (2 lembar)"
+      ],
+      "flow": [
+        "Ambil nomor antrian di loket",
+        "Serahkan berkas persyaratan",
+        "Verifikasi data",
+        "Foto dan sidik jari",
+        "Tunggu proses pencetakan"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Pengurusan Akta Kelahiran",
+      "description": "Layanan pembuatan akta kelahiran bagi anak yang baru lahir atau yang belum memiliki akta kelahiran.",
+      "requirements": [
+        "Surat Keterangan Lahir dari RS/Bidan",
+        "Kartu Keluarga Orang Tua",
+        "KTP Orang Tua",
+        "Buku Nikah/Akta Perkawinan Orang Tua"
+      ],
+      "flow": [
+        "Ambil nomor antrian",
+        "Verifikasi kelengkapan dokumen",
+        "Input data",
+        "Penerbitan akta kelahiran",
+        "Pengambilan akta kelahiran"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Izin Usaha UMKM",
+      "description": "Layanan pengurusan izin usaha bagi pelaku Usaha Mikro, Kecil, dan Menengah.",
+      "requirements": [
+        "KTP pemilik usaha",
+        "NPWP",
+        "Foto lokasi usaha",
+        "Surat keterangan domisili usaha"
+      ],
+      "flow": [
+        "Pendaftaran online/offline",
+        "Verifikasi dokumen",
+        "Survei lokasi usaha",
+        "Penerbitan izin usaha",
+        "Pengambilan surat izin"
+      ]
+    }
+  ]
+}
