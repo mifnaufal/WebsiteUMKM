@@ -1,365 +1,468 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Izin.In - Solusi Perizinan UMKM</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#1d4ed8',
-                        secondary: '#0f172a',
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1d4ed8",
+              secondary: "#0f172a",
+            },
+          },
+        },
+      };
     </script>
     <style>
-        .nav-link {
-            @apply text-gray-700 hover:text-primary transition-colors;
-        }
-        .swiper-slide img {
-            @apply w-full h-64 object-cover rounded-lg shadow;
-        }
-        .card {
-            @apply bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg;
-        }
-        .btn-primary {
-            @apply bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-800 transition-colors;
-        }
-        .btn-secondary {
-            @apply bg-white text-primary px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors;
-        }
-        .mobile-menu {
-            @apply md:hidden fixed inset-0 bg-white z-50 transform transition-transform duration-300 ease-in-out -translate-x-full;
-        }
-        .mobile-menu.active {
-            @apply translate-x-0;
-        }
+      .nav-link {
+        @apply text-gray-700 hover:text-primary transition-colors;
+      }
+      .swiper-slide img {
+        @apply w-full h-64 object-cover rounded-lg shadow;
+      }
+      .card {
+        @apply bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg;
+      }
+      .btn-primary {
+        @apply bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-800 transition-colors;
+      }
+      .btn-secondary {
+        @apply bg-white text-primary px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors;
+      }
+      .mobile-menu {
+        @apply md:hidden fixed inset-0 bg-white z-50 transform transition-transform duration-300 ease-in-out;
+        transform: translateX(-100%);
+        visibility: hidden;
+        opacity: 0;
+        display: none;
+      }
+      .mobile-menu.active {
+        transform: translateX(0);
+        visibility: visible;
+        opacity: 1;
+        display: block;
+      }
+
+      .hamburger-simple {
+        @apply flex flex-col justify-center items-center w-6 h-6 cursor-pointer;
+      }
+      .hamburger-line {
+        @apply w-6 h-0.5 bg-gray-700 transition-all duration-300 ease-in-out;
+        height: 2px;
+        background-color: #374151;
+        margin: 2px 0;
+      }
+      .hamburger-simple.active .hamburger-line:nth-child(1) {
+        transform: rotate(45deg) translate(4px, 4px) !important;
+      }
+      .hamburger-simple.active .hamburger-line:nth-child(2) {
+        opacity: 0 !important;
+      }
+      .hamburger-simple.active .hamburger-line:nth-child(3) {
+        transform: rotate(-45deg) translate(4px, -4px) !important;
+      }
+
+      /* Ensure close button is always X */
+      #close-menu {
+        transform: scale(1.2);
+      }
+      #close-menu .hamburger-line:nth-child(1) {
+        transform: rotate(45deg) translate(4px, 4px) !important;
+      }
+      #close-menu .hamburger-line:nth-child(2) {
+        opacity: 0 !important;
+      }
+      #close-menu .hamburger-line:nth-child(3) {
+        transform: rotate(-45deg) translate(4px, -4px) !important;
+      }
+
+      /* Custom Hamburger Menu */
+      .hamburger-custom {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0;
+      }
+      .hamburger-bar {
+        display: block;
+        width: 24px;
+        height: 3px;
+        background-color: #374151;
+        margin: 2px 0;
+        transition: all 0.3s ease;
+      }
+      .hamburger-custom.active .hamburger-bar:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      .hamburger-custom.active .hamburger-bar:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger-custom.active .hamburger-bar:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
     </style>
-</head>
-<body class="bg-gray-100 font-sans">
+  </head>
+  <body class="bg-gray-100 font-sans">
     <!-- Header -->
     <header class="bg-white shadow-md sticky top-0 z-40">
-        <div class="container mx-auto px-4 py-4">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center">
-                    <div class="bg-primary text-white w-12 h-12 rounded-lg flex items-center justify-center">
-                        <i class="fas fa-file-contract text-xl"></i>
-                    </div>
-                    <div class="ml-3">
-                        <h1 class="text-xl font-bold text-primary">Izin.In</h1>
-                        <p class="text-xs text-gray-600">Solusi Perizinan UMKM</p>
-                    </div>
-                </div>
-                
-                <nav class="hidden md:flex space-x-6">
-                    <a href="/" class="nav-link font-medium">Beranda</a>
-                    <a href="/tentang.html" class="nav-link">Tentang</a>
-                    <a href="/layanan.html" class="nav-link">Layanan</a>
-                    <a href="/berita.html" class="nav-link">Berita</a>
-                    <a href="/pengaduan.html" class="nav-link">Pengaduan</a>
-                    <a href="/kontak.html" class="nav-link">Kontak</a>
-                </nav>
-                
-                <!-- Mobile menu button -->
-                <!-- Tombol burger menu hanya tampil di mobile (md:hidden) -->
-                <button id="mobile-menu-button" class="md:hidden text-gray-700">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
+      <div class="container mx-auto px-4 py-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <div class="bg-primary text-white w-12 h-12 rounded-lg flex items-center justify-center">
+              <i class="fas fa-file-contract text-xl"></i>
             </div>
+            <div class="ml-3">
+              <h1 class="text-xl font-bold text-primary">Izin.In</h1>
+              <p class="text-xs text-gray-600">Solusi Perizinan UMKM</p>
+            </div>
+          </div>
+
+          <nav class="hidden md:flex space-x-6">
+            <a href="/" class="nav-link font-medium">Beranda</a>
+            <a href="/tentang.html" class="nav-link">Tentang</a>
+            <a href="/layanan.html" class="nav-link">Layanan</a>
+            <a href="/berita.html" class="nav-link">Berita</a>
+            <a href="/pengaduan.html" class="nav-link">Pengaduan</a>
+            <a href="/kontak.html" class="nav-link">Kontak</a>
+          </nav>
+
+          <!-- Mobile menu button -->
+          <button id="mobile-menu-button" class="md:hidden hamburger-custom">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+          </button>
         </div>
+      </div>
     </header>
 
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="mobile-menu">
+      <div class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-4">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center">
+              <div class="bg-primary text-white w-12 h-12 rounded-lg flex items-center justify-center">
+                <i class="fas fa-file-contract text-xl"></i>
+              </div>
+              <div class="ml-3">
+                <h1 class="text-xl font-bold text-primary">Izin.In</h1>
+                <p class="text-xs text-gray-600">Solusi Perizinan UMKM</p>
+              </div>
+            </div>
+            <button id="close-menu" class="hamburger-custom active">
+              <span class="hamburger-bar"></span>
+              <span class="hamburger-bar"></span>
+              <span class="hamburger-bar"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <nav class="p-4 bg-white">
+        <ul class="space-y-4">
+          <li><a href="/" class="block text-lg font-medium text-gray-700 hover:text-primary py-2">Beranda</a></li>
+          <li><a href="/tentang.html" class="block text-lg font-medium text-gray-700 hover:text-primary py-2">Tentang</a></li>
+          <li><a href="/layanan.html" class="block text-lg font-medium text-gray-700 hover:text-primary py-2">Layanan</a></li>
+          <li><a href="/berita.html" class="block text-lg font-medium text-gray-700 hover:text-primary py-2">Berita</a></li>
+          <li><a href="/pengaduan.html" class="block text-lg font-medium text-gray-700 hover:text-primary py-2">Pengaduan</a></li>
+          <li><a href="/kontak.html" class="block text-lg font-medium text-gray-700 hover:text-primary py-2">Kontak</a></li>
+        </ul>
+      </nav>
+    </div>
 
     <!-- Hero Section -->
     <section class="relative bg-gradient-to-r from-primary to-blue-800 text-white py-16 md:py-24">
-        <div class="absolute inset-0 opacity-20" style="background: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;"></div>
-        <div class="container mx-auto px-4 text-center relative z-10">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">Selamat Datang di Izin.In</h2>
-            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Platform resmi untuk memudahkan perizinan UMKM di Indonesia dengan pelayanan cepat dan transparan</p>
-        </div>
+      <div class="absolute inset-0 opacity-20" style="background: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover"></div>
+      <div class="container mx-auto px-4 text-center relative z-10">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Selamat Datang di Izin.In</h2>
+        <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Platform resmi untuk memudahkan perizinan UMKM di Indonesia dengan pelayanan cepat dan transparan</p>
+      </div>
     </section>
 
     <!-- Quick Access / Info Cepat -->
     <section class="py-12">
-        <div class="container mx-auto px-4">
-            <h2 class="text-2xl font-bold mb-8 text-center">Akses Cepat</h2>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-                <a href="/layanan.html" class="card flex flex-col items-center p-6 text-center">
-                    <div class="bg-blue-100 text-primary w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-file-alt text-2xl"></i>
-                    </div>
-                    <span class="font-medium">Layanan Publik</span>
-                </a>
-                <a href="/berita.html" class="card flex flex-col items-center p-6 text-center">
-                    <div class="bg-blue-100 text-primary w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-newspaper text-2xl"></i>
-                    </div>
-                    <span class="font-medium">Berita</span>
-                </a>
-                <a href="/pengaduan.html" class="card flex flex-col items-center p-6 text-center">
-                    <div class="bg-blue-100 text-primary w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-comments text-2xl"></i>
-                    </div>
-                    <span class="font-medium">Pengaduan</span>
-                </a>
-                <a href="/data/news.json" class="card flex flex-col items-center p-6 text-center">
-                    <div class="bg-blue-100 text-primary w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-download text-2xl"></i>
-                    </div>
-                    <span class="font-medium">Unduhan</span>
-                </a>
-                <a href="/kontak.html" class="card flex flex-col items-center p-6 text-center">
-                    <div class="bg-blue-100 text-primary w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-map-marker-alt text-2xl"></i>
-                    </div>
-                    <span class="font-medium">Lokasi</span>
-                </a>
-                <a href="/berita.html" class="card flex flex-col items-center p-6 text-center">
-                    <div class="bg-blue-100 text-primary w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-bullhorn text-2xl"></i>
-                    </div>
-                    <span class="font-medium">Pengumuman</span>
-                </a>
+      <div class="container mx-auto px-4">
+        <h2 class="text-2xl font-bold mb-8 text-center">Akses Cepat</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+          <a href="/layanan.html" class="card flex flex-col items-center p-6 text-center">
+            <div class="bg-blue-100 text-primary w-16 h-16 rounded-full flex items-center justify-center mb-4">
+              <i class="fas fa-file-alt text-2xl"></i>
             </div>
+            <span class="font-medium">Layanan Publik</span>
+          </a>
+          <a href="/berita.html" class="card flex flex-col items-center p-6 text-center">
+            <div class="bg-blue-100 text-primary w-16 h-16 rounded-full flex items-center justify-center mb-4">
+              <i class="fas fa-newspaper text-2xl"></i>
+            </div>
+            <span class="font-medium">Berita</span>
+          </a>
+          <a href="/pengaduan.html" class="card flex flex-col items-center p-6 text-center">
+            <div class="bg-blue-100 text-primary w-16 h-16 rounded-full flex items-center justify-center mb-4">
+              <i class="fas fa-comments text-2xl"></i>
+            </div>
+            <span class="font-medium">Pengaduan</span>
+          </a>
+          <a href="/data/news.json" class="card flex flex-col items-center p-6 text-center">
+            <div class="bg-blue-100 text-primary w-16 h-16 rounded-full flex items-center justify-center mb-4">
+              <i class="fas fa-download text-2xl"></i>
+            </div>
+            <span class="font-medium">Unduhan</span>
+          </a>
+          <a href="/kontak.html" class="card flex flex-col items-center p-6 text-center">
+            <div class="bg-blue-100 text-primary w-16 h-16 rounded-full flex items-center justify-center mb-4">
+              <i class="fas fa-map-marker-alt text-2xl"></i>
+            </div>
+            <span class="font-medium">Lokasi</span>
+          </a>
+          <a href="/berita.html" class="card flex flex-col items-center p-6 text-center">
+            <div class="bg-blue-100 text-primary w-16 h-16 rounded-full flex items-center justify-center mb-4">
+              <i class="fas fa-bullhorn text-2xl"></i>
+            </div>
+            <span class="font-medium">Pengumuman</span>
+          </a>
         </div>
+      </div>
     </section>
 
     <!-- Highlight Berita Terbaru -->
     <section class="py-12 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row items-center justify-between mb-8">
-                <h2 class="text-2xl font-bold">Berita Terbaru</h2>
-                <a href="/berita.html" class="text-primary font-medium hover:underline mt-2 md:mt-0">
-                    Lihat Semua Berita <i class="fas fa-arrow-right ml-2"></i>
-                </a>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="card">
-                    <div class="h-48 bg-gray-200 border-2 border-dashed rounded-t-xl"></div>
-                    <div class="p-6">
-                        <div class="text-sm text-gray-500 mb-2">12 Agustus 2025</div>
-                        <h3 class="font-bold text-lg mb-3">Peluncuran Sistem Perizinan Online Terbaru</h3>
-                        <p class="text-gray-600 mb-4">Platform Izin.In meluncurkan fitur terbaru untuk mempermudah proses perizinan UMKM secara online.</p>
-                        <a href="#" class="text-primary font-medium hover:underline">Baca selengkapnya</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="h-48 bg-gray-200 border-2 border-dashed rounded-t-xl"></div>
-                    <div class="p-6">
-                        <div class="text-sm text-gray-500 mb-2">8 Agustus 2025</div>
-                        <h3 class="font-bold text-lg mb-3">Workshop Digitalisasi UMKM 2025</h3>
-                        <p class="text-gray-600 mb-4">Ikuti workshop gratis untuk mempelajari strategi digitalisasi usaha kecil dan menengah.</p>
-                        <a href="#" class="text-primary font-medium hover:underline">Baca selengkapnya</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="h-48 bg-gray-200 border-2 border-dashed rounded-t-xl"></div>
-                    <div class="p-6">
-                        <div class="text-sm text-gray-500 mb-2">5 Agustus 2025</div>
-                        <h3 class="font-bold text-lg mb-3">Panduan Lengkap Perizinan Usaha Kuliner</h3>
-                        <p class="text-gray-600 mb-4">Temukan panduan lengkap untuk mengurus perizinan usaha di bidang kuliner dengan mudah.</p>
-                        <a href="#" class="text-primary font-medium hover:underline">Baca selengkapnya</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="h-48 bg-gray-200 border-2 border-dashed rounded-t-xl"></div>
-                    <div class="p-6">
-                        <div class="text-sm text-gray-500 mb-2">1 Agustus 2025</div>
-                        <h3 class="font-bold text-lg mb-3">Izin.In Raih Penghargaan Inovasi Pelayanan Publik</h3>
-                        <p class="text-gray-600 mb-4">Platform kami meraih penghargaan sebagai inovasi terbaik dalam pelayanan publik bidang UMKM.</p>
-                        <a href="#" class="text-primary font-medium hover:underline">Baca selengkapnya</a>
-                    </div>
-                </div>
-            </div>
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center justify-between mb-8">
+          <h2 class="text-2xl font-bold">Berita Terbaru</h2>
+          <a href="/berita.html" class="text-primary font-medium hover:underline mt-2 md:mt-0"> Lihat Semua Berita <i class="fas fa-arrow-right ml-2"></i> </a>
         </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="card">
+            <div class="h-48 bg-gray-200 border-2 border-dashed rounded-t-xl"></div>
+            <div class="p-6">
+              <div class="text-sm text-gray-500 mb-2">12 Agustus 2025</div>
+              <h3 class="font-bold text-lg mb-3">Peluncuran Sistem Perizinan Online Terbaru</h3>
+              <p class="text-gray-600 mb-4">Platform Izin.In meluncurkan fitur terbaru untuk mempermudah proses perizinan UMKM secara online.</p>
+              <a href="#" class="text-primary font-medium hover:underline">Baca selengkapnya</a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="h-48 bg-gray-200 border-2 border-dashed rounded-t-xl"></div>
+            <div class="p-6">
+              <div class="text-sm text-gray-500 mb-2">8 Agustus 2025</div>
+              <h3 class="font-bold text-lg mb-3">Workshop Digitalisasi UMKM 2025</h3>
+              <p class="text-gray-600 mb-4">Ikuti workshop gratis untuk mempelajari strategi digitalisasi usaha kecil dan menengah.</p>
+              <a href="#" class="text-primary font-medium hover:underline">Baca selengkapnya</a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="h-48 bg-gray-200 border-2 border-dashed rounded-t-xl"></div>
+            <div class="p-6">
+              <div class="text-sm text-gray-500 mb-2">5 Agustus 2025</div>
+              <h3 class="font-bold text-lg mb-3">Panduan Lengkap Perizinan Usaha Kuliner</h3>
+              <p class="text-gray-600 mb-4">Temukan panduan lengkap untuk mengurus perizinan usaha di bidang kuliner dengan mudah.</p>
+              <a href="#" class="text-primary font-medium hover:underline">Baca selengkapnya</a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="h-48 bg-gray-200 border-2 border-dashed rounded-t-xl"></div>
+            <div class="p-6">
+              <div class="text-sm text-gray-500 mb-2">1 Agustus 2025</div>
+              <h3 class="font-bold text-lg mb-3">Izin.In Raih Penghargaan Inovasi Pelayanan Publik</h3>
+              <p class="text-gray-600 mb-4">Platform kami meraih penghargaan sebagai inovasi terbaik dalam pelayanan publik bidang UMKM.</p>
+              <a href="#" class="text-primary font-medium hover:underline">Baca selengkapnya</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Tentang Instansi (Singkat) -->
     <section class="py-16 bg-gradient-to-br from-blue-50 to-white">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-2xl font-bold mb-6">Tentang Izin.In</h2>
-                <p class="mb-6 text-lg leading-relaxed">
-                    Izin.In adalah platform resmi pemerintah yang berfokus pada pemberian layanan perizinan untuk Usaha Mikro, Kecil, dan Menengah (UMKM) di Indonesia. Dengan komitmen untuk memberikan pelayanan yang transparan, cepat, dan inovatif, kami hadir untuk mempermudah proses perizinan bisnis Anda.
-                </p>
-                <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
-                    <div class="bg-white p-4 rounded-lg shadow text-center">
-                        <div class="text-3xl font-bold text-primary mb-2">15K+</div>
-                        <div class="text-gray-600">UMKM Terdaftar</div>
-                    </div>
-                    <div class="bg-white p-4 rounded-lg shadow text-center">
-                        <div class="text-3xl font-bold text-primary mb-2">98%</div>
-                        <div class="text-gray-600">Kepuasan Pengguna</div>
-                    </div>
-                    <div class="bg-white p-4 rounded-lg shadow text-center">
-                        <div class="text-3xl font-bold text-primary mb-2">24J</div>
-                        <div class="text-gray-600">Waktu Proses</div>
-                    </div>
-                    <div class="bg-white p-4 rounded-lg shadow text-center">
-                        <div class="text-3xl font-bold text-primary mb-2">50+</div>
-                        <div class="text-gray-600">Jenis Perizinan</div>
-                    </div>
-                </div>
-                <a href="/tentang.html" class="btn-primary inline-block mt-8">
-                    Selengkapnya tentang Kami
-                </a>
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="text-2xl font-bold mb-6">Tentang Izin.In</h2>
+          <p class="mb-6 text-lg leading-relaxed">
+            Izin.In adalah platform resmi pemerintah yang berfokus pada pemberian layanan perizinan untuk Usaha Mikro, Kecil, dan Menengah (UMKM) di Indonesia. Dengan komitmen untuk memberikan pelayanan yang transparan, cepat, dan inovatif,
+            kami hadir untuk mempermudah proses perizinan bisnis Anda.
+          </p>
+          <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
+            <div class="bg-white p-4 rounded-lg shadow text-center">
+              <div class="text-3xl font-bold text-primary mb-2">15K+</div>
+              <div class="text-gray-600">UMKM Terdaftar</div>
             </div>
+            <div class="bg-white p-4 rounded-lg shadow text-center">
+              <div class="text-3xl font-bold text-primary mb-2">98%</div>
+              <div class="text-gray-600">Kepuasan Pengguna</div>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow text-center">
+              <div class="text-3xl font-bold text-primary mb-2">24J</div>
+              <div class="text-gray-600">Waktu Proses</div>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow text-center">
+              <div class="text-3xl font-bold text-primary mb-2">50+</div>
+              <div class="text-gray-600">Jenis Perizinan</div>
+            </div>
+          </div>
+          <a href="/tentang.html" class="btn-primary inline-block mt-8"> Selengkapnya tentang Kami </a>
         </div>
+      </div>
     </section>
 
     <!-- Layanan Unggulan -->
     <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-2xl font-bold mb-8 text-center">Layanan Unggulan</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="card p-6">
-                    <div class="text-primary text-4xl mb-4">
-                        <i class="fas fa-store"></i>
-                    </div>
-                    <h3 class="font-bold text-xl mb-3">Izin Usaha UMKM</h3>
-                    <p class="text-gray-600 mb-4">Pengurusan perizinan usaha untuk UMKM dengan proses cepat dan persyaratan yang jelas.</p>
-                    <a href="#" class="text-primary font-medium hover:underline">Pelajari lebih lanjut</a>
-                </div>
-                <div class="card p-6">
-                    <div class="text-primary text-4xl mb-4">
-                        <i class="fas fa-utensils"></i>
-                    </div>
-                    <h3 class="font-bold text-xl mb-3">Izin Usaha Kuliner</h3>
-                    <p class="text-gray-600 mb-4">Perizinan khusus untuk usaha di bidang kuliner dengan standar kesehatan dan keamanan.</p>
-                    <a href="#" class="text-primary font-medium hover:underline">Pelajari lebih lanjut</a>
-                </div>
-                <div class="card p-6">
-                    <div class="text-primary text-4xl mb-4">
-                        <i class="fas fa-industry"></i>
-                    </div>
-                    <h3 class="font-bold text-xl mb-3">Izin Usaha Manufaktur</h3>
-                    <p class="text-gray-600 mb-4">Pengurusan perizinan untuk usaha manufaktur skala kecil dan menengah.</p>
-                    <a href="#" class="text-primary font-medium hover:underline">Pelajari lebih lanjut</a>
-                </div>
+      <div class="container mx-auto px-4">
+        <h2 class="text-2xl font-bold mb-8 text-center">Layanan Unggulan</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="card p-6">
+            <div class="text-primary text-4xl mb-4">
+              <i class="fas fa-store"></i>
             </div>
-            <div class="text-center mt-10">
-                <a href="/layanan.html" class="btn-primary">
-                    Lihat Semua Layanan
-                </a>
+            <h3 class="font-bold text-xl mb-3">Izin Usaha UMKM</h3>
+            <p class="text-gray-600 mb-4">Pengurusan perizinan usaha untuk UMKM dengan proses cepat dan persyaratan yang jelas.</p>
+            <a href="#" class="text-primary font-medium hover:underline">Pelajari lebih lanjut</a>
+          </div>
+          <div class="card p-6">
+            <div class="text-primary text-4xl mb-4">
+              <i class="fas fa-utensils"></i>
             </div>
+            <h3 class="font-bold text-xl mb-3">Izin Usaha Kuliner</h3>
+            <p class="text-gray-600 mb-4">Perizinan khusus untuk usaha di bidang kuliner dengan standar kesehatan dan keamanan.</p>
+            <a href="#" class="text-primary font-medium hover:underline">Pelajari lebih lanjut</a>
+          </div>
+          <div class="card p-6">
+            <div class="text-primary text-4xl mb-4">
+              <i class="fas fa-industry"></i>
+            </div>
+            <h3 class="font-bold text-xl mb-3">Izin Usaha Manufaktur</h3>
+            <p class="text-gray-600 mb-4">Pengurusan perizinan untuk usaha manufaktur skala kecil dan menengah.</p>
+            <a href="#" class="text-primary font-medium hover:underline">Pelajari lebih lanjut</a>
+          </div>
         </div>
+        <div class="text-center mt-10">
+          <a href="/layanan.html" class="btn-primary"> Lihat Semua Layanan </a>
+        </div>
+      </div>
     </section>
 
     <!-- Testimoni Warga -->
     <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-2xl font-bold mb-8 text-center">Testimoni Pengguna</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="card p-6">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-gray-300 rounded-full"></div>
-                        <div class="ml-4">
-                            <h4 class="font-bold">Ibu Sari</h4>
-                            <p class="text-sm text-gray-600">UMKM Batik</p>
-                        </div>
-                    </div>
-                    <div class="text-yellow-400 mb-3">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+      <div class="container mx-auto px-4">
+        <h2 class="text-2xl font-bold mb-8 text-center">Testimoni Pengguna</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="card p-6">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-gray-300 rounded-full"></div>
+              <div class="ml-4">
+                <h4 class="font-bold">Ibu Sari</h4>
+                <p class="text-sm text-gray-600">UMKM Batik</p>
+              </div>
             </div>
+            <div class="text-yellow-400 mb-3">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- CTA Section -->
     <section class="py-16 bg-primary text-white">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-2xl font-bold mb-4">Butuh Bantuan?</h2>
-            <p class="mb-6 max-w-2xl mx-auto">Tim kami siap membantu Anda dalam proses perizinan usaha. Hubungi kami sekarang juga!</p>
-            <div class="flex flex-col md:flex-row justify-center gap-4">
-                <a href="/pengaduan.html" class="btn-secondary">
-                    Kirim Pengaduan
-                </a>
-                <a href="https://wa.me/6281234567890" class="bg-green-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-600 transition-colors flex items-center justify-center">
-                    <i class="fab fa-whatsapp text-xl mr-2"></i> WhatsApp
-                </a>
-            </div>
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-2xl font-bold mb-4">Butuh Bantuan?</h2>
+        <p class="mb-6 max-w-2xl mx-auto">Tim kami siap membantu Anda dalam proses perizinan usaha. Hubungi kami sekarang juga!</p>
+        <div class="flex flex-col md:flex-row justify-center gap-4">
+          <a href="/pengaduan.html" class="btn-secondary"> Kirim Pengaduan </a>
+          <a href="https://wa.me/6281234567890" class="bg-green-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-600 transition-colors flex items-center justify-center">
+            <i class="fab fa-whatsapp text-xl mr-2"></i> WhatsApp
+          </a>
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-secondary text-white pt-16 pb-8">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Izin.In</h4>
-                    <p class="text-gray-300 mb-4">Platform resmi untuk memudahkan perizinan UMKM di Indonesia dengan pelayanan cepat dan transparan.</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-300 hover:text-white">
-                            <i class="fab fa-facebook text-xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-300 hover:text-white">
-                            <i class="fab fa-twitter text-xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-300 hover:text-white">
-                            <i class="fab fa-instagram text-xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-300 hover:text-white">
-                            <i class="fab fa-youtube text-xl"></i>
-                        </a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Layanan</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-300 hover:text-white">Izin Usaha UMKM</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white">Izin Usaha Kuliner</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white">Izin Usaha Manufaktur</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white">Perpanjangan Izin Usaha</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white">Cek Status Perizinan</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Tautan</h4>
-                    <ul class="space-y-2">
-                        <li><a href="/" class="text-gray-300 hover:text-white">Beranda</a></li>
-                        <li><a href="/tentang.html" class="text-gray-300 hover:text-white">Tentang Kami</a></li>
-                        <li><a href="/berita.html" class="text-gray-300 hover:text-white">Berita</a></li>
-                        <li><a href="/pengaduan.html" class="text-gray-300 hover:text-white">Pengaduan</a></li>
-                        <li><a href="/kontak.html" class="text-gray-300 hover:text-white">Kontak</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Kontak</h4>
-                    <ul class="space-y-3 text-gray-300">
-                        <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
-                            <span>Jl. Perizinan No. 123, Jakarta Pusat 10110</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-phone-alt mr-3"></i>
-                            <span>(021) 1234-5678</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-envelope mr-3"></i>
-                            <span>info@izin-in.go.id</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fab fa-whatsapp mr-3"></i>
-                            <span>+62 812 3456 7890</span>
-                        </li>
-                    </ul>
-                </div>
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Izin.In</h4>
+            <p class="text-gray-300 mb-4">Platform resmi untuk memudahkan perizinan UMKM di Indonesia dengan pelayanan cepat dan transparan.</p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-300 hover:text-white">
+                <i class="fab fa-facebook text-xl"></i>
+              </a>
+              <a href="#" class="text-gray-300 hover:text-white">
+                <i class="fab fa-twitter text-xl"></i>
+              </a>
+              <a href="#" class="text-gray-300 hover:text-white">
+                <i class="fab fa-instagram text-xl"></i>
+              </a>
+              <a href="#" class="text-gray-300 hover:text-white">
+                <i class="fab fa-youtube text-xl"></i>
+              </a>
             </div>
-            <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-400">
-                <p>&copy; 2025 Izin.In. Hak Cipta Dilindungi.</p>
-                <div class="mt-2 flex justify-center space-x-6 text-sm">
-                    <a href="#" class="hover:text-white">Kebijakan Privasi</a>
-                    <a href="#" class="hover:text-white">Syarat & Ketentuan</a>
-                    <a href="#" class="hover:text-white">Peta Situs</a>
-                </div>
-            </div>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Layanan</h4>
+            <ul class="space-y-2">
+              <li><a href="#" class="text-gray-300 hover:text-white">Izin Usaha UMKM</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-white">Izin Usaha Kuliner</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-white">Izin Usaha Manufaktur</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-white">Perpanjangan Izin Usaha</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-white">Cek Status Perizinan</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Tautan</h4>
+            <ul class="space-y-2">
+              <li><a href="/" class="text-gray-300 hover:text-white">Beranda</a></li>
+              <li><a href="/tentang.html" class="text-gray-300 hover:text-white">Tentang Kami</a></li>
+              <li><a href="/berita.html" class="text-gray-300 hover:text-white">Berita</a></li>
+              <li><a href="/pengaduan.html" class="text-gray-300 hover:text-white">Pengaduan</a></li>
+              <li><a href="/kontak.html" class="text-gray-300 hover:text-white">Kontak</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Kontak</h4>
+            <ul class="space-y-3 text-gray-300">
+              <li class="flex items-start">
+                <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
+                <span>Jl. Perizinan No. 123, Jakarta Pusat 10110</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-phone-alt mr-3"></i>
+                <span>(021) 1234-5678</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-envelope mr-3"></i>
+                <span>info@izin-in.go.id</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fab fa-whatsapp mr-3"></i>
+                <span>+62 812 3456 7890</span>
+              </li>
+            </ul>
+          </div>
         </div>
+        <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-400">
+          <p>&copy; 2025 Izin.In. Hak Cipta Dilind ungi.</p>
+          <div class="mt-2 flex justify-center space-x-6 text-sm">
+            <a href="#" class="hover:text-white">Kebijakan Privasi</a>
+            <a href="#" class="hover:text-white">Syarat & Ketentuan</a>
+            <a href="#" class="hover:text-white">Peta Situs</a>
+          </div>
+        </div>
+      </div>
     </footer>
-</body>
+
+    <!-- JavaScript for Mobile Menu -->
+    <script src="js/navbar.js"></script>
+  </body>
 </html>
