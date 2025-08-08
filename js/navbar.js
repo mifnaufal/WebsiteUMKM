@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const closeMenuButton = document.getElementById("close-menu");
   const menuLinks = mobileMenu.querySelectorAll("nav a");
   let isMenuOpen = false;
+  let isMobileView = window.innerWidth < 768;
 
   if (!mobileMenuButton || !mobileMenu || !closeMenuButton) {
     console.log("Mobile menu elements not found");
@@ -15,12 +16,24 @@ document.addEventListener("DOMContentLoaded", function () {
     link.style.setProperty('--link-index', index);
   });
 
+  // Function to reset menu state
+  function resetMenuState() {
+    mobileMenu.classList.remove("active");
+    mobileMenuButton.classList.remove("active");
+    document.body.style.overflow = "";
+    isMenuOpen = false;
+    menuLinks.forEach(link => {
+      link.style.transform = "";
+      link.style.opacity = "";
+    });
+  }
+
   // Ensure menu starts closed
-  mobileMenu.classList.remove("active");
-  mobileMenuButton.classList.remove("active");
-  document.body.style.overflow = "";
+  resetMenuState();
 
   function toggleMenu(open) {
+    if (!isMobileView && open) return; // Prevent opening menu in desktop view
+    
     isMenuOpen = open;
     
     if (open) {
@@ -40,11 +53,15 @@ document.addEventListener("DOMContentLoaded", function () {
       mobileMenuButton.classList.remove("active");
       document.body.style.overflow = "";
       
-      // Reset menu item animations
-      menuLinks.forEach(link => {
-        link.style.transform = "translateX(-10px)";
-        link.style.opacity = "0";
-      });
+      // Reset menu item animations with a slight delay
+      setTimeout(() => {
+        if (!isMenuOpen) { // Only reset if menu is still closed
+          menuLinks.forEach(link => {
+            link.style.transform = "translateX(-10px)";
+            link.style.opacity = "0";
+          });
+        }
+      }, 300);
     }
   }
 
@@ -86,12 +103,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Close menu if resized to desktop
+  // Handle resize events
   window.addEventListener("resize", function () {
-    if (window.innerWidth >= 768 && isMenuOpen) {
-      mobileMenu.classList.remove("active");
-      document.body.style.overflow = "";
-      isMenuOpen = false;
+    const wasInMobileView = isMobileView;
+    isMobileView = window.innerWidth < 768;
+    
+    // If transitioning from mobile to desktop view
+    if (wasInMobileView && !isMobileView) {
+      resetMenuState();
     }
   });
 });
