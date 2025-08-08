@@ -36,12 +36,16 @@
       }
       .mobile-menu {
         @apply md:hidden fixed inset-0 bg-white z-50;
+        left: 0;
+        top: 0;
         transform: translateX(-100%);
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         opacity: 0;
         visibility: hidden;
       }
       .mobile-menu.active {
+        width: auto;
+        height: auto;
         transform: translateX(0);
         opacity: 1;
         visibility: visible;
@@ -97,8 +101,8 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 24px;
-        height: 24px;
+        width: 20px;
+        height: 20px;
         cursor: pointer;
         background: none;
         border: none;
@@ -106,8 +110,8 @@
       }
       .hamburger-bar {
         display: block;
-        width: 24px;
-        height: 3px;
+        width: 20px;
+        height: 2px;
         background-color: #374151;
         margin: 2px 0;
         transition: all 0.3s ease;
@@ -126,25 +130,25 @@
   <body class="bg-gray-100 font-sans">
     <!-- Header -->
     <header class="bg-white shadow-md sticky top-0 z-40">
-      <div class="container mx-auto px-4 py-4">
+      <div class="container mx-auto px-2 md:px-4 py-2 md:py-3">
         <div class="flex items-center justify-between">
           <div class="flex items-center">
-            <div class="bg-primary text-white w-12 h-12 rounded-lg flex items-center justify-center">
-              <i class="fas fa-file-contract text-xl"></i>
+            <div class="bg-primary text-white w-8 h-8 md:w-10 md:h-10 rounded-lg flex items-center justify-center">
+              <i class="fas fa-file-contract text-lg md:text-xl"></i>
             </div>
-            <div class="ml-3">
-              <h1 class="text-xl font-bold text-primary">Izin.In</h1>
+            <div class="ml-2 md:ml-3">
+              <h1 class="text-lg md:text-xl font-bold text-primary">Izin.In</h1>
               <p class="text-xs text-gray-600">Solusi Perizinan UMKM</p>
             </div>
           </div>
 
-          <nav class="hidden md:flex space-x-6">
-            <a href="/" class="nav-link font-medium">Rumah</a>
-            <a href="/tentang.html" class="nav-link">Tentang</a>
-            <a href="/layanan.html" class="nav-link">Layanan</a>
-            <a href="/berita.html" class="nav-link">Berita</a>
-            <a href="/pengaduan.html" class="nav-link">Pengaduan</a>
-            <a href="/kontak.html" class="nav-link">Kontak</a>
+          <nav class="hidden md:flex space-x-4 lg:space-x-6">
+            <a href="/" class="nav-link font-medium text-sm lg:text-base">Beranda</a>
+            <a href="/tentang.html" class="nav-link text-sm lg:text-base">Tentang</a>
+            <a href="/layanan.html" class="nav-link text-sm lg:text-base">Layanan</a>
+            <a href="/berita.html" class="nav-link text-sm lg:text-base">Berita</a>
+            <a href="/pengaduan.html" class="nav-link text-sm lg:text-base">Pengaduan</a>
+            <a href="/kontak.html" class="nav-link text-sm lg:text-base">Kontak</a>
           </nav>
 
           <!-- Mobile menu button -->
@@ -176,6 +180,28 @@
           </div>
         </nav>
       </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu md:hidden">
+      <div class="flex justify-between items-center border-b">
+        <div class="flex items-center">
+        </div>
+        <button id="close-menu" class="hamburger-simple md:hidden">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+      <nav class="p-4">
+        <div class="flex flex-col space-y-4 md:hidden">
+          <a href="/" class="nav-link text-lg font-medium">Beranda</a>
+          <a href="/tentang.html" class="nav-link text-lg">Tentang</a>
+          <a href="/layanan.html" class="nav-link text-lg">Layanan</a>
+          <a href="/berita.html" class="nav-link text-lg">Berita</a>
+          <a href="/pengaduan.html" class="nav-link text-lg">Pengaduan</a>
+          <a href="/kontak.html" class="nav-link text-lg">Kontak</a>
+        </div>
+      </nav>
+    </div>
     </header>
 
     <!-- Hero Section -->
