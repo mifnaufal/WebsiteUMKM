@@ -193,211 +193,20 @@
     <main class="py-16">
       <div class="container mx-auto px-4">
         <!-- Featured News -->
-        <div class="bg-white rounded-2xl overflow-hidden shadow-xl mb-16 news-card animate-slide-up animate-delay-200">
-          <div class="md:flex">
-            <div class="md:w-1/2 relative">
-              <div class="h-80 md:h-full w-full bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center justify-center">
-                <div
-                  class="absolute inset-0 bg-cover bg-center opacity-70"
-                  style="background-image: url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')"
-                ></div>
-                <div class="absolute top-6 left-6 bg-primary text-white px-4 py-1 rounded-full text-sm font-medium z-10">HIGHLIGHT</div>
-              </div>
-            </div>
-            <div class="md:w-1/2 p-8">
-              <div class="text-accent font-bold mb-2">15 AGUSTUS 2025</div>
-              <h3 class="text-3xl font-bold text-gray-800 mb-4">Peluncuran Sistem Perizinan Online Terbaru untuk UMKM</h3>
-              <p class="text-gray-600 mb-6">
-                Pemerintah meluncurkan platform perizinan online terbaru yang memudahkan pelaku UMKM dalam mengurus berbagai perizinan usaha secara efisien dan transparan. Sistem baru ini dilengkapi dengan fitur-fitur modern untuk
-                mempercepat proses perizinan.
-              </p>
-              <div class="flex items-center justify-between">
-                <div class="flex items-center">
-                  <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold mr-3">AD</div>
-                  <div>
-                    <div class="font-medium">Admin Dinas</div>
-                    <div class="text-sm text-gray-500">Dinas Perizinan</div>
-                  </div>
-                </div>
-                <a href="#" class="read-more text-primary font-medium flex items-center">
-                  Selengkapnya
-                  <i class="fas fa-arrow-right ml-2"></i>
-                </a>
-              </div>
-            </div>
-          </div>
+        <div id="featured-news-container" class="bg-white rounded-2xl overflow-hidden shadow-xl mb-16 news-card animate-slide-up animate-delay-200">
+          <!-- Featured news will be loaded here by JavaScript -->
+          <div class="p-8 text-center text-gray-500">Memuat berita unggulan...</div>
         </div>
 
         <!-- News Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- News Card 1 -->
-          <div class="news-card bg-white rounded-2xl overflow-hidden shadow-lg animate-slide-up animate-delay-100">
-            <div class="relative h-48 overflow-hidden">
-              <div
-                class="absolute inset-0 bg-cover bg-center"
-                style="background-image: url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')"
-              ></div>
-              <div class="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-full text-xs font-medium">PENGUMUMAN</div>
-              <div class="absolute bottom-4 left-4 bg-white text-gray-800 px-3 py-1 rounded-full text-xs font-medium">10 AGUSTUS 2025</div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-gray-800 mb-3">Jadwal Libur Nasional Bulan September 2025</h3>
-              <p class="text-gray-600 mb-4">Berikut jadwal libur nasional bulan September 2025 yang perlu diperhatikan dalam pengurusan perizinan.</p>
-              <div class="flex items-center justify-between">
-                <div class="flex items-center">
-                  <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white text-xs font-bold mr-2">AD</div>
-                  <div class="text-sm text-gray-600">Admin Dinas</div>
-                </div>
-                <a href="#" class="read-more text-primary text-sm font-medium flex items-center">
-                  Baca
-                  <i class="fas fa-arrow-right ml-1 text-xs"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- News Card 2 -->
-          <div class="news-card bg-white rounded-2xl overflow-hidden shadow-lg animate-slide-up animate-delay-200">
-            <div class="relative h-48 overflow-hidden">
-              <div
-                class="absolute inset-0 bg-cover bg-center"
-                style="background-image: url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')"
-              ></div>
-              <div class="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-medium">PERIZINAN</div>
-              <div class="absolute bottom-4 left-4 bg-white text-gray-800 px-3 py-1 rounded-full text-xs font-medium">5 AGUSTUS 2025</div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-gray-800 mb-3">Panduan Lengkap Perpanjangan Izin Usaha Mikro</h3>
-              <p class="text-gray-600 mb-4">Simak panduan lengkap untuk perpanjangan izin usaha mikro dengan prosedur yang lebih sederhana dan cepat.</p>
-              <div class="flex items-center justify-between">
-                <div class="flex items-center">
-                  <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white text-xs font-bold mr-2">PT</div>
-                  <div class="text-sm text-gray-600">Petugas Perizinan</div>
-                </div>
-                <a href="#" class="read-more text-primary text-sm font-medium flex items-center">
-                  Baca
-                  <i class="fas fa-arrow-right ml-1 text-xs"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- News Card 3 -->
-          <div class="news-card bg-white rounded-2xl overflow-hidden shadow-lg animate-slide-up animate-delay-300">
-            <div class="relative h-48 overflow-hidden">
-              <div
-                class="absolute inset-0 bg-cover bg-center"
-                style="background-image: url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80')"
-              ></div>
-              <div class="absolute top-4 left-4 bg-purple-500 text-white px-3 py-1 rounded-full text-xs font-medium">KEGIATAN</div>
-              <div class="absolute bottom-4 left-4 bg-white text-gray-800 px-3 py-1 rounded-full text-xs font-medium">1 AGUSTUS 2025</div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-gray-800 mb-3">Pelatihan Gratis Kewirausahaan untuk Pemula</h3>
-              <p class="text-gray-600 mb-4">Dinas Perizinan menyelenggarakan pelatihan kewirausahaan gratis bagi pemula yang ingin memulai usaha.</p>
-              <div class="flex items-center justify-between">
-                <div class="flex items-center">
-                  <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white text-xs font-bold mr-2">PK</div>
-                  <div class="text-sm text-gray-600">Pelatih Kewirausahaan</div>
-                </div>
-                <a href="#" class="read-more text-primary text-sm font-medium flex items-center">
-                  Baca
-                  <i class="fas fa-arrow-right ml-1 text-xs"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- News Card 4 -->
-          <div class="news-card bg-white rounded-2xl overflow-hidden shadow-lg animate-slide-up animate-delay-400">
-            <div class="relative h-48 overflow-hidden">
-              <div
-                class="absolute inset-0 bg-cover bg-center"
-                style="background-image: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')"
-              ></div>
-              <div class="absolute top-4 left-4 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-medium">REGULASI</div>
-              <div class="absolute bottom-4 left-4 bg-white text-gray-800 px-3 py-1 rounded-full text-xs font-medium">28 JULI 2025</div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-gray-800 mb-3">Perubahan Regulasi Perizinan Usaha Skala Kecil</h3>
-              <p class="text-gray-600 mb-4">Pemerintah mengeluarkan perubahan regulasi terbaru untuk perizinan usaha skala kecil yang berlaku mulai September 2025.</p>
-              <div class="flex items-center justify-between">
-                <div class="flex items-center">
-                  <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white text-xs font-bold mr-2">AD</div>
-                  <div class="text-sm text-gray-600">Admin Dinas</div>
-                </div>
-                <a href="#" class="read-more text-primary text-sm font-medium flex items-center">
-                  Baca
-                  <i class="fas fa-arrow-right ml-1 text-xs"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- News Card 5 -->
-          <div class="news-card bg-white rounded-2xl overflow-hidden shadow-lg animate-slide-up animate-delay-500">
-            <div class="relative h-48 overflow-hidden">
-              <div
-                class="absolute inset-0 bg-cover bg-center"
-                style="background-image: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')"
-              ></div>
-              <div class="absolute top-4 left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-medium">PENGUMUMAN</div>
-              <div class="absolute bottom-4 left-4 bg-white text-gray-800 px-3 py-1 rounded-full text-xs font-medium">25 JULI 2025</div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-gray-800 mb-3">Peningkatan Sistem Keamanan Data Pelanggan</h3>
-              <p class="text-gray-600 mb-4">Sistem perizinan online telah ditingkatkan keamanannya untuk melindungi data pribadi pelanggan.</p>
-              <div class="flex items-center justify-between">
-                <div class="flex items-center">
-                  <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white text-xs font-bold mr-2">TI</div>
-                  <div class="text-sm text-gray-600">Tim IT</div>
-                </div>
-                <a href="#" class="read-more text-primary text-sm font-medium flex items-center">
-                  Baca
-                  <i class="fas fa-arrow-right ml-1 text-xs"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- News Card 6 -->
-          <div class="news-card bg-white rounded-2xl overflow-hidden shadow-lg animate-slide-up animate-delay-600">
-            <div class="relative h-48 overflow-hidden">
-              <div
-                class="absolute inset-0 bg-cover bg-center"
-                style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')"
-              ></div>
-              <div class="absolute top-4 left-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-medium">KEGIATAN</div>
-              <div class="absolute bottom-4 left-4 bg-white text-gray-800 px-3 py-1 rounded-full text-xs font-medium">20 JULI 2025</div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-gray-800 mb-3">Workshop Digitalisasi Proses Perizinan UMKM</h3>
-              <p class="text-gray-600 mb-4">Workshop untuk membantu pelaku UMKM memahami proses digitalisasi perizinan yang efektif dan efisien.</p>
-              <div class="flex items-center justify-between">
-                <div class="flex items-center">
-                  <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white text-xs font-bold mr-2">DP</div>
-                  <div class="text-sm text-gray-600">Dinas Perizinan</div>
-                </div>
-                <a href="#" class="read-more text-primary text-sm font-medium flex items-center">
-                  Baca
-                  <i class="fas fa-arrow-right ml-1 text-xs"></i>
-                </a>
-              </div>
-            </div>
-          </div>
+        <div id="news-grid-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- News cards will be loaded here by JavaScript -->
+           <div class="p-8 text-center text-gray-500 md:col-span-2 lg:col-span-3">Memuat berita lainnya...</div>
         </div>
 
         <!-- Pagination -->
-        <div class="flex justify-center mt-16">
-          <nav class="flex space-x-2">
-            <a href="#" class="px-4 py-2 bg-white border border-gray-200 rounded-lg font-medium text-gray-600 hover:bg-primary hover:text-white hover:border-primary">Sebelumnya</a>
-            <a href="#" class="px-4 py-2 bg-primary text-white rounded-lg font-medium border border-primary">1</a>
-            <a href="#" class="px-4 py-2 bg-white border border-gray-200 rounded-lg font-medium text-gray-600 hover:bg-primary hover:text-white hover:border-primary">2</a>
-            <a href="#" class="px-4 py-2 bg-white border border-gray-200 rounded-lg font-medium text-gray-600 hover:bg-primary hover:text-white hover:border-primary">3</a>
-            <span class="px-4 py-2">...</span>
-            <a href="#" class="px-4 py-2 bg-white border border-gray-200 rounded-lg font-medium text-gray-600 hover:bg-primary hover:text-white hover:border-primary">10</a>
-            <a href="#" class="px-4 py-2 bg-white border border-gray-200 rounded-lg font-medium text-gray-600 hover:bg-primary hover:text-white hover:border-primary">Selanjutnya</a>
-          </nav>
+        <div id="pagination-container" class="flex justify-center mt-16">
+          <!-- Pagination controls will be loaded here by JavaScript -->
         </div>
       </div>
     </main>
@@ -510,35 +319,7 @@
       </div>
     </div>
 
-    <script>
-      // Mobile menu toggle
-      const mobileMenuButton = document.querySelector("button");
-      const mobileMenu = document.querySelector(".md\\:hidden.hidden");
-
-      mobileMenuButton.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-      });
-
-      // Card hover effect
-      const newsCards = document.querySelectorAll(".news-card");
-      newsCards.forEach((card) => {
-        card.addEventListener("mouseenter", function () {
-          this.style.zIndex = "10";
-        });
-
-        card.addEventListener("mouseleave", function () {
-          this.style.zIndex = "1";
-        });
-      });
-
-      // Filter buttons interaction
-      const filterBtns = document.querySelectorAll(".flex-wrap button");
-      filterBtns.forEach((btn) => {
-        btn.addEventListener("click", function () {
-          filterBtns.forEach((b) => b.classList.remove("bg-primary", "text-white", "border-primary"));
-          this.classList.add("bg-primary", "text-white", "border-primary");
-        });
-      });
-    </script>
+    <script src="js/navbar.js"></script>
+    <script src="js/news.js"></script>
   </body>
 </html>

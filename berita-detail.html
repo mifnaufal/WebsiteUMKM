@@ -1,39 +1,38 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Detail Berita - Izin.In</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <script>
       tailwind.config = {
         theme: {
           extend: {
+            fontFamily: {
+              poppins: ["Poppins", "sans-serif"],
+            },
             colors: {
-              primary: "#1d4ed8",
-              secondary: "#0f172a",
+              primary: "#2563eb",
+              secondary: "#1e293b",
+              accent: "#f59e0b",
             },
           },
         },
       };
     </script>
-    <link href="/css/style.css" rel="stylesheet" />
   </head>
-  <body class="bg-gray-50">
+  <body class="font-poppins bg-gray-50">
     <!-- Navbar -->
     <div id="navbar-container"></div>
 
     <!-- Main Content -->
-    <main class="py-8 md:py-12">
+    <main class="py-16">
       <div class="container mx-auto px-4">
-        <!-- News Detail Container -->
-        <div id="newsDetailContainer" class="max-w-4xl mx-auto bg-white p-6 md:p-8 rounded-lg shadow-lg">
-          <!-- Loading state or content will be injected here -->
-          <div class="text-center text-gray-500">
-            <i class="fas fa-spinner fa-spin text-2xl"></i>
-            <p class="mt-2">Memuat berita...</p>
-          </div>
+        <div id="newsDetailContainer" class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+          <div class="text-center text-gray-500">Memuat detail berita...</div>
         </div>
       </div>
     </main>
@@ -42,58 +41,47 @@
     <footer class="bg-secondary text-white pt-16 pb-8">
       <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <!-- About -->
           <div>
             <h4 class="text-lg font-semibold mb-4">Izin.In</h4>
-            <p class="text-gray-300 mb-4">Platform resmi untuk memudahkan perizinan UMKM di Indonesia dengan pelayanan cepat dan transparan.</p>
-            <div class="flex space-x-4">
-              <a href="#" class="text-gray-300 hover:text-white">
-                <i class="fab fa-facebook text-xl"></i>
-              </a>
-              <a href="#" class="text-gray-300 hover:text-white">
-                <i class="fab fa-twitter text-xl"></i>
-              </a>
-              <a href="#" class="text-gray-300 hover:text-white">
-                <i class="fab fa-instagram text-xl"></i>
-              </a>
-              <a href="#" class="text-gray-300 hover:text-white">
-                <i class="fab fa-youtube text-xl"></i>
-              </a>
-            </div>
+            <p class="text-gray-400">Platform perizinan UMKM terpadu untuk membantu usaha Anda berkembang.</p>
           </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Tautan Cepat</h4>
+            <ul class="space-y-2">
+              <li><a href="/" class="text-gray-400 hover:text-white">Beranda</a></li>
+              <li><a href="/layanan.html" class="text-gray-400 hover:text-white">Layanan</a></li>
+              <li><a href="/kontak.html" class="text-gray-400 hover:text-white">Kontak</a></li>
+            </ul>
+          </div>
+
+          <!-- Services -->
           <div>
             <h4 class="text-lg font-semibold mb-4">Layanan</h4>
             <ul class="space-y-2">
-              <li><a href="#" class="text-gray-300 hover:text-white">Izin Usaha UMKM</a></li>
-              <li><a href="#" class="text-gray-300 hover:text-white">Izin Usaha Kuliner</a></li>
-              <li><a href="#" class="text-gray-300 hover:text-white">Izin Usaha Manufaktur</a></li>
-              <li><a href="#" class="text-gray-300 hover:text-white">Perpanjangan Izin Usaha</a></li>
-              <li><a href="#" class="text-gray-300 hover:text-white">Cek Status Perizinan</a></li>
+              <li><a href="/layanan.html#nib" class="text-gray-400 hover:text-white">Izin Usaha (NIB)</a></li>
+              <li><a href="/layanan.html#halal" class="text-gray-400 hover:text-white">Sertifikasi Halal</a></li>
+              <li><a href="/layanan.html#pirt" class="text-gray-400 hover:text-white">Izin P-IRT</a></li>
             </ul>
           </div>
+
+          <!-- Contact -->
           <div>
-            <h4 class="text-lg font-semibold mb-4">Tautan</h4>
-            <ul class="space-y-2">
-              <li><a href="/" class="text-gray-300 hover:text-white">Beranda</a></li>
-              <li><a href="/tentang.html" class="text-gray-300 hover:text-white">Tentang Kami</a></li>
-              <li><a href="/berita.html" class="text-gray-300 hover:text-white">Berita</a></li>
-              <li><a href="/pengaduan.html" class="text-gray-300 hover:text-white">Pengaduan</a></li>
-              <li><a href="/kontak.html" class="text-gray-300 hover:text-white">Kontak</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="text-lg font-semibold mb-4">Kontak</h4>
-            <ul class="space-y-3 text-gray-300">
+            <h4 class="text-lg font-semibold mb-4">Hubungi Kami</h4>
+            <ul class="space-y-2 text-gray-400">
               <li class="flex items-start">
-                <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
-                <span>Tambak, Berjo, Kec. Ngargoyoso, Kab. Karanganyar 57793 Karanganyar Central Java</span>
+                <i class="fas fa-map-marker-alt w-5 mt-1"></i>
+                <span>Jl. Merdeka No. 1, Jakarta Pusat</span>
               </li>
               <li class="flex items-center">
-                <i class="fas fa-phone-alt mr-3"></i>
-                <span>+62 856-4178-3101</span>
+                <i class="fas fa-phone-alt w-5"></i>
+                <span>(021) 123-4567</span>
               </li>
               <li class="flex items-center">
-                <i class="fas fa-envelope mr-3"></i>
-                <span>naufalhhdd@gmail.com</span>
+                <i class="fas fa-envelope w-5"></i>
+                <span>info@dinas.go.id</span>
               </li>
               <li class="flex items-center">
                 <i class="fab fa-whatsapp mr-3"></i>
@@ -114,12 +102,6 @@
     </footer>
 
     <script src="js/navbar.js"></script>
-    <script src="js/utils.js"></script>
     <script src="js/news.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        displayNewsDetail();
-      });
-    </script>
   </body>
 </html>
