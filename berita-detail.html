@@ -1,78 +1,44 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Detail Berita - Izin.In</title>
-    <link href="/css/output.css" rel="stylesheet">
-</head>
-<body class="bg-gray-100">
-    <!-- Header (same as other pages) -->
-    <header class="bg-white shadow-md sticky top-0 z-40">
-        <div class="container mx-auto px-2 md:px-4 py-2 md:py-3">
-          <div class="flex items-center justify-between">
-            <div class="flex items-center">
-              <div class="bg-primary text-white w-8 h-8 md:w-10 md:h-10 rounded-lg flex items-center justify-center">
-                <i class="fas fa-file-contract text-lg md:text-xl"></i>
-              </div>
-              <div class="ml-2 md:ml-3">
-                <h1 class="text-lg md:text-xl font-bold text-primary">Izin.In</h1>
-                <p class="text-xs text-gray-600">Solusi Perizinan UMKM</p>
-              </div>
-            </div>
-  
-            <nav class="hidden md:flex space-x-4 lg:space-x-6">
-              <a href="/" class="nav-link font-medium text-sm lg:text-base">Beranda</a>
-              <a href="/tentang.html" class="nav-link text-sm lg:text-base">Tentang</a>
-              <a href="/layanan.html" class="nav-link text-sm lg:text-base">Layanan</a>
-              <a href="/berita.html" class="nav-link text-sm lg:text-base">Berita</a>
-              <a href="/pengaduan.html" class="nav-link text-sm lg:text-base">Pengaduan</a>
-              <a href="/kontak.html" class="nav-link text-sm lg:text-base">Kontak</a>
-            </nav>
-  
-            <!-- Mobile menu button -->
-            <button id="mobile-menu-button" class="md:hidden hamburger-custom">
-              <span class="hamburger-bar"></span>
-              <span class="hamburger-bar"></span>
-              <span class="hamburger-bar"></span>
-            </button>
-          </div>
-        </div>
-      <!-- Mobile Menu -->
-      <div id="mobile-menu" class="mobile-menu md:hidden">
-        <div class="flex justify-between items-center border-b">
-          <div class="flex items-center">
-          </div>
-          <button id="close-menu" class="hamburger-simple md:hidden">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-          </button>
-        </div>
-        <nav id="mobile-nav" hidden class="p-4">
-          <div class="flex flex-col space-y-4 md:hidden">
-            <a href="/" class="nav-link text-lg font-medium">Beranda</a>
-            <a href="/tentang.html" class="nav-link text-lg">Tentang</a>
-            <a href="/layanan.html" class="nav-link text-lg">Layanan</a>
-            <a href="/berita.html" class="nav-link text-lg">Berita</a>
-            <a href="/pengaduan.html" class="nav-link text-lg">Pengaduan</a>
-            <a href="/kontak.html" class="nav-link text-lg">Kontak</a>
-          </div>
-        </nav>
-      </div>
-      </header>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1d4ed8",
+              secondary: "#0f172a",
+            },
+          },
+        },
+      };
+    </script>
+    <link href="/css/style.css" rel="stylesheet" />
+  </head>
+  <body class="bg-gray-50">
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
 
     <!-- Main Content -->
-    <main class="section">
-        <div class="container mx-auto">
-            <!-- News Detail Container -->
-            <div id="newsDetailContainer" class="max-w-4xl mx-auto">
-                Loading...
-            </div>
+    <main class="py-8 md:py-12">
+      <div class="container mx-auto px-4">
+        <!-- News Detail Container -->
+        <div id="newsDetailContainer" class="max-w-4xl mx-auto bg-white p-6 md:p-8 rounded-lg shadow-lg">
+          <!-- Loading state or content will be injected here -->
+          <div class="text-center text-gray-500">
+            <i class="fas fa-spinner fa-spin text-2xl"></i>
+            <p class="mt-2">Memuat berita...</p>
+          </div>
         </div>
+      </div>
     </main>
 
-    <!-- Footer (same as other pages) -->
+    <!-- Footer -->
     <footer class="bg-secondary text-white pt-16 pb-8">
       <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -137,7 +103,7 @@
           </div>
         </div>
         <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-400">
-          <p>&copy; 2025 Izin.In. Hak Cipta Dilind ungi.</p>
+          <p>&copy; 2025 Izin.In. Hak Cipta Dilindungi.</p>
           <div class="mt-2 flex justify-center space-x-6 text-sm">
             <a href="#" class="hover:text-white">Kebijakan Privasi</a>
             <a href="#" class="hover:text-white">Syarat & Ketentuan</a>
@@ -147,19 +113,13 @@
       </div>
     </footer>
 
-    <script src="/js/utils.js"></script>
-    <script src="/js/news.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/news.js"></script>
     <script>
-        // Initialize news detail
+      document.addEventListener("DOMContentLoaded", function () {
         displayNewsDetail();
-
-        // Toggle mobile menu
-        const mobileMenuButton = document.querySelector('button');
-        const mobileMenu = document.querySelector('.md\\:hidden.hidden');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+      });
     </script>
-</body>
+  </body>
 </html>

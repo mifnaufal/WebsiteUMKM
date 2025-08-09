@@ -18,6 +18,7 @@
         },
       };
     </script>
+
     <style>
       .nav-link {
         @apply text-gray-700 hover:text-primary transition-colors;
@@ -34,153 +35,11 @@
       .btn-secondary {
         @apply bg-white text-primary px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors;
       }
-      .mobile-menu {
-        @apply md:hidden fixed inset-0 bg-white z-50;
-        left: 0;
-        top: 0;
-        transform: translateX(-100%);
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        opacity: 0;
-        visibility: hidden;
-      }
-      .mobile-menu.active {
-        width: auto;
-        height: auto;
-        transform: translateX(0);
-        opacity: 1;
-        visibility: visible;
-        box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
-      }
-      .mobile-menu nav a {
-        transform: translateX(-10px);
-        opacity: 0;
-        transition: all 0.3s ease;
-        transition-delay: calc(0.1s * var(--link-index, 0));
-      }
-      .mobile-menu.active nav a {
-        transform: translateX(0);
-        opacity: 1;
-      }
-
-      .hamburger-simple {
-        @apply flex flex-col justify-center items-center w-6 h-6 cursor-pointer;
-      }
-      .hamburger-line {
-        @apply w-6 h-0.5 bg-gray-700 transition-all duration-300 ease-in-out;
-        height: 2px;
-        background-color: #374151;
-        margin: 2px 0;
-      }
-      .hamburger-simple.active .hamburger-line:nth-child(1) {
-        transform: rotate(45deg) translate(4px, 4px) !important;
-      }
-      .hamburger-simple.active .hamburger-line:nth-child(2) {
-        opacity: 0 !important;
-      }
-      .hamburger-simple.active .hamburger-line:nth-child(3) {
-        transform: rotate(-45deg) translate(4px, -4px) !important;
-      }
-
-      /* Ensure close button is always X */
-      #close-menu {
-        transform: scale(1.2);
-      }
-      #close-menu .hamburger-line:nth-child(1) {
-        transform: rotate(45deg) translate(4px, 4px) !important;
-      }
-      #close-menu .hamburger-line:nth-child(2) {
-        opacity: 0 !important;
-      }
-      #close-menu .hamburger-line:nth-child(3) {
-        transform: rotate(-45deg) translate(4px, -4px) !important;
-      }
-
-      /* Custom Hamburger Menu */
-      .hamburger-custom {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 20px;
-        height: 20px;
-        cursor: pointer;
-        background: none;
-        border: none;
-        padding: 0;
-      }
-      .hamburger-bar {
-        display: block;
-        width: 20px;
-        height: 2px;
-        background-color: #374151;
-        margin: 2px 0;
-        transition: all 0.3s ease;
-      }
-      .hamburger-custom.active .hamburger-bar:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-      }
-      .hamburger-custom.active .hamburger-bar:nth-child(2) {
-        opacity: 0;
-      }
-      .hamburger-custom.active .hamburger-bar:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px);
-      }
     </style>
   </head>
   <body class="bg-gray-100 font-sans">
-    <!-- Header -->
-    <header class="bg-white shadow-md sticky top-0 z-40">
-      <div class="container mx-auto px-2 md:px-4 py-2 md:py-3">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center">
-            <div class="bg-primary text-white w-8 h-8 md:w-10 md:h-10 rounded-lg flex items-center justify-center">
-              <i class="fas fa-file-contract text-lg md:text-xl"></i>
-            </div>
-            <div class="ml-2 md:ml-3">
-              <h1 class="text-lg md:text-xl font-bold text-primary">Izin.In</h1>
-              <p class="text-xs text-gray-600">Solusi Perizinan UMKM</p>
-            </div>
-          </div>
-
-          <nav class="hidden md:flex space-x-4 lg:space-x-6">
-            <a href="/" class="nav-link font-medium text-sm lg:text-base">Beranda</a>
-            <a href="/tentang.html" class="nav-link text-sm lg:text-base">Tentang</a>
-            <a href="/layanan.html" class="nav-link text-sm lg:text-base">Layanan</a>
-            <a href="/berita.html" class="nav-link text-sm lg:text-base">Berita</a>
-            <a href="/pengaduan.html" class="nav-link text-sm lg:text-base">Pengaduan</a>
-            <a href="/kontak.html" class="nav-link text-sm lg:text-base">Kontak</a>
-          </nav>
-
-          <!-- Mobile menu button -->
-          <button id="mobile-menu-button" class="md:hidden hamburger-custom">
-            <span class="hamburger-bar"></span>
-            <span class="hamburger-bar"></span>
-            <span class="hamburger-bar"></span>
-          </button>
-        </div>
-      </div>
-      <!-- Mobile Menu -->
-      <div id="mobile-menu" class="mobile-menu md:hidden">
-        <div class="flex justify-between items-center border-b">
-          <div class="flex items-center"></div>
-          <button id="close-menu" class="hamburger-simple md:hidden">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-          </button>
-        </div>
-        <nav class="p-4">
-          <div class="flex flex-col space-y-4 md:hidden">
-            <a href="/" class="nav-link text-lg font-medium">Beranda</a>
-            <a href="/tentang.html" class="nav-link text-lg">Tentang</a>
-            <a href="/layanan.html" class="nav-link text-lg">Layanan</a>
-            <a href="/berita.html" class="nav-link text-lg">Berita</a>
-            <a href="/pengaduan.html" class="nav-link text-lg">Pengaduan</a>
-            <a href="/kontak.html" class="nav-link text-lg">Kontak</a>
-          </div>
-        </nav>
-      </div>
-    </header>
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
 
     <!-- Hero Section -->
     <section class="relative bg-gradient-to-r from-primary to-blue-800 text-white py-16 md:py-24">
@@ -453,7 +312,7 @@
           </div>
         </div>
         <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-400">
-          <p>&copy; 2025 Izin.In. Hak Cipta Dilind ungi.</p>
+          <p>&copy; 2025 Izin.In. Hak Cipta Dilindungi.</p>
           <div class="mt-2 flex justify-center space-x-6 text-sm">
             <a href="#" class="hover:text-white">Kebijakan Privasi</a>
             <a href="#" class="hover:text-white">Syarat & Ketentuan</a>
@@ -463,39 +322,7 @@
       </div>
     </footer>
 
-    <!-- Mobile menu (hanya muncul di mobile, dikontrol JS) -->
-    <div id="mobile-menu" class="mobile-menu p-6" aria-hidden="true" style="display: none;">
-        <div class="flex justify-between items-center mb-8">
-            <div class="flex items-center">
-                <div class="bg-primary text-white w-10 h-10 rounded-lg flex items-center justify-center">
-                    <i class="fas fa-file-contract text-lg"></i>
-                </div>
-                <div class="ml-3">
-                    <h1 class="text-lg font-bold text-primary">Izin.In</h1>
-                </div>
-            </div>
-            <button id="close-menu" class="text-gray-700">
-                <i class="fas fa-times text-2xl"></i>
-            </button>
-        </div>
-        <nav class="space-y-4">
-            <a href="/" class="block text-lg font-medium py-2 border-b border-gray-200">Beranda</a>
-            <a href="/tentang.html" class="block text-lg font-medium py-2 border-b border-gray-200">Tentang</a>
-            <a href="/layanan.html" class="block text-lg font-medium py-2 border-b border-gray-200">Layanan</a>
-            <a href="/berita.html" class="block text-lg font-medium py-2 border-b border-gray-200">Berita</a>
-            <a href="/pengaduan.html" class="block text-lg font-medium py-2 border-b border-gray-200">Pengaduan</a>
-            <a href="/kontak.html" class="block text-lg font-medium py-2">Kontak</a>
-        </nav>
-        <div class="mt-8 pt-6 border-t border-gray-200">
-            <div class="flex space-x-4">
-                <a href="#" class="text-primary"><i class="fab fa-facebook text-2xl"></i></a>
-                <a href="#" class="text-primary"><i class="fab fa-instagram text-2xl"></i></a>
-                <a href="#" class="text-primary"><i class="fab fa-twitter text-2xl"></i></a>
-                <a href="#" class="text-primary"><i class="fab fa-youtube text-2xl"></i></a>
-            </div>
-        </div>
-    </div>
-    <!-- JavaScript for Mobile Menu -->
+    <!-- JavaScript for Navbar -->
     <script src="js/navbar.js"></script>
   </body>
 </html>

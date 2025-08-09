@@ -12,10 +12,9 @@
         theme: {
           extend: {
             colors: {
-              primary: "#2563eb",
-              "primary-dark": "#1d4ed8",
-              secondary: "#1e293b",
-              accent: "#f59e0b",
+              primary: '#1d4ed8',
+              secondary: '#0f172a',
+              accent: '#f59e0b',
             },
             animation: {
               floating: "floating 3s ease-in-out infinite",
@@ -107,59 +106,8 @@
     </style>
   </head>
   <body class="bg-gray-50 font-sans antialiased">
-    <!-- Header -->
-    <header class="bg-white shadow-md sticky top-0 z-40">
-      <div class="container mx-auto px-2 md:px-4 py-2 md:py-3">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center">
-            <div class="bg-primary text-white w-8 h-8 md:w-10 md:h-10 rounded-lg flex items-center justify-center">
-              <i class="fas fa-file-contract text-lg md:text-xl"></i>
-            </div>
-            <div class="ml-2 md:ml-3">
-              <h1 class="text-lg md:text-xl font-bold text-primary">Izin.In</h1>
-              <p class="text-xs text-gray-600">Solusi Perizinan UMKM</p>
-            </div>
-          </div>
-
-          <nav class="hidden md:flex space-x-4 lg:space-x-6">
-            <a href="/" class="nav-link font-medium text-sm lg:text-base">Beranda</a>
-            <a href="/tentang.html" class="nav-link text-sm lg:text-base">Tentang</a>
-            <a href="/layanan.html" class="nav-link text-sm lg:text-base">Layanan</a>
-            <a href="/berita.html" class="nav-link text-sm lg:text-base">Berita</a>
-            <a href="/pengaduan.html" class="nav-link text-sm lg:text-base">Pengaduan</a>
-            <a href="/kontak.html" class="nav-link text-sm lg:text-base">Kontak</a>
-          </nav>
-
-          <!-- Mobile menu button -->
-          <button id="mobile-menu-button" class="md:hidden hamburger-custom">
-            <span class="hamburger-bar"></span>
-            <span class="hamburger-bar"></span>
-            <span class="hamburger-bar"></span>
-          </button>
-        </div>
-      </div>
-      <!-- Mobile Menu -->
-      <div id="mobile-menu" class="mobile-menu md:hidden">
-        <div class="flex justify-between items-center border-b">
-          <div class="flex items-center"></div>
-          <button id="close-menu" class="hamburger-simple md:hidden">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-          </button>
-        </div>
-        <nav class="p-4">
-          <div class="flex flex-col space-y-4 md:hidden">
-            <a href="/" class="nav-link text-lg font-medium">Beranda</a>
-            <a href="/tentang.html" class="nav-link text-lg">Tentang</a>
-            <a href="/layanan.html" class="nav-link text-lg">Layanan</a>
-            <a href="/berita.html" class="nav-link text-lg">Berita</a>
-            <a href="/pengaduan.html" class="nav-link text-lg">Pengaduan</a>
-            <a href="/kontak.html" class="nav-link text-lg">Kontak</a>
-          </div>
-        </nav>
-      </div>
-    </header>
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
 
     <!-- Hero Section -->
     <div class="relative bg-gradient-to-r from-primary to-primary-dark text-white py-12 md:py-16 overflow-hidden">
@@ -479,17 +427,8 @@
       <i class="fas fa-arrow-up"></i>
     </button>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script src="/js/navbar.js"></script>
     <script>
-      // Toggle mobile menu
-      const mobileMenuButton = document.getElementById("mobile-menu-button");
-      const mobileMenu = document.getElementById("mobile-menu");
-
-      mobileMenuButton.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-        mobileMenu.classList.toggle("animate__fadeInDown");
-      });
-
       // Back to top button
       const backToTopButton = document.getElementById("back-to-top");
 
@@ -507,42 +446,34 @@
         window.scrollTo({ top: 0, behavior: "smooth" });
       });
 
-      // Scroll animations
-      const fadeInSections = document.querySelectorAll(".fade-in-section");
-
+      // Script untuk fade-in sections saat scroll
+      const sections = document.querySelectorAll('.fade-in-section');
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              entry.target.classList.add("animate__animated", "animate__fadeInUp");
+              // The animation is applied via CSS, this just triggers it
+              entry.target.style.opacity = '1';
+              observer.unobserve(entry.target);
             }
           });
         },
         { threshold: 0.1 }
       );
-
-      fadeInSections.forEach((section) => {
+      sections.forEach((section) => {
         observer.observe(section);
       });
 
-      // Smooth scrolling for anchor links
+      // Script untuk smooth scroll
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
+        anchor.addEventListener('click', function (e) {
           e.preventDefault();
-
-          const targetId = this.getAttribute("href");
-          const targetElement = document.querySelector(targetId);
-
+          const targetElement = document.querySelector(this.getAttribute('href'));
           if (targetElement) {
             window.scrollTo({
-              top: targetElement.offsetTop - 80,
-              behavior: "smooth",
+              top: targetElement.offsetTop - 80, // Adjust for sticky navbar height
+              behavior: 'smooth',
             });
-
-            // Close mobile menu if open
-            if (!mobileMenu.classList.contains("hidden")) {
-              mobileMenu.classList.add("hidden");
-            }
           }
         });
       });
