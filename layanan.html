@@ -509,3 +509,77 @@
     </script>
   </body>
 </html>
+        const toggleButtons = document.querySelectorAll(".toggle-details");
+
+        toggleButtons.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const card = btn.closest(".service-card");
+            const isCurrentlyActive = card.classList.contains("active");
+
+            // Close all other cards first
+            cards.forEach((otherCard) => {
+              if (otherCard !== card) {
+                otherCard.classList.remove("active");
+                const otherBtn = otherCard.querySelector(".toggle-details");
+                const otherIcon = otherBtn.querySelector("i");
+                if (otherIcon) otherIcon.classList.remove("rotated");
+                otherBtn.setAttribute("aria-expanded", "false");
+              }
+            });
+
+            // Toggle current card
+            card.classList.toggle("active");
+
+            // toggle rotation of chevron icon
+            const icon = btn.querySelector("i");
+            if (icon) icon.classList.toggle("rotated");
+
+            // accessibility aria-expanded
+            const expanded = btn.getAttribute("aria-expanded") === "true";
+            btn.setAttribute("aria-expanded", String(!expanded));
+          });
+        });
+
+        // Service search functionality
+        const searchInput = document.getElementById("serviceSearch");
+        const servicesContainer = document.getElementById("servicesContainer");
+        const serviceCards = Array.from(servicesContainer.querySelectorAll(".service-card"));
+
+        searchInput.addEventListener("input", (e) => {
+          const query = e.target.value.toLowerCase().trim();
+
+          serviceCards.forEach((card) => {
+            const title = card.querySelector("h3").textContent.toLowerCase();
+            const description = card.querySelector("p").textContent.toLowerCase();
+            const isVisible = title.includes(query) || description.includes(query);
+            card.style.display = isVisible ? "" : "none";
+          });
+        });
+        if (mobileMenuButton && mobileMenu) {
+          mobileMenuButton.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+            const expanded = mobileMenuButton.getAttribute("aria-expanded") === "true";
+            mobileMenuButton.setAttribute("aria-expanded", String(!expanded));
+          });
+        }
+
+        // Search functionality (kept optional)
+        const searchInput = document.getElementById("serviceSearch");
+        if (searchInput) {
+          searchInput.addEventListener("input", function () {
+            const q = this.value.trim().toLowerCase();
+            cards.forEach((card) => {
+              const title = (card.querySelector("h3")?.textContent || "").toLowerCase();
+              const desc = (card.querySelector("p")?.textContent || "").toLowerCase();
+              if (!q || title.includes(q) || desc.includes(q)) {
+                card.style.display = "";
+              } else {
+                card.style.display = "none";
+              }
+            });
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
