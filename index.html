@@ -463,6 +463,38 @@
       </div>
     </footer>
 
+    <!-- Mobile menu (hanya muncul di mobile, dikontrol JS) -->
+    <div id="mobile-menu" class="mobile-menu p-6" aria-hidden="true" style="display: none;">
+        <div class="flex justify-between items-center mb-8">
+            <div class="flex items-center">
+                <div class="bg-primary text-white w-10 h-10 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-file-contract text-lg"></i>
+                </div>
+                <div class="ml-3">
+                    <h1 class="text-lg font-bold text-primary">Izin.In</h1>
+                </div>
+            </div>
+            <button id="close-menu" class="text-gray-700">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+        </div>
+        <nav class="space-y-4">
+            <a href="/" class="block text-lg font-medium py-2 border-b border-gray-200">Beranda</a>
+            <a href="/tentang.html" class="block text-lg font-medium py-2 border-b border-gray-200">Tentang</a>
+            <a href="/layanan.html" class="block text-lg font-medium py-2 border-b border-gray-200">Layanan</a>
+            <a href="/berita.html" class="block text-lg font-medium py-2 border-b border-gray-200">Berita</a>
+            <a href="/pengaduan.html" class="block text-lg font-medium py-2 border-b border-gray-200">Pengaduan</a>
+            <a href="/kontak.html" class="block text-lg font-medium py-2">Kontak</a>
+        </nav>
+        <div class="mt-8 pt-6 border-t border-gray-200">
+            <div class="flex space-x-4">
+                <a href="#" class="text-primary"><i class="fab fa-facebook text-2xl"></i></a>
+                <a href="#" class="text-primary"><i class="fab fa-instagram text-2xl"></i></a>
+                <a href="#" class="text-primary"><i class="fab fa-twitter text-2xl"></i></a>
+                <a href="#" class="text-primary"><i class="fab fa-youtube text-2xl"></i></a>
+            </div>
+        </div>
+    </div>
     <!-- JavaScript for Mobile Menu -->
     <script src="js/navbar.js"></script>
   </body>

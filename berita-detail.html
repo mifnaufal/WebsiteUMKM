@@ -8,42 +8,59 @@
 </head>
 <body class="bg-gray-100">
     <!-- Header (same as other pages) -->
-    <header class="bg-white shadow-md">
-        <div class="container mx-auto px-4 py-6">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center">
-                    <img src="/assets/logo.png" alt="Logo Instansi" class="h-16">
-                    <div class="ml-4">
-                        <h1 class="text-2xl font-bold text-primary">Izin.In</h1>
-                        <p class="text-gray-600">Melayani dengan Sepenuh Hati</p>
-                    </div>
-                </div>
-                <nav class="hidden md:flex space-x-6">
-                    <a href="/" class="nav-link">Beranda</a>
-                    <a href="/tentang.html" class="nav-link">Tentang</a>
-                    <a href="/layanan.html" class="nav-link">Layanan</a>
-                    <a href="/berita.html" class="nav-link font-medium">Berita</a>
-                    <a href="/pengaduan.html" class="nav-link">Pengaduan</a>
-                    <a href="/kontak.html" class="nav-link">Kontak</a>
-                </nav>
-                <button class="md:hidden">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
+    <header class="bg-white shadow-md sticky top-0 z-40">
+        <div class="container mx-auto px-2 md:px-4 py-2 md:py-3">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center">
+              <div class="bg-primary text-white w-8 h-8 md:w-10 md:h-10 rounded-lg flex items-center justify-center">
+                <i class="fas fa-file-contract text-lg md:text-xl"></i>
+              </div>
+              <div class="ml-2 md:ml-3">
+                <h1 class="text-lg md:text-xl font-bold text-primary">Izin.In</h1>
+                <p class="text-xs text-gray-600">Solusi Perizinan UMKM</p>
+              </div>
             </div>
-            <div class="md:hidden hidden">
-                <div class="px-2 pt-2 pb-3 space-y-1">
-                    <a href="/" class="block px-3 py-2 nav-link">Beranda</a>
-                    <a href="/tentang.html" class="block px-3 py-2 nav-link">Tentang</a>
-                    <a href="/layanan.html" class="block px-3 py-2 nav-link">Layanan</a>
-                    <a href="/berita.html" class="block px-3 py-2 nav-link">Berita</a>
-                    <a href="/pengaduan.html" class="block px-3 py-2 nav-link">Pengaduan</a>
-                    <a href="/kontak.html" class="block px-3 py-2 nav-link">Kontak</a>
-                </div>
-            </div>
+  
+            <nav class="hidden md:flex space-x-4 lg:space-x-6">
+              <a href="/" class="nav-link font-medium text-sm lg:text-base">Beranda</a>
+              <a href="/tentang.html" class="nav-link text-sm lg:text-base">Tentang</a>
+              <a href="/layanan.html" class="nav-link text-sm lg:text-base">Layanan</a>
+              <a href="/berita.html" class="nav-link text-sm lg:text-base">Berita</a>
+              <a href="/pengaduan.html" class="nav-link text-sm lg:text-base">Pengaduan</a>
+              <a href="/kontak.html" class="nav-link text-sm lg:text-base">Kontak</a>
+            </nav>
+  
+            <!-- Mobile menu button -->
+            <button id="mobile-menu-button" class="md:hidden hamburger-custom">
+              <span class="hamburger-bar"></span>
+              <span class="hamburger-bar"></span>
+              <span class="hamburger-bar"></span>
+            </button>
+          </div>
         </div>
-    </header>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="mobile-menu md:hidden">
+        <div class="flex justify-between items-center border-b">
+          <div class="flex items-center">
+          </div>
+          <button id="close-menu" class="hamburger-simple md:hidden">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
+        <nav id="mobile-nav" hidden class="p-4">
+          <div class="flex flex-col space-y-4 md:hidden">
+            <a href="/" class="nav-link text-lg font-medium">Beranda</a>
+            <a href="/tentang.html" class="nav-link text-lg">Tentang</a>
+            <a href="/layanan.html" class="nav-link text-lg">Layanan</a>
+            <a href="/berita.html" class="nav-link text-lg">Berita</a>
+            <a href="/pengaduan.html" class="nav-link text-lg">Pengaduan</a>
+            <a href="/kontak.html" class="nav-link text-lg">Kontak</a>
+          </div>
+        </nav>
+      </div>
+      </header>
 
     <!-- Main Content -->
     <main class="section">
