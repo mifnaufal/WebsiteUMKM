@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function resetMenuState() {
     mobileMenu.classList.remove("active");
     mobileMenuButton.classList.remove("active");
-    document.body.style.overflow = "";
+
     isMenuOpen = false;
     menuLinks.forEach(link => {
       link.style.transform = "";
@@ -37,10 +37,12 @@ document.addEventListener("DOMContentLoaded", function () {
     isMenuOpen = open;
     
     if (open) {
-      mobileMenu.classList.add("active");
-      mobileMenuButton.classList.add("active");
-      document.body.style.overflow = "hidden";
-      
+      mobileMenu.style.display = "block";
+      mobileMenu.setAttribute("aria-hidden", "false");
+      setTimeout(() => {
+        mobileMenu.classList.add("active");
+        mobileMenuButton.classList.add("active");
+      }, 10); // allow display:block to apply first
       // Animate menu items with delay
       menuLinks.forEach((link, index) => {
         setTimeout(() => {
@@ -51,17 +53,20 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       mobileMenu.classList.remove("active");
       mobileMenuButton.classList.remove("active");
-      document.body.style.overflow = "";
-      
-      // Reset menu item animations with a slight delay
+      mobileMenu.setAttribute("aria-hidden", "true");
+      // Animate each menu item out, one by one, for smoother close
+      menuLinks.forEach((link, index) => {
+        setTimeout(() => {
+          link.style.transform = "translateX(-10px)";
+          link.style.opacity = "0";
+        }, 50 * index); // animate out faster than in
+      });
+      // After all animations, hide the menu
       setTimeout(() => {
-        if (!isMenuOpen) { // Only reset if menu is still closed
-          menuLinks.forEach(link => {
-            link.style.transform = "translateX(-10px)";
-            link.style.opacity = "0";
-          });
+        if (!isMenuOpen) {
+          mobileMenu.style.display = "none";
         }
-      }, 300);
+      }, 400 + 50 * menuLinks.length); // allow for all items to finish animating
     }
   }
 
@@ -85,9 +90,51 @@ document.addEventListener("DOMContentLoaded", function () {
   // Close menu when clicking outside
   document.addEventListener("click", function (e) {
     if (isMenuOpen && !mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
-      toggleMenu(false);
+      // Tambahkan class animasi keluar jika perlu
+      mobileMenu.classList.remove("active");
+      mobileMenuButton.classList.remove("active");
+      // Sinkronkan dengan delay CSS agar smooth
+      setTimeout(() => {
+        toggleMenu(false);
+      }, 400); // 400ms sesuai dengan transition di CSS
     }
   });
+
+  // ===== SIMPLE TOGGLE FOR <nav id="mobile-nav"> (for custom HTML snippet) =====
+  const burgerBtn = document.getElementById('mobile-menu-button');
+  const mobileNav = document.getElementById('mobile-nav');
+  const closeMenuBtn = document.getElementById('close-menu');
+  if (burgerBtn && mobileNav) {
+    // Tampilkan menu saat burger diklik
+    burgerBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      mobileNav.removeAttribute('hidden');
+    });
+  }
+  // Sembunyikan menu saat tombol close diklik
+  if (closeMenuBtn && mobileNav) {
+    closeMenuBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      mobileNav.setAttribute('hidden', '');
+    });
+  }
+  // Sembunyikan menu saat klik di luar area menu
+  if (mobileNav && burgerBtn) {
+    document.addEventListener('click', function(e) {
+      if (!mobileNav.hasAttribute('hidden') && !mobileNav.contains(e.target) && !burgerBtn.contains(e.target)) {
+        mobileNav.setAttribute('hidden', '');
+      }
+    });
+  }
+  // Sembunyikan menu saat klik link di dalam nav
+  if (mobileNav) {
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function () {
+        mobileNav.setAttribute('hidden', '');
+      });
+    });
+  }
+  // ===== END SIMPLE TOGGLE =====
 
   // Close menu when clicking on navigation links
   menuLinks.forEach((link) => {
