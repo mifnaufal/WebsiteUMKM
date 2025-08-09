@@ -1,585 +1,552 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tentang Kami - Izin.In</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#2563eb',
-                        'primary-dark': '#1d4ed8',
-                        secondary: '#1e293b',
-                        accent: '#f59e0b',
-                    },
-                    animation: {
-                        'floating': 'floating 3s ease-in-out infinite',
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    },
-                    keyframes: {
-                        floating: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        }
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#2563eb",
+              "primary-dark": "#1d4ed8",
+              secondary: "#1e293b",
+              accent: "#f59e0b",
+            },
+            animation: {
+              floating: "floating 3s ease-in-out infinite",
+              "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+            },
+            keyframes: {
+              floating: {
+                "0%, 100%": { transform: "translateY(0px)" },
+                "50%": { transform: "translateY(-10px)" },
+              },
+            },
+          },
+        },
+      };
     </script>
     <style>
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
         }
-        .fade-in-section {
-            opacity: 0;
-            animation: fadeInUp 0.6s forwards;
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
-        .delay-100 {
-            animation-delay: 100ms;
-        }
-        .delay-200 {
-            animation-delay: 200ms;
-        }
-        .delay-300 {
-            animation-delay: 300ms;
-        }
-        .highlight-box {
-            position: relative;
-        }
-        .highlight-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(245, 158, 11, 0.1) 100%);
-            border-radius: 0.5rem;
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .highlight-box:hover::before {
-            opacity: 1;
-        }
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
-        }
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: linear-gradient(to bottom, #2563eb, #f59e0b);
-            border-radius: 2px;
-        }
-        .timeline-item {
-            position: relative;
-            padding-bottom: 2rem;
-        }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -2.3rem;
-            top: 0;
-            width: 1rem;
-            height: 1rem;
-            border-radius: 50%;
-            background-color: #2563eb;
-            border: 3px solid white;
-            box-shadow: 0 0 0 2px #2563eb;
-        }
+      }
+      .fade-in-section {
+        opacity: 0;
+        animation: fadeInUp 0.6s forwards;
+      }
+      .delay-100 {
+        animation-delay: 100ms;
+      }
+      .delay-200 {
+        animation-delay: 200ms;
+      }
+      .delay-300 {
+        animation-delay: 300ms;
+      }
+      .highlight-box {
+        position: relative;
+      }
+      .highlight-box::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(245, 158, 11, 0.1) 100%);
+        border-radius: 0.5rem;
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      .highlight-box:hover::before {
+        opacity: 1;
+      }
+      .timeline {
+        position: relative;
+        padding-left: 2rem;
+      }
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: linear-gradient(to bottom, #2563eb, #f59e0b);
+        border-radius: 2px;
+      }
+      .timeline-item {
+        position: relative;
+        padding-bottom: 2rem;
+      }
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -2.3rem;
+        top: 0;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        background-color: #2563eb;
+        border: 3px solid white;
+        box-shadow: 0 0 0 2px #2563eb;
+      }
     </style>
-</head>
-<body class="bg-gray-50 font-sans antialiased">
+  </head>
+  <body class="bg-gray-50 font-sans antialiased">
     <!-- Header -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-4 sm:px-6 py-3">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center">
-                    <div class="relative group">
-                        <img src="/assets/logo.png" alt="Logo Instansi" class="h-10 md:h-12 transition-all duration-300 group-hover:rotate-6">
-                        <div class="absolute -inset-1 bg-blue-100 rounded-full opacity-0 group-hover:opacity-30 transition-opacity duration-300 blur-sm"></div>
-                    </div>
-                    <div class="ml-3">
-                        <h1 class="text-xl md:text-2xl font-bold text-primary">Izin.<span class="text-accent">In</span></h1>
-                        <p class="text-gray-600 text-xs md:text-sm">Solusi Perizinan UMKM Anda</p>
-                    </div>
-                </div>
-                <nav class="hidden md:flex space-x-4 lg:space-x-6">
-                    <a href="/" class="text-gray-600 hover:text-primary transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">Beranda</a>
-                    <a href="/tentang.html" class="text-primary font-medium relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary">Tentang</a>
-                    <a href="/layanan.html" class="text-gray-600 hover:text-primary transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">Layanan</a>
-                    <a href="/berita.html" class="text-gray-600 hover:text-primary transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">Berita</a>
-                    <a href="/pengaduan.html" class="text-gray-600 hover:text-primary transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">Pengaduan</a>
-                    <a href="/kontak.html" class="text-gray-600 hover:text-primary transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">Kontak</a>
-                </nav>
-                <button class="md:hidden focus:outline-none" id="mobile-menu-button">
-                    <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
+    <header class="bg-white shadow-md sticky top-0 z-40">
+      <div class="container mx-auto px-2 md:px-4 py-2 md:py-3">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <div class="bg-primary text-white w-8 h-8 md:w-10 md:h-10 rounded-lg flex items-center justify-center">
+              <i class="fas fa-file-contract text-lg md:text-xl"></i>
             </div>
-            <div class="md:hidden hidden mt-2" id="mobile-menu">
-                <div class="px-2 pt-2 pb-4 space-y-1">
-                    <a href="/" class="block px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100">Beranda</a>
-                    <a href="/tentang.html" class="block px-3 py-2 rounded-md bg-blue-50 text-primary font-medium">Tentang</a>
-                    <a href="/layanan.html" class="block px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100">Layanan</a>
-                    <a href="/berita.html" class="block px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100">Berita</a>
-                    <a href="/pengaduan.html" class="block px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100">Pengaduan</a>
-                    <a href="/kontak.html" class="block px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100">Kontak</a>
-                </div>
+            <div class="ml-2 md:ml-3">
+              <h1 class="text-lg md:text-xl font-bold text-primary">Izin.In</h1>
+              <p class="text-xs text-gray-600">Solusi Perizinan UMKM</p>
             </div>
+          </div>
+
+          <nav class="hidden md:flex space-x-4 lg:space-x-6">
+            <a href="/" class="nav-link font-medium text-sm lg:text-base">Beranda</a>
+            <a href="/tentang.html" class="nav-link text-sm lg:text-base">Tentang</a>
+            <a href="/layanan.html" class="nav-link text-sm lg:text-base">Layanan</a>
+            <a href="/berita.html" class="nav-link text-sm lg:text-base">Berita</a>
+            <a href="/pengaduan.html" class="nav-link text-sm lg:text-base">Pengaduan</a>
+            <a href="/kontak.html" class="nav-link text-sm lg:text-base">Kontak</a>
+          </nav>
+
+          <!-- Mobile menu button -->
+          <button id="mobile-menu-button" class="md:hidden hamburger-custom">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+          </button>
         </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="mobile-menu md:hidden">
+        <div class="flex justify-between items-center border-b">
+          <div class="flex items-center"></div>
+          <button id="close-menu" class="hamburger-simple md:hidden">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
+        <nav class="p-4">
+          <div class="flex flex-col space-y-4 md:hidden">
+            <a href="/" class="nav-link text-lg font-medium">Beranda</a>
+            <a href="/tentang.html" class="nav-link text-lg">Tentang</a>
+            <a href="/layanan.html" class="nav-link text-lg">Layanan</a>
+            <a href="/berita.html" class="nav-link text-lg">Berita</a>
+            <a href="/pengaduan.html" class="nav-link text-lg">Pengaduan</a>
+            <a href="/kontak.html" class="nav-link text-lg">Kontak</a>
+          </div>
+        </nav>
+      </div>
     </header>
 
     <!-- Hero Section -->
     <div class="relative bg-gradient-to-r from-primary to-primary-dark text-white py-12 md:py-16 overflow-hidden">
-        <div class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==')]"></div>
-        <div class="container mx-auto px-4 sm:px-6 relative z-10 animate__animated animate__fadeIn">
-            <h2 class="text-3xl sm:text-4xl font-bold mb-3">Tentang Kami</h2>
-            <div class="w-16 h-1 bg-accent mb-4"></div>
-            <p class="text-lg sm:text-xl text-blue-100 max-w-2xl">Mengenal lebih dekat institusi kami dan komitmen kami dalam memberikan pelayanan terbaik</p>
-        </div>
-        <div class="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-gray-50 to-transparent"></div>
+      <div
+        class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==')]"
+      ></div>
+      <div class="container mx-auto px-4 sm:px-6 relative z-10 animate__animated animate__fadeIn">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-3">Tentang Kami</h2>
+        <div class="w-16 h-1 bg-accent mb-4"></div>
+        <p class="text-lg sm:text-xl text-blue-100 max-w-2xl">Mengenal lebih dekat institusi kami dan komitmen kami dalam memberikan pelayanan terbaik</p>
+      </div>
+      <div class="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-gray-50 to-transparent"></div>
     </div>
 
     <!-- Main Content -->
     <main class="py-8 md:py-12">
-        <div class="container mx-auto px-4 sm:px-6">
-            <div class="flex flex-col md:flex-row gap-6 lg:gap-8">
-                <!-- Sidebar -->
-                <div class="md:w-1/3 lg:w-1/4">
-                    <div class="bg-white rounded-xl shadow-md p-5 md:p-6 sticky top-20 transition-all duration-300 hover:shadow-lg">
-                        <h3 class="text-lg font-bold text-primary mb-5 flex items-center">
-                            <i class="fas fa-info-circle mr-2 text-accent"></i> Tentang Izin.In
-                        </h3>
-                        <nav class="space-y-2">
-                            <a href="#profil" class="block py-2 px-4 rounded-lg hover:bg-gray-50 transition-all duration-200 flex items-center highlight-box">
-                                <i class="fas fa-building mr-3 text-primary text-sm"></i> Profil Instansi
-                            </a>
-                            <a href="#visi-misi" class="block py-2 px-4 rounded-lg hover:bg-gray-50 transition-all duration-200 flex items-center highlight-box">
-                                <i class="fas fa-bullseye mr-3 text-primary text-sm"></i> Visi & Misi
-                            </a>
-                            <a href="#sejarah" class="block py-2 px-4 rounded-lg hover:bg-gray-50 transition-all duration-200 flex items-center highlight-box">
-                                <i class="fas fa-history mr-3 text-primary text-sm"></i> Sejarah
-                            </a>
-                            <a href="#struktur" class="block py-2 px-4 rounded-lg hover:bg-gray-50 transition-all duration-200 flex items-center highlight-box">
-                                <i class="fas fa-sitemap mr-3 text-primary text-sm"></i> Struktur Organisasi
-                            </a>
-                            <a href="#pimpinan" class="block py-2 px-4 rounded-lg hover:bg-gray-50 transition-all duration-200 flex items-center highlight-box">
-                                <i class="fas fa-user-tie mr-3 text-primary text-sm"></i> Profil Pimpinan
-                            </a>
-                        </nav>
-                        
-                        <div class="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-100">
-                            <h4 class="font-semibold text-blue-800 mb-2 flex items-center">
-                                <i class="fas fa-lightbulb mr-2 text-accent"></i> Fakta Cepat
-                            </h4>
-                            <ul class="text-sm text-blue-700 space-y-2">
-                                <li class="flex items-start">
-                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
-                                    <span>Didirikan tahun 1945</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
-                                    <span>50+ Pegawai Profesional</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
-                                    <span>10+ Penghargaan Nasional</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+      <div class="container mx-auto px-4 sm:px-6">
+        <div class="flex flex-col md:flex-row gap-6 lg:gap-8">
+          <!-- Sidebar -->
+          <div class="md:w-1/3 lg:w-1/4">
+            <div class="bg-white rounded-xl shadow-md p-5 md:p-6 sticky top-20 transition-all duration-300 hover:shadow-lg">
+              <h3 class="text-lg font-bold text-primary mb-5 flex items-center"><i class="fas fa-info-circle mr-2 text-accent"></i> Tentang Izin.In</h3>
+              <nav class="space-y-2">
+                <a href="#profil" class="block py-2 px-4 rounded-lg hover:bg-gray-50 transition-all duration-200 flex items-center highlight-box"> <i class="fas fa-building mr-3 text-primary text-sm"></i> Profil Instansi </a>
+                <a href="#visi-misi" class="block py-2 px-4 rounded-lg hover:bg-gray-50 transition-all duration-200 flex items-center highlight-box"> <i class="fas fa-bullseye mr-3 text-primary text-sm"></i> Visi & Misi </a>
+                <a href="#sejarah" class="block py-2 px-4 rounded-lg hover:bg-gray-50 transition-all duration-200 flex items-center highlight-box"> <i class="fas fa-history mr-3 text-primary text-sm"></i> Sejarah </a>
+                <a href="#struktur" class="block py-2 px-4 rounded-lg hover:bg-gray-50 transition-all duration-200 flex items-center highlight-box"> <i class="fas fa-sitemap mr-3 text-primary text-sm"></i> Struktur Organisasi </a>
+                <a href="#pimpinan" class="block py-2 px-4 rounded-lg hover:bg-gray-50 transition-all duration-200 flex items-center highlight-box"> <i class="fas fa-user-tie mr-3 text-primary text-sm"></i> Profil Pimpinan </a>
+              </nav>
 
-                <!-- Content -->
-                <div class="md:w-2/3 lg:w-3/4 space-y-6">
-                    <!-- Profile Section -->
-                    <section id="profil" class="fade-in-section bg-white rounded-xl shadow-md p-6 transition-all duration-300 hover:shadow-lg">
-                        <div class="flex items-center mb-5">
-                            <div class="bg-primary p-2 rounded-lg text-white mr-4">
-                                <i class="fas fa-building text-lg"></i>
-                            </div>
-                            <h3 class="text-xl md:text-2xl font-bold">Profil Instansi</h3>
-                        </div>
-                        <div class="prose prose-sm sm:prose max-w-none text-gray-700">
-                            <p class="mb-4">
-                                <span class="font-semibold text-primary">Izin.In</span> adalah institusi pemerintah yang berkomitmen untuk memberikan pelayanan terbaik kepada masyarakat. 
-                                Dengan SDM yang profesional dan sistem yang terintegrasi, kami berusaha memenuhi kebutuhan administratif 
-                                masyarakat dengan efisien dan transparan.
-                            </p>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-5">
-                                <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
-                                    <div class="text-2xl sm:text-3xl font-bold text-primary mb-1">10K+</div>
-                                    <div class="text-sm text-blue-700">Perizinan Diproses</div>
-                                </div>
-                                <div class="bg-amber-50 p-4 rounded-lg border border-amber-100">
-                                    <div class="text-2xl sm:text-3xl font-bold text-accent mb-1">99%</div>
-                                    <div class="text-sm text-amber-700">Kepuasan Pengguna</div>
-                                </div>
-                            </div>
-                            <p>
-                                Kami terus berinovasi untuk menyediakan layanan yang lebih cepat, mudah, dan dapat diakses dari mana saja. 
-                                Dengan teknologi terkini, kami memastikan setiap proses perizinan berjalan lancar dan efisien.
-                            </p>
-                        </div>
-                    </section>
-
-                    <!-- Vision & Mission -->
-                    <section id="visi-misi" class="fade-in-section delay-100 bg-white rounded-xl shadow-md p-6 transition-all duration-300 hover:shadow-lg">
-                        <div class="flex items-center mb-5">
-                            <div class="bg-accent p-2 rounded-lg text-white mr-4">
-                                <i class="fas fa-bullseye text-lg"></i>
-                            </div>
-                            <h3 class="text-xl md:text-2xl font-bold">Visi & Misi</h3>
-                        </div>
-                        <div class="space-y-5">
-                            <div class="bg-blue-50 p-5 rounded-lg">
-                                <h4 class="text-lg font-semibold mb-3 flex items-center">
-                                    <i class="fas fa-eye mr-2 text-primary"></i> Visi
-                                </h4>
-                                <div class="pl-6 relative">
-                                    <div class="absolute left-0 top-0 text-3xl text-primary opacity-30">"</div>
-                                    <p class="text-gray-700 italic font-medium">
-                                        "Menjadi institusi pelayanan publik yang profesional, transparan, dan terpercaya 
-                                        dalam memberikan pelayanan prima kepada masyarakat"
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="bg-amber-50 p-5 rounded-lg">
-                                <h4 class="text-lg font-semibold mb-3 flex items-center">
-                                    <i class="fas fa-list-check mr-2 text-accent"></i> Misi
-                                </h4>
-                                <ul class="space-y-3 pl-2">
-                                    <li class="flex items-start">
-                                        <div class="bg-primary text-white rounded-full w-5 h-5 flex items-center justify-center mt-1 mr-3 flex-shrink-0">
-                                            <i class="fas fa-check text-xs"></i>
-                                        </div>
-                                        <span class="text-gray-700">Meningkatkan kualitas pelayanan publik melalui sistem yang terintegrasi</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <div class="bg-primary text-white rounded-full w-5 h-5 flex items-center justify-center mt-1 mr-3 flex-shrink-0">
-                                            <i class="fas fa-check text-xs"></i>
-                                        </div>
-                                        <span class="text-gray-700">Mengembangkan SDM yang profesional dan berintegritas</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <div class="bg-primary text-white rounded-full w-5 h-5 flex items-center justify-center mt-1 mr-3 flex-shrink-0">
-                                            <i class="fas fa-check text-xs"></i>
-                                        </div>
-                                        <span class="text-gray-700">Membangun sistem informasi yang transparan dan akuntabel</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <div class="bg-primary text-white rounded-full w-5 h-5 flex items-center justify-center mt-1 mr-3 flex-shrink-0">
-                                            <i class="fas fa-check text-xs"></i>
-                                        </div>
-                                        <span class="text-gray-700">Mengoptimalkan pemanfaatan teknologi dalam pelayanan</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <div class="bg-primary text-white rounded-full w-5 h-5 flex items-center justify-center mt-1 mr-3 flex-shrink-0">
-                                            <i class="fas fa-check text-xs"></i>
-                                        </div>
-                                        <span class="text-gray-700">Meningkatkan partisipasi masyarakat dalam pembangunan</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- History -->
-                    <section id="sejarah" class="fade-in-section delay-200 bg-white rounded-xl shadow-md p-6 transition-all duration-300 hover:shadow-lg">
-                        <div class="flex items-center mb-5">
-                            <div class="bg-purple-500 p-2 rounded-lg text-white mr-4">
-                                <i class="fas fa-history text-lg"></i>
-                            </div>
-                            <h3 class="text-xl md:text-2xl font-bold">Sejarah Perjalanan Kami</h3>
-                        </div>
-                        <div class="prose prose-sm sm:prose max-w-none text-gray-700">
-                            <div class="timeline">
-                                <div class="timeline-item">
-                                    <h4 class="text-base sm:text-lg font-semibold text-primary">1945 - Pendirian</h4>
-                                    <p class="text-gray-600 mt-1 text-sm sm:text-base">
-                                        Institusi kami didirikan sebagai bagian dari pembentukan sistem pemerintahan Republik Indonesia yang baru merdeka.
-                                    </p>
-                                </div>
-                                <div class="timeline-item">
-                                    <h4 class="text-base sm:text-lg font-semibold text-primary">1980 - Modernisasi Pertama</h4>
-                                    <p class="text-gray-600 mt-1 text-sm sm:text-base">
-                                        Transformasi sistem manual ke semi-digital untuk meningkatkan efisiensi pelayanan.
-                                    </p>
-                                </div>
-                                <div class="timeline-item">
-                                    <h4 class="text-base sm:text-lg font-semibold text-primary">2005 - Digitalisasi</h4>
-                                    <p class="text-gray-600 mt-1 text-sm sm:text-base">
-                                        Peluncuran sistem online pertama untuk pelayanan perizinan berbasis web.
-                                    </p>
-                                </div>
-                                <div class="timeline-item">
-                                    <h4 class="text-base sm:text-lg font-semibold text-primary">2020 - Transformasi Digital</h4>
-                                    <p class="text-gray-600 mt-1 text-sm sm:text-base">
-                                        Peluncuran platform Izin.In sebagai solusi terintegrasi untuk perizinan UMKM.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Organization Structure -->
-                    <section id="struktur" class="fade-in-section delay-300 bg-white rounded-xl shadow-md p-6 transition-all duration-300 hover:shadow-lg">
-                        <div class="flex items-center mb-5">
-                            <div class="bg-green-500 p-2 rounded-lg text-white mr-4">
-                                <i class="fas fa-sitemap text-lg"></i>
-                            </div>
-                            <h3 class="text-xl md:text-2xl font-bold">Struktur Organisasi</h3>
-                        </div>
-                        <div class="relative group">
-                            <img src="/assets/struktur-organisasi.png" alt="Struktur Organisasi" class="w-full rounded-lg border border-gray-200 transition-all duration-300 group-hover:shadow-lg">
-                            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <button class="bg-primary text-white px-4 py-2 rounded-full shadow-lg flex items-center text-sm">
-                                    <i class="fas fa-expand mr-2"></i> Perbesar
-                                </button>
-                            </div>
-                        </div>
-                        <p class="text-gray-500 text-sm mt-3 flex items-center">
-                            <i class="fas fa-info-circle mr-2 text-primary"></i> Struktur organisasi per Agustus 2025
-                        </p>
-                    </section>
-
-                    <!-- Leader Profile -->
-                    <section id="pimpinan" class="fade-in-section bg-white rounded-xl shadow-md p-6 transition-all duration-300 hover:shadow-lg">
-                        <div class="flex items-center mb-5">
-                            <div class="bg-red-500 p-2 rounded-lg text-white mr-4">
-                                <i class="fas fa-user-tie text-lg"></i>
-                            </div>
-                            <h3 class="text-xl md:text-2xl font-bold">Profil Pimpinan</h3>
-                        </div>
-                        <div class="flex flex-col sm:flex-row items-start gap-5">
-                            <div class="relative group w-full sm:w-48 flex-shrink-0">
-                                <img src="/images/foto_pimpinan.png" alt="Foto Pimpinan" class="w-full rounded-xl border-4 border-white shadow-md transition-all duration-300 group-hover:border-accent">
-                                <div class="absolute -inset-2 rounded-xl border-2 border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-                            </div>
-                            <div class="flex-1">
-                                <h4 class="text-lg sm:text-xl font-bold mb-1">Dr. H. Contoh Nama, M.Si.</h4>
-                                <p class="text-accent font-medium mb-3 text-sm sm:text-base">Kepala Instansi</p>
-                                
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Lulusan Terbaik</span>
-                                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">20+ Tahun Pengalaman</span>
-                                    <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full">5 Penghargaan</span>
-                                </div>
-                                
-                                <div class="prose prose-sm sm:prose max-w-none text-gray-700">
-                                    <p class="mb-3">
-                                        Dr. H. Contoh Nama, M.Si. telah memimpin institusi ini sejak tahun 2020. 
-                                        Beliau memiliki visi untuk mentransformasi pelayanan publik menjadi lebih 
-                                        modern, efisien, dan berorientasi pada kepuasan masyarakat.
-                                    </p>
-                                    <p class="mb-4">
-                                        Dengan pengalaman lebih dari 20 tahun di bidang pelayanan publik, beliau 
-                                        telah membawa berbagai inovasi dan peningkatan kualitas layanan yang 
-                                        signifikan.
-                                    </p>
-                                    <div class="flex space-x-4 mt-5">
-                                        <a href="#" class="text-blue-500 hover:text-blue-700 text-lg">
-                                            <i class="fab fa-linkedin-in"></i>
-                                        </a>
-                                        <a href="#" class="text-gray-700 hover:text-gray-900 text-lg">
-                                            <i class="fas fa-globe"></i>
-                                        </a>
-                                        <a href="#" class="text-blue-400 hover:text-blue-600 text-lg">
-                                            <i class="fab fa-twitter"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    
-                    <!-- Call to Action -->
-                    <div class="fade-in-section bg-gradient-to-r from-primary to-primary-dark rounded-xl shadow-lg p-6 text-white">
-                        <div class="flex flex-col md:flex-row items-center justify-between">
-                            <div class="mb-4 md:mb-0">
-                                <h3 class="text-xl font-bold mb-2">Siap Memulai Perizinan UMKM Anda?</h3>
-                                <p class="opacity-90">Daftar sekarang dan dapatkan kemudahan dalam mengurus perizinan</p>
-                            </div>
-                            <button class="bg-white text-primary font-bold px-5 py-2 rounded-lg shadow-md hover:bg-gray-100 transition-colors duration-300 flex items-center whitespace-nowrap">
-                                <i class="fas fa-rocket mr-2"></i> Mulai Sekarang
-                            </button>
-                        </div>
-                    </div>
-                </div>
+              <div class="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-100">
+                <h4 class="font-semibold text-blue-800 mb-2 flex items-center"><i class="fas fa-lightbulb mr-2 text-accent"></i> Fakta Cepat</h4>
+                <ul class="text-sm text-blue-700 space-y-2">
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                    <span>Didirikan tahun 1945</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                    <span>50+ Pegawai Profesional</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                    <span>10+ Penghargaan Nasional</span>
+                  </li>
+                </ul>
+              </div>
             </div>
+          </div>
+
+          <!-- Content -->
+          <div class="md:w-2/3 lg:w-3/4 space-y-6">
+            <!-- Profile Section -->
+            <section id="profil" class="fade-in-section bg-white rounded-xl shadow-md p-6 transition-all duration-300 hover:shadow-lg">
+              <div class="flex items-center mb-5">
+                <div class="bg-primary p-2 rounded-lg text-white mr-4">
+                  <i class="fas fa-building text-lg"></i>
+                </div>
+                <h3 class="text-xl md:text-2xl font-bold">Profil Instansi</h3>
+              </div>
+              <div class="prose prose-sm sm:prose max-w-none text-gray-700">
+                <p class="mb-4">
+                  <span class="font-semibold text-primary">Izin.In</span> adalah institusi pemerintah yang berkomitmen untuk memberikan pelayanan terbaik kepada masyarakat. Dengan SDM yang profesional dan sistem yang terintegrasi, kami
+                  berusaha memenuhi kebutuhan administratif masyarakat dengan efisien dan transparan.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-5">
+                  <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                    <div class="text-2xl sm:text-3xl font-bold text-primary mb-1">10K+</div>
+                    <div class="text-sm text-blue-700">Perizinan Diproses</div>
+                  </div>
+                  <div class="bg-amber-50 p-4 rounded-lg border border-amber-100">
+                    <div class="text-2xl sm:text-3xl font-bold text-accent mb-1">99%</div>
+                    <div class="text-sm text-amber-700">Kepuasan Pengguna</div>
+                  </div>
+                </div>
+                <p>Kami terus berinovasi untuk menyediakan layanan yang lebih cepat, mudah, dan dapat diakses dari mana saja. Dengan teknologi terkini, kami memastikan setiap proses perizinan berjalan lancar dan efisien.</p>
+              </div>
+            </section>
+
+            <!-- Vision & Mission -->
+            <section id="visi-misi" class="fade-in-section delay-100 bg-white rounded-xl shadow-md p-6 transition-all duration-300 hover:shadow-lg">
+              <div class="flex items-center mb-5">
+                <div class="bg-accent p-2 rounded-lg text-white mr-4">
+                  <i class="fas fa-bullseye text-lg"></i>
+                </div>
+                <h3 class="text-xl md:text-2xl font-bold">Visi & Misi</h3>
+              </div>
+              <div class="space-y-5">
+                <div class="bg-blue-50 p-5 rounded-lg">
+                  <h4 class="text-lg font-semibold mb-3 flex items-center"><i class="fas fa-eye mr-2 text-primary"></i> Visi</h4>
+                  <div class="pl-6 relative">
+                    <div class="absolute left-0 top-0 text-3xl text-primary opacity-30">"</div>
+                    <p class="text-gray-700 italic font-medium">"Menjadi institusi pelayanan publik yang profesional, transparan, dan terpercaya dalam memberikan pelayanan prima kepada masyarakat"</p>
+                  </div>
+                </div>
+                <div class="bg-amber-50 p-5 rounded-lg">
+                  <h4 class="text-lg font-semibold mb-3 flex items-center"><i class="fas fa-list-check mr-2 text-accent"></i> Misi</h4>
+                  <ul class="space-y-3 pl-2">
+                    <li class="flex items-start">
+                      <div class="bg-primary text-white rounded-full w-5 h-5 flex items-center justify-center mt-1 mr-3 flex-shrink-0">
+                        <i class="fas fa-check text-xs"></i>
+                      </div>
+                      <span class="text-gray-700">Meningkatkan kualitas pelayanan publik melalui sistem yang terintegrasi</span>
+                    </li>
+                    <li class="flex items-start">
+                      <div class="bg-primary text-white rounded-full w-5 h-5 flex items-center justify-center mt-1 mr-3 flex-shrink-0">
+                        <i class="fas fa-check text-xs"></i>
+                      </div>
+                      <span class="text-gray-700">Mengembangkan SDM yang profesional dan berintegritas</span>
+                    </li>
+                    <li class="flex items-start">
+                      <div class="bg-primary text-white rounded-full w-5 h-5 flex items-center justify-center mt-1 mr-3 flex-shrink-0">
+                        <i class="fas fa-check text-xs"></i>
+                      </div>
+                      <span class="text-gray-700">Membangun sistem informasi yang transparan dan akuntabel</span>
+                    </li>
+                    <li class="flex items-start">
+                      <div class="bg-primary text-white rounded-full w-5 h-5 flex items-center justify-center mt-1 mr-3 flex-shrink-0">
+                        <i class="fas fa-check text-xs"></i>
+                      </div>
+                      <span class="text-gray-700">Mengoptimalkan pemanfaatan teknologi dalam pelayanan</span>
+                    </li>
+                    <li class="flex items-start">
+                      <div class="bg-primary text-white rounded-full w-5 h-5 flex items-center justify-center mt-1 mr-3 flex-shrink-0">
+                        <i class="fas fa-check text-xs"></i>
+                      </div>
+                      <span class="text-gray-700">Meningkatkan partisipasi masyarakat dalam pembangunan</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <!-- History -->
+            <section id="sejarah" class="fade-in-section delay-200 bg-white rounded-xl shadow-md p-6 transition-all duration-300 hover:shadow-lg">
+              <div class="flex items-center mb-5">
+                <div class="bg-purple-500 p-2 rounded-lg text-white mr-4">
+                  <i class="fas fa-history text-lg"></i>
+                </div>
+                <h3 class="text-xl md:text-2xl font-bold">Sejarah Perjalanan Kami</h3>
+              </div>
+              <div class="prose prose-sm sm:prose max-w-none text-gray-700">
+                <div class="timeline">
+                  <div class="timeline-item">
+                    <h4 class="text-base sm:text-lg font-semibold text-primary">1945 - Pendirian</h4>
+                    <p class="text-gray-600 mt-1 text-sm sm:text-base">Institusi kami didirikan sebagai bagian dari pembentukan sistem pemerintahan Republik Indonesia yang baru merdeka.</p>
+                  </div>
+                  <div class="timeline-item">
+                    <h4 class="text-base sm:text-lg font-semibold text-primary">1980 - Modernisasi Pertama</h4>
+                    <p class="text-gray-600 mt-1 text-sm sm:text-base">Transformasi sistem manual ke semi-digital untuk meningkatkan efisiensi pelayanan.</p>
+                  </div>
+                  <div class="timeline-item">
+                    <h4 class="text-base sm:text-lg font-semibold text-primary">2005 - Digitalisasi</h4>
+                    <p class="text-gray-600 mt-1 text-sm sm:text-base">Peluncuran sistem online pertama untuk pelayanan perizinan berbasis web.</p>
+                  </div>
+                  <div class="timeline-item">
+                    <h4 class="text-base sm:text-lg font-semibold text-primary">2020 - Transformasi Digital</h4>
+                    <p class="text-gray-600 mt-1 text-sm sm:text-base">Peluncuran platform Izin.In sebagai solusi terintegrasi untuk perizinan UMKM.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Organization Structure -->
+            <section id="struktur" class="fade-in-section delay-300 bg-white rounded-xl shadow-md p-6 transition-all duration-300 hover:shadow-lg">
+              <div class="flex items-center mb-5">
+                <div class="bg-green-500 p-2 rounded-lg text-white mr-4">
+                  <i class="fas fa-sitemap text-lg"></i>
+                </div>
+                <h3 class="text-xl md:text-2xl font-bold">Struktur Organisasi</h3>
+              </div>
+              <div class="relative group">
+                <img src="/assets/struktur-organisasi.png" alt="Struktur Organisasi" class="w-full rounded-lg border border-gray-200 transition-all duration-300 group-hover:shadow-lg" />
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <button class="bg-primary text-white px-4 py-2 rounded-full shadow-lg flex items-center text-sm"><i class="fas fa-expand mr-2"></i> Perbesar</button>
+                </div>
+              </div>
+              <p class="text-gray-500 text-sm mt-3 flex items-center"><i class="fas fa-info-circle mr-2 text-primary"></i> Struktur organisasi per Agustus 2025</p>
+            </section>
+
+            <!-- Leader Profile -->
+            <section id="pimpinan" class="fade-in-section bg-white rounded-xl shadow-md p-6 transition-all duration-300 hover:shadow-lg">
+              <div class="flex items-center mb-5">
+                <div class="bg-red-500 p-2 rounded-lg text-white mr-4">
+                  <i class="fas fa-user-tie text-lg"></i>
+                </div>
+                <h3 class="text-xl md:text-2xl font-bold">Profil Pimpinan</h3>
+              </div>
+              <div class="flex flex-col sm:flex-row items-start gap-5">
+                <div class="relative group w-full sm:w-48 flex-shrink-0">
+                  <img src="/images/foto_pimpinan.png" alt="Foto Pimpinan" class="w-full rounded-xl border-4 border-white shadow-md transition-all duration-300 group-hover:border-accent" />
+                  <div class="absolute -inset-2 rounded-xl border-2 border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                </div>
+                <div class="flex-1">
+                  <h4 class="text-lg sm:text-xl font-bold mb-1">Dr. H. Contoh Nama, M.Si.</h4>
+                  <p class="text-accent font-medium mb-3 text-sm sm:text-base">Kepala Instansi</p>
+
+                  <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Lulusan Terbaik</span>
+                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">20+ Tahun Pengalaman</span>
+                    <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full">5 Penghargaan</span>
+                  </div>
+
+                  <div class="prose prose-sm sm:prose max-w-none text-gray-700">
+                    <p class="mb-3">
+                      Dr. H. Contoh Nama, M.Si. telah memimpin institusi ini sejak tahun 2020. Beliau memiliki visi untuk mentransformasi pelayanan publik menjadi lebih modern, efisien, dan berorientasi pada kepuasan masyarakat.
+                    </p>
+                    <p class="mb-4">Dengan pengalaman lebih dari 20 tahun di bidang pelayanan publik, beliau telah membawa berbagai inovasi dan peningkatan kualitas layanan yang signifikan.</p>
+                    <div class="flex space-x-4 mt-5">
+                      <a href="#" class="text-blue-500 hover:text-blue-700 text-lg">
+                        <i class="fab fa-linkedin-in"></i>
+                      </a>
+                      <a href="#" class="text-gray-700 hover:text-gray-900 text-lg">
+                        <i class="fas fa-globe"></i>
+                      </a>
+                      <a href="#" class="text-blue-400 hover:text-blue-600 text-lg">
+                        <i class="fab fa-twitter"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Call to Action -->
+            <div class="fade-in-section bg-gradient-to-r from-primary to-primary-dark rounded-xl shadow-lg p-6 text-white">
+              <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="mb-4 md:mb-0">
+                  <h3 class="text-xl font-bold mb-2">Siap Memulai Perizinan UMKM Anda?</h3>
+                  <p class="opacity-90">Daftar sekarang dan dapatkan kemudahan dalam mengurus perizinan</p>
+                </div>
+                <button class="bg-white text-primary font-bold px-5 py-2 rounded-lg shadow-md hover:bg-gray-100 transition-colors duration-300 flex items-center whitespace-nowrap"><i class="fas fa-rocket mr-2"></i> Mulai Sekarang</button>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </main>
 
     <!-- Footer -->
     <footer class="bg-secondary text-white pt-10 pb-6">
-        <div class="container mx-auto px-4 sm:px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-                <div>
-                    <div class="flex items-center mb-4">
-                        <img src="/assets/logo.png" alt="Logo Instansi" class="h-10 mr-3">
-                        <h4 class="text-xl font-bold">Izin.<span class="text-accent">In</span></h4>
-                    </div>
-                    <p class="text-gray-300 mb-4 text-sm">Platform resmi untuk memudahkan perizinan UMKM di Indonesia.</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-300 hover:text-white transition-colors duration-300 text-lg">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="text-gray-300 hover:text-white transition-colors duration-300 text-lg">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="text-gray-300 hover:text-white transition-colors duration-300 text-lg">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="text-gray-300 hover:text-white transition-colors duration-300 text-lg">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4 flex items-center">
-                        <i class="fas fa-link mr-2 text-accent"></i> Link Cepat
-                    </h4>
-                    <ul class="space-y-2">
-                        <li><a href="/layanan.html" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center text-sm">
-                            <i class="fas fa-chevron-right text-xs mr-2 text-accent"></i> Layanan
-                        </a></li>
-                        <li><a href="/berita.html" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center text-sm">
-                            <i class="fas fa-chevron-right text-xs mr-2 text-accent"></i> Berita
-                        </a></li>
-                        <li><a href="/pengaduan.html" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center text-sm">
-                            <i class="fas fa-chevron-right text-xs mr-2 text-accent"></i> Pengaduan
-                        </a></li>
-                        <li><a href="/faq.html" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center text-sm">
-                            <i class="fas fa-chevron-right text-xs mr-2 text-accent"></i> FAQ
-                        </a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4 flex items-center">
-                        <i class="fas fa-envelope mr-2 text-accent"></i> Kontak Kami
-                    </h4>
-                    <ul class="space-y-3 text-gray-300 text-sm">
-                        <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-accent"></i>
-                            <span>Jl. Contoh No. 123, Jakarta Pusat, DKI Jakarta</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-phone-alt mt-1 mr-3 text-accent"></i>
-                            <span>(021) 1234567</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-envelope mt-1 mr-3 text-accent"></i>
-                            <span>info@izin.in.go.id</span>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4 flex items-center">
-                        <i class="fas fa-newspaper mr-2 text-accent"></i> Newsletter
-                    </h4>
-                    <p class="text-gray-300 mb-4 text-sm">Berlangganan newsletter untuk mendapatkan update terbaru.</p>
-                    <form class="flex">
-                        <input type="email" placeholder="Email Anda" class="px-3 py-2 rounded-l-lg focus:outline-none text-gray-800 w-full text-sm">
-                        <button type="submit" class="bg-accent hover:bg-amber-600 px-3 py-2 rounded-r-lg transition-colors duration-300 text-sm">
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </form>
-                </div>
+      <div class="container mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          <div>
+            <div class="flex items-center mb-4">
+              <img src="/assets/logo.png" alt="Logo Instansi" class="h-10 mr-3" />
+              <h4 class="text-xl font-bold">Izin.<span class="text-accent">In</span></h4>
             </div>
-            <div class="border-t border-gray-700 pt-6 text-center text-gray-300 text-sm">
-                <p>&copy; 2025 <span class="text-accent">Izin.In</span>. Hak Cipta Dilindungi.</p>
+            <p class="text-gray-300 mb-4 text-sm">Platform resmi untuk memudahkan perizinan UMKM di Indonesia.</p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-300 hover:text-white transition-colors duration-300 text-lg">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="text-gray-300 hover:text-white transition-colors duration-300 text-lg">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="text-gray-300 hover:text-white transition-colors duration-300 text-lg">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" class="text-gray-300 hover:text-white transition-colors duration-300 text-lg">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
             </div>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4 flex items-center"><i class="fas fa-link mr-2 text-accent"></i> Link Cepat</h4>
+            <ul class="space-y-2">
+              <li>
+                <a href="/layanan.html" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center text-sm"> <i class="fas fa-chevron-right text-xs mr-2 text-accent"></i> Layanan </a>
+              </li>
+              <li>
+                <a href="/berita.html" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center text-sm"> <i class="fas fa-chevron-right text-xs mr-2 text-accent"></i> Berita </a>
+              </li>
+              <li>
+                <a href="/pengaduan.html" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center text-sm"> <i class="fas fa-chevron-right text-xs mr-2 text-accent"></i> Pengaduan </a>
+              </li>
+              <li>
+                <a href="/faq.html" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center text-sm"> <i class="fas fa-chevron-right text-xs mr-2 text-accent"></i> FAQ </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4 flex items-center"><i class="fas fa-envelope mr-2 text-accent"></i> Kontak Kami</h4>
+            <ul class="space-y-3 text-gray-300 text-sm">
+              <li class="flex items-start">
+                <i class="fas fa-map-marker-alt mt-1 mr-3 text-accent"></i>
+                <span>Jl. Contoh No. 123, Jakarta Pusat, DKI Jakarta</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-phone-alt mt-1 mr-3 text-accent"></i>
+                <span>(021) 1234567</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-envelope mt-1 mr-3 text-accent"></i>
+                <span>info@izin.in.go.id</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4 flex items-center"><i class="fas fa-newspaper mr-2 text-accent"></i> Newsletter</h4>
+            <p class="text-gray-300 mb-4 text-sm">Berlangganan newsletter untuk mendapatkan update terbaru.</p>
+            <form class="flex">
+              <input type="email" placeholder="Email Anda" class="px-3 py-2 rounded-l-lg focus:outline-none text-gray-800 w-full text-sm" />
+              <button type="submit" class="bg-accent hover:bg-amber-600 px-3 py-2 rounded-r-lg transition-colors duration-300 text-sm">
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
         </div>
+        <div class="border-t border-gray-700 pt-6 text-center text-gray-300 text-sm">
+          <p>&copy; 2025 <span class="text-accent">Izin.In</span>. Hak Cipta Dilindungi.</p>
+        </div>
+      </div>
     </footer>
 
     <!-- Back to Top Button -->
     <button id="back-to-top" class="fixed bottom-6 right-6 bg-primary text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-primary-dark">
-        <i class="fas fa-arrow-up"></i>
+      <i class="fas fa-arrow-up"></i>
     </button>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <script>
-        // Toggle mobile menu
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            mobileMenu.classList.toggle('animate__fadeInDown');
-        });
+      // Toggle mobile menu
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
 
-        // Back to top button
-        const backToTopButton = document.getElementById('back-to-top');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.remove('opacity-0', 'invisible');
-                backToTopButton.classList.add('opacity-100', 'visible');
-            } else {
-                backToTopButton.classList.remove('opacity-100', 'visible');
-                backToTopButton.classList.add('opacity-0', 'invisible');
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+        mobileMenu.classList.toggle("animate__fadeInDown");
+      });
+
+      // Back to top button
+      const backToTopButton = document.getElementById("back-to-top");
+
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) {
+          backToTopButton.classList.remove("opacity-0", "invisible");
+          backToTopButton.classList.add("opacity-100", "visible");
+        } else {
+          backToTopButton.classList.remove("opacity-100", "visible");
+          backToTopButton.classList.add("opacity-0", "invisible");
+        }
+      });
+
+      backToTopButton.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      // Scroll animations
+      const fadeInSections = document.querySelectorAll(".fade-in-section");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("animate__animated", "animate__fadeInUp");
             }
-        });
-        
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+          });
+        },
+        { threshold: 0.1 }
+      );
 
-        // Scroll animations
-        const fadeInSections = document.querySelectorAll('.fade-in-section');
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate__animated', 'animate__fadeInUp');
-                }
-            });
-        }, { threshold: 0.1 });
-        
-        fadeInSections.forEach(section => {
-            observer.observe(section);
-        });
+      fadeInSections.forEach((section) => {
+        observer.observe(section);
+      });
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                }
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
             });
+
+            // Close mobile menu if open
+            if (!mobileMenu.classList.contains("hidden")) {
+              mobileMenu.classList.add("hidden");
+            }
+          }
         });
+      });
     </script>
-</body>
+  </body>
 </html>

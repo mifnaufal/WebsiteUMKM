@@ -180,129 +180,80 @@
         z-index: 20;
         transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
       }
-
-      /* Wave animation improvements */
-      .wave-pattern {
-        animation: wave-move 8s ease-in-out infinite;
-      }
-
-      @keyframes wave-move {
-        0%,
-        100% {
-          transform: translateX(0) translateY(0);
-        }
-        25% {
-          transform: translateX(-10px) translateY(-2px);
-        }
-        50% {
-          transform: translateX(5px) translateY(-1px);
-        }
-        75% {
-          transform: translateX(-5px) translateY(-3px);
-        }
-      }
-
-      .wave-pattern svg {
-        animation: wave-ripple 6s ease-in-out infinite;
-      }
-
-      @keyframes wave-ripple {
-        0%,
-        100% {
-          transform: scale(1);
-          opacity: 0.7;
-        }
-        50% {
-          transform: scale(1.02);
-          opacity: 0.9;
-        }
-      }
     </style>
   </head>
   <body class="bg-gray-50">
     <!-- Header -->
-    <header class="bg-white shadow-md">
-      <div class="container mx-auto px-4 py-6">
+    <header class="bg-white shadow-md sticky top-0 z-40">
+      <div class="container mx-auto px-2 md:px-4 py-2 md:py-3">
         <div class="flex items-center justify-between">
           <div class="flex items-center">
-            <div class="bg-blue-500 text-white p-3 rounded-xl">
-              <i class="fas fa-file-contract text-2xl"></i>
+            <div class="bg-primary text-white w-8 h-8 md:w-10 md:h-10 rounded-lg flex items-center justify-center">
+              <i class="fas fa-file-contract text-lg md:text-xl"></i>
             </div>
-            <div class="ml-4">
-              <h1 class="text-2xl font-bold text-primary">Izin.In</h1>
-              <p class="text-gray-600">Solusi Perizinan UMKM Anda</p>
+            <div class="ml-2 md:ml-3">
+              <h1 class="text-lg md:text-xl font-bold text-primary">Izin.In</h1>
+              <p class="text-xs text-gray-600">Solusi Perizinan UMKM</p>
             </div>
           </div>
 
-          <nav class="hidden md:flex space-x-6">
-            <a href="/" class="nav-link">Beranda</a>
-            <a href="/tentang.html" class="nav-link">Tentang</a>
-            <a href="/layanan.html" class="nav-link font-medium active">Layanan</a>
-            <a href="/berita.html" class="nav-link">Berita</a>
-            <a href="/pengaduan.html" class="nav-link">Pengaduan</a>
-            <a href="/kontak.html" class="nav-link">Kontak</a>
+          <nav class="hidden md:flex space-x-4 lg:space-x-6">
+            <a href="/" class="nav-link font-medium text-sm lg:text-base">Beranda</a>
+            <a href="/tentang.html" class="nav-link text-sm lg:text-base">Tentang</a>
+            <a href="/layanan.html" class="nav-link text-sm lg:text-base">Layanan</a>
+            <a href="/berita.html" class="nav-link text-sm lg:text-base">Berita</a>
+            <a href="/pengaduan.html" class="nav-link text-sm lg:text-base">Pengaduan</a>
+            <a href="/kontak.html" class="nav-link text-sm lg:text-base">Kontak</a>
           </nav>
 
           <!-- Mobile menu button -->
-          <button id="mobileMenuButton" class="md:hidden p-2 rounded-lg" aria-expanded="false" aria-label="Buka menu">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
+          <button id="mobile-menu-button" class="md:hidden hamburger-custom">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
           </button>
         </div>
-
-        <!-- Mobile nav -->
-        <div id="mobileMenu" class="md:hidden hidden mt-4">
-          <div class="px-2 pt-2 pb-3 space-y-1">
-            <a href="/" class="block px-3 py-2 nav-link">Beranda</a>
-            <a href="/tentang.html" class="block px-3 py-2 nav-link">Tentang</a>
-            <a href="/layanan.html" class="block px-3 py-2 nav-link">Layanan</a>
-            <a href="/berita.html" class="block px-3 py-2 nav-link">Berita</a>
-            <a href="/pengaduan.html" class="block px-3 py-2 nav-link">Pengaduan</a>
-            <a href="/kontak.html" class="block px-3 py-2 nav-link">Kontak</a>
-          </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="mobile-menu md:hidden">
+        <div class="flex justify-between items-center border-b">
+          <div class="flex items-center"></div>
+          <button id="close-menu" class="hamburger-simple md:hidden">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
         </div>
+        <nav class="p-4">
+          <div class="flex flex-col space-y-4 md:hidden">
+            <a href="/" class="nav-link text-lg font-medium">Beranda</a>
+            <a href="/tentang.html" class="nav-link text-lg">Tentang</a>
+            <a href="/layanan.html" class="nav-link text-lg">Layanan</a>
+            <a href="/berita.html" class="nav-link text-lg">Berita</a>
+            <a href="/pengaduan.html" class="nav-link text-lg">Pengaduan</a>
+            <a href="/kontak.html" class="nav-link text-lg">Kontak</a>
+          </div>
+        </nav>
       </div>
     </header>
 
     <!-- Hero -->
-    <div class="gradient-bg text-white py-16 relative overflow-hidden">
-      <div class="absolute top-0 left-0 w-full h-full pointer-events-none">
-        <div class="absolute top-20 left-10 w-24 h-24 bg-white rounded-full opacity-8 floating"></div>
-        <div class="absolute top-1/2 right-20 w-16 h-16 bg-white rounded-full opacity-8 floating" style="animation-delay: 1.5s"></div>
-        <div class="absolute bottom-10 left-1/3 w-20 h-20 bg-white rounded-full opacity-8 floating" style="animation-delay: 2.5s"></div>
-      </div>
+    <!-- Hero Section Polos Biru -->
+    <div class="bg-blue-600 text-white py-20">
+      <div class="container mx-auto px-4 text-center">
+        <!-- Judul -->
+        <h2 class="text-5xl font-extrabold mb-4">Layanan Publik</h2>
+        <p class="mb-8 text-lg text-blue-100">Berbagai layanan administratif untuk kebutuhan UMKM — jelas, cepat, dan praktis.</p>
 
-      <div class="container mx-auto px-4 relative z-10">
-        <div class="max-w-4xl mx-auto text-center">
-          <h2 class="text-4xl font-bold mb-4" style="animation: slide-up 0.45s ease-out both">Layanan Publik</h2>
-          <p class="mb-8 text-lg text-blue-100" style="animation: slide-up 0.5s ease-out both; animation-delay: 0.05s">Berbagai layanan administratif untuk kebutuhan UMKM — jelas, cepat, dan praktis.</p>
-
-          <!-- Search (opsional, bisa dihapus) -->
-          <div class="max-w-2xl mx-auto" style="animation: slide-up 0.55s ease-out both; animation-delay: 0.1s">
-            <div class="search-container relative rounded-xl overflow-hidden bg-white">
-              <input id="serviceSearch" type="text" placeholder="Cari layanan..." class="w-full px-6 py-4 rounded-xl text-gray-800 focus:outline-none text-lg" />
-              <button aria-label="Cari" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-lg transition">
-                <i class="fas fa-search"></i>
-              </button>
-            </div>
+        <!-- Search Box -->
+        <div class="max-w-2xl mx-auto">
+          <div class="relative bg-white rounded-xl shadow-lg overflow-hidden">
+            <input id="serviceSearch" type="text" placeholder="Cari layanan..." class="w-full px-6 py-4 text-gray-800 focus:outline-none text-lg" />
+            <button aria-label="Cari" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-blue-500 hover:bg-blue-700 text-white p-3 rounded-lg transition">
+              <i class="fas fa-search"></i>
+            </button>
           </div>
         </div>
-      </div>
-
-      <!-- wave -->
-      <div class="wave-pattern absolute bottom-0 left-0 w-full">
-        <svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" class="fill-current text-gray-50 opacity-70">
-          <path
-            d="M0 0v46.29c47.79 22.2 103.59 32.17 158 28 70.36-5.37 136.33-33.31 206.8-37.5 73.84-4.36 147.54 16.88 218.2 35.26 69.27 18 138.3 24.88 209.4 13.08 36.15-6 69.85-17.84 104.45-29.34C989.49 25 1113-14.29 1200 52.47V0z"
-            opacity=".25"
-          />
-          <path
-            d="M0 0v15.81c13 21.11 27.64 41.05 47.69 56.24C99.41 111.27 165 111 224.58 91.58c31.15-10.15 60.09-26.07 89.67-39.8 40.92-19 84.73-46 130.83-49.67 36.26-2.85 70.9 9.42 98.6 31.56 31.77 25.39 62.32 62 103.63 73 40.44 10.79 81.35-6.69 119.13-24.28s75.16-39 116.92-43.05c59.73-5.85 113.28 22.88 168.9 38.84 30.2 8.66 59 6.17 87.09-7.5 22.43-10.89 48-26.93 60.65-49.24V0z"
-            opacity=".5"
-          />
-          <path d="M0 0v5.63C149.93 59 314.09 71.32 475.83 42.57c43-7.64 84.23-20.12 127.61-26.46 59-8.63 112.48 12.24 165.56 35.4C827.93 77.22 886 95.24 951.2 90c86.53-7 172.46-45.71 248.8-84.81V0z" />
-        </svg>
       </div>
     </div>
 
