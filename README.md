@@ -19,7 +19,7 @@ Izin.In adalah situs web statis yang membantu masyarakat/UMKM mengakses informas
 
 ## Teknologi
 
-- **UI**: HTML5 + Tailwind CSS (via CDN), Font Awesome.
+- **UI**: HTML5 + Tailwind CSS (CDN atau build lokal via npm), Font Awesome.
 - **Interaktivitas**: JavaScript vanilla, modular per halaman.
 - **Data dinamis**: diambil dari berkas JSON statis di folder `data/` (mis. `data/news.json`, `data/services.json`).
 
@@ -42,14 +42,16 @@ WebsiteUMKM/
 ├─ js/
 │  ├─ navbar.js               # memuat navbar.html & toggle menu mobile
 │  ├─ utils.js                # util umum: getUrlParam, formatDate, fetchData, setupForm
-│  ├─ news.js                 # daftar & detail berita dari data/news.json
+│  ├─ news.js                 # daftar berita dari data/news.json
+│  ├─ news-detail.js          # halaman detail berita
 │  ├─ services.js             # render & pencarian layanan dari data/services.json
 │  └─ isiPengaduan.js         # kirim pengaduan ke WhatsApp dan redirect
 ├─ images/
 │  └─ ...                     # aset gambar (mis. foto pimpinan)
 └─ data/
-   ├─ news.json               # (buat file ini) sumber data berita
-   └─ services.json           # (buat file ini) sumber data layanan
+   ├─ news.json               # sumber data berita
+   ├─ services.json           # sumber data layanan
+   └─ pengaduan.json          # contoh struktur data pengaduan (opsional)
 ```
 
 ## Menjalankan Secara Lokal
@@ -75,12 +77,16 @@ Situs ini bersifat statis. Jalankan di server statis agar fetch JSON berfungsi.
 Sebagian halaman menggunakan CDN Tailwind. Jika ingin memakai berkas CSS lokal (`/css/output.css`):
 
 1. Pastikan `node` terpasang.
-2. Jalankan build satu kali:
+2. Build satu kali:
    ```bash
+   npm run build
+   # atau
    npx tailwindcss -i ./css/input.css -o ./css/output.css --minify
    ```
 3. Mode pengembangan (watch):
    ```bash
+   npm run watch
+   # atau
    npx tailwindcss -i ./css/input.css -o ./css/output.css --watch
    ```
 
@@ -88,7 +94,7 @@ Catatan: pastikan konfigurasi kelas utilitas yang dipakai ada dalam HTML agar ti
 
 ## Data Dinamis (Berita & Layanan)
 
-Buat folder `data/` di root dan tambahkan 2 berkas berikut.
+Data berada di folder `data/`.
 
 - `data/news.json`
 
@@ -148,4 +154,4 @@ Buat folder `data/` di root dan tambahkan 2 berkas berikut.
 
 ## Lisensi
 
-Gunakan untuk keperluan pembelajaran/demonstrasi internal. Sesuaikan lisensi sesuai kebutuhan organisasi Anda.
+Proyek ini berlisensi MIT — lihat berkas `LICENSE` untuk detailnya.
