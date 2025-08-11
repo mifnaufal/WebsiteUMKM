@@ -14,6 +14,8 @@
             colors: {
               primary: "#1d4ed8",
               secondary: "#0f172a",
+              primary: "#1d4ed8",
+              secondary: "#0f172a",
             },
           },
         },
@@ -46,10 +48,61 @@
       }
     </style>
   </head>
-  <body class="bg-gray-50 font-sans">
-    <div id="navbar-container"></div>
+  <body class="bg-gray-50">
     <!-- Navbar -->
-    <div id="navbar-container"></div>
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-40">
+      <div class="container mx-auto px-2 md:px-4 py-2 md:py-3">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <div class="bg-primary text-white w-8 h-8 md:w-10 md:h-10 rounded-lg flex items-center justify-center">
+              <i class="fas fa-file-contract text-lg md:text-xl"></i>
+            </div>
+            <div class="ml-2 md:ml-3">
+              <h1 class="text-lg md:text-xl font-bold text-primary">Izin.In</h1>
+              <p class="text-xs text-gray-600">Solusi Perizinan UMKM</p>
+            </div>
+          </div>
+
+          <nav class="hidden md:flex space-x-4 lg:space-x-6">
+            <a href="/" class="nav-link font-medium text-sm lg:text-base">Beranda</a>
+            <a href="/tentang.html" class="nav-link text-sm lg:text-base">Tentang</a>
+            <a href="/layanan.html" class="nav-link text-sm lg:text-base">Layanan</a>
+            <a href="/berita.html" class="nav-link text-sm lg:text-base">Berita</a>
+            <a href="/pengaduan.html" class="nav-link text-sm lg:text-base">Pengaduan</a>
+            <a href="/kontak.html" class="nav-link text-sm lg:text-base">Kontak</a>
+          </nav>
+
+          <!-- Mobile menu button -->
+          <button id="mobile-menu-button" class="md:hidden hamburger-custom">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="mobile-menu md:hidden">
+        <div class="flex justify-between items-center border-b">
+          <div class="flex items-center"></div>
+          <button id="close-menu" class="hamburger-simple md:hidden">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
+        <nav class="p-4">
+          <div class="flex flex-col space-y-4 md:hidden">
+            <a href="/" class="nav-link text-lg font-medium">Beranda</a>
+            <a href="/tentang.html" class="nav-link text-lg">Tentang</a>
+            <a href="/layanan.html" class="nav-link text-lg">Layanan</a>
+            <a href="/berita.html" class="nav-link text-lg">Berita</a>
+            <a href="/pengaduan.html" class="nav-link text-lg">Pengaduan</a>
+            <a href="/kontak.html" class="nav-link text-lg">Kontak</a>
+          </div>
+        </nav>
+      </div>
+    </header>
 
     <!-- Hero -->
     <div class="bg-blue-600 text-white py-20">
@@ -129,44 +182,128 @@
     <!-- Footer -->
     <footer class="bg-secondary text-white pt-16 pb-8">
       <div class="container mx-auto px-4">
-        <p class="text-center text-gray-400">&copy; 2024 Izin.In. Semua hak dilindungi.</p>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Izin.In</h4>
+            <p class="text-gray-300 mb-4">Platform resmi untuk memudahkan perizinan UMKM di Indonesia dengan pelayanan cepat dan transparan.</p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-300 hover:text-white">
+                <i class="fab fa-facebook text-xl"></i>
+              </a>
+              <a href="#" class="text-gray-300 hover:text-white">
+                <i class="fab fa-twitter text-xl"></i>
+              </a>
+              <a href="#" class="text-gray-300 hover:text-white">
+                <i class="fab fa-instagram text-xl"></i>
+              </a>
+              <a href="#" class="text-gray-300 hover:text-white">
+                <i class="fab fa-youtube text-xl"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Layanan</h4>
+            <ul class="space-y-2">
+              <li><a href="#" class="text-gray-300 hover:text-white">Izin Usaha UMKM</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-white">Izin Usaha Kuliner</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-white">Izin Usaha Manufaktur</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-white">Perpanjangan Izin Usaha</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-white">Cek Status Perizinan</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Tautan</h4>
+            <ul class="space-y-2">
+              <li><a href="/" class="text-gray-300 hover:text-white">Beranda</a></li>
+              <li><a href="/tentang.html" class="text-gray-300 hover:text-white">Tentang Kami</a></li>
+              <li><a href="/berita.html" class="text-gray-300 hover:text-white">Berita</a></li>
+              <li><a href="/pengaduan.html" class="text-gray-300 hover:text-white">Pengaduan</a></li>
+              <li><a href="/kontak.html" class="text-gray-300 hover:text-white">Kontak</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Kontak</h4>
+            <ul class="space-y-3 text-gray-300">
+              <li class="flex items-start">
+                <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
+                <span>Tambak, Berjo, Kec. Ngargoyoso, Kab. Karanganyar 57793 Karanganyar Central Java</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-phone-alt mr-3"></i>
+                <span>+62 856-4178-3101</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-envelope mr-3"></i>
+                <span>naufalhhdd@gmail.com</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fab fa-whatsapp mr-3"></i>
+                <span>+62 856-4178-3101</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-400">
+          <p>&copy; 2025 Izin.In. Hak Cipta Dilind ungi.</p>
+          <div class="mt-2 flex justify-center space-x-6 text-sm">
+            <a href="#" class="hover:text-white">Kebijakan Privasi</a>
+            <a href="#" class="hover:text-white">Syarat & Ketentuan</a>
+            <a href="#" class="hover:text-white">Peta Situs</a>
+          </div>
+        </div>
       </div>
     </footer>
 
     <script src="js/navbar.js"></script>
+    <script src="js/navbar.js"></script>
     <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const servicesContainer = document.getElementById('servicesContainer');
-        const serviceCards = Array.from(servicesContainer.querySelectorAll('.service-card'));
-        const searchInput = document.getElementById('serviceSearch');
+      document.addEventListener("DOMContentLoaded", () => {
+        // Service card accordion
+        const cards = document.querySelectorAll(".service-card");
+        const toggleButtons = document.querySelectorAll(".toggle-details");
 
-        // Card expansion logic
-        servicesContainer.addEventListener('click', (e) => {
-          const cardHeader = e.target.closest('.toggle-details');
-          if (cardHeader) {
-            // Toggle semua card sekaligus
-            const allActive = serviceCards.every(card => card.classList.contains('active'));
-            serviceCards.forEach(card => {
-              if (allActive) {
-                card.classList.remove('active');
-                card.querySelector('.toggle-details i').classList.remove('rotated');
-              } else {
-                card.classList.add('active');
-                card.querySelector('.toggle-details i').classList.add('rotated');
+        toggleButtons.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const card = btn.closest(".service-card");
+            const isCurrentlyActive = card.classList.contains("active");
+
+            // Close all other cards first
+            cards.forEach((otherCard) => {
+              if (otherCard !== card) {
+                otherCard.classList.remove("active");
+                const otherBtn = otherCard.querySelector(".toggle-details");
+                const otherIcon = otherBtn.querySelector("i");
+                if (otherIcon) otherIcon.classList.remove("rotated");
+                otherBtn.setAttribute("aria-expanded", "false");
               }
             });
-          }
+
+            // Toggle current card
+            card.classList.toggle("active");
+
+            // toggle rotation of chevron icon
+            const icon = btn.querySelector("i");
+            if (icon) icon.classList.toggle("rotated");
+
+            // accessibility aria-expanded
+            const expanded = btn.getAttribute("aria-expanded") === "true";
+            btn.setAttribute("aria-expanded", String(!expanded));
+          });
         });
 
-        // Search functionality
-        searchInput.addEventListener('input', () => {
-          const searchTerm = searchInput.value.toLowerCase().trim();
+        // Service search functionality
+        const searchInput = document.getElementById("serviceSearch");
+        const servicesContainer = document.getElementById("servicesContainer");
+        const serviceCards = Array.from(servicesContainer.querySelectorAll(".service-card"));
 
-          serviceCards.forEach(card => {
-            const title = card.querySelector('h3').textContent.toLowerCase();
-            const description = card.querySelector('p').textContent.toLowerCase();
-            const isVisible = title.includes(searchTerm) || description.includes(searchTerm);
-            card.style.display = isVisible ? 'flex' : 'none';
+        searchInput.addEventListener("input", (e) => {
+          const query = e.target.value.toLowerCase().trim();
+
+          serviceCards.forEach((card) => {
+            const title = card.querySelector("h3").textContent.toLowerCase();
+            const description = card.querySelector("p").textContent.toLowerCase();
+            const isVisible = title.includes(query) || description.includes(query);
+            card.style.display = isVisible ? "" : "none";
           });
         });
       });
