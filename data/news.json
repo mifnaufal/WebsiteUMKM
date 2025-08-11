@@ -2,31 +2,66 @@
   "news": [
     {
       "id": 1,
-      "title": "Pengumuman Penerimaan CPNS 2025",
-      "date": "2025-08-01",
-      "summary": "Pemerintah membuka kesempatan bagi putra-putri terbaik bangsa untuk bergabung sebagai Calon Pegawai Negeri Sipil tahun 2025.",
-      "content": "Pemerintah Republik Indonesia melalui Kementerian Pendayagunaan Aparatur Negara dan Reformasi Birokrasi (PANRB) membuka kesempatan bagi Warga Negara Indonesia untuk menjadi Calon Pegawai Negeri Sipil (CPNS) di lingkungan pemerintahan.\n\nPersyaratan Umum:\n- Warga Negara Indonesia\n- Usia minimal 18 tahun dan maksimal 35 tahun\n- Tidak pernah dihukum penjara\n- Tidak pernah diberhentikan dengan hormat\n- Sehat jasmani dan rohani\n\nInformasi lebih lanjut dapat dilihat di website resmi SSCN BKN."
+      "title": "Peluncuran Sistem Perizinan Online Terbaru untuk UMKM",
+      "date": "2025-08-15",
+      "category": "HIGHLIGHT",
+      "summary": "Pemerintah meluncurkan platform perizinan online terbaru yang memudahkan pelaku UMKM dalam mengurus berbagai perizinan usaha secara efisien dan transparan.",
+      "image": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop",
+      "content": "Pemerintah meluncurkan platform perizinan online terbaru yang memudahkan pelaku UMKM dalam mengurus berbagai perizinan usaha secara efisien dan transparan. Sistem baru ini dilengkapi dengan fitur-fitur modern untuk mempercepat proses perizinan."
     },
     {
       "id": 2,
-      "title": "Program Bantuan UMKM 2025",
-      "date": "2025-07-28",
-      "summary": "Pemerintah meluncurkan program bantuan bagi pelaku UMKM untuk pemulihan ekonomi pasca pandemi.",
-      "content": "Dalam rangka mendukung pemulihan ekonomi nasional, pemerintah meluncurkan program bantuan bagi pelaku Usaha Mikro, Kecil, dan Menengah (UMKM). Program ini mencakup bantuan modal usaha, pelatihan digital marketing, dan pendampingan usaha.\n\nBentuk Bantuan:\n1. Modal usaha hingga Rp 10 juta\n2. Pelatihan digital marketing\n3. Pendampingan usaha selama 6 bulan\n4. Akses ke marketplace digital\n\nPendaftaran dapat dilakukan melalui website resmi Kementerian Koperasi dan UKM."
+      "title": "Jadwal Libur Nasional Bulan September 2025",
+      "date": "2025-08-10"  ,
+      "category": "PENGUMUMAN",
+      "summary": "Berikut jadwal libur nasional bulan September 2025 yang perlu diperhatikan dalam pengurusan perizinan.",
+      "image": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop",
+      "content": "Berikut adalah jadwal libur nasional untuk bulan September 2025. Harap diperhatikan bahwa pada tanggal-tanggal tersebut, layanan kantor kami akan tutup. Pastikan untuk merencanakan pengurusan perizinan Anda di luar tanggal-tanggal ini."
     },
     {
       "id": 3,
-      "title": "Renovasi Gedung Pelayanan Publik",
-      "date": "2025-07-25",
-      "summary": "Gedung pelayanan publik akan direnovasi untuk meningkatkan kenyamanan masyarakat.",
-      "content": "Dalam upaya meningkatkan kualitas pelayanan publik, gedung utama akan menjalani renovasi menyeluruh. Renovasi ini bertujuan untuk memberikan kenyamanan lebih bagi masyarakat saat mengurus berbagai keperluan administratif.\n\nSelama masa renovasi, pelayanan akan dipindahkan ke gedung sementara di Jalan Merdeka No. 10. Renovasi diperkirakan akan berlangsung selama 3 bulan."
+      "title": "Panduan Lengkap Perpanjangan Izin Usaha Mikro",
+      "date": "2025-08-05",
+      "category": "PERIZINAN",
+      "summary": "Simak panduan lengkap untuk perpanjangan izin usaha mikro dengan prosedur yang lebih sederhana dan cepat.",
+      "image": "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop",
+      "content": "Proses perpanjangan izin usaha mikro kini lebih mudah. Ikuti panduan langkah demi langkah kami untuk memastikan izin usaha Anda tetap valid tanpa kendala. Dokumen yang diperlukan telah disederhanakan untuk kemudahan Anda."
     },
     {
       "id": 4,
-      "title": "Bendera OnePice Meresahkan",
-      "date": "2026-09-90",
-      "summary": "Apa Makna Bendera One Piece? Ini Arti dan Asal-usulnya di Anime",
-      "content": "Dalam upaya meningkatkan kualitas pelayanan publik, gedung utama akan menjalani renovasi menyeluruh. Renovasi ini bertujuan untuk memberikan kenyamanan lebih bagi masyarakat saat mengurus berbagai keperluan administratif.\n\nSelama masa renovasi, pelayanan akan dipindahkan ke gedung sementara di Jalan Merdeka No. 10. Renovasi diperkirakan akan berlangsung selama 3 bulan."
+      "title": "Pelatihan Gratis Kewirausahaan untuk Pemula",
+      "date": "2025-08-01",
+      "category": "KEGIATAN",
+      "summary": "Dinas Perizinan menyelenggarakan pelatihan kewirausahaan gratis bagi pemula yang ingin memulai usaha.",
+      "image": "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop",
+      "content": "Jangan lewatkan kesempatan untuk mengikuti pelatihan kewirausahaan gratis yang diselenggarakan oleh Dinas Perizinan. Acara ini terbuka untuk semua calon pengusaha yang ingin mendapatkan bekal pengetahuan untuk memulai bisnis mereka."
+    },
+    {
+      "id": 5,
+      "title": "Perubahan Regulasi Perizinan Usaha Skala Kecil",
+      "date": "2025-07-28",
+      "category": "REGULASI",
+      "summary": "Pemerintah mengeluarkan perubahan regulasi terbaru untuk perizinan usaha skala kecil yang berlaku mulai September 2025.",
+      "image": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop",
+      "content": "Pemerintah telah mengumumkan beberapa perubahan penting terkait regulasi perizinan untuk usaha skala kecil. Perubahan ini akan mulai berlaku pada bulan September 2025. Pastikan Anda memahami aturan baru ini untuk menjaga kepatuhan usaha Anda."
+    },
+    {
+      "id": 6,
+      "title": "Perubahan Regulasi Perizinan Usaha Skala Kecil",
+      "date": "2025-07-28",
+      "category": "REGULASI",
+      "summary": "Pemerintah mengeluarkan perubahan regulasi terbaru untuk perizinan usaha skala kecil yang berlaku mulai September 2025.",
+      "image": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop",
+      "content": "Pemerintah telah mengumumkan beberapa perubahan penting terkait regulasi perizinan untuk usaha skala kecil. Perubahan ini akan mulai berlaku pada bulan September 2025. Pastikan Anda memahami aturan baru ini untuk menjaga kepatuhan usaha Anda."
+    },
+    {
+      "id": 7,
+      "title": "Perubahan Regulasi Perizinan Usaha Skala Kecil",
+      "date": "2025-07-28",
+      "category": "REGULASI",
+      "summary": "Pemerintah mengeluarkan perubahan regulasi terbaru untuk perizinan usaha skala kecil yang berlaku mulai September 2025.",
+      "image": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop",
+      "content": "Pemerintah telah mengumumkan beberapa perubahan penting terkait regulasi perizinan untuk usaha skala kecil. Perubahan ini akan mulai berlaku pada bulan September 2025. Pastikan Anda memahami aturan baru ini untuk menjaga kepatuhan usaha Anda."
     }
   ]
 }

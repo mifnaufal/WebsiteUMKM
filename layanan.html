@@ -14,6 +14,8 @@
             colors: {
               primary: "#1d4ed8",
               secondary: "#0f172a",
+              primary: "#1d4ed8",
+              secondary: "#0f172a",
             },
           },
         },
@@ -21,153 +23,28 @@
     </script>
 
     <style>
-      /* Hero gradient */
-      .gradient-bg {
-        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-        position: relative;
-        overflow: hidden;
-      }
-      .gradient-bg::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.14) 0%, transparent 40%);
-        pointer-events: none;
-      }
-
-      /* Card */
       .service-card {
         transition: all 0.28s ease;
         transform: translateY(0);
         box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
-        border-radius: 16px;
-        overflow: hidden;
-        background: #fff;
-        display: flex;
-        flex-direction: column;
-        opacity: 0;
-        animation: fade-in 450ms ease-out forwards;
-        position: relative;
-        /* allow card to expand naturally */
       }
-      /* allow setting delay via inline style --delay */
-      .service-card {
-        animation-delay: var(--delay, 0s);
-      }
-
       .service-card:hover {
         transform: translateY(-6px);
         box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08);
       }
-
-      /* Active card moves down */
-      .service-card.active {
-        z-index: 1;
-      }
-
-      /* Details collapse */
       .service-details {
-        position: relative;
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-        opacity: 0;
-        transform: translateY(-6px);
-        border-top: 1px solid #f3f4f6;
-        background: #fff;
       }
       .service-card.active .service-details {
         max-height: 900px;
-        opacity: 1;
-        transform: translateY(0);
-        transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, transform 0.3s ease;
       }
-
-      /* rotate icon */
       .toggle-details i {
         transition: transform 0.25s ease;
-        display: inline-block;
       }
       .toggle-details i.rotated {
         transform: rotate(180deg);
-      }
-
-      /* Small decorative floating circles */
-      .floating {
-        animation: float 6s ease-in-out infinite;
-      }
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-10px);
-        }
-      }
-
-      /* Keyframes for cards and slide up */
-      @keyframes fade-in {
-        0% {
-          opacity: 0;
-          transform: translateY(10px);
-        }
-        100% {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      @keyframes slide-up {
-        0% {
-          transform: translateY(20px);
-          opacity: 0;
-        }
-        100% {
-          transform: translateY(0);
-          opacity: 1;
-        }
-      }
-
-      /* Process timeline line fix */
-      .process-step {
-        position: relative;
-        padding-left: 36px;
-      }
-      .process-step::before {
-        content: "";
-        position: absolute;
-        top: 26px;
-        left: 10px;
-        width: 2px;
-        height: calc(100% + 8px);
-        background: #dbeafe;
-        z-index: -1;
-      }
-      .process-step:last-child::before {
-        display: none;
-      }
-
-      /* Responsive small fixes */
-      .search-container {
-        position: relative;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.06);
-      }
-      .search-container:focus-within {
-        box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.35);
-      }
-
-      /* Services container adjustments */
-      #servicesContainer {
-        transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-        align-items: start;
-      }
-
-      /* Active card moves down */
-      .service-card.active {
-        transform: translateY(0);
-        margin-bottom: 300px;
-        z-index: 20;
-        transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
       }
     </style>
   </head>
@@ -228,14 +105,10 @@
     </header>
 
     <!-- Hero -->
-    <!-- Hero Section Polos Biru -->
     <div class="bg-blue-600 text-white py-20">
       <div class="container mx-auto px-4 text-center">
-        <!-- Judul -->
         <h2 class="text-5xl font-extrabold mb-4">Layanan Publik</h2>
         <p class="mb-8 text-lg text-blue-100">Berbagai layanan administratif untuk kebutuhan UMKM — jelas, cepat, dan praktis.</p>
-
-        <!-- Search Box -->
         <div class="max-w-2xl mx-auto">
           <div class="relative bg-white rounded-xl shadow-lg overflow-hidden">
             <input id="serviceSearch" type="text" placeholder="Cari layanan..." class="w-full px-6 py-4 text-gray-800 focus:outline-none text-lg" />
@@ -247,183 +120,58 @@
       </div>
     </div>
 
-    <!-- Main content: single page with cards (no category filter) -->
+    <!-- Main content -->
     <main class="py-12">
       <div class="container mx-auto px-4">
         <div id="servicesContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Card 1 -->
-          <article class="service-card" style="--delay: 0.1s">
-            <div class="p-6 flex-1">
-              <div class="flex items-center">
-                <div class="service-icon bg-blue-500 text-white rounded-lg p-3">
-                  <i class="fas fa-store text-2xl"></i>
-                </div>
-                <span class="ml-auto px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">Perizinan</span>
-              </div>
-              <h3 class="text-xl font-bold text-gray-800 mb-3 mt-4">Perizinan Usaha Baru</h3>
-              <p class="text-gray-600 mb-4">Pendaftaran usaha baru untuk UMKM dengan proses cepat dan mudah.</p>
-
-              <div class="flex items-center text-sm text-gray-500 mb-4">
-                <i class="fas fa-clock mr-2"></i>
-                <span>Estimasi waktu: 3-5 hari kerja</span>
-              </div>
-
-              <button class="toggle-details text-primary font-medium hover:text-blue-700 transition flex items-center w-full justify-between py-3" aria-expanded="false">
+          <article class="service-card bg-white rounded-lg overflow-hidden">
+            <div class="p-6 flex-1 flex flex-col">
+              <h3 class="text-xl font-bold text-gray-800 mb-3">Perizinan Usaha Baru</h3>
+              <p class="text-gray-600 mb-4 flex-grow">Pendaftaran usaha baru untuk UMKM dengan proses cepat dan mudah.</p>
+              <button class="toggle-details text-primary font-medium hover:text-blue-700 transition flex items-center justify-between w-full py-2 mt-auto" aria-expanded="false">
                 <span>Lihat Detail</span>
                 <i class="fas fa-chevron-down ml-2 text-sm"></i>
               </button>
-
               <div class="service-details">
-                <div class="p-6">
+                <div class="p-6 border-t mt-4">
                   <h4 class="font-semibold text-gray-700 mb-2">Persyaratan:</h4>
-                  <ul class="mb-4 space-y-2">
-                    <li class="requirement-item flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i><span>Fotokopi KTP pemilik usaha</span></li>
-                    <li class="requirement-item flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i><span>Surat keterangan domisili usaha</span></li>
-                    <li class="requirement-item flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i><span>Pas foto 3x4 (2 lembar)</span></li>
-                  </ul>
-
-                  <h4 class="font-semibold text-gray-700 mb-2">Proses:</h4>
-                  <ol class="space-y-4">
-                    <li class="process-step">
-                      <div class="w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center absolute left-0 top-0">1</div>
-                      <p class="ml-2">Pengisian formulir pendaftaran online</p>
-                    </li>
-                    <li class="process-step">
-                      <div class="w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center absolute left-0 top-0">2</div>
-                      <p class="ml-2">Verifikasi dokumen oleh petugas</p>
-                    </li>
-                    <li class="process-step">
-                      <div class="w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center absolute left-0 top-0">3</div>
-                      <p class="ml-2">Pembayaran biaya perizinan</p>
-                    </li>
-                    <li class="process-step">
-                      <div class="w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center absolute left-0 top-0">4</div>
-                      <p class="ml-2">Penerbitan izin usaha</p>
-                    </li>
-                  </ol>
+                  <ul class="list-disc list-inside text-gray-600"><li>Fotokopi KTP</li><li>Surat domisili</li></ul>
                 </div>
               </div>
             </div>
-
-            <div class="mt-auto">
-              <div class="bg-gray-50 border-t border-gray-100 p-4 flex justify-between items-center">
-                <span class="text-sm text-gray-500">Biaya: Rp 250.000</span>
-                <button class="bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm transition">Ajukan Sekarang</button>
-              </div>
-            </div>
           </article>
-
           <!-- Card 2 -->
-          <article class="service-card" style="--delay: 0.18s">
-            <div class="p-6 flex-1">
-              <div class="flex items-center">
-                <div class="service-icon bg-green-500 text-white rounded-lg p-3"><i class="fas fa-sync-alt text-2xl"></i></div>
-                <span class="ml-auto px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">Perizinan</span>
-              </div>
-              <h3 class="text-xl font-bold text-gray-800 mb-3 mt-4">Perpanjangan Izin Usaha</h3>
-              <p class="text-gray-600 mb-4">Layanan perpanjangan izin usaha yang akan segera habis masa berlakunya.</p>
-
-              <div class="flex items-center text-sm text-gray-500 mb-4"><i class="fas fa-clock mr-2"></i><span>Estimasi waktu: 2-4 hari kerja</span></div>
-
-              <button class="toggle-details text-primary font-medium hover:text-blue-700 transition flex items-center w-full justify-between py-3" aria-expanded="false">
+          <article class="service-card bg-white rounded-lg overflow-hidden">
+            <div class="p-6 flex-1 flex flex-col">
+              <h3 class="text-xl font-bold text-gray-800 mb-3">Perpanjangan Izin Usaha</h3>
+              <p class="text-gray-600 mb-4 flex-grow">Layanan perpanjangan izin usaha yang akan segera habis masa berlakunya.</p>
+              <button class="toggle-details text-primary font-medium hover:text-blue-700 transition flex items-center justify-between w-full py-2 mt-auto" aria-expanded="false">
                 <span>Lihat Detail</span>
                 <i class="fas fa-chevron-down ml-2 text-sm"></i>
               </button>
-
               <div class="service-details">
-                <div class="p-6">
+                <div class="p-6 border-t mt-4">
                   <h4 class="font-semibold text-gray-700 mb-2">Persyaratan:</h4>
-                  <ul class="mb-4 space-y-2">
-                    <li class="requirement-item flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i><span>Fotokopi izin usaha sebelumnya</span></li>
-                    <li class="requirement-item flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i><span>Laporan kegiatan usaha terakhir</span></li>
-                    <li class="requirement-item flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i><span>Fotokopi KTP pemilik usaha</span></li>
-                  </ul>
-
-                  <h4 class="font-semibold text-gray-700 mb-2">Proses:</h4>
-                  <ol class="space-y-4">
-                    <li class="process-step">
-                      <div class="w-6 h-6 rounded-full bg-green-500 text-white flex items-center justify-center absolute left-0 top-0">1</div>
-                      <p class="ml-2">Pengajuan permohonan perpanjangan</p>
-                    </li>
-                    <li class="process-step">
-                      <div class="w-6 h-6 rounded-full bg-green-500 text-white flex items-center justify-center absolute left-0 top-0">2</div>
-                      <p class="ml-2">Verifikasi kelengkapan dokumen</p>
-                    </li>
-                    <li class="process-step">
-                      <div class="w-6 h-6 rounded-full bg-green-500 text-white flex items-center justify-center absolute left-0 top-0">3</div>
-                      <p class="ml-2">Pembayaran biaya perpanjangan</p>
-                    </li>
-                    <li class="process-step">
-                      <div class="w-6 h-6 rounded-full bg-green-500 text-white flex items-center justify-center absolute left-0 top-0">4</div>
-                      <p class="ml-2">Penerbitan izin usaha baru</p>
-                    </li>
-                  </ol>
+                  <ul class="list-disc list-inside text-gray-600"><li>Izin usaha lama</li><li>Laporan kegiatan</li></ul>
                 </div>
-              </div>
-            </div>
-
-            <div class="mt-auto">
-              <div class="bg-gray-50 border-t border-gray-100 p-4 flex justify-between items-center">
-                <span class="text-sm text-gray-500">Biaya: Rp 150.000</span>
-                <button class="bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm transition">Ajukan Sekarang</button>
               </div>
             </div>
           </article>
-
           <!-- Card 3 -->
-          <article class="service-card" style="--delay: 0.26s">
-            <div class="p-6 flex-1">
-              <div class="flex items-center">
-                <div class="service-icon bg-purple-500 text-white rounded-lg p-3"><i class="fas fa-trademark text-2xl"></i></div>
-                <span class="ml-auto px-3 py-1 bg-purple-100 text-purple-800 text-sm font-medium rounded-full">Legal</span>
-              </div>
-              <h3 class="text-xl font-bold text-gray-800 mb-3 mt-4">Pendaftaran Merek Dagang</h3>
-              <p class="text-gray-600 mb-4">Layanan pendaftaran merek dagang untuk melindungi usaha Anda.</p>
-
-              <div class="flex items-center text-sm text-gray-500 mb-4"><i class="fas fa-clock mr-2"></i><span>Estimasi waktu: 14-30 hari kerja</span></div>
-
-              <button class="toggle-details text-primary font-medium hover:text-blue-700 transition flex items-center w-full justify-between py-3" aria-expanded="false">
+          <article class="service-card bg-white rounded-lg overflow-hidden">
+            <div class="p-6 flex-1 flex flex-col">
+              <h3 class="text-xl font-bold text-gray-800 mb-3">Pendaftaran Merek Dagang</h3>
+              <p class="text-gray-600 mb-4 flex-grow">Layanan pendaftaran merek dagang untuk melindungi usaha Anda.</p>
+              <button class="toggle-details text-primary font-medium hover:text-blue-700 transition flex items-center justify-between w-full py-2 mt-auto" aria-expanded="false">
                 <span>Lihat Detail</span>
                 <i class="fas fa-chevron-down ml-2 text-sm"></i>
               </button>
-
               <div class="service-details">
-                <div class="p-6">
+                <div class="p-6 border-t mt-4">
                   <h4 class="font-semibold text-gray-700 mb-2">Persyaratan:</h4>
-                  <ul class="mb-4 space-y-2">
-                    <li class="requirement-item flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i><span>Contoh logo merek dagang</span></li>
-                    <li class="requirement-item flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i><span>Surat pernyataan kepemilikan merek</span></li>
-                    <li class="requirement-item flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i><span>Fotokopi KTP pemilik merek</span></li>
-                    <li class="requirement-item flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i><span>Surat kuasa jika diwakilkan</span></li>
-                  </ul>
-
-                  <h4 class="font-semibold text-gray-700 mb-2">Proses:</h4>
-                  <ol class="space-y-4">
-                    <li class="process-step">
-                      <div class="w-6 h-6 rounded-full bg-purple-500 text-white flex items-center justify-center absolute left-0 top-0">1</div>
-                      <p class="ml-2">Pemeriksaan kelayakan merek</p>
-                    </li>
-                    <li class="process-step">
-                      <div class="w-6 h-6 rounded-full bg-purple-500 text-white flex items-center justify-center absolute left-0 top-0">2</div>
-                      <p class="ml-2">Pengajuan permohonan pendaftaran</p>
-                    </li>
-                    <li class="process-step">
-                      <div class="w-6 h-6 rounded-full bg-purple-500 text-white flex items-center justify-center absolute left-0 top-0">3</div>
-                      <p class="ml-2">Pembayaran biaya pendaftaran</p>
-                    </li>
-                    <li class="process-step">
-                      <div class="w-6 h-6 rounded-full bg-purple-500 text-white flex items-center justify-center absolute left-0 top-0">4</div>
-                      <p class="ml-2">Penerbitan sertifikat merek dagang</p>
-                    </li>
-                  </ol>
+                  <ul class="list-disc list-inside text-gray-600"><li>Logo merek</li><li>Surat pernyataan</li></ul>
                 </div>
-              </div>
-            </div>
-
-            <div class="mt-auto">
-              <div class="bg-gray-50 border-t border-gray-100 p-4 flex justify-between items-center">
-                <span class="text-sm text-gray-500">Biaya: Rp 1.750.000</span>
-                <button class="bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm transition">Ajukan Sekarang</button>
               </div>
             </div>
           </article>
@@ -507,6 +255,7 @@
     </footer>
 
     <script src="js/navbar.js"></script>
+    <script src="js/navbar.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         // Service card accordion
@@ -559,5 +308,6 @@
         });
       });
     </script>
+      <script src="/js/navbar.js"></script>
   </body>
 </html>

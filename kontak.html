@@ -1,315 +1,221 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kontak Kami - Izin.In</title>
-    <link href="/css/output.css" rel="stylesheet">
-</head>
-<body class="bg-gray-100">
-    <!-- Header (same as other pages) -->
-    <header class="bg-white shadow-md sticky top-0 z-40">
-        <div class="container mx-auto px-2 md:px-4 py-2 md:py-3">
-          <div class="flex items-center justify-between">
-            <div class="flex items-center">
-              <div class="bg-primary text-white w-8 h-8 md:w-10 md:h-10 rounded-lg flex items-center justify-center">
-                <i class="fas fa-file-contract text-lg md:text-xl"></i>
-              </div>
-              <div class="ml-2 md:ml-3">
-                <h1 class="text-lg md:text-xl font-bold text-primary">Izin.In</h1>
-                <p class="text-xs text-gray-600">Solusi Perizinan UMKM</p>
-              </div>
-            </div>
-  
-            <nav class="hidden md:flex space-x-4 lg:space-x-6">
-              <a href="/" class="nav-link font-medium text-sm lg:text-base">Beranda</a>
-              <a href="/tentang.html" class="nav-link text-sm lg:text-base">Tentang</a>
-              <a href="/layanan.html" class="nav-link text-sm lg:text-base">Layanan</a>
-              <a href="/berita.html" class="nav-link text-sm lg:text-base">Berita</a>
-              <a href="/pengaduan.html" class="nav-link text-sm lg:text-base">Pengaduan</a>
-              <a href="/kontak.html" class="nav-link text-sm lg:text-base">Kontak</a>
-            </nav>
-  
-            <!-- Mobile menu button -->
-            <button id="mobile-menu-button" class="md:hidden hamburger-custom">
-              <span class="hamburger-bar"></span>
-              <span class="hamburger-bar"></span>
-              <span class="hamburger-bar"></span>
-            </button>
-          </div>
-        </div>
-      <!-- Mobile Menu -->
-      <div id="mobile-menu" class="mobile-menu md:hidden">
-        <div class="flex justify-between items-center border-b">
-          <div class="flex items-center">
-          </div>
-          <button id="close-menu" class="hamburger-simple md:hidden">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-          </button>
-        </div>
-        <nav id="mobile-nav" hidden class="p-4">
-          <div class="flex flex-col space-y-4 md:hidden">
-            <a href="/" class="nav-link text-lg font-medium">Beranda</a>
-            <a href="/tentang.html" class="nav-link text-lg">Tentang</a>
-            <a href="/layanan.html" class="nav-link text-lg">Layanan</a>
-            <a href="/berita.html" class="nav-link text-lg">Berita</a>
-            <a href="/pengaduan.html" class="nav-link text-lg">Pengaduan</a>
-            <a href="/kontak.html" class="nav-link text-lg">Kontak</a>
-          </div>
-        </nav>
-      </div>
-      </header>
-
-    <!-- Page Header -->
-    <div class="bg-primary text-white py-12">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold">Kontak Kami</h2>
-            <p class="mt-2">Hubungi kami untuk informasi lebih lanjut</p>
-        </div>
-    </div>
-
-    <!-- Main Content -->
-    <main class="section">
-        <div class="container mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Contact Information -->
-                <div class="space-y-8">
-                    <!-- Office Address -->
-                    <div class="bg-white rounded-lg shadow-md p-6">
-                        <h3 class="text-xl font-semibold mb-4">Alamat Kantor</h3>
-                        <div class="space-y-2 text-gray-700">
-                            <p>Jl. Contoh No. 123</p>
-                            <p>Kota Contoh, 12345</p>
-                            <p>Provinsi Contoh</p>
-                        </div>
-                    </div>
-
-                    <!-- Contact Details -->
-                    <div class="bg-white rounded-lg shadow-md p-6">
-                        <h3 class="text-xl font-semibold mb-4">Informasi Kontak</h3>
-                        <div class="space-y-4">
-                            <div>
-                                <h4 class="font-medium text-gray-900">Telepon</h4>
-                                <p class="text-gray-700">(021) 1234567</p>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-gray-900">Email</h4>
-                                <p class="text-gray-700">info@instansi.go.id</p>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-gray-900">Fax</h4>
-                                <p class="text-gray-700">(021) 1234568</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Operating Hours -->
-                    <div class="bg-white rounded-lg shadow-md p-6">
-                        <h3 class="text-xl font-semibold mb-4">Jam Operasional</h3>
-                        <div class="space-y-2 text-gray-700">
-                            <div class="flex justify-between">
-                                <span>Senin - Kamis</span>
-                                <span>08:00 - 16:00 WIB</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span>Jumat</span>
-                                <span>08:00 - 15:00 WIB</span>
-                            </div>
-                            <div class="flex justify-between text-red-600">
-                                <span>Sabtu - Minggu</span>
-                                <span>Tutup</span>
-                            </div>
-                            <p class="mt-4 text-sm text-gray-600">
-                                * Jam istirahat: 12:00 - 13:00 WIB
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Social Media -->
-                    <div class="bg-white rounded-lg shadow-md p-6">
-                        <h3 class="text-xl font-semibold mb-4">Media Sosial</h3>
-                        <div class="flex space-x-4">
-                            <a href="#" class="text-gray-600 hover:text-primary">
-                                <span class="sr-only">Facebook</span>
-                                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-                                </svg>
-                            </a>
-                            <a href="#" class="text-gray-600 hover:text-primary">
-                                <span class="sr-only">Twitter</span>
-                                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
-                                </svg>
-                            </a>
-                            <a href="#" class="text-gray-600 hover:text-primary">
-                                <span class="sr-only">Instagram</span>
-                                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                                </svg>
-                            </a>
-                            <a href="#" class="text-gray-600 hover:text-primary">
-                                <span class="sr-only">Youtube</span>
-                                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Map and Contact Form -->
-                <div class="space-y-8">
-                    <!-- Google Maps Embed -->
-                    <div class="bg-white rounded-lg shadow-md p-6">
-                        <h3 class="text-xl font-semibold mb-4">Lokasi Kami</h3>
-                        <div class="aspect-w-16 aspect-h-9">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3954.510857085357!2d111.12562281152886!3d-7.628077892355805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e798b74e967fcc7%3A0xfd95abd1ddf99dbc!2sSMP%20%26%20SMK%20IDN%20Boarding%20School%20Solo!5e0!3m2!1sen!2sid!4v1754619540988!5m2!1sen!2sid"
-                                width="100%"
-                                height="450"
-                                style="border:0;"
-                                allowfullscreen=""
-                                loading="lazy"
-                                class="rounded-lg"
-                            ></iframe>
-                        </div>
-                    </div>
-
-                    <!-- Quick Contact Form -->
-                    <div class="bg-white rounded-lg shadow-md p-6">
-                        <h3 class="text-xl font-semibold mb-4">Kirim Pesan</h3>
-                        <form id="contactForm" class="space-y-4">
-                            <!-- Name -->
-                            <div>
-                                <label for="contact-name" class="block text-sm font-medium text-gray-700 mb-1">
-                                    Nama Lengkap *
-                                </label>
-                                <input
-                                    type="text"
-                                    id="contact-name"
-                                    name="name"
-                                    required
-                                    class="w-full px-4 py-2 border rounded-md focus:ring-primary focus:border-primary"
-                                    placeholder="Masukkan nama lengkap"
-                                >
-                            </div>
-
-                            <!-- Email -->
-                            <div>
-                                <label for="contact-email" class="block text-sm font-medium text-gray-700 mb-1">
-                                    Email *
-                                </label>
-                                <input
-                                    type="email"
-                                    id="contact-email"
-                                    name="email"
-                                    required
-                                    class="w-full px-4 py-2 border rounded-md focus:ring-primary focus:border-primary"
-                                    placeholder="contoh@email.com"
-                                >
-                            </div>
-
-                            <!-- Message -->
-                            <div>
-                                <label for="contact-message" class="block text-sm font-medium text-gray-700 mb-1">
-                                    Pesan *
-                                </label>
-                                <textarea
-                                    id="contact-message"
-                                    name="message"
-                                    required
-                                    rows="4"
-                                    class="w-full px-4 py-2 border rounded-md focus:ring-primary focus:border-primary"
-                                    placeholder="Tuliskan pesan Anda..."
-                                ></textarea>
-                            </div>
-
-                            <!-- Submit Button -->
-                            <button
-                                type="submit"
-                                class="w-full btn-primary py-2 text-center font-medium"
-                            >
-                                Kirim Pesan
-                            </button>
-
-                            <p class="text-sm text-gray-600">
-                                * Wajib diisi
-                            </p>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Footer (same as other pages) -->
-    <footer class="bg-secondary text-white">
-        <div class="container mx-auto px-4 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Tentang Kami</h4>
-                    <p class="text-gray-300">Platform resmi untuk memudahkan perizinan UMKM di Indonesia.</p>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Link Cepat</h4>
-                    <ul class="space-y-2">
-                        <li><a href="/layanan.html" class="text-gray-300 hover:text-white">Layanan</a></li>
-                        <li><a href="/berita.html" class="text-gray-300 hover:text-white">Berita</a></li>
-                        <li><a href="/pengaduan.html" class="text-gray-300 hover:text-white">Pengaduan</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Kontak</h4>
-                    <ul class="space-y-2 text-gray-300">
-                        <li>Jl. Contoh No. 123</li>
-                        <li>Telp: (021) 1234567</li>
-                        <li>Email: izinin@instansi.go.id</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Media Sosial</h4>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-300 hover:text-white">
-                            <span class="sr-only">Facebook</span>
-                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-                            </svg>
-                        </a>
-                        <a href="#" class="text-gray-300 hover:text-white">
-                            <span class="sr-only">Twitter</span>
-                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
-                            </svg>
-                        </a>
-                        <a href="#" class="text-gray-300 hover:text-white">
-                            <span class="sr-only">Instagram</span>
-                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-300">
-                <p>&copy; 2025 Izin.In. Hak Cipta Dilindungi.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="/js/utils.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <script>
-        // Initialize contact form
-        setupForm('contactForm', '/terima-kasih.html');
-
-        // Toggle mobile menu
-        const mobileMenuButton = document.querySelector('button');
-        const mobileMenu = document.querySelector('.md\\:hidden.hidden');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#1d4ed8',
+              secondary: '#0f172a',
+              accent: '#f59e0b',
+            },
+          },
+        },
+      };
     </script>
-</body>
+    <style>
+      body { font-family: 'Poppins', sans-serif; }
+    </style>
+  </head>
+  <body class="bg-gray-50 font-sans">
+    <div id="navbar-container"></div>
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-primary to-blue-800 text-white py-16 md:py-24 mb-12">
+      <div class="container mx-auto px-4 text-center relative z-10">
+        <h2 class="text-3xl md:text-4xl font-bold mb-3">Hubungi Kami</h2>
+        <p class="text-lg md:text-xl mb-4 max-w-2xl mx-auto">Kami siap membantu Anda. Jangan ragu untuk menghubungi kami melalui form atau kontak di bawah ini.</p>
+      </div>
+    </section>
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 pb-16">
+      <div class="flex flex-col md:flex-row gap-10">
+        <!-- Contact Info -->
+        <div class="md:w-1/2 space-y-6 bg-white p-8 rounded-xl shadow-lg">
+          <h3 class="text-2xl font-semibold text-primary mb-4">Informasi Kontak</h3>
+          <div class="flex items-start space-x-4">
+            <i class="fas fa-map-marker-alt text-primary text-2xl mt-1"></i>
+            <div>
+              <h4 class="font-semibold">Alamat</h4>
+              <p class="text-gray-600">Tambak, Berjo, Kec. Ngargoyoso, Kab. Karanganyar 57793 Karanganyar Central Java</p>
+            </div>
+          </div>
+          <div class="flex items-center space-x-4">
+            <i class="fas fa-phone-alt text-primary text-2xl"></i>
+            <div>
+              <h4 class="font-semibold">Telepon</h4>
+              <p class="text-gray-600">+62 856-4178-3101</p>
+            </div>
+          </div>
+          <div class="flex items-center space-x-4">
+            <i class="fas fa-envelope text-primary text-2xl"></i>
+            <div>
+              <h4 class="font-semibold">Email</h4>
+              <p class="text-gray-600">naufalhhdd@gmail.com</p>
+            </div>
+          </div>
+          <div class="flex items-center space-x-4">
+            <i class="fab fa-whatsapp text-primary text-2xl"></i>
+            <div>
+              <h4 class="font-semibold">WhatsApp</h4>
+              <p class="text-gray-600">+62 856-4178-3101</p>
+            </div>
+          </div>
+          <div class="mt-8">
+            <h4 class="font-semibold mb-2">Lokasi Kami</h4>
+            <div class="w-full h-48 bg-gray-200 rounded-lg flex items-center justify-center text-gray-500">
+              <i class="fas fa-map-marked-alt text-3xl mr-2"></i> [Peta Lokasi Placeholder]
+            </div>
+          </div>
+        </div>
+        <!-- Contact Form -->
+        <div class="md:w-1/2 space-y-6 bg-white p-8 rounded-xl shadow-lg">
+          <h3 class="text-2xl font-semibold text-primary mb-4">Kirim Pesan</h3>
+          <form action="#" method="POST" class="space-y-4">
+            <div>
+              <label for="name" class="block text-gray-700 font-medium mb-1">Nama Lengkap</label>
+              <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+            </div>
+            <div>
+              <label for="email" class="block text-gray-700 font-medium mb-1">Alamat Email</label>
+              <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+            </div>
+            <div>
+              <label for="message" class="block text-gray-700 font-medium mb-1">Pesan Anda</label>
+              <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required></textarea>
+            </div>
+            <div>
+              <button type="submit" class="w-full bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300">Kirim Pesan</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-secondary text-white pt-16 pb-8">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Izin.In</h4>
+            <p class="text-gray-300 mb-4">Platform resmi untuk memudahkan perizinan UMKM di Indonesia dengan pelayanan cepat dan transparan.</p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-facebook text-xl"></i></a>
+              <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-twitter text-xl"></i></a>
+              <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-instagram text-xl"></i></a>
+              <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-youtube text-xl"></i></a>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Layanan</h4>
+            <ul class="space-y-2">
+              <li><a href="#" class="text-gray-300 hover:text-white">Izin Usaha UMKM</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-white">Izin Usaha Kuliner</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-white">Izin Usaha Manufaktur</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-white">Perpanjangan Izin Usaha</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-white">Cek Status Perizinan</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Tautan</h4>
+            <ul class="space-y-2">
+              <li><a href="/" class="text-gray-300 hover:text-white">Beranda</a></li>
+              <li><a href="/tentang.html" class="text-gray-300 hover:text-white">Tentang Kami</a></li>
+              <li><a href="/berita.html" class="text-gray-300 hover:text-white">Berita</a></li>
+              <li><a href="/pengaduan.html" class="text-gray-300 hover:text-white">Pengaduan</a></li>
+              <li><a href="/kontak.html" class="text-gray-300 hover:text-white">Kontak</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Kontak</h4>
+            <ul class="space-y-3 text-gray-300">
+              <li class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-3"></i><span>Tambak, Berjo, Kec. Ngargoyoso, Kab. Karanganyar 57793 Karanganyar Central Java</span></li>
+              <li class="flex items-center"><i class="fas fa-phone-alt mr-3"></i><span>+62 856-4178-3101</span></li>
+              <li class="flex items-center"><i class="fas fa-envelope mr-3"></i><span>naufalhhdd@gmail.com</span></li>
+              <li class="flex items-center"><i class="fab fa-whatsapp mr-3"></i><span>+62 856-4178-3101</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-400">
+          <p>&copy; 2025 Izin.In. Hak Cipta Dilindungi.</p>
+          <div class="mt-2 flex justify-center space-x-6 text-sm">
+            <a href="#" class="hover:text-white">Kebijakan Privasi</a>
+            <a href="#" class="hover:text-white">Syarat & Ketentuan</a>
+            <a href="#" class="hover:text-white">Peta Situs</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="js/navbar.js"></script>
+    <footer class="bg-secondary text-white pt-16 pb-8">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Izin.In</h4>
+            <p class="text-gray-300 mb-4">Platform resmi untuk memudahkan perizinan UMKM di Indonesia dengan pelayanan cepat dan transparan.</p>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Tautan</h4>
+            <ul class="space-y-2">
+              <li><a href="/" class="text-gray-300 hover:text-white">Beranda</a></li>
+              <li><a href="/tentang.html" class="text-gray-300 hover:text-white">Tentang Kami</a></li>
+              <li><a href="/berita.html" class="text-gray-300 hover:text-white">Berita</a></li>
+              <li><a href="/pengaduan.html" class="text-gray-300 hover:text-white">Pengaduan</a></li>
+              <li><a href="/kontak.html" class="text-gray-300 hover:text-white">Kontak</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Kontak</h4>
+            <ul class="space-y-3 text-gray-300">
+              <li class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-3"></i><span>Tambak, Berjo, Kec. Ngargoyoso, Kab. Karanganyar 57793 Karanganyar Central Java</span></li>
+              <li class="flex items-center"><i class="fas fa-phone-alt mr-3"></i><span>+62 856-4178-3101</span></li>
+              <li class="flex items-center"><i class="fas fa-envelope mr-3"></i><span>naufalhhdd@gmail.com</span></li>
+              <li class="flex items-center"><i class="fab fa-whatsapp mr-3"></i><span>+62 856-4178-3101</span></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Media Sosial</h4>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-facebook text-xl"></i></a>
+              <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-twitter text-xl"></i></a>
+              <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-instagram text-xl"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-400">
+          <div class="mb-8 text-sm space-y-2">
+            <p class="italic">"Web developer? More like an open invitation to get breached." – <span class="font-semibold">Naufal (Leader & Underground Hacker)</span></p>
+            <p class="italic">"You drain my time, code feeds my mind." – <span class="font-semibold">Bowo (Fullstack Developer & Student Leader)</span></p>
+            <p class="italic">"The system’s in ruins, but my code’s still clean." – <span class="font-semibold">Iqbal (Genius Coder & WebDev)</span></p>
+          </div>
+          <hr class="border-gray-700 my-6">
+          <p>&copy; 2025 Izin.In. Hak Cipta Dilindungi.</p>
+          <div class="mt-2 flex justify-center space-x-6 text-sm">
+            <a href="#" class="hover:text-white">Kebijakan Privasi</a>
+            <a href="#" class="hover:text-white">Syarat & Ketentuan</a>
+            <a href="#" class="hover:text-white">Peta Situs</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kontak Kami - Izin.In</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
 </html>
