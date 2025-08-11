@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pengaduan Masyarakat - Izin.In</title>
+    <title>Pengaduan - Izin.In</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <script>
@@ -13,218 +13,209 @@
             colors: {
               primary: '#1d4ed8',
               secondary: '#0f172a',
+              accent: '#f59e0b',
             },
           },
         },
       };
     </script>
-    <link href="/css/output.css" rel="stylesheet">
+    <style>
+      body { font-family: 'Poppins', sans-serif; }
+    </style>
+  </head>
+  <body class="bg-gray-50 font-sans">
+    <div id="navbar-container"></div>
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-primary to-blue-800 text-white py-16 md:py-24 mb-12">
+      <div class="container mx-auto px-4 text-center relative z-10">
+        <h2 class="text-3xl md:text-4xl font-bold mb-3">Formulir Pengaduan</h2>
+        <p class="text-lg md:text-xl mb-4 max-w-2xl mx-auto">Punya keluhan atau masukan? Sampaikan kepada kami melalui formulir di bawah ini.</p>
+      </div>
+    </section>
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 pb-16">
+      <div class="flex flex-col md:flex-row gap-10">
+        <!-- Complaint Form -->
+        <div class="md:w-2/3 space-y-6 bg-white p-8 rounded-xl shadow-lg">
+          <h3 class="text-2xl font-semibold text-primary mb-4">Kirim Pengaduan</h3>
+          <form id="pengaduanForm" class="space-y-4">
+            <div>
+              <label for="nama" class="block text-gray-700 font-medium mb-1">Nama Lengkap</label>
+              <input type="text" id="nama" name="nama" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+            </div>
+            <div>
+              <label for="email" class="block text-gray-700 font-medium mb-1">Alamat Email</label>
+              <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+            </div>
+            <div>
+              <label for="judul" class="block text-gray-700 font-medium mb-1">Judul Pengaduan</label>
+              <input type="text" id="judul" name="judul" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+            </div>
+            <div>
+              <label for="deskripsi" class="block text-gray-700 font-medium mb-1">Deskripsi Pengaduan</label>
+              <textarea id="deskripsi" name="deskripsi" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required></textarea>
+            </div>
+            <div>
+              <button type="submit" class="w-full bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300">Kirim Pengaduan</button>
+            </div>
+            <div id="responseMessage" class="mt-2 text-center"></div>
+          </form>
+        </div>
+        <!-- Contact Info -->
+        <div class="md:w-1/3 space-y-6 bg-white p-8 rounded-xl shadow-lg">
+          <h3 class="text-2xl font-semibold text-primary mb-4">Kontak Bantuan</h3>
+          <div class="flex items-start space-x-4">
+            <i class="fas fa-map-marker-alt text-primary text-2xl mt-1"></i>
+            <div>
+              <h4 class="font-semibold">Alamat</h4>
+              <p class="text-gray-600">Tambak, Berjo, Kec. Ngargoyoso, Kab. Karanganyar 57793 Karanganyar Central Java</p>
+            </div>
+          </div>
+          <div class="flex items-center space-x-4">
+            <i class="fas fa-phone-alt text-primary text-2xl"></i>
+            <div>
+              <h4 class="font-semibold">Telepon</h4>
+              <p class="text-gray-600">+62 856-4178-3101</p>
+            </div>
+          </div>
+          <div class="flex items-center space-x-4">
+            <i class="fas fa-envelope text-primary text-2xl"></i>
+            <div>
+              <h4 class="font-semibold">Email</h4>
+              <p class="text-gray-600">naufalhhdd@gmail.com</p>
+            </div>
+          </div>
+          <div class="flex items-center space-x-4">
+            <i class="fab fa-whatsapp text-primary text-2xl"></i>
+            <div>
+              <h4 class="font-semibold">WhatsApp</h4>
+              <p class="text-gray-600">+62 856-4178-3101</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-secondary text-white pt-16 pb-8">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Izin.In</h4>
+            <p class="text-gray-300 mb-4">Platform resmi untuk memudahkan perizinan UMKM di Indonesia dengan pelayanan cepat dan transparan.</p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-facebook text-xl"></i></a>
+              <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-twitter text-xl"></i></a>
+              <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-instagram text-xl"></i></a>
+              <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-youtube text-xl"></i></a>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Layanan</h4>
+            <ul class="space-y-2">
+              <li><a href="#" class="text-gray-300 hover:text-white">Izin Usaha UMKM</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-white">Izin Usaha Kuliner</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-white">Izin Usaha Manufaktur</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-white">Perpanjangan Izin Usaha</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-white">Cek Status Perizinan</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Tautan</h4>
+            <ul class="space-y-2">
+              <li><a href="/" class="text-gray-300 hover:text-white">Beranda</a></li>
+              <li><a href="/tentang.html" class="text-gray-300 hover:text-white">Tentang Kami</a></li>
+              <li><a href="/berita.html" class="text-gray-300 hover:text-white">Berita</a></li>
+              <li><a href="/pengaduan.html" class="text-gray-300 hover:text-white">Pengaduan</a></li>
+              <li><a href="/kontak.html" class="text-gray-300 hover:text-white">Kontak</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Kontak</h4>
+            <ul class="space-y-3 text-gray-300">
+              <li class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-3"></i><span>Tambak, Berjo, Kec. Ngargoyoso, Kab. Karanganyar 57793 Karanganyar Central Java</span></li>
+              <li class="flex items-center"><i class="fas fa-phone-alt mr-3"></i><span>+62 856-4178-3101</span></li>
+              <li class="flex items-center"><i class="fas fa-envelope mr-3"></i><span>naufalhhdd@gmail.com</span></li>
+              <li class="flex items-center"><i class="fab fa-whatsapp mr-3"></i><span>+62 856-4178-3101</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-400">
+          <p>&copy; 2025 Izin.In. Hak Cipta Dilindungi.</p>
+          <div class="mt-2 flex justify-center space-x-6 text-sm">
+            <a href="#" class="hover:text-white">Kebijakan Privasi</a>
+            <a href="#" class="hover:text-white">Syarat & Ketentuan</a>
+            <a href="#" class="hover:text-white">Peta Situs</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="js/navbar.js"></script>
+    <script src="js/isiPengaduan.js"></script>
+  </body>
+</html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengaduan - Izin.In</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
 </head>
 <body class="bg-gray-100">
-    <!-- Navbar -->
+
     <div id="navbar-container"></div>
 
     <!-- Page Header -->
-    <div class="bg-primary text-white py-12">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold">Pengaduan Masyarakat</h2>
-            <p class="mt-2">Sampaikan keluhan atau masukan Anda untuk pelayanan yang lebih baik</p>
+    <div class="bg-primary text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-3">Formulir Pengaduan</h2>
+            <p class="text-xl opacity-90 max-w-2xl mx-auto">Punya keluhan atau masukan? Sampaikan kepada kami melalui formulir di bawah ini.</p>
         </div>
     </div>
 
     <!-- Main Content -->
-    <main class="section">
-        <div class="container mx-auto max-w-4xl">
-            <div class="bg-white rounded-lg shadow-md p-8">
-                <!-- Form Description -->
-                <div class="mb-8">
-                    <h3 class="text-xl font-semibold mb-4">Petunjuk Pengisian Form Pengaduan</h3>
-                    <ul class="list-disc list-inside space-y-2 text-gray-700">
-                        <li>Isi form dengan data yang benar dan valid</li>
-                        <li>Jelaskan pengaduan Anda secara detail dan jelas</li>
-                        <li>Sertakan informasi pendukung yang relevan</li>
-                        <li>Tim kami akan merespons pengaduan Anda dalam 2x24 jam kerja</li>
-                    </ul>
-                </div>
-
-                <!-- Complaint Form -->
-                <form id="complaintForm" class="space-y-6">
-                    <!-- Error container -->
-                    <div id="formError" class="hidden"></div>
-
-                    <!-- Name -->
-                    <div>
-                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">
-                            Nama Lengkap *
-                        </label>
-                        <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            required
-                            class="w-full px-4 py-2 border rounded-md focus:ring-primary focus:border-primary"
-                            placeholder="Masukkan nama lengkap Anda"
-                        >
+    <main class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+                <form id="pengaduanForm">
+                    <div class="mb-4">
+                        <label for="nama" class="block text-gray-700 font-medium mb-2">Nama Lengkap</label>
+                        <input type="text" id="nama" name="nama" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
                     </div>
-
-                    <!-- Email -->
-                    <div>
-                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">
-                            Email *
-                        </label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            required
-                            class="w-full px-4 py-2 border rounded-md focus:ring-primary focus:border-primary"
-                            placeholder="contoh@email.com"
-                        >
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-700 font-medium mb-2">Alamat Email</label>
+                        <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
                     </div>
-
-                    <!-- Phone -->
-                    <div>
-                        <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">
-                            Nomor Telepon
-                        </label>
-                        <input
-                            type="tel"
-                            id="phone"
-                            name="phone"
-                            class="w-full px-4 py-2 border rounded-md focus:ring-primary focus:border-primary"
-                            placeholder="08xxxxxxxxxx"
-                        >
+                    <div class="mb-4">
+                        <label for="judul" class="block text-gray-700 font-medium mb-2">Judul Pengaduan</label>
+                        <input type="text" id="judul" name="judul" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
                     </div>
-
-                    <!-- Subject -->
-                    <div>
-                        <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">
-                            Subjek Pengaduan *
-                        </label>
-                        <input
-                            type="text"
-                            id="subject"
-                            name="subject"
-                            required
-                            class="w-full px-4 py-2 border rounded-md focus:ring-primary focus:border-primary"
-                            placeholder="Judul/topik pengaduan"
-                        >
+                    <div class="mb-6">
+                        <label for="deskripsi" class="block text-gray-700 font-medium mb-2">Deskripsi Pengaduan</label>
+                        <textarea id="deskripsi" name="deskripsi" rows="6" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required></textarea>
                     </div>
-
-                    <!-- Message -->
                     <div>
-                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">
-                            Isi Pengaduan *
-                        </label>
-                        <textarea
-                            id="message"
-                            name="message"
-                            required
-                            rows="6"
-                            class="w-full px-4 py-2 border rounded-md focus:ring-primary focus:border-primary"
-                            placeholder="Jelaskan detail pengaduan Anda..."
-                        ></textarea>
+                        <button type="submit" class="w-full bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300">Kirim Pengaduan</button>
                     </div>
-
-                    <!-- Submit Button -->
-                    <div>
-                        <button
-                            type="submit"
-                            class="w-full btn-primary py-3 text-center font-medium"
-                        >
-                            Kirim Pengaduan
-                        </button>
-                    </div>
-
-                    <p class="text-sm text-gray-600">
-                        * Wajib diisi
-                    </p>
                 </form>
+                <div id="responseMessage" class="mt-6 text-center"></div>
             </div>
         </div>
     </main>
 
-    <!-- Footer (same as other pages) -->
     <footer class="bg-secondary text-white pt-16 pb-8">
-        <div class="container mx-auto px-4">
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-              <h4 class="text-lg font-semibold mb-4">Izin.In</h4>
-              <p class="text-gray-300 mb-4">Platform resmi untuk memudahkan perizinan UMKM di Indonesia dengan pelayanan cepat dan transparan.</p>
-              <div class="flex space-x-4">
-                <a href="#" class="text-gray-300 hover:text-white">
-                  <i class="fab fa-facebook text-xl"></i>
-                </a>
-                <a href="#" class="text-gray-300 hover:text-white">
-                  <i class="fab fa-twitter text-xl"></i>
-                </a>
-                <a href="#" class="text-gray-300 hover:text-white">
-                  <i class="fab fa-instagram text-xl"></i>
-                </a>
-                <a href="#" class="text-gray-300 hover:text-white">
-                  <i class="fab fa-youtube text-xl"></i>
-                </a>
-              </div>
-            </div>
-            <div>
-              <h4 class="text-lg font-semibold mb-4">Layanan</h4>
-              <ul class="space-y-2">
-                <li><a href="#" class="text-gray-300 hover:text-white">Izin Usaha UMKM</a></li>
-                <li><a href="#" class="text-gray-300 hover:text-white">Izin Usaha Kuliner</a></li>
-                <li><a href="#" class="text-gray-300 hover:text-white">Izin Usaha Manufaktur</a></li>
-                <li><a href="#" class="text-gray-300 hover:text-white">Perpanjangan Izin Usaha</a></li>
-                <li><a href="#" class="text-gray-300 hover:text-white">Cek Status Perizinan</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 class="text-lg font-semibold mb-4">Tautan</h4>
-              <ul class="space-y-2">
-                <li><a href="/" class="text-gray-300 hover:text-white">Beranda</a></li>
-                <li><a href="/tentang.html" class="text-gray-300 hover:text-white">Tentang Kami</a></li>
-                <li><a href="/berita.html" class="text-gray-300 hover:text-white">Berita</a></li>
-                <li><a href="/pengaduan.html" class="text-gray-300 hover:text-white">Pengaduan</a></li>
-                <li><a href="/kontak.html" class="text-gray-300 hover:text-white">Kontak</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 class="text-lg font-semibold mb-4">Kontak</h4>
-              <ul class="space-y-3 text-gray-300">
-                <li class="flex items-start">
-                  <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
-                  <span>Tambak, Berjo, Kec. Ngargoyoso, Kab. Karanganyar 57793 Karanganyar Central Java</span>
-                </li>
-                <li class="flex items-center">
-                  <i class="fas fa-phone-alt mr-3"></i>
-                  <span>+62 856-4178-3101</span>
-                </li>
-                <li class="flex items-center">
-                  <i class="fas fa-envelope mr-3"></i>
-                  <span>naufalhhdd@gmail.com</span>
-                </li>
-                <li class="flex items-center">
-                  <i class="fab fa-whatsapp mr-3"></i>
-                  <span>+62 856-4178-3101</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-400">
-            <p>&copy; 2025 Izin.In. Hak Cipta Dilind ungi.</p>
-            <div class="mt-2 flex justify-center space-x-6 text-sm">
-              <a href="#" class="hover:text-white">Kebijakan Privasi</a>
-              <a href="#" class="hover:text-white">Syarat & Ketentuan</a>
-              <a href="#" class="hover:text-white">Peta Situs</a>
-            </div>
-          </div>
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 Izin.In. Hak Cipta Dilindungi.</p>
         </div>
-      </footer>
+    </footer>
 
-    <script src="/js/navbar.js"></script>
-    <script src="/js/isiPengaduan.js"></script>
-    <script src="/js/utils.js"></script>
-    <script>
-        // Initialize form
-        setupForm('complaintForm', '/terima-kasih.html');
-    </script>
+    <script src="js/navbar.js"></script>
+    <script src="js/isiPengaduan.js"></script>
 </body>
 </html>

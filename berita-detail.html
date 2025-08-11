@@ -1,4 +1,120 @@
 <!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail Berita - Izin.In</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1d4ed8",
+              secondary: "#0f172a",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .nav-link {
+        @apply text-gray-700 hover:text-primary transition-colors;
+      }
+      .swiper-slide img {
+        @apply w-full h-64 object-cover rounded-lg shadow;
+      }
+      .card {
+        @apply bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg;
+      }
+      .btn-primary {
+        @apply bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-800 transition-colors;
+      }
+      .btn-secondary {
+        @apply bg-white text-primary px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors;
+      }
+      .article-content h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+      }
+      .article-content p {
+        margin-bottom: 1rem;
+        line-height: 1.75;
+      }
+      .article-content ul {
+        list-style-type: disc;
+        margin-left: 1.5rem;
+        margin-bottom: 1rem;
+      }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <div id="navbar-container"></div>
+
+    <main class="py-12">
+        <div class="container mx-auto px-4">
+            <div id="article-container" class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6 md:p-10">
+                <!-- Article content will be loaded here by JavaScript -->
+                <div id="loading-state" class="text-center py-10">
+                    <i class="fas fa-spinner fa-spin text-4xl text-primary"></i>
+                    <p class="mt-4 text-lg text-gray-600">Memuat artikel...</p>
+                </div>
+                <div id="error-state" class="hidden text-center py-10">
+                    <i class="fas fa-exclamation-triangle text-4xl text-red-500"></i>
+                    <p class="mt-4 text-lg text-gray-600">Gagal memuat artikel. Silakan coba lagi nanti.</p>
+                    <a href="/berita.html" class="mt-4 inline-block bg-primary text-white px-6 py-2 rounded-lg hover:bg-blue-700">Kembali ke Berita</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-secondary text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+              <div>
+                <h4 class="text-lg font-semibold mb-4">Izin.In</h4>
+                <p class="text-gray-300 mb-4">Platform resmi untuk memudahkan perizinan UMKM di Indonesia dengan pelayanan cepat dan transparan.</p>
+              </div>
+              <div>
+                <h4 class="text-lg font-semibold mb-4">Tautan</h4>
+                <ul class="space-y-2">
+                  <li><a href="/" class="text-gray-300 hover:text-white">Beranda</a></li>
+                  <li><a href="/tentang.html" class="text-gray-300 hover:text-white">Tentang Kami</a></li>
+                  <li><a href="/berita.html" class="text-gray-300 hover:text-white">Berita</a></li>
+                  <li><a href="/kontak.html" class="text-gray-300 hover:text-white">Kontak</a></li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="text-lg font-semibold mb-4">Kontak</h4>
+                <ul class="space-y-3 text-gray-300">
+                  <li class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-3"></i><span>Tambak, Berjo, Kec. Ngargoyoso, Kab. Karanganyar</span></li>
+                  <li class="flex items-center"><i class="fas fa-phone-alt mr-3"></i><span>+62 856-4178-3101</span></li>
+                  <li class="flex items-center"><i class="fas fa-envelope mr-3"></i><span>naufalhhdd@gmail.com</span></li>
+                </ul>
+              </div>
+               <div>
+                <h4 class="text-lg font-semibold mb-4">Media Sosial</h4>
+                 <div class="flex space-x-4">
+                  <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-facebook text-xl"></i></a>
+                  <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-twitter text-xl"></i></a>
+                  <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-instagram text-xl"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-400">
+              <p>&copy; 2025 Izin.In. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/navbar.js"></script>
+    <script src="js/news-detail.js"></script>
+</body>
+</html>
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
@@ -24,84 +140,4 @@
       };
     </script>
   </head>
-  <body class="font-poppins bg-gray-50">
-    <!-- Navbar -->
-    <div id="navbar-container"></div>
-
-    <!-- Main Content -->
-    <main class="py-16">
-      <div class="container mx-auto px-4">
-        <div id="newsDetailContainer" class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
-          <div class="text-center text-gray-500">Memuat detail berita...</div>
-        </div>
-      </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-secondary text-white pt-16 pb-8">
-      <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <!-- About -->
-          <div>
-            <h4 class="text-lg font-semibold mb-4">Izin.In</h4>
-            <p class="text-gray-400">Platform perizinan UMKM terpadu untuk membantu usaha Anda berkembang.</p>
-          </div>
-
-          <!-- Quick Links -->
-          <div>
-            <h4 class="text-lg font-semibold mb-4">Tautan Cepat</h4>
-            <ul class="space-y-2">
-              <li><a href="/" class="text-gray-400 hover:text-white">Beranda</a></li>
-              <li><a href="/layanan.html" class="text-gray-400 hover:text-white">Layanan</a></li>
-              <li><a href="/kontak.html" class="text-gray-400 hover:text-white">Kontak</a></li>
-            </ul>
-          </div>
-
-          <!-- Services -->
-          <div>
-            <h4 class="text-lg font-semibold mb-4">Layanan</h4>
-            <ul class="space-y-2">
-              <li><a href="/layanan.html#nib" class="text-gray-400 hover:text-white">Izin Usaha (NIB)</a></li>
-              <li><a href="/layanan.html#halal" class="text-gray-400 hover:text-white">Sertifikasi Halal</a></li>
-              <li><a href="/layanan.html#pirt" class="text-gray-400 hover:text-white">Izin P-IRT</a></li>
-            </ul>
-          </div>
-
-          <!-- Contact -->
-          <div>
-            <h4 class="text-lg font-semibold mb-4">Hubungi Kami</h4>
-            <ul class="space-y-2 text-gray-400">
-              <li class="flex items-start">
-                <i class="fas fa-map-marker-alt w-5 mt-1"></i>
-                <span>Jl. Merdeka No. 1, Jakarta Pusat</span>
-              </li>
-              <li class="flex items-center">
-                <i class="fas fa-phone-alt w-5"></i>
-                <span>(021) 123-4567</span>
-              </li>
-              <li class="flex items-center">
-                <i class="fas fa-envelope w-5"></i>
-                <span>info@dinas.go.id</span>
-              </li>
-              <li class="flex items-center">
-                <i class="fab fa-whatsapp mr-3"></i>
-                <span>+62 856-4178-3101</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-400">
-          <p>&copy; 2025 Izin.In. Hak Cipta Dilindungi.</p>
-          <div class="mt-2 flex justify-center space-x-6 text-sm">
-            <a href="#" class="hover:text-white">Kebijakan Privasi</a>
-            <a href="#" class="hover:text-white">Syarat & Ketentuan</a>
-            <a href="#" class="hover:text-white">Peta Situs</a>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <script src="js/navbar.js"></script>
-    <script src="js/news.js"></script>
-  </body>
 </html>

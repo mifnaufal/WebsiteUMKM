@@ -126,84 +126,33 @@
       }
     </style>
   </head>
-  <body class="font-poppins">
-    <!--  -->
-    <header class="bg-white shadow-md sticky top-0 z-40">
-      <div class="container mx-auto px-2 md:px-4 py-2 md:py-3">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center">
-            <div class="bg-primary text-white w-8 h-8 md:w-10 md:h-10 rounded-lg flex items-center justify-center">
-              <i class="fas fa-file-contract text-lg md:text-xl"></i>
-            </div>
-            <div class="ml-2 md:ml-3">
-              <h1 class="text-lg md:text-xl font-bold text-primary">Izin.In</h1>
-            </div>
-          </div>
-
-          <nav class="hidden md:flex space-x-4 lg:space-x-6">
-            <a href="/" class="nav-link font-medium text-sm lg:text-base">Beranda</a>
-            <a href="/tentang.html" class="nav-link text-sm lg:text-base">Tentang</a>
-            <a href="/layanan.html" class="nav-link text-sm lg:text-base">Layanan</a>
-            <a href="/berita.html" class="nav-link text-sm lg:text-base">Berita</a>
-            <a href="/pengaduan.html" class="nav-link text-sm lg:text-base">Pengaduan</a>
-            <a href="/kontak.html" class="nav-link text-sm lg:text-base">Kontak</a>
-          </nav>
-
-          <!-- Mobile menu button -->
-          <button id="mobile-menu-button" class="md:hidden hamburger-custom">
-            <span class="hamburger-bar"></span>
-            <span class="hamburger-bar"></span>
-            <span class="hamburger-bar"></span>
-          </button>
-        </div>
+  <body class="bg-gray-50 font-sans">
+    <div id="navbar-container"></div>
+    <div id="navbar-container"></div>
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-primary to-blue-800 text-white py-16 md:py-24 mb-12">
+      <div class="container mx-auto px-4 text-center relative z-10">
+        <h2 class="text-3xl md:text-4xl font-bold mb-3">Berita & Pengumuman</h2>
+        <p class="text-lg md:text-xl mb-4 max-w-2xl mx-auto">Dapatkan info terbaru seputar perizinan, kegiatan, dan pengumuman penting untuk UMKM.</p>
       </div>
-      <!-- Mobile Menu -->
-      <div id="mobile-menu" class="mobile-menu md:hidden">
-        <div class="flex justify-between items-center border-b">
-          <div class="flex items-center"></div>
-          <button id="close-menu" class="hamburger-simple md:hidden">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-          </button>
-        </div>
-        <nav class="p-4">
-          <div class="flex flex-col space-y-4 md:hidden">
-            <a href="/" class="nav-link text-lg font-medium">Beranda</a>
-            <a href="/tentang.html" class="nav-link text-lg">Tentang</a>
-            <a href="/layanan.html" class="nav-link text-lg">Layanan</a>
-            <a href="/berita.html" class="nav-link text-lg">Berita</a>
-            <a href="/pengaduan.html" class="nav-link text-lg">Pengaduan</a>
-            <a href="/kontak.html" class="nav-link text-lg">Kontak</a>
-          </div>
-        </nav>
+    </section>
+    <main class="container mx-auto px-4 pb-16">
+      <!-- Filter Kategori -->
+      <div id="category-filters" class="flex flex-wrap gap-2 mb-8 justify-center">
+        <button data-category="ALL" class="bg-primary text-white px-4 py-2 rounded-lg font-medium">Semua</button>
+        <button data-category="HIGHLIGHT" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-medium">Unggulan</button>
+        <button data-category="PENGUMUMAN" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-medium">Pengumuman</button>
+        <button data-category="PERIZINAN" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-medium">Perizinan</button>
+        <button data-category="KEGIATAN" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-medium">Kegiatan</button>
       </div>
-    </header>
-
-    <!-- Page Header -->
-    <div class="bg-primary text-white py-16 wave-pattern">
-      <div class="container mx-auto px-4 text-center">
-        <h2 class="text-4xl font-bold mb-3 animate-fade-in">Berita & Pengumuman</h2>
-        <p class="text-xl opacity-90 max-w-2xl mx-auto animate-fade-in">Informasi terkini seputar layanan dan kegiatan instansi</p>
-      </div>
-    </div>
-
-    <!-- Main Content -->
-    <main class="py-16">
-      <div class="container mx-auto px-4">
-        <!-- Featured News -->
-        <div id="featured-news-container" class="bg-white rounded-2xl overflow-hidden shadow-xl mb-16 news-card animate-slide-up animate-delay-200">
-          <!-- Featured news will be loaded here by JavaScript -->
-          <div class="p-8 text-center text-gray-500">Memuat berita unggulan...</div>
-        </div>
-
-        <!-- News Grid -->
-        <div id="news-grid-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- News cards will be loaded here by JavaScript -->
-           <div class="p-8 text-center text-gray-500 md:col-span-2 lg:col-span-3">Memuat berita lainnya...</div>
-        </div>
+      <!-- Grid Berita -->
+      <div id="news-grid-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+      <!-- Tombol Muat Lebih Banyak -->
+      <div class="flex justify-center mt-10">
+        <button id="load-more-button" class="bg-primary text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-700 transition duration-300">Muat lebih banyak</button>
       </div>
     </main>
+    <div id="navbar-container"></div>
 
     <!-- Footer -->
     <footer class="bg-secondary text-white pt-16 pb-8">
@@ -315,5 +264,6 @@
 
     <script src="js/navbar.js"></script>
     <script src="js/news.js"></script>
+      <script src="/js/navbar.js"></script>
   </body>
 </html>
