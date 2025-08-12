@@ -169,7 +169,7 @@
         <!-- Contact Form -->
         <div class="md:w-1/2 space-y-6 modern-card p-8 fade-in-up">
           <h3 class="text-2xl font-semibold text-primary mb-4">Kirim Pesan</h3>
-          <form action="#" method="POST" class="space-y-4">
+          <form id="contactForm" class="space-y-4">
             <div>
               <label for="name" class="block text-gray-700 font-medium mb-1">Nama Lengkap</label>
               <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
@@ -185,6 +185,7 @@
             <div>
               <button type="submit" class="w-full modern-btn">Kirim Pesan</button>
             </div>
+            <div id="contactFormMessage" class="mt-4 text-center hidden"></div>
           </form>
         </div>
       </div>
@@ -348,6 +349,63 @@
         }
       `;
       document.head.appendChild(style);
+      
+      // Handle contact form submission to WhatsApp
+      const contactForm = document.getElementById('contactForm');
+      if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          // Get form values
+          const name = document.getElementById('name').value.trim();
+          const email = document.getElementById('email').value.trim();
+          const message = document.getElementById('message').value.trim();
+          
+          // Validation
+          if (!name || !email || !message) {
+            showContactFormMessage('Harap lengkapi semua field yang wajib diisi.', 'error');
+            return;
+          }
+          
+          // Create WhatsApp message
+          const waNumber = '6285641783101'; // Indonesian format without +
+          const waMessage = `*Pesan Kontak dari Website Izin.In*\n\n*Nama:* ${name}\n*Email:* ${email}\n\n*Pesan:*\n${message}`;
+          const encodedMessage = encodeURIComponent(waMessage);
+          const waURL = `https://wa.me/${waNumber}?text=${encodedMessage}`;
+          
+          // Open WhatsApp in new tab
+          window.open(waURL, '_blank');
+          
+          // Show success message and reset form
+          showContactFormMessage('Pesan Anda telah dikirim! Kami akan segera menghubungi Anda melalui WhatsApp.', 'success');
+          contactForm.reset();
+          
+          // Hide message after 5 seconds
+          setTimeout(() => {
+            const messageElement = document.getElementById('contactFormMessage');
+            if (messageElement) {
+              messageElement.classList.add('hidden');
+            }
+          }, 5000);
+        });
+      }
+      
+      // Function to show form message
+      function showContactFormMessage(text, type) {
+        const messageElement = document.getElementById('contactFormMessage');
+        if (messageElement) {
+          messageElement.textContent = text;
+          messageElement.classList.remove('hidden', 'text-green-600', 'text-red-600', 'bg-green-50', 'bg-red-50', 'p-3', 'rounded-lg');
+          
+          if (type === 'success') {
+            messageElement.classList.add('text-green-600', 'bg-green-50', 'p-3', 'rounded-lg');
+          } else {
+            messageElement.classList.add('text-red-600', 'bg-red-50', 'p-3', 'rounded-lg');
+          }
+          
+          messageElement.classList.remove('hidden');
+        }
+      }
     </script>
   </body>
 </html>
