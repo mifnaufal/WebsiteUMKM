@@ -257,43 +257,67 @@ document.addEventListener("DOMContentLoaded", () => {
             processList.appendChild(li);
           });
           
-          // Generate file upload fields based on requirements
-          const fileUploadFields = document.getElementById('fileUploadFields');
-          fileUploadFields.innerHTML = '';
-          
-          service.requirements.forEach((requirement, index) => {
-            const fileUploadDiv = document.createElement('div');
-            fileUploadDiv.className = 'border border-gray-200 rounded-lg p-4';
-            
-            const requirementName = requirement.replace(/\*/g, '').trim();
-            
-            // Determine file type based on requirement text
-            let acceptType = '';
-            let placeholderText = 'Unggah dokumen yang sesuai dengan persyaratan ini';
-            
-            if (requirementName.toLowerCase().includes('foto') || requirementName.toLowerCase().includes('photo') || requirementName.toLowerCase().includes('gambar')) {
-              acceptType = 'image/*';
-              placeholderText = 'Unggah foto (JPG, PNG, dll)';
-            } else if (requirementName.toLowerCase().includes('surat') || requirementName.toLowerCase().includes('document') || requirementName.toLowerCase().includes('pdf')) {
-              acceptType = '.pdf,application/pdf';
-              placeholderText = 'Unggah dokumen PDF';
-            } else if (requirementName.toLowerCase().includes('ktp') || requirementName.toLowerCase().includes('kartu') || requirementName.toLowerCase().includes('identitas')) {
-              acceptType = 'image/*,.pdf,application/pdf';
-              placeholderText = 'Unggah foto kartu identitas atau scan dalam format PDF';
+          try {
+            // Generate file upload fields based on requirements
+            const fileUploadFields = document.getElementById('fileUploadFields');
+            if (fileUploadFields) {
+              fileUploadFields.innerHTML = '';
+              
+              // Ensure the file upload section is visible
+              const fileUploadSection = document.getElementById('fileUploadSection');
+              if (fileUploadSection) {
+                fileUploadSection.style.display = 'block';
+              }
+              
+              if (service.requirements && service.requirements.length > 0) {
+                service.requirements.forEach((requirement, index) => {
+                  const fileUploadDiv = document.createElement('div');
+                  fileUploadDiv.className = 'border border-gray-200 rounded-lg p-4 mb-4';
+                  
+                  const requirementName = requirement.replace(/\*/g, '').trim();
+                  
+                  // Determine file type based on requirement text
+                  let acceptType = '';
+                  let placeholderText = 'Unggah dokumen yang sesuai dengan persyaratan ini';
+                  
+                  if (requirementName.toLowerCase().includes('foto') || requirementName.toLowerCase().includes('photo') || requirementName.toLowerCase().includes('gambar')) {
+                    acceptType = 'image/*';
+                    placeholderText = 'Unggah foto (JPG, PNG, dll)';
+                  } else if (requirementName.toLowerCase().includes('surat') || requirementName.toLowerCase().includes('document') || requirementName.toLowerCase().includes('pdf')) {
+                    acceptType = '.pdf,application/pdf';
+                    placeholderText = 'Unggah dokumen PDF';
+                  } else if (requirementName.toLowerCase().includes('ktp') || requirementName.toLowerCase().includes('kartu') || requirementName.toLowerCase().includes('identitas')) {
+                    acceptType = 'image/*,.pdf,application/pdf';
+                    placeholderText = 'Unggah foto kartu identitas atau scan dalam format PDF';
+                  } else {
+                    // Default to accepting all file types if no specific type is detected
+                    acceptType = '*/*';
+                  }
+                  
+                  fileUploadDiv.innerHTML = `
+                    <label class="block text-gray-700 font-medium mb-2">${requirementName}</label>
+                    <input type="file" name="requirementFile${index}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary file-input" data-requirement="${requirementName}" accept="${acceptType}">
+                    <p class="text-gray-500 text-xs mt-1">${placeholderText}</p>
+                  `;
+                  
+                  fileUploadFields.appendChild(fileUploadDiv);
+                });
+              } else {
+                // If no requirements, show a message
+                fileUploadFields.innerHTML = '<p class="text-gray-500">Tidak ada dokumen khusus yang diperlukan untuk layanan ini.</p>';
+              }
             }
-            
-            fileUploadDiv.innerHTML = `
-              <label class="block text-gray-700 font-medium mb-2">${requirementName}</label>
-              <input type="file" name="requirementFile${index}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary file-input" data-requirement="${requirementName}" accept="${acceptType}">
-              <p class="text-gray-500 text-xs mt-1">${placeholderText}</p>
-            `;
-            
-            fileUploadFields.appendChild(fileUploadDiv);
-          });
+          } catch (error) {
+            console.error('Error generating file upload fields:', error);
+            // Fallback: show a simple message
+            const fileUploadFields = document.getElementById('fileUploadFields');
+            if (fileUploadFields) {
+              fileUploadFields.innerHTML = '<p class="text-red-500">Terjadi kesalahan saat memuat field upload dokumen. Silakan coba lagi.</p>';
+            }
+          }
           
-          // Show service details and file upload section
+          // Show service details
           document.getElementById('serviceDetails').style.display = 'block';
-          document.getElementById('fileUploadSection').style.display = 'block';
         }
         
         document.getElementById('selectedServiceInfo').classList.remove('hidden');
@@ -337,7 +361,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const requirement = input.getAttribute('data-requirement');
         if (input.files.length > 0) {
           const fileName = input.files[0].name;
-          uploadedFilesInfo += `*${requirement}:* ${fileName}\n`;
+          // Get file size in KB or MB
+          const fileSize = input.files[0].size;
+          const fileSizeKB = Math.round(fileSize / 1024);
+          const fileSizeDisplay = fileSizeKB > 1024 ? (fileSizeKB / 1024).toFixed(1) + ' MB' : fileSizeKB + ' KB';
+          
+          uploadedFilesInfo += `*${requirement}:* ${fileName} (${fileSizeDisplay})\n`;
           hasFile = true;
         }
       });
