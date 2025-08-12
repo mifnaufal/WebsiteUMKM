@@ -36,37 +36,94 @@
       };
     </script>
     <style>
-      .wave-pattern {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='0.1' d='M0,224L80,234.7C160,245,320,267,480,261.3C640,256,800,224,960,213.3C1120,203,1280,213,1360,218.7L1440,224L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
-        background-size: cover;
-        animation: wave 20s linear infinite;
+      html {
+        scroll-behavior: smooth;
       }
-
-      .footer-wave {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%231e293b' fill-opacity='1' d='M0,224L80,234.7C160,245,320,267,480,261.3C640,256,800,224,960,213.3C1120,203,1280,213,1360,218.7L1440,224L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
-        background-size: cover;
+      
+      .hero-bg {
+        background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 50%, #1e40af 100%);
+        position: relative;
+        overflow: hidden;
       }
-
-      @keyframes wave {
-        0% {
-          background-position: 0 0;
-        }
-        100% {
-          background-position: 1440px 0;
-        }
+      
+      .hero-bg::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+        opacity: 0.15;
+        z-index: 1;
+      }
+      
+      .hero-content {
+        position: relative;
+        z-index: 2;
+      }
+      
+      .floating-animation {
+        animation: float 6s ease-in-out infinite;
+      }
+      
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
       }
 
       .news-card {
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        @apply bg-white rounded-xl shadow-md overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 transform;
       }
 
       .news-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        transform: translateY(-8px) scale(1.02);
       }
 
       .news-card:hover .news-image img {
         transform: scale(1.1);
+      }
+      
+      .card {
+        @apply bg-white rounded-xl shadow-md overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 transform;
+      }
+      
+      .card:hover {
+        transform: translateY(-8px) scale(1.02);
+      }
+      
+      .btn-primary {
+        @apply bg-primary text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl;
+      }
+      
+      .btn-secondary {
+        @apply bg-white text-primary px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg border-2 border-primary;
+      }
+      
+      .fade-in-up {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s ease-out forwards;
+      }
+      
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      .gradient-text {
+        background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      
+      .glass-effect {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
       }
 
       .news-image img {
@@ -128,12 +185,21 @@
   </head>
   <body class="bg-gray-50 font-sans">
     <div id="navbar-container"></div>
-    <div id="navbar-container"></div>
     <!-- Hero Section -->
-    <section class="relative bg-gradient-to-r from-primary to-blue-800 text-white py-16 md:py-24 mb-12">
-      <div class="container mx-auto px-4 text-center relative z-10">
-        <h2 class="text-3xl md:text-4xl font-bold mb-3">Berita & Pengumuman</h2>
-        <p class="text-lg md:text-xl mb-4 max-w-2xl mx-auto">Dapatkan info terbaru seputar perizinan, kegiatan, dan pengumuman penting untuk UMKM.</p>
+    <section class="hero-bg text-white py-20 md:py-32 min-h-[70vh] flex items-center mb-12">
+      <div class="container mx-auto px-4 text-center hero-content">
+        <div class="floating-animation mb-8">
+          <div class="inline-block p-4 rounded-full glass-effect">
+            <i class="fas fa-newspaper text-4xl md:text-6xl"></i>
+          </div>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-6 fade-in-up">
+          Berita & <span class="text-yellow-300">Pengumuman</span>
+        </h1>
+        <p class="text-xl md:text-2xl mb-4 max-w-3xl mx-auto leading-relaxed fade-in-up">
+          Dapatkan info terbaru seputar perizinan, kegiatan, dan pengumuman penting untuk 
+          <span class="font-semibold text-yellow-300">UMKM</span>.
+        </p>
       </div>
     </section>
     <main class="container mx-auto px-4 pb-16">
