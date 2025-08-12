@@ -136,29 +136,51 @@
 
     <!-- Main content -->
     <main class="py-12">
-      <div class="container mx-auto px-4">
-        <div class="mb-8 text-center">
-          <h2 class="text-2xl font-bold text-gray-800 mb-2">Pilih Layanan</h2>
-          <p class="text-gray-600 max-w-2xl mx-auto">
-            Silakan pilih salah satu layanan di bawah ini untuk melihat detail dan mengajukan permohonan
-          </p>
-        </div>
-        
+      <div class="container mx-auto px-4">        
         <div id="servicesContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Service cards will be populated by JavaScript -->
         </div>
 
         <!-- Application Form Section -->
-        <div id="applicationFormSection" class="mt-16 hidden">
+        <div id="applicationFormSection" class="mt-16">
           <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
             <div class="text-center mb-8">
               <h2 class="text-2xl font-bold text-gray-800 mb-2">Formulir Pengajuan Izin Usaha</h2>
               <p class="text-gray-600">Silakan isi formulir di bawah ini untuk mengajukan izin usaha Anda</p>
             </div>
             
-            <div id="selectedServiceInfo" class="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-100 hidden">
+            <div id="selectedServiceInfo" class="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-100">
               <h3 class="font-semibold text-gray-800 mb-2">Layanan yang Dipilih:</h3>
               <p id="selectedServiceName" class="text-primary font-medium"></p>
+              
+              <!-- Service Details -->
+              <div id="serviceDetails" class="mt-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                  <div>
+                    <h4 class="font-semibold text-gray-800 mb-2">Persyaratan:</h4>
+                    <ul id="serviceRequirements" class="list-disc pl-5 space-y-1 text-gray-600">
+                      <!-- Requirements will be populated by JavaScript -->
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-800 mb-2">Proses:</h4>
+                    <ol id="serviceProcess" class="list-decimal pl-5 space-y-1 text-gray-600">
+                      <!-- Process steps will be populated by JavaScript -->
+                    </ol>
+                  </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                  <div>
+                    <h4 class="font-semibold text-gray-800 mb-2">Waktu Pengerjaan:</h4>
+                    <p id="serviceTime" class="text-gray-600"></p>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-800 mb-2">Biaya:</h4>
+                    <p id="serviceCost" class="text-gray-600"></p>
+                  </div>
+                </div>
+              </div>
             </div>
             
             <form id="umkmApplicationForm" class="space-y-6">
@@ -189,22 +211,22 @@
                   <input type="tel" id="businessPhone" name="businessPhone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
                 </div>
                 <div>
-                  <label for="businessType" class="block text-gray-700 font-medium mb-1">Jenis Usaha</label>
-                  <select id="businessType" name="businessType" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
-                    <option value="">Pilih Jenis Usaha</option>
-                    <option value="kuliner">Kuliner</option>
-                    <option value="fashion">Fashion</option>
-                    <option value="kerajinan">Kerajinan</option>
-                    <option value="jasa">Jasa</option>
-                    <option value="pertanian">Pertanian</option>
-                    <option value="lainnya">Lainnya</option>
-                  </select>
+                  <!-- Jenis Usaha field removed as it's now auto-populated from service data -->
                 </div>
               </div>
               
               <div>
                 <label for="additionalInfo" class="block text-gray-700 font-medium mb-1">Informasi Tambahan</label>
                 <textarea id="additionalInfo" name="additionalInfo" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Tulis informasi tambahan tentang usaha Anda..."></textarea>
+              </div>
+              
+              <!-- File Upload Section -->
+              <div id="fileUploadSection" class="mt-6">
+                <h3 class="text-lg font-semibold text-gray-800 mb-3">Dokumen Persyaratan</h3>
+                <p class="text-gray-600 text-sm mb-4">Silakan unggah dokumen yang diperlukan sesuai dengan persyaratan layanan yang dipilih.</p>
+                <div id="fileUploadFields" class="space-y-4">
+                  <!-- File upload fields will be populated dynamically based on service requirements -->
+                </div>
               </div>
               
               <div>
@@ -215,7 +237,7 @@
               </div>
               
               <div>
-                <button type="submit" class="w-full bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300">Kirim Pengajuan</button>
+                <button type="submit" class="w-full bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300">Kirim Pengajuan ke WhatsApp</button>
               </div>
               
               <div id="formError" class="mt-2 text-center text-red-500 hidden"></div>

@@ -94,100 +94,220 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   ];
 
-  // Render service cards
-  const servicesContainer = document.getElementById('servicesContainer');
+  // Function to get URL parameters
+  function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    const results = regex.exec(window.location.href);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+  }
+
+  // Get selected service from URL parameter
+  const selectedServiceName = getUrlParameter('layanan');
   
-  services.forEach((service, index) => {
-    const card = document.createElement('article');
-    card.className = 'service-card';
-    card.style.setProperty('--delay', `${0.1 * (index + 1)}s`);
+  // Find the selected service in our data
+  const selectedService = services.find(service => service.name === selectedServiceName);
+  
+  // If a service is selected, show the form and hide the service list
+  if (selectedService) {
+    // Hide the services container
+    const servicesContainer = document.getElementById('servicesContainer');
+    if (servicesContainer) {
+      servicesContainer.style.display = 'none';
+    }
     
-    card.innerHTML = `
-      <div class="p-6 flex-1">
-        <div class="flex items-center">
-          <div class="service-icon ${service.iconColor} text-white rounded-lg p-3">
-            <i class="${service.icon} text-2xl"></i>
-          </div>
-          <span class="ml-auto px-3 py-1 ${service.categoryColor} ${service.categoryTextColor} text-sm font-medium rounded-full">${service.category}</span>
-        </div>
-        <h3 class="text-xl font-bold text-gray-800 mb-3 mt-4">${service.name}</h3>
-        <p class="text-gray-600 mb-4">${service.description}</p>
-
-        <div class="flex items-center text-sm text-gray-500 mb-4">
-          <i class="fas fa-clock mr-2"></i>
-          <span>Estimasi waktu: ${service.time}</span>
-        </div>
-
-        <button class="toggle-details text-primary font-medium hover:text-blue-700 transition flex items-center w-full justify-between py-3" aria-expanded="false">
-          <span>Lihat Detail</span>
-          <i class="fas fa-chevron-down ml-2 text-sm"></i>
-        </button>
-
-        <div class="service-details">
-          <div class="p-6">
-            <h4 class="font-semibold text-gray-700 mb-2">Persyaratan:</h4>
-            <ul class="mb-4 space-y-2">
-              ${service.requirements.map(req => `
-                <li class="requirement-item flex items-start">
-                  <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                  <span>${req}</span>
-                </li>
-              `).join('')}
-            </ul>
-
-            <h4 class="font-semibold text-gray-700 mb-2">Proses:</h4>
-            <ol class="space-y-4">
-              ${service.process.map((step, i) => `
-                <li class="process-step">
-                  <div class="w-6 h-6 rounded-full ${service.iconColor} text-white flex items-center justify-center absolute left-0 top-0">${i + 1}</div>
-                  <p class="ml-2">${step}</p>
-                </li>
-              `).join('')}
-            </ol>
-          </div>
-        </div>
-      </div>
-
-      <div class="mt-auto">
-        <div class="bg-gray-50 border-t border-gray-100 p-4 flex justify-between items-center">
-          <span class="text-sm text-gray-500">Biaya: ${service.cost}</span>
-          <button class="bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm transition" data-service="${service.name}">Ajukan Sekarang</button>
-        </div>
-      </div>
-    `;
+    // Show the application form section and populate service info
+    document.getElementById('selectedServiceName').textContent = selectedService.name;
     
-    servicesContainer.appendChild(card);
-  });
-
-  // Add event listeners for toggle buttons
-  const toggleButtons = document.querySelectorAll(".toggle-details");
-  toggleButtons.forEach(button => {
-    button.addEventListener("click", function () {
-      const isExpanded = this.getAttribute("aria-expanded") === "true";
-      this.setAttribute("aria-expanded", !isExpanded);
-      this.closest(".service-card").classList.toggle("active");
+    // Populate service details
+    document.getElementById('serviceTime').textContent = selectedService.time;
+    document.getElementById('serviceCost').textContent = selectedService.cost;
+    
+    // Populate requirements
+    const requirementsList = document.getElementById('serviceRequirements');
+    requirementsList.innerHTML = '';
+    selectedService.requirements.forEach(req => {
+      const li = document.createElement('li');
+      li.textContent = req;
+      requirementsList.appendChild(li);
     });
-  });
-
-  // Add event listeners for "Ajukan Sekarang" buttons
-  const applyButtons = document.querySelectorAll("[data-service]");
-  applyButtons.forEach(button => {
-    button.addEventListener("click", function () {
-      const serviceName = this.getAttribute("data-service");
-      // Show the application form section and populate service info
-      document.getElementById('selectedServiceName').textContent = serviceName;
-      document.getElementById('selectedServiceInfo').classList.remove('hidden');
-      document.getElementById('applicationFormSection').classList.remove('hidden');
-      
-      // Scroll to the form
-      document.getElementById('applicationFormSection').scrollIntoView({ behavior: 'smooth' });
-      
-      // Store selected service in form
-      const form = document.getElementById('umkmApplicationForm');
-      form.setAttribute('data-selected-service', serviceName);
+    
+    // Populate process steps
+    const processList = document.getElementById('serviceProcess');
+    processList.innerHTML = '';
+    selectedService.process.forEach(step => {
+      const li = document.createElement('li');
+      li.textContent = step;
+      processList.appendChild(li);
     });
-  });
+    
+    // Show service details
+    document.getElementById('serviceDetails').style.display = 'block';
+    
+    // Store selected service in form
+    const form = document.getElementById('umkmApplicationForm');
+    if (form) {
+      form.setAttribute('data-selected-service', selectedService.name);
+    }
+  } else {
+    // If no service is selected, render service cards as before
+    const servicesContainer = document.getElementById('servicesContainer');
+    
+    services.forEach((service, index) => {
+      const card = document.createElement('article');
+      card.className = 'service-card';
+      card.style.setProperty('--delay', `${0.1 * (index + 1)}s`);
+      
+      card.innerHTML = `
+        <div class="p-6 flex-1">
+          <div class="flex items-center">
+            <div class="service-icon ${service.iconColor} text-white rounded-lg p-3">
+              <i class="${service.icon} text-2xl"></i>
+            </div>
+            <span class="ml-auto px-3 py-1 ${service.categoryColor} ${service.categoryTextColor} text-sm font-medium rounded-full">${service.category}</span>
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 mb-3 mt-4">${service.name}</h3>
+          <p class="text-gray-600 mb-4">${service.description}</p>
 
+          <div class="flex items-center text-sm text-gray-500 mb-4">
+            <i class="fas fa-clock mr-2"></i>
+            <span>Estimasi waktu: ${service.time}</span>
+          </div>
+
+          <button class="toggle-details text-primary font-medium hover:text-blue-700 transition flex items-center w-full justify-between py-3" aria-expanded="false">
+            <span>Lihat Detail</span>
+            <i class="fas fa-chevron-down ml-2 text-sm"></i>
+          </button>
+
+          <div class="service-details">
+            <div class="p-6">
+              <h4 class="font-semibold text-gray-700 mb-2">Persyaratan:</h4>
+              <ul class="mb-4 space-y-2">
+                ${service.requirements.map(req => `
+                  <li class="requirement-item flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                    <span>${req}</span>
+                  </li>
+                `).join('')}
+              </ul>
+
+              <h4 class="font-semibold text-gray-700 mb-2">Proses:</h4>
+              <ol class="space-y-4">
+                ${service.process.map((step, i) => `
+                  <li class="process-step">
+                    <div class="w-6 h-6 rounded-full ${service.iconColor} text-white flex items-center justify-center absolute left-0 top-0">${i + 1}</div>
+                    <p class="ml-2">${step}</p>
+                  </li>
+                `).join('')}
+              </ol>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-auto">
+          <div class="bg-gray-50 border-t border-gray-100 p-4 flex justify-between items-center">
+            <span class="text-sm text-gray-500">Biaya: ${service.cost}</span>
+            <button class="bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm transition" data-service="${service.name}">Ajukan Sekarang</button>
+          </div>
+        </div>
+      `;
+      
+      servicesContainer.appendChild(card);
+    });
+
+    // Add event listeners for toggle buttons
+    const toggleButtons = document.querySelectorAll(".toggle-details");
+    toggleButtons.forEach(button => {
+      button.addEventListener("click", function () {
+        const isExpanded = this.getAttribute("aria-expanded") === "true";
+        this.setAttribute("aria-expanded", !isExpanded);
+        this.closest(".service-card").classList.toggle("active");
+      });
+    });
+
+    // Add event listeners for "Ajukan Sekarang" buttons
+    const applyButtons = document.querySelectorAll("[data-service]");
+    applyButtons.forEach(button => {
+      button.addEventListener("click", function () {
+        const serviceName = this.getAttribute("data-service");
+        // Show the application form section and populate service info
+        document.getElementById('selectedServiceName').textContent = serviceName;
+        
+        // Populate service details
+        const service = services.find(s => s.name === serviceName);
+        if (service) {
+          document.getElementById('serviceTime').textContent = service.time;
+          document.getElementById('serviceCost').textContent = service.cost;
+          
+          // Populate requirements
+          const requirementsList = document.getElementById('serviceRequirements');
+          requirementsList.innerHTML = '';
+          service.requirements.forEach(req => {
+            const li = document.createElement('li');
+            li.textContent = req;
+            requirementsList.appendChild(li);
+          });
+          
+          // Populate process steps
+          const processList = document.getElementById('serviceProcess');
+          processList.innerHTML = '';
+          service.process.forEach(step => {
+            const li = document.createElement('li');
+            li.textContent = step;
+            processList.appendChild(li);
+          });
+          
+          // Generate file upload fields based on requirements
+          const fileUploadFields = document.getElementById('fileUploadFields');
+          fileUploadFields.innerHTML = '';
+          
+          service.requirements.forEach((requirement, index) => {
+            const fileUploadDiv = document.createElement('div');
+            fileUploadDiv.className = 'border border-gray-200 rounded-lg p-4';
+            
+            const requirementName = requirement.replace(/\*/g, '').trim();
+            
+            // Determine file type based on requirement text
+            let acceptType = '';
+            let placeholderText = 'Unggah dokumen yang sesuai dengan persyaratan ini';
+            
+            if (requirementName.toLowerCase().includes('foto') || requirementName.toLowerCase().includes('photo') || requirementName.toLowerCase().includes('gambar')) {
+              acceptType = 'image/*';
+              placeholderText = 'Unggah foto (JPG, PNG, dll)';
+            } else if (requirementName.toLowerCase().includes('surat') || requirementName.toLowerCase().includes('document') || requirementName.toLowerCase().includes('pdf')) {
+              acceptType = '.pdf,application/pdf';
+              placeholderText = 'Unggah dokumen PDF';
+            } else if (requirementName.toLowerCase().includes('ktp') || requirementName.toLowerCase().includes('kartu') || requirementName.toLowerCase().includes('identitas')) {
+              acceptType = 'image/*,.pdf,application/pdf';
+              placeholderText = 'Unggah foto kartu identitas atau scan dalam format PDF';
+            }
+            
+            fileUploadDiv.innerHTML = `
+              <label class="block text-gray-700 font-medium mb-2">${requirementName}</label>
+              <input type="file" name="requirementFile${index}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary file-input" data-requirement="${requirementName}" accept="${acceptType}">
+              <p class="text-gray-500 text-xs mt-1">${placeholderText}</p>
+            `;
+            
+            fileUploadFields.appendChild(fileUploadDiv);
+          });
+          
+          // Show service details and file upload section
+          document.getElementById('serviceDetails').style.display = 'block';
+          document.getElementById('fileUploadSection').style.display = 'block';
+        }
+        
+        document.getElementById('selectedServiceInfo').classList.remove('hidden');
+        document.getElementById('applicationFormSection').classList.remove('hidden');
+        
+        // Scroll to the form
+        document.getElementById('applicationFormSection').scrollIntoView({ behavior: 'smooth' });
+        
+        // Store selected service in form
+        const form = document.getElementById('umkmApplicationForm');
+        form.setAttribute('data-selected-service', serviceName);
+      });
+    });
+  }
   // Handle form submission
   const applicationForm = document.getElementById('umkmApplicationForm');
   if (applicationForm) {
@@ -209,6 +329,19 @@ document.addEventListener("DOMContentLoaded", () => {
       const agreement = document.getElementById('agreement').checked;
       const selectedService = this.getAttribute('data-selected-service');
       
+      // Get file upload information
+      const fileInputs = document.querySelectorAll('.file-input');
+      let uploadedFilesInfo = '';
+      let hasFile = false;
+      fileInputs.forEach((input, index) => {
+        const requirement = input.getAttribute('data-requirement');
+        if (input.files.length > 0) {
+          const fileName = input.files[0].name;
+          uploadedFilesInfo += `*${requirement}:* ${fileName}\n`;
+          hasFile = true;
+        }
+      });
+      
       // Validation
       if (!applicantName || !businessName || !businessAddress || !businessPhone || !businessType || !agreement) {
         formError.textContent = 'Harap lengkapi semua field yang wajib diisi dan setujui syarat & ketentuan.';
@@ -216,9 +349,26 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
       
+      // Check if at least one file is uploaded
+      // Note: File validation is optional as not all requirements may need documents
+      // If you want to make file upload mandatory, uncomment the lines below:
+      // if (!hasFile) {
+      //   formError.textContent = 'Harap unggah minimal satu dokumen persyaratan.';
+      //   formError.classList.remove('hidden');
+      //   return;
+      // }
+      
+      // Note: File validation is optional as not all requirements may need documents
+      // If you want to make file upload mandatory, uncomment the lines below:
+      // if (!hasFile) {
+      //   formError.textContent = 'Harap unggah minimal satu dokumen persyaratan.';
+      //   formError.classList.remove('hidden');
+      //   return;
+      // }
+      
       /*
       ===== TEMPLATE PESAN WHATSAPP =====
-      *Pengajuan Izin Usaha Baru*
+      *Pengajuan Izin Usaha*
       
       *Layanan:* [Nama Layanan]
       *Nama Pemohon:* [Nama]
@@ -234,7 +384,23 @@ document.addEventListener("DOMContentLoaded", () => {
       
       // Kirim ke WhatsApp
       const waNumber = '6285641783101'; // Indonesian country code + phone number
-      const waMessage = `*Pengajuan Izin Usaha Baru*\n\n*Layanan:* ${selectedService}\n*Nama Pemohon:* ${applicantName}\n*Email:* ${applicantEmail}\n*Nama Usaha:* ${businessName}\n*Alamat Usaha:* ${businessAddress}\n*Telepon:* ${businessPhone}\n*Jenis Usaha:* ${businessType}\n*Informasi Tambahan:*\n${additionalInfo}`;
+      let waMessage = `*Pengajuan Izin Usaha*
+
+*Layanan:* ${selectedService}
+*Nama Pemohon:* ${applicantName}
+*Email:* ${applicantEmail}
+*Nama Usaha:* ${businessName}
+*Alamat Usaha:* ${businessAddress}
+*Telepon:* ${businessPhone}
+*Jenis Usaha:* ${businessType}`;
+      
+      if (uploadedFilesInfo) {
+        waMessage += `\n\n*Dokumen Persyaratan:*
+${uploadedFilesInfo}`;
+      }
+      
+      waMessage += `\n*Informasi Tambahan:*
+${additionalInfo}`;
       const encodedMessage = encodeURIComponent(waMessage);
       const waURL = `https://wa.me/${waNumber}?text=${encodedMessage}`;
       window.open(waURL, '_blank');
@@ -246,8 +412,11 @@ document.addEventListener("DOMContentLoaded", () => {
       // Reset form after a delay
       setTimeout(() => {
         applicationForm.reset();
-        document.getElementById('selectedServiceInfo').classList.add('hidden');
-        document.getElementById('applicationFormSection').classList.add('hidden');
+        // Jika tidak ada layanan yang dipilih dari URL, sembunyikan form
+        if (!selectedServiceName) {
+          document.getElementById('selectedServiceInfo').classList.add('hidden');
+          document.getElementById('applicationFormSection').classList.add('hidden');
+        }
       }, 3000);
     });
   }
