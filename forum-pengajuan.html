@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forum Pengajuan - Izin.In</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1d4ed8",
+              secondary: "#0f172a",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      /* Hero gradient */
+      .gradient-bg {
+        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        position: relative;
+        overflow: hidden;
+      }
+      .gradient-bg::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.14) 0%, transparent 40%);
+        pointer-events: none;
+      }
+
+      /* Card */
+      .service-card {
+        transition: all 0.28s ease;
+        transform: translateY(0);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+        border-radius: 16px;
+        overflow: hidden;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+        animation: fade-in 450ms ease-out forwards;
+        position: relative;
+      }
+
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .service-card:nth-child(1) {
+        animation-delay: calc(0.1s * 1);
+      }
+      .service-card:nth-child(2) {
+        animation-delay: calc(0.1s * 2);
+      }
+      .service-card:nth-child(3) {
+        animation-delay: calc(0.1s * 3);
+      }
+      .service-card:nth-child(4) {
+        animation-delay: calc(0.1s * 4);
+      }
+
+      .service-icon {
+        width: 56px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .process-step {
+        position: relative;
+        padding-left: 2rem;
+      }
+
+      .process-step:not(:last-child) {
+        margin-bottom: 1.25rem;
+      }
+
+      .process-step p {
+        line-height: 1.5;
+      }
+
+      .requirement-item {
+        line-height: 1.5;
+      }
+
+      .service-details {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+      }
+
+      .service-card.active .service-details {
+        max-height: 1000px;
+        transition: max-height 0.5s ease-in;
+      }
+
+      .toggle-details[aria-expanded="true"] .fa-chevron-down {
+        transform: rotate(180deg);
+      }
+
+      .highlight-box {
+        box-shadow: 0 0 0 2px rgba(29, 78, 216, 0.3);
+      }
+    </style>
+  </head>
+
+  <body class="bg-gray-50">
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
+
+    <!-- Hero -->
+    <section class="gradient-bg py-16 md:py-24 text-white">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-3xl md:text-4xl font-bold mb-4">Forum Pengajuan Izin Usaha</h1>
+        <p class="text-lg md:text-xl max-w-2xl mx-auto opacity-90">
+          Pilih layanan yang Anda butuhkan untuk memulai proses pengajuan izin usaha Anda
+        </p>
+      </div>
+    </section>
+
+    <!-- Main content -->
+    <main class="py-12">
+      <div class="container mx-auto px-4">
+        <div class="mb-8 text-center">
+          <h2 class="text-2xl font-bold text-gray-800 mb-2">Pilih Layanan</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Silakan pilih salah satu layanan di bawah ini untuk melihat detail dan mengajukan permohonan
+          </p>
+        </div>
+        
+        <div id="servicesContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Service cards will be populated by JavaScript -->
+        </div>
+
+        <!-- Application Form Section -->
+        <div id="applicationFormSection" class="mt-16 hidden">
+          <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+            <div class="text-center mb-8">
+              <h2 class="text-2xl font-bold text-gray-800 mb-2">Formulir Pengajuan Izin Usaha</h2>
+              <p class="text-gray-600">Silakan isi formulir di bawah ini untuk mengajukan izin usaha Anda</p>
+            </div>
+            
+            <div id="selectedServiceInfo" class="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-100 hidden">
+              <h3 class="font-semibold text-gray-800 mb-2">Layanan yang Dipilih:</h3>
+              <p id="selectedServiceName" class="text-primary font-medium"></p>
+            </div>
+            
+            <form id="umkmApplicationForm" class="space-y-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label for="applicantName" class="block text-gray-700 font-medium mb-1">Nama Lengkap</label>
+                  <input type="text" id="applicantName" name="applicantName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+                </div>
+                <div>
+                  <label for="applicantEmail" class="block text-gray-700 font-medium mb-1">Alamat Email</label>
+                  <input type="email" id="applicantEmail" name="applicantEmail" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+                </div>
+              </div>
+              
+              <div>
+                <label for="businessName" class="block text-gray-700 font-medium mb-1">Nama Usaha</label>
+                <input type="text" id="businessName" name="businessName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+              </div>
+              
+              <div>
+                <label for="businessAddress" class="block text-gray-700 font-medium mb-1">Alamat Usaha</label>
+                <textarea id="businessAddress" name="businessAddress" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required></textarea>
+              </div>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label for="businessPhone" class="block text-gray-700 font-medium mb-1">Nomor Telepon</label>
+                  <input type="tel" id="businessPhone" name="businessPhone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+                </div>
+                <div>
+                  <label for="businessType" class="block text-gray-700 font-medium mb-1">Jenis Usaha</label>
+                  <select id="businessType" name="businessType" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+                    <option value="">Pilih Jenis Usaha</option>
+                    <option value="kuliner">Kuliner</option>
+                    <option value="fashion">Fashion</option>
+                    <option value="kerajinan">Kerajinan</option>
+                    <option value="jasa">Jasa</option>
+                    <option value="pertanian">Pertanian</option>
+                    <option value="lainnya">Lainnya</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div>
+                <label for="additionalInfo" class="block text-gray-700 font-medium mb-1">Informasi Tambahan</label>
+                <textarea id="additionalInfo" name="additionalInfo" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Tulis informasi tambahan tentang usaha Anda..."></textarea>
+              </div>
+              
+              <div>
+                <label class="flex items-start space-x-3">
+                  <input type="checkbox" id="agreement" name="agreement" class="mt-1" required>
+                  <span class="text-gray-600 text-sm">Saya menyetujui syarat dan ketentuan yang berlaku serta menyatakan bahwa informasi yang saya berikan adalah benar.</span>
+                </label>
+              </div>
+              
+              <div>
+                <button type="submit" class="w-full bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300">Kirim Pengajuan</button>
+              </div>
+              
+              <div id="formError" class="mt-2 text-center text-red-500 hidden"></div>
+              <div id="responseMessage" class="mt-2 text-center"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <!-- Scripts -->
+    <script src="js/navbar.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/forum-pengajuan.js"></script>
+  </body>
+</html>

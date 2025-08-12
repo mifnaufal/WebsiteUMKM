@@ -256,7 +256,7 @@
             <div class="mt-auto">
               <div class="bg-gray-50 border-t border-gray-100 p-4 flex justify-between items-center">
                 <span class="text-sm text-gray-500">Biaya: Rp 250.000</span>
-                <button class="bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm transition">Ajukan Sekarang</button>
+                <button class="bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm transition" data-service="Perizinan Usaha Baru">Ajukan Sekarang</button>
               </div>
             </div>
           </article>
@@ -313,7 +313,7 @@
             <div class="mt-auto">
               <div class="bg-gray-50 border-t border-gray-100 p-4 flex justify-between items-center">
                 <span class="text-sm text-gray-500">Biaya: Rp 150.000</span>
-                <button class="bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm transition">Ajukan Sekarang</button>
+                <button class="bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm transition" data-service="Perpanjangan Izin Usaha">Ajukan Sekarang</button>
               </div>
             </div>
           </article>
@@ -371,7 +371,7 @@
             <div class="mt-auto">
               <div class="bg-gray-50 border-t border-gray-100 p-4 flex justify-between items-center">
                 <span class="text-sm text-gray-500">Biaya: Rp 1.750.000</span>
-                <button class="bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm transition">Ajukan Sekarang</button>
+                <button class="bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm transition" data-service="Perizinan Usaha Kuliner">Ajukan Sekarang</button>
               </div>
             </div>
           </article>
@@ -429,10 +429,89 @@
             <div class="mt-auto">
               <div class="bg-gray-50 border-t border-gray-100 p-4 flex justify-between items-center">
                 <span class="text-sm text-gray-500">Biaya: Rp 1.750.000</span>
-                <button class="bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm transition">Ajukan Sekarang</button>
+                <button class="bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm transition" data-service="Perizinan Manufaktur">Ajukan Sekarang</button>
               </div>
             </div>
           </article>
+        </div>
+        
+        <!-- Application Form Section -->
+        <div id="applicationFormSection" class="mt-16 hidden">
+          <div class="bg-white rounded-xl shadow-lg p-6 md:p-8 relative">
+            <button id="closeFormButton" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+              <i class="fas fa-times text-2xl"></i>
+            </button>
+            <div class="text-center mb-8">
+              <h2 class="text-2xl font-bold text-gray-800 mb-2">Formulir Pengajuan Izin Usaha</h2>
+              <p class="text-gray-600">Silakan isi formulir di bawah ini untuk mengajukan izin usaha Anda</p>
+            </div>
+            
+            <div id="selectedServiceInfo" class="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-100 hidden">
+              <h3 class="font-semibold text-gray-800 mb-2">Layanan yang Dipilih:</h3>
+              <p id="selectedServiceName" class="text-primary font-medium"></p>
+            </div>
+            
+            <form id="umkmApplicationForm" class="space-y-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label for="applicantName" class="block text-gray-700 font-medium mb-1">Nama Lengkap</label>
+                  <input type="text" id="applicantName" name="applicantName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+                </div>
+                <div>
+                  <label for="applicantEmail" class="block text-gray-700 font-medium mb-1">Alamat Email</label>
+                  <input type="email" id="applicantEmail" name="applicantEmail" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+                </div>
+              </div>
+              
+              <div>
+                <label for="businessName" class="block text-gray-700 font-medium mb-1">Nama Usaha</label>
+                <input type="text" id="businessName" name="businessName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+              </div>
+              
+              <div>
+                <label for="businessAddress" class="block text-gray-700 font-medium mb-1">Alamat Usaha</label>
+                <textarea id="businessAddress" name="businessAddress" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required></textarea>
+              </div>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label for="businessPhone" class="block text-gray-700 font-medium mb-1">Nomor Telepon</label>
+                  <input type="tel" id="businessPhone" name="businessPhone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+                </div>
+                <div>
+                  <label for="businessType" class="block text-gray-700 font-medium mb-1">Jenis Usaha</label>
+                  <select id="businessType" name="businessType" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+                    <option value="">Pilih Jenis Usaha</option>
+                    <option value="kuliner">Kuliner</option>
+                    <option value="fashion">Fashion</option>
+                    <option value="kerajinan">Kerajinan</option>
+                    <option value="jasa">Jasa</option>
+                    <option value="pertanian">Pertanian</option>
+                    <option value="lainnya">Lainnya</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div>
+                <label for="additionalInfo" class="block text-gray-700 font-medium mb-1">Informasi Tambahan</label>
+                <textarea id="additionalInfo" name="additionalInfo" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Tulis informasi tambahan tentang usaha Anda..."></textarea>
+              </div>
+              
+              <div>
+                <label class="flex items-start space-x-3">
+                  <input type="checkbox" id="agreement" name="agreement" class="mt-1" required>
+                  <span class="text-gray-600 text-sm">Saya menyetujui syarat dan ketentuan yang berlaku serta menyatakan bahwa informasi yang saya berikan adalah benar.</span>
+                </label>
+              </div>
+              
+              <div>
+                <button type="submit" class="w-full bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300">Kirim Pengajuan</button>
+              </div>
+              
+              <div id="formError" class="mt-2 text-center text-red-500 hidden"></div>
+              <div id="responseMessage" class="mt-2 text-center"></div>
+            </form>
+          </div>
         </div>
       </div>
     </main>
@@ -569,6 +648,110 @@
             card.style.display = isVisible ? "" : "none";
           });
         });
+
+        // Handle pengajuan button clicks
+        const pengajuanButtons = document.querySelectorAll('button[data-service]');
+        pengajuanButtons.forEach(button => {
+          button.addEventListener('click', function() {
+            const serviceName = this.getAttribute('data-service');
+            // Show the application form section and populate service info
+            document.getElementById('selectedServiceName').textContent = serviceName;
+            document.getElementById('selectedServiceInfo').classList.remove('hidden');
+            document.getElementById('applicationFormSection').classList.remove('hidden');
+            
+            // Scroll to the form
+            document.getElementById('applicationFormSection').scrollIntoView({ behavior: 'smooth' });
+            
+            // Store selected service in form
+            const form = document.getElementById('umkmApplicationForm');
+            form.setAttribute('data-selected-service', serviceName);
+          });
+        });
+
+        // Handle form submission
+        const applicationForm = document.getElementById('umkmApplicationForm');
+        if (applicationForm) {
+          applicationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formError = document.getElementById('formError');
+            formError.classList.add('hidden');
+            formError.textContent = '';
+            
+            // Get form values
+            const applicantName = document.getElementById('applicantName').value.trim();
+            const applicantEmail = document.getElementById('applicantEmail').value.trim();
+            const businessName = document.getElementById('businessName').value.trim();
+            const businessAddress = document.getElementById('businessAddress').value.trim();
+            const businessPhone = document.getElementById('businessPhone').value.trim();
+            const businessType = document.getElementById('businessType').value;
+            const additionalInfo = document.getElementById('additionalInfo').value.trim();
+            const agreement = document.getElementById('agreement').checked;
+            const selectedService = this.getAttribute('data-selected-service');
+            
+            // Validation
+            if (!applicantName || !businessName || !businessAddress || !businessPhone || !businessType || !agreement) {
+              formError.textContent = 'Harap lengkapi semua field yang wajib diisi dan setujui syarat & ketentuan.';
+              formError.classList.remove('hidden');
+              return;
+            }
+            
+            /*
+            ===== TEMPLATE PESAN WHATSAPP =====
+            *Pengajuan Izin Usaha Baru*
+            
+            *Layanan:* [Nama Layanan]
+            *Nama Pemohon:* [Nama]
+            *Email:* [Email]
+            *Nama Usaha:* [Nama Usaha]
+            *Alamat Usaha:* [Alamat]
+            *Telepon:* [Telepon]
+            *Jenis Usaha:* [Jenis]
+            *Informasi Tambahan:*
+            [Informasi]
+            ===================================
+            */
+            
+            // Kirim ke WhatsApp
+            const waNumber = '6285641783101'; // Indonesian country code + phone number
+            const waMessage = `*Pengajuan Izin Usaha Baru*\n\n*Layanan:* ${selectedService}\n*Nama Pemohon:* ${applicantName}\n*Email:* ${applicantEmail}\n*Nama Usaha:* ${businessName}\n*Alamat Usaha:* ${businessAddress}\n*Telepon:* ${businessPhone}\n*Jenis Usaha:* ${businessType}\n*Informasi Tambahan:*\n${additionalInfo}`;
+            const encodedMessage = encodeURIComponent(waMessage);
+            const waURL = `https://wa.me/${waNumber}?text=${encodedMessage}`;
+            window.open(waURL, '_blank');
+            
+            // Show success message
+            const responseMessage = document.getElementById('responseMessage');
+            responseMessage.innerHTML = '<div class="text-green-600 font-medium p-3 bg-green-50 rounded-lg">Pengajuan Anda telah dikirim! Kami akan menghubungi Anda segera.</div>';
+            
+            // Reset form after a delay
+            setTimeout(() => {
+              applicationForm.reset();
+              document.getElementById('selectedServiceInfo').classList.add('hidden');
+              document.getElementById('applicationFormSection').classList.add('hidden');
+            }, 3000);
+          });
+        }
+
+        // Handle close form button
+        const closeFormButton = document.getElementById('closeFormButton');
+        if (closeFormButton) {
+          closeFormButton.addEventListener('click', function() {
+            const applicationFormSection = document.getElementById('applicationFormSection');
+            const selectedServiceInfo = document.getElementById('selectedServiceInfo');
+            const umkmApplicationForm = document.getElementById('umkmApplicationForm');
+            
+            // Reset form and hide sections
+            if (umkmApplicationForm) {
+              umkmApplicationForm.reset();
+            }
+            if (selectedServiceInfo) {
+              selectedServiceInfo.classList.add('hidden');
+            }
+            if (applicationFormSection) {
+              applicationFormSection.classList.add('hidden');
+            }
+          });
+        }
       });
     </script>
   </body>

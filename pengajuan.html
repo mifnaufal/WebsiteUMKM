@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajukan Layanan - Izin.In</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#1d4ed8',
+              secondary: '#0f172a',
+              accent: '#f59e0b',
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body { font-family: 'Poppins', sans-serif; }
+    </style>
+  </head>
+  <body class="bg-gray-50 font-sans">
+    <div id="navbar-container"></div>
+    
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-primary to-blue-800 text-white py-16 md:py-24 mb-12">
+      <div class="container mx-auto px-4 text-center relative z-10">
+        <h2 class="text-3xl md:text-4xl font-bold mb-3">Formulir Pengajuan Layanan</h2>
+        <p class="text-lg md:text-xl mb-4 max-w-2xl mx-auto">Ajukan layanan yang Anda butuhkan dengan mengisi formulir di bawah ini.</p>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 pb-16">
+      <div class="flex flex-col md:flex-row gap-10">
+        <!-- Form -->
+        <div class="md:w-2/3 space-y-6 bg-white p-8 rounded-xl shadow-lg">
+          <h3 class="text-2xl font-semibold text-primary mb-4">Data Pengajuan</h3>
+          <form id="pengajuanForm" class="space-y-4">
+            <div>
+              <label for="layanan" class="block text-gray-700 font-medium mb-1">Layanan Dipilih</label>
+              <input type="text" id="layanan" name="layanan" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" readonly>
+            </div>
+            <div>
+              <label for="nama" class="block text-gray-700 font-medium mb-1">Nama Lengkap</label>
+              <input type="text" id="nama" name="nama" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+            </div>
+            <div>
+              <label for="email" class="block text-gray-700 font-medium mb-1">Alamat Email</label>
+              <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+            </div>
+            <div>
+              <label for="telepon" class="block text-gray-700 font-medium mb-1">Nomor Telepon</label>
+              <input type="tel" id="telepon" name="telepon" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+            </div>
+            <div>
+              <label for="alamat" class="block text-gray-700 font-medium mb-1">Alamat Lengkap</label>
+              <textarea id="alamat" name="alamat" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required></textarea>
+            </div>
+            <div>
+              <label for="catatan" class="block text-gray-700 font-medium mb-1">Catatan Tambahan</label>
+              <textarea id="catatan" name="catatan" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+            </div>
+            <div>
+              <button type="submit" class="w-full bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300">Kirim Pengajuan</button>
+            </div>
+            <div id="formError" class="mt-2 text-center text-red-500 hidden"></div>
+            <div id="responseMessage" class="mt-2 text-center"></div>
+          </form>
+        </div>
+
+        <!-- Info Card -->
+        <div class="md:w-1/3 space-y-6">
+          <div class="bg-white p-6 rounded-xl shadow-lg">
+            <h3 class="text-xl font-semibold text-primary mb-4">Detail Layanan</h3>
+            <div id="serviceDetail">
+              <p class="text-gray-600">Pilih layanan terlebih dahulu untuk melihat detail.</p>
+            </div>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl shadow-lg">
+            <h3 class="text-xl font-semibold text-primary mb-4">Kontak Bantuan</h3>
+            <div class="space-y-4">
+              <div class="flex items-center space-x-4">
+                <i class="fas fa-phone-alt text-primary text-xl"></i>
+                <div>
+                  <h4 class="font-semibold">Telepon</h4>
+                  <p class="text-gray-600">+62 856-4178-3101</p>
+                </div>
+              </div>
+              <div class="flex items-center space-x-4">
+                <i class="fab fa-whatsapp text-primary text-xl"></i>
+                <div>
+                  <h4 class="font-semibold">WhatsApp</h4>
+                  <p class="text-gray-600">+62 856-4178-3101</p>
+                </div>
+              </div>
+              <div class="flex items-center space-x-4">
+                <i class="fas fa-envelope text-primary text-xl"></i>
+                <div>
+                  <h4 class="font-semibold">Email</h4>
+                  <p class="text-gray-600">naufalhhdd@gmail.com</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-secondary text-white pt-16 pb-8">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Izin.In</h4>
+            <p class="text-gray-300 mb-4">Platform resmi untuk memudahkan perizinan UMKM di Indonesia dengan pelayanan cepat dan transparan.</p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-300 hover:text-white">
+                <i class="fab fa-facebook text-xl"></i>
+              </a>
+              <a href="#" class="text-gray-300 hover:text-white">
+                <i class="fab fa-twitter text-xl"></i>
+              </a>
+              <a href="#" class="text-gray-300 hover:text-white">
+                <i class="fab fa-instagram text-xl"></i>
+              </a>
+              <a href="#" class="text-gray-300 hover:text-white">
+                <i class="fab fa-youtube text-xl"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Layanan</h4>
+            <ul class="space-y-2">
+              <li><a href="#" class="text-gray-300 hover:text-white">Izin Usaha UMKM</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-white">Izin Usaha Kuliner</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-white">Izin Usaha Manufaktur</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-white">Perpanjangan Izin Usaha</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-white">Cek Status Perizinan</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Tautan</h4>
+            <ul class="space-y-2">
+              <li><a href="/" class="text-gray-300 hover:text-white">Beranda</a></li>
+              <li><a href="/tentang.html" class="text-gray-300 hover:text-white">Tentang Kami</a></li>
+              <li><a href="/berita.html" class="text-gray-300 hover:text-white">Berita</a></li>
+              <li><a href="/pengaduan.html" class="text-gray-300 hover:text-white">Pengaduan</a></li>
+              <li><a href="/kontak.html" class="text-gray-300 hover:text-white">Kontak</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Kontak</h4>
+            <ul class="space-y-3 text-gray-300">
+              <li class="flex items-start">
+                <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
+                <span>Tambak, Berjo, Kec. Ngargoyoso, Kab. Karanganyar 57793 Karanganyar Central Java</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-phone-alt mr-3"></i>
+                <span>+62 856-4178-3101</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-envelope mr-3"></i>
+                <span>naufalhhdd@gmail.com</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fab fa-whatsapp mr-3"></i>
+                <span>+62 856-4178-3101</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-400">
+          <div class="mb-8 text-sm space-y-2">
+            <p class="italic">"Web developer? More like an open invitation to get breached." – <span class="font-semibold">Naufal (Leader & Underground Hacker)</span></p>
+            <p class="italic">"You drain my time, code feeds my mind." – <span class="font-semibold">Bowo (Fullstack Developer & Student Leader)</span></p>
+            <p class="italic">"The system’s in ruins, but my code’s still clean." – <span class="font-semibold">Iqbal (Genius Coder & WebDev)</span></p>
+          </div>
+          <hr class="border-gray-700 my-6">
+          <p>&copy; 2025 Izin.In. Hak Cipta Dilindungi.</p>
+          <div class="mt-2 flex justify-center space-x-6 text-sm">
+            <a href="#" class="hover:text-white">Kebijakan Privasi</a>
+            <a href="#" class="hover:text-white">Syarat & Ketentuan</a>
+            <a href="#" class="hover:text-white">Peta Situs</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/navbar.js"></script>
+    <script src="js/pengajuan.js"></script>
+  </body>
+</html>
