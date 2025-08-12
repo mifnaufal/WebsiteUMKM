@@ -21,22 +21,115 @@
     </script>
     <style>
       body { font-family: 'Poppins', sans-serif; }
+      
+      /* Modern Hero Background */
+      .hero-bg {
+        background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 50%, #1e40af 100%);
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .hero-bg::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>') repeat;
+        opacity: 0.3;
+        animation: float 20s ease-in-out infinite;
+      }
+      
+      /* Glass Effect */
+      .glass-effect {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      
+      /* Animations */
+      @keyframes float {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-20px) rotate(2deg); }
+      }
+      
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      .floating-animation {
+        animation: float 6s ease-in-out infinite;
+      }
+      
+      .fade-in-up {
+        animation: fadeInUp 0.8s ease-out forwards;
+      }
+      
+      /* Modern Card Styles */
+      .modern-card {
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      
+      .modern-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+      
+      /* Modern Button */
+      .modern-btn {
+        background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+        border: none;
+        border-radius: 12px;
+        padding: 12px 24px;
+        color: white;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(29, 78, 216, 0.3);
+      }
+      
+      .modern-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(29, 78, 216, 0.4);
+      }
     </style>
   </head>
   <body class="bg-gray-50 font-sans">
     <div id="navbar-container"></div>
     <!-- Hero Section -->
-    <section class="relative bg-gradient-to-r from-primary to-blue-800 text-white py-16 md:py-24 mb-12">
-      <div class="container mx-auto px-4 text-center relative z-10">
-        <h2 class="text-3xl md:text-4xl font-bold mb-3">Hubungi Kami</h2>
-        <p class="text-lg md:text-xl mb-4 max-w-2xl mx-auto">Kami siap membantu Anda. Jangan ragu untuk menghubungi kami melalui form atau kontak di bawah ini.</p>
+    <div class="hero-bg text-white py-20 md:py-32 min-h-[70vh] flex items-center overflow-hidden">
+      <div class="container mx-auto px-4 sm:px-6 text-center relative z-10">
+        <div class="floating-animation mb-8">
+          <div class="inline-block p-4 rounded-full glass-effect">
+            <i class="fas fa-envelope text-4xl md:text-6xl"></i>
+          </div>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-6 fade-in-up">
+          Hubungi <span class="text-yellow-300">Kami</span>
+        </h1>
+        <div class="w-20 h-1 bg-yellow-300 mb-6 rounded-full mx-auto"></div>
+        <p class="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed fade-in-up">
+          Kami siap membantu Anda. Jangan ragu untuk menghubungi kami melalui 
+          <span class="font-semibold text-yellow-300">form atau kontak</span> di bawah ini.
+        </p>
       </div>
-    </section>
+    </div>
     <!-- Main Content -->
     <main class="container mx-auto px-4 pb-16">
       <div class="flex flex-col md:flex-row gap-10">
         <!-- Contact Info -->
-        <div class="md:w-1/2 space-y-6 bg-white p-8 rounded-xl shadow-lg">
+        <div class="md:w-1/2 space-y-6 modern-card p-8 fade-in-up">
           <h3 class="text-2xl font-semibold text-primary mb-4">Informasi Kontak</h3>
           <div class="flex items-start space-x-4">
             <i class="fas fa-map-marker-alt text-primary text-2xl mt-1"></i>
@@ -74,7 +167,7 @@
           </div>
         </div>
         <!-- Contact Form -->
-        <div class="md:w-1/2 space-y-6 bg-white p-8 rounded-xl shadow-lg">
+        <div class="md:w-1/2 space-y-6 modern-card p-8 fade-in-up">
           <h3 class="text-2xl font-semibold text-primary mb-4">Kirim Pesan</h3>
           <form action="#" method="POST" class="space-y-4">
             <div>
@@ -90,7 +183,7 @@
               <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required></textarea>
             </div>
             <div>
-              <button type="submit" class="w-full bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300">Kirim Pesan</button>
+              <button type="submit" class="w-full modern-btn">Kirim Pesan</button>
             </div>
           </form>
         </div>
@@ -177,5 +270,84 @@
       </div>
     </footer>
     <script src="js/navbar.js"></script>
+    <script>
+      // Modern animations and interactions
+      document.addEventListener('DOMContentLoaded', function() {
+        // Staggered fade-in animations
+        const fadeElements = document.querySelectorAll('.fade-in-up');
+        fadeElements.forEach((el, index) => {
+          el.style.animationDelay = `${index * 0.2}s`;
+        });
+        
+        // Form enhancements
+        const form = document.querySelector('form');
+        const inputs = form.querySelectorAll('input, textarea');
+        
+        inputs.forEach(input => {
+          input.addEventListener('focus', function() {
+            this.parentElement.style.transform = 'scale(1.02)';
+            this.parentElement.style.transition = 'transform 0.3s ease';
+          });
+          
+          input.addEventListener('blur', function() {
+            this.parentElement.style.transform = 'scale(1)';
+          });
+        });
+        
+        // Contact cards hover effects
+        const contactCards = document.querySelectorAll('.modern-card');
+        contactCards.forEach(card => {
+          card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px) scale(1.02)';
+          });
+          
+          card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+          });
+        });
+        
+        // Button ripple effect
+        const buttons = document.querySelectorAll('.modern-btn');
+        buttons.forEach(button => {
+          button.addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            ripple.style.position = 'absolute';
+            ripple.style.borderRadius = '50%';
+            ripple.style.background = 'rgba(255, 255, 255, 0.3)';
+            ripple.style.transform = 'scale(0)';
+            ripple.style.animation = 'ripple 0.6s linear';
+            ripple.style.pointerEvents = 'none';
+            
+            this.style.position = 'relative';
+            this.style.overflow = 'hidden';
+            this.appendChild(ripple);
+            
+            setTimeout(() => {
+              ripple.remove();
+            }, 600);
+          });
+        });
+      });
+      
+      // Add ripple animation
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes ripple {
+          to {
+            transform: scale(4);
+            opacity: 0;
+          }
+        }
+      `;
+      document.head.appendChild(style);
+    </script>
   </body>
 </html>
