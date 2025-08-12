@@ -31,6 +31,42 @@
       };
     </script>
     <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      .hero-bg {
+        background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 50%, #1e40af 100%);
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .hero-bg::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+        opacity: 0.15;
+        z-index: 1;
+      }
+      
+      .hero-content {
+        position: relative;
+        z-index: 2;
+      }
+      
+      .floating-animation {
+        animation: float 6s ease-in-out infinite;
+      }
+      
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+      }
+      
       @keyframes fadeInUp {
         from {
           opacity: 0;
@@ -41,10 +77,18 @@
           transform: translateY(0);
         }
       }
+      
       .fade-in-section {
         opacity: 0;
         animation: fadeInUp 0.6s forwards;
       }
+      
+      .fade-in-up {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s ease-out forwards;
+      }
+      
       .delay-100 {
         animation-delay: 100ms;
       }
@@ -53,6 +97,27 @@
       }
       .delay-300 {
         animation-delay: 300ms;
+      }
+      
+      .card {
+        @apply bg-white rounded-xl shadow-md overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 transform;
+      }
+      
+      .card:hover {
+        transform: translateY(-8px) scale(1.02);
+      }
+      
+      .gradient-text {
+        background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      
+      .glass-effect {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
       }
       .highlight-box {
         position: relative;
@@ -111,16 +176,22 @@
     <div id="navbar-container"></div>
 
     <!-- Hero Section -->
-    <div class="relative bg-gradient-to-r from-primary to-primary-dark text-white py-12 md:py-16 overflow-hidden">
-      <div
-        class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==')]"
-      ></div>
-      <div class="container mx-auto px-4 sm:px-6 relative z-10 animate__animated animate__fadeIn">
-        <h2 class="text-3xl sm:text-4xl font-bold mb-3">Tentang Kami</h2>
-        <div class="w-16 h-1 bg-accent mb-4"></div>
-        <p class="text-lg sm:text-xl text-blue-100 max-w-2xl">Mengenal lebih dekat institusi kami dan komitmen kami dalam memberikan pelayanan terbaik</p>
+    <div class="hero-bg text-white py-20 md:py-32 min-h-[70vh] flex items-center overflow-hidden">
+      <div class="container mx-auto px-4 sm:px-6 hero-content">
+        <div class="floating-animation mb-8">
+          <div class="inline-block p-4 rounded-full glass-effect">
+            <i class="fas fa-building text-4xl md:text-6xl"></i>
+          </div>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-6 fade-in-up">
+          Tentang <span class="text-yellow-300">Kami</span>
+        </h1>
+        <div class="w-20 h-1 bg-yellow-300 mb-6 rounded-full"></div>
+        <p class="text-xl md:text-2xl text-blue-100 max-w-3xl leading-relaxed fade-in-up">
+          Mengenal lebih dekat institusi kami dan komitmen kami dalam memberikan 
+          <span class="font-semibold text-yellow-300">pelayanan terbaik</span> untuk UMKM Indonesia
+        </p>
       </div>
-      <div class="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-gray-50 to-transparent"></div>
     </div>
 
     <!-- Main Content -->
