@@ -374,8 +374,20 @@ document.addEventListener("DOMContentLoaded", () => {
   // Handle form submission
   const applicationForm = document.getElementById('umkmApplicationForm');
   if (applicationForm) {
-    applicationForm.addEventListener('submit', function(e) {
-      e.preventDefault();
+    // Add event listener to show/hide error for terms checkbox
+    const agreementCheckbox = document.getElementById('agreement');
+    const termsError = document.getElementById('termsError');
+    
+    if (agreementCheckbox && termsError) {
+      agreementCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+          termsError.classList.add('hidden');
+        }
+      });
+    }
+
+    applicationForm.addEventListener('submit', function(event) {
+      event.preventDefault();
       
       const formError = document.getElementById('formError');
       formError.classList.add('hidden');
@@ -387,7 +399,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const businessName = document.getElementById('businessName').value.trim();
       const businessAddress = document.getElementById('businessAddress').value.trim();
       const businessPhone = document.getElementById('businessPhone').value.trim();
-      const businessType = document.getElementById('businessType').value;
+      const businessDescription = document.getElementById('businessDescription').value.trim();
       const additionalInfo = document.getElementById('additionalInfo').value.trim();
       const agreement = document.getElementById('agreement').checked;
       const selectedService = this.getAttribute('data-selected-service');
@@ -411,9 +423,28 @@ document.addEventListener("DOMContentLoaded", () => {
       });
       
       // Validation
-      if (!applicantName || !businessName || !businessAddress || !businessPhone || !agreement) {
-        formError.textContent = 'Harap lengkapi semua field yang wajib diisi dan setujui syarat & ketentuan.';
+      let isValid = true;
+      
+      // Check required fields
+      if (!applicantName || !businessName || !businessAddress || !businessPhone) {
+        formError.textContent = 'Harap lengkapi semua field yang wajib diisi.';
         formError.classList.remove('hidden');
+        isValid = false;
+      }
+      
+      // Check terms agreement
+      if (!agreement) {
+        termsError.classList.remove('hidden');
+        isValid = false;
+        // Scroll to terms if not agreed
+        if (isValid) { // Only scroll if this is the only error
+          document.getElementById('termsContainer').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      } else {
+        termsError.classList.add('hidden');
+      }
+      
+      if (!isValid) {
         return;
       }
       
@@ -450,24 +481,46 @@ document.addEventListener("DOMContentLoaded", () => {
       ===================================
       */
       
-      // Kirim ke WhatsApp
+      // Format WhatsApp message
       const waNumber = '6285641783101'; // Indonesian country code + phone number
-      let waMessage = `*Pengajuan Izin Usaha*
-
-*Layanan:* ${selectedService}
-*Nama Pemohon:* ${applicantName}
-*Email:* ${applicantEmail}
-*Nama Usaha:* ${businessName}
-*Alamat Usaha:* ${businessAddress}
-*Telepon:* ${businessPhone}`;
+      const currentDate = new Date().toLocaleDateString('id-ID', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
       
+      let waMessage = `*PENGAJUAN IZIN USAHA*\n`;
+      waMessage += `_${currentDate}_\n\n`;
+      
+      // Add service information
+      waMessage += `*LAYANAN YANG DIAJUKAN*\n`;
+      waMessage += `🔹 ${selectedService}\n\n`;
+      
+      // Add applicant information
+      waMessage += `*DATA PEMOHON*\n`;
+      waMessage += `👤 Nama Lengkap: ${applicantName}\n`;
+      waMessage += `📧 Email: ${applicantEmail || '-'}\n`;
+      waMessage += `📱 Telepon: ${businessPhone}\n\n`;
+      
+      // Add business information
+      waMessage += `*DATA USAHA*\n`;
+      waMessage += `🏢 Nama Usaha: ${businessName}\n`;
+      waMessage += `📍 Alamat: ${businessAddress}\n`;
+      waMessage += `📋 Deskripsi Usaha: ${businessDescription || '-'}\n\n`;
+      
+      // Add uploaded files information
       if (uploadedFilesInfo) {
-        waMessage += `\n\n*Dokumen Persyaratan:*
-${uploadedFilesInfo}`;
+        waMessage += `*DOKUMEN PERSYARATAN*\n${uploadedFilesInfo}\n`;
       }
       
-      waMessage += `\n*Informasi Tambahan:*
-${additionalInfo}`;
+      // Add additional information if provided
+      if (additionalInfo) {
+        waMessage += `*INFORMASI TAMBAHAN*\n${additionalInfo}\n\n`;
+      }
+      
+      // Add closing message
+      waMessage += `_*Terima kasih telah menggunakan layanan kami. Tim kami akan segera menghubungi Anda untuk proses selanjutnya._`;
       const encodedMessage = encodeURIComponent(waMessage);
       const waURL = `https://wa.me/${waNumber}?text=${encodedMessage}`;
       window.open(waURL, '_blank');

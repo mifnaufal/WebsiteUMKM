@@ -48,6 +48,10 @@
         @apply bg-white text-primary px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg border-2 border-primary;
       }
       
+      .btn-whatsapp {
+        @apply bg-green-500 text-white px-8 py-4 rounded-xl font-semibold hover:bg-green-600 transition-all duration-300 transform hover:scale-105 shadow-lg;
+      }
+      
       /* Advanced 3D Hero Background */
       .hero-bg {
         background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 50%, #1e40af 100%);
@@ -213,7 +217,7 @@
           </div>
         </div>
         <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 fade-in-up stagger-1">
-          Selamat Datang di <span class="gradient-text">Izin.In</span>
+          Selamat Datang di <span class="text-yellow-300">Izin.In</span>
         </h1>
         <p class="text-xl md:text-2xl lg:text-3xl mb-12 max-w-4xl mx-auto leading-relaxed fade-in-up stagger-2">
           Platform resmi untuk memudahkan perizinan UMKM di Indonesia dengan pelayanan 
@@ -410,36 +414,16 @@
       </div>
     </section>
 
-    <!-- Testimoni Warga -->
-    <section class="py-16 bg-gray-50">
-      <div class="container mx-auto px-4">
-        <h2 class="text-2xl font-bold mb-8 text-center">Testimoni Pengguna</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="card p-6">
-            <div class="flex items-center mb-4">
-              <div class="w-12 h-12 bg-gray-300 rounded-full"></div>
-              <div class="ml-4">
-                <h4 class="font-bold">Ibu Sari</h4>
-                <p class="text-sm text-gray-600">UMKM Batik</p>
-              </div>
-            </div>
-            <div class="text-yellow-400 mb-3">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- CTA Section -->
     <section class="py-16 bg-primary text-white">
       <div class="container mx-auto px-4 text-center">
         <h2 class="text-2xl font-bold mb-4">Butuh Bantuan?</h2>
         <p class="mb-6 max-w-2xl mx-auto">Tim kami siap membantu Anda dalam proses perizinan usaha. Hubungi kami sekarang juga!</p>
         <div class="flex flex-col md:flex-row justify-center gap-4">
-          <a href="/pengaduan.html" class="btn-secondary"> Kirim Pengaduan </a>
-          <a href="https://wa.me/6281234567890" class="bg-green-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-600 transition-colors flex items-center justify-center">
+          <a href="/pengaduan.html" class="bg-white text-primary hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold transition-colors duration-300 inline-flex items-center">
+            <i class="fas fa-comment-alt mr-2"></i> Kirim Pengaduan
+          </a>
+          <a href="https://wa.me/6285641783101" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300 inline-flex items-center">
             <i class="fab fa-whatsapp text-xl mr-2"></i> WhatsApp
           </a>
         </div>
