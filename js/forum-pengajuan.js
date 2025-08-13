@@ -230,12 +230,16 @@ document.addEventListener("DOMContentLoaded", () => {
     applyButtons.forEach(button => {
       button.addEventListener("click", function () {
         const serviceName = this.getAttribute("data-service");
+        console.log('Selected service:', serviceName);
         // Show the application form section and populate service info
         document.getElementById('selectedServiceName').textContent = serviceName;
         
         // Populate service details
         const service = services.find(s => s.name === serviceName);
         if (service) {
+          console.log('Populating service details for:', service.name);
+          document.getElementById('serviceName').textContent = service.name;
+          document.getElementById('serviceDescription').textContent = service.description;
           document.getElementById('serviceTime').textContent = service.time;
           document.getElementById('serviceCost').textContent = service.cost;
           
@@ -260,17 +264,22 @@ document.addEventListener("DOMContentLoaded", () => {
           try {
             // Generate file upload fields based on requirements
             const fileUploadFields = document.getElementById('fileUploadFields');
+            console.log('File upload fields element:', fileUploadFields);
             if (fileUploadFields) {
               fileUploadFields.innerHTML = '';
               
               // Ensure the file upload section is visible
               const fileUploadSection = document.getElementById('fileUploadSection');
+              console.log('File upload section element:', fileUploadSection);
               if (fileUploadSection) {
                 fileUploadSection.style.display = 'block';
               }
               
               if (service.requirements && service.requirements.length > 0) {
+                console.log('Service requirements:', service.requirements);
+                console.log('Number of requirements:', service.requirements.length);
                 service.requirements.forEach((requirement, index) => {
+                  console.log('Processing requirement:', requirement);
                   const fileUploadDiv = document.createElement('div');
                   fileUploadDiv.className = 'border border-gray-200 rounded-lg p-4 mb-4';
                   
@@ -294,6 +303,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     acceptType = '*/*';
                   }
                   
+                  console.log('Creating file input for:', requirementName, 'with accept type:', acceptType);
                   fileUploadDiv.innerHTML = `
                     <label class="block text-gray-700 font-medium mb-2">${requirementName}</label>
                     <input type="file" name="requirementFile${index}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary file-input" data-requirement="${requirementName}" accept="${acceptType}">
@@ -302,9 +312,28 @@ document.addEventListener("DOMContentLoaded", () => {
                   
                   fileUploadFields.appendChild(fileUploadDiv);
                 });
+                console.log('File upload fields populated successfully');
               } else {
                 // If no requirements, show a message
                 fileUploadFields.innerHTML = '<p class="text-gray-500">Tidak ada dokumen khusus yang diperlukan untuk layanan ini.</p>';
+                console.log('No requirements for this service');
+              }
+              
+              // Force reflow to ensure the section is visible
+              if (fileUploadSection) {
+                fileUploadSection.offsetHeight;
+              }
+            } else {
+              console.log('File upload fields element not found');
+              
+              // Fallback: try to show a message directly in the section
+              const fileUploadSection = document.getElementById('fileUploadSection');
+              if (fileUploadSection) {
+                fileUploadSection.innerHTML = `
+                  <h3 class="text-lg font-semibold text-gray-800 mb-3">Dokumen Persyaratan</h3>
+                  <p class="text-red-500">Terjadi kesalahan saat memuat field upload dokumen. Silakan coba lagi.</p>
+                `;
+                fileUploadSection.style.display = 'block';
               }
             }
           } catch (error) {
@@ -313,6 +342,16 @@ document.addEventListener("DOMContentLoaded", () => {
             const fileUploadFields = document.getElementById('fileUploadFields');
             if (fileUploadFields) {
               fileUploadFields.innerHTML = '<p class="text-red-500">Terjadi kesalahan saat memuat field upload dokumen. Silakan coba lagi.</p>';
+            } else {
+              // If fileUploadFields doesn't exist, try to show message in the section
+              const fileUploadSection = document.getElementById('fileUploadSection');
+              if (fileUploadSection) {
+                fileUploadSection.innerHTML = `
+                  <h3 class="text-lg font-semibold text-gray-800 mb-3">Dokumen Persyaratan</h3>
+                  <p class="text-red-500">Terjadi kesalahan saat memuat field upload dokumen. Silakan coba lagi.</p>
+                `;
+                fileUploadSection.style.display = 'block';
+              }
             }
           }
           

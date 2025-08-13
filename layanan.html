@@ -69,7 +69,11 @@
 
       /* Modern card styling */
       .service-card {
-        @apply bg-white rounded-xl shadow-md overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 transform;
+        background-color: #ffffff;
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        overflow: hidden;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         display: flex;
         flex-direction: column;
         opacity: 0;
@@ -79,6 +83,7 @@
       }
       
       .service-card:hover {
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         transform: translateY(-8px) scale(1.02);
       }
 
@@ -89,19 +94,51 @@
       }
       
       .card {
-        @apply bg-white rounded-xl shadow-md overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 transform;
+        background-color: #ffffff;
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        overflow: hidden;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       }
       
       .card:hover {
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         transform: translateY(-8px) scale(1.02);
       }
       
       .btn-primary {
-        @apply bg-primary text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl;
+        background-color: #3b82f6;
+        color: #ffffff;
+        padding: 1rem 2rem;
+        border-radius: 0.75rem;
+        font-weight: 600;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transform: scale(1);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+      
+      .btn-primary:hover {
+        background-color: #1e40af;
+        transform: scale(1.05);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
       }
       
       .btn-secondary {
-        @apply bg-white text-primary px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg border-2 border-primary;
+        background-color: #ffffff;
+        color: #3b82f6;
+        padding: 1rem 2rem;
+        border-radius: 0.75rem;
+        font-weight: 600;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transform: scale(1);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        border: 2px solid #3b82f6;
+      }
+      
+      .btn-secondary:hover {
+        background-color: #f3f4f6;
+        transform: scale(1.05);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
       }
       
       .fade-in-up {
@@ -267,22 +304,12 @@
 
       /* Services container adjustments */
       #servicesContainer {
-        transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-        align-items: start;
-      }
-
-      /* Active card moves down */
-      .service-card.active {
-        transform: translateY(0);
-        margin-bottom: 300px;
-        z-index: 20;
-        transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 2rem;
+        padding: 2rem 0;
       }
     </style>
-  </head>
-  <body class="bg-gray-50">
-    <!-- Navbar -->
-    <div id="navbar-container"></div>
 
     <!-- Hero -->
     <!-- Modern Hero Section -->
@@ -313,9 +340,9 @@
     </div>
 
     <!-- Main content: single page with cards (no category filter) -->
-    <main class="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-white">
+    <main class="py-16 md:py-24 bg-gray-100">
       <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
+        <div class="text-center mb-16 py-12 bg-white rounded-2xl shadow-sm">
           <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">Semua Layanan Perizinan</h2>
           <p class="text-gray-600 text-lg max-w-2xl mx-auto">Pilih layanan yang sesuai dengan kebutuhan bisnis Anda</p>
         </div>
@@ -918,26 +945,24 @@
 
       // Add CSS for loading state and touch devices
       const modernStyles = `
-        <style>
-          body:not(.loaded) .fade-in-up {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          
-          .touch-device .service-card:hover {
-            transform: none !important;
-          }
-          
-          .touch-device .service-card:active {
-            transform: translateY(-4px) scale(1.02) !important;
-          }
-          
-          .search-container:focus-within {
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
-          }
-        </style>
+        body:not(.loaded) .fade-in-up {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        
+        .touch-device .service-card:hover {
+          transform: none !important;
+        }
+        
+        .touch-device .service-card:active {
+          transform: translateY(-4px) scale(1.02) !important;
+        }
+        
+        .search-container:focus-within {
+          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+        }
       `;
-      document.head.insertAdjacentHTML('beforeend', modernStyles);
+      document.head.insertAdjacentHTML('beforeend', `<style>${modernStyles}</style>`);
     </script>
   </body>
 </html>
