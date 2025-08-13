@@ -132,6 +132,10 @@ document.addEventListener("DOMContentLoaded", () => {
       requirementsList.appendChild(li);
     });
     
+    // Set the document requirements note
+    const requirementsText = selectedService.requirements.join(', ');
+    document.getElementById('requiredDocumentsNote').textContent = requirementsText;
+    
     // Populate process steps
     const processList = document.getElementById('serviceProcess');
     processList.innerHTML = '';
@@ -251,6 +255,10 @@ document.addEventListener("DOMContentLoaded", () => {
             li.textContent = req;
             requirementsList.appendChild(li);
           });
+          
+          // Set the document requirements note
+          const requirementsText = service.requirements.join(', ');
+          document.getElementById('requiredDocumentsNote').textContent = requirementsText;
           
           // Populate process steps
           const processList = document.getElementById('serviceProcess');
