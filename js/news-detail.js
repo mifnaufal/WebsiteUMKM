@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             loadingState.style.display = 'none';
             
             const articleHTML = `
-                <img src="../${article.image}" alt="${article.title}" class="w-full h-64 md:h-96 object-cover rounded-lg mb-6">
+                <img src="${article.image}" alt="${article.title}" class="w-full h-64 md:h-96 object-cover rounded-lg mb-6">
                 <div class="flex items-center text-gray-500 text-sm mb-4">
                     <i class="fas fa-calendar-alt mr-2"></i>
                     <span>${article.date}</span>
@@ -45,6 +45,25 @@ document.addEventListener('DOMContentLoaded', async () => {
             `;
             
             articleContainer.innerHTML = articleHTML;
+
+            // Image loading animation - modified for Live Server
+            const images = articleContainer.querySelectorAll('img');
+            images.forEach(img => {
+                const parent = img.parentElement;
+                parent.classList.add('image-loading');
+                
+                img.onload = function() {
+                    parent.classList.remove('image-loading');
+                };
+                
+                img.onerror = function() {
+                    parent.classList.remove('image-loading');
+                    this.alt = 'Gagal memuat gambar';
+                };
+                
+                // Force reload in case image is cached
+                img.src = img.src + (img.src.includes('?') ? '&' : '?') + 't=' + Date.now();
+            });
         } else {
             throw new Error('Artikel dengan ID ini tidak ditemukan.');
         }

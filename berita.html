@@ -181,6 +181,31 @@
       .animate-delay-600 {
         animation-delay: 0.6s;
       }
+
+      .image-loading {
+        position: relative;
+        min-height: 200px;
+        background: #f5f5f5;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .image-loading::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 40px;
+        height: 40px;
+        margin: -20px 0 0 -20px;
+        border: 3px solid rgba(0, 0, 0, 0.1);
+        border-top: 3px solid #3498db;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
     </style>
   </head>
   <body class="bg-gray-50 font-sans">
@@ -336,6 +361,26 @@
 
     <script src="js/navbar.js"></script>
     <script src="js/news.js"></script>
-      <script src="/js/navbar.js"></script>
+    <script src="/js/navbar.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const images = document.querySelectorAll('img');
+        
+        images.forEach(img => {
+          if (!img.complete) {
+            img.parentElement.classList.add('image-loading');
+          }
+          
+          img.addEventListener('load', function() {
+            this.parentElement.classList.remove('image-loading');
+          });
+          
+          img.addEventListener('error', function() {
+            this.parentElement.classList.remove('image-loading');
+            this.alt = 'Gagal memuat gambar';
+          });
+        });
+      });
+    </script>
   </body>
 </html>

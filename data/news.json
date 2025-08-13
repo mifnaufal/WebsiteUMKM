@@ -6,7 +6,7 @@
       "date": "2025-08-15",
       "category": "HIGHLIGHT",
       "summary": "Pemerintah meluncurkan platform perizinan online terbaru yang memudahkan pelaku UMKM dalam mengurus berbagai perizinan usaha secara efisien dan transparan.",
-      "image": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop",
+      "image": "./assets/1.jpg",
       "content": "Pemerintah meluncurkan platform perizinan online terbaru yang memudahkan pelaku UMKM dalam mengurus berbagai perizinan usaha secara efisien dan transparan. Sistem baru ini dilengkapi dengan fitur-fitur modern untuk mempercepat proses perizinan."
     },
     {
@@ -15,7 +15,7 @@
       "date": "2025-08-10"  ,
       "category": "PENGUMUMAN",
       "summary": "Berikut jadwal libur nasional bulan September 2025 yang perlu diperhatikan dalam pengurusan perizinan.",
-      "image": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop",
+      "image": "./assets/2.jpg",
       "content": "Berikut adalah jadwal libur nasional untuk bulan September 2025. Harap diperhatikan bahwa pada tanggal-tanggal tersebut, layanan kantor kami akan tutup. Pastikan untuk merencanakan pengurusan perizinan Anda di luar tanggal-tanggal ini."
     },
     {
@@ -24,7 +24,7 @@
       "date": "2025-08-05",
       "category": "PERIZINAN",
       "summary": "Simak panduan lengkap untuk perpanjangan izin usaha mikro dengan prosedur yang lebih sederhana dan cepat.",
-      "image": "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop",
+      "image": "./assets/3.jpg",
       "content": "Proses perpanjangan izin usaha mikro kini lebih mudah. Ikuti panduan langkah demi langkah kami untuk memastikan izin usaha Anda tetap valid tanpa kendala. Dokumen yang diperlukan telah disederhanakan untuk kemudahan Anda."
     },
     {
@@ -33,7 +33,7 @@
       "date": "2025-08-01",
       "category": "KEGIATAN",
       "summary": "Dinas Perizinan menyelenggarakan pelatihan kewirausahaan gratis bagi pemula yang ingin memulai usaha.",
-      "image": "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop",
+      "image": "./assets/4.jpg",
       "content": "Jangan lewatkan kesempatan untuk mengikuti pelatihan kewirausahaan gratis yang diselenggarakan oleh Dinas Perizinan. Acara ini terbuka untuk semua calon pengusaha yang ingin mendapatkan bekal pengetahuan untuk memulai bisnis mereka."
     },
     {
@@ -42,7 +42,7 @@
       "date": "2025-07-28",
       "category": "REGULASI",
       "summary": "Pemerintah mengeluarkan perubahan regulasi terbaru untuk perizinan usaha skala kecil yang berlaku mulai September 2025.",
-      "image": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop",
+      "image": "./assets/5.jpg",
       "content": "Pemerintah telah mengumumkan beberapa perubahan penting terkait regulasi perizinan untuk usaha skala kecil. Perubahan ini akan mulai berlaku pada bulan September 2025. Pastikan Anda memahami aturan baru ini untuk menjaga kepatuhan usaha Anda."
     },
     {
@@ -51,7 +51,7 @@
       "date": "2025-07-28",
       "category": "REGULASI",
       "summary": "Pemerintah mengeluarkan perubahan regulasi terbaru untuk perizinan usaha skala kecil yang berlaku mulai September 2025.",
-      "image": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop",
+      "image": "./assets/6.jpg",
       "content": "Pemerintah telah mengumumkan beberapa perubahan penting terkait regulasi perizinan untuk usaha skala kecil. Perubahan ini akan mulai berlaku pada bulan September 2025. Pastikan Anda memahami aturan baru ini untuk menjaga kepatuhan usaha Anda."
     },
     {
@@ -60,7 +60,7 @@
       "date": "2025-07-28",
       "category": "REGULASI",
       "summary": "Pemerintah mengeluarkan perubahan regulasi terbaru untuk perizinan usaha skala kecil yang berlaku mulai September 2025.",
-      "image": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop",
+      "image": "./assets/4.jpg",
       "content": "Pemerintah telah mengumumkan beberapa perubahan penting terkait regulasi perizinan untuk usaha skala kecil. Perubahan ini akan mulai berlaku pada bulan September 2025. Pastikan Anda memahami aturan baru ini untuk menjaga kepatuhan usaha Anda."
     }
   ]
