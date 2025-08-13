@@ -21,59 +21,97 @@
     </script>
 
     <style>
-      /* Hero gradient */
+      /* Advanced 3D Hero Background */
       .gradient-bg {
-        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 50%, #1e40af 100%);
         position: relative;
         overflow: hidden;
+        perspective: 1000px;
+        transform-style: preserve-3d;
       }
+      
       .gradient-bg::before {
-        content: "";
+        content: '';
         position: absolute;
-        inset: 0;
-        background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.14) 0%, transparent 40%);
-        pointer-events: none;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>') repeat;
+        opacity: 0.3;
+        animation: float3D 20s ease-in-out infinite;
+        transform: translateZ(-50px);
       }
-
-      /* Card */
+      
+      .gradient-bg::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+        background-size: 20px 20px;
+        animation: rotate3D 30s linear infinite;
+        transform: translateZ(-100px);
+      }
+      
+      .hero-content {
+        position: relative;
+        z-index: 2;
+      }
+      
+      @keyframes float3D {
+        0%, 100% { 
+          transform: translateZ(-50px) translateY(0) rotateX(0deg) rotateY(0deg); 
+        }
+        25% { 
+          transform: translateZ(-30px) translateY(-15px) rotateX(2deg) rotateY(2deg); 
+        }
+        50% { 
+          transform: translateZ(-70px) translateY(0) rotateX(0deg) rotateY(0deg); 
+        }
+        75% { 
+          transform: translateZ(-35px) translateY(-10px) rotateX(-1deg) rotateY(1deg); 
+        }
+      }
+      
+      @keyframes rotate3D {
+        0% { transform: translateZ(-100px) rotate(0deg); }
+        100% { transform: translateZ(-100px) rotate(360deg); }
+      }
+      
+      /* Modern card styling */
       .service-card {
-        transition: all 0.28s ease;
-        transform: translateY(0);
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
-        border-radius: 16px;
+        background-color: #ffffff;
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         overflow: hidden;
-        background: #fff;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         display: flex;
         flex-direction: column;
         opacity: 0;
-        animation: fade-in 450ms ease-out forwards;
+        animation: fadeInUp3D 0.8s ease-out forwards;
         position: relative;
+        animation-delay: var(--delay, 0s);
       }
-
-      @keyframes fade-in {
+      
+      .service-card:hover {
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        transform: translateY(-8px) scale(1.02);
+      }
+      
+      @keyframes fadeInUp3D {
         from {
           opacity: 0;
-          transform: translateY(8px);
+          transform: translateY(50px) translateZ(-100px) rotateX(20deg);
         }
         to {
           opacity: 1;
-          transform: translateY(0);
+          transform: translateY(0) translateZ(0) rotateX(0deg);
         }
       }
-
-      .service-card:nth-child(1) {
-        animation-delay: calc(0.1s * 1);
-      }
-      .service-card:nth-child(2) {
-        animation-delay: calc(0.1s * 2);
-      }
-      .service-card:nth-child(3) {
-        animation-delay: calc(0.1s * 3);
-      }
-      .service-card:nth-child(4) {
-        animation-delay: calc(0.1s * 4);
-      }
-
+      
       .service-icon {
         width: 56px;
         height: 56px;
@@ -81,41 +119,131 @@
         align-items: center;
         justify-content: center;
       }
-
+      
       .process-step {
         position: relative;
         padding-left: 2rem;
       }
-
+      
       .process-step:not(:last-child) {
         margin-bottom: 1.25rem;
       }
-
+      
       .process-step p {
         line-height: 1.5;
       }
-
+      
       .requirement-item {
         line-height: 1.5;
       }
-
+      
       .service-details {
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.3s ease-out;
+        transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       }
-
+      
       .service-card.active .service-details {
         max-height: 1000px;
-        transition: max-height 0.5s ease-in;
       }
-
+      
       .toggle-details[aria-expanded="true"] .fa-chevron-down {
         transform: rotate(180deg);
       }
-
+      
       .highlight-box {
-        box-shadow: 0 0 0 2px rgba(29, 78, 216, 0.3);
+        box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.3);
+      }
+      
+      /* Form styling */
+      .form-container {
+        background: #ffffff;
+        border-radius: 1rem;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        padding: 2rem;
+        margin-top: 2rem;
+      }
+      
+      .form-input {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border: 2px solid #e5e7eb;
+        border-radius: 0.5rem;
+        transition: all 0.2s ease;
+        background-color: #f9fafb;
+      }
+      
+      .form-input:focus {
+        outline: none;
+        border-color: #3b82f6;
+        background-color: #ffffff;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+      }
+      
+      .form-label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: #374151;
+      }
+      
+      .btn-primary {
+        background-color: #1d4ed8;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+      }
+      
+      .btn-primary:hover {
+        background-color: #2563eb;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+      
+      .btn-primary:active {
+        transform: translateY(0);
+      }
+      
+      /* File upload styling */
+      .file-upload {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+      }
+      
+      .file-upload input[type="file"] {
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+      }
+      
+      .file-upload-label {
+        display: block;
+        padding: 0.75rem 1rem;
+        background-color: #f9fafb;
+        border: 2px dashed #d1d5db;
+        border-radius: 0.5rem;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      
+      .file-upload-label:hover {
+        border-color: #3b82f6;
+        background-color: #f0f9ff;
+      }
+      
+      .file-upload-label i {
+        margin-right: 0.5rem;
       }
     </style>
   </head>
@@ -125,11 +253,20 @@
     <div id="navbar-container"></div>
 
     <!-- Hero -->
-    <section class="gradient-bg py-16 md:py-24 text-white">
-      <div class="container mx-auto px-4 text-center">
-        <h1 class="text-3xl md:text-4xl font-bold mb-4">Forum Pengajuan Izin Usaha</h1>
-        <p class="text-lg md:text-xl max-w-2xl mx-auto opacity-90">
-          Pilih layanan yang Anda butuhkan untuk memulai proses pengajuan izin usaha Anda
+    <section class="gradient-bg text-white py-20 md:py-32 min-h-[50vh] flex items-center">
+      <div class="container mx-auto px-4 text-center hero-content">
+        <div class="floating-animation mb-8">
+          <div class="inline-block p-4 rounded-full bg-white bg-opacity-10 backdrop-blur-sm border border-white border-opacity-20">
+            <i class="fas fa-file-contract text-4xl md:text-6xl"></i>
+          </div>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-6 fade-in-up stagger-1">
+          Forum Pengajuan <span class="text-yellow-300">Izin Usaha</span>
+        </h1>
+        <p class="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed fade-in-up stagger-2">
+          Pilih layanan yang Anda butuhkan untuk memulai proses pengajuan izin usaha Anda dengan 
+          <span class="font-semibold text-yellow-300">proses mudah</span> dan 
+          <span class="font-semibold text-yellow-300">terpercaya</span>
         </p>
       </div>
     </section>
@@ -144,100 +281,118 @@
         <!-- Application Form Section -->
         <div id="applicationFormSection" class="mt-16">
           <div class="w-full">
-            <div class="text-center mb-8">
-              <h2 class="text-2xl font-bold text-gray-800 mb-2">Formulir Pengajuan Izin Usaha</h2>
-              <p class="text-gray-600">Silakan isi formulir di bawah ini untuk mengajukan izin usaha Anda</p>
+            <div class="text-center mb-12 py-8 bg-white rounded-2xl shadow-sm">
+              <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">Formulir Pengajuan Izin Usaha</h2>
+              <p class="text-gray-600 text-lg max-w-2xl mx-auto">Silakan isi formulir di bawah ini untuk mengajukan izin usaha Anda</p>
             </div>
-            
-            <div id="selectedServiceInfo" class="mb-6 p-4">
-              <h3 class="font-semibold text-gray-800 mb-2">Layanan yang Dipilih:</h3>
-              <p id="selectedServiceName" class="text-primary font-medium"></p>
-              
-              <!-- Service Details -->
-              <div id="serviceDetails" class="mt-4">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                  <div>
-                    <h4 class="font-semibold text-gray-800 mb-2">Persyaratan:</h4>
-                    <ul id="serviceRequirements" class="list-disc pl-5 space-y-1 text-gray-600">
-                      <!-- Requirements will be populated by JavaScript -->
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 class="font-semibold text-gray-800 mb-2">Proses:</h4>
-                    <ol id="serviceProcess" class="list-decimal pl-5 space-y-1 text-gray-600">
-                      <!-- Process steps will be populated by JavaScript -->
-                    </ol>
-                  </div>
-                </div>
+            <div class="form-container">
+              <div class="mb-8 p-6 bg-blue-50 rounded-xl border border-blue-100">
+                <h3 class="font-semibold text-gray-800 mb-3">Layanan yang Dipilih:</h3>
+                <p id="selectedServiceName" class="text-primary font-medium text-lg"></p>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                  <div>
-                    <h4 class="font-semibold text-gray-800 mb-2">Waktu Pengerjaan:</h4>
-                    <p id="serviceTime" class="text-gray-600"></p>
+                <!-- Service Details -->
+                <div id="serviceDetails" class="mt-4">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                    <div>
+                      <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                        <i class="fas fa-list mr-2 text-primary"></i>
+                        Persyaratan:
+                      </h4>
+                      <ul id="serviceRequirements" class="list-disc pl-5 space-y-2 text-gray-600 ml-2">
+                        <!-- Requirements will be populated by JavaScript -->
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                        <i class="fas fa-tasks mr-2 text-primary"></i>
+                        Proses:
+                      </h4>
+                      <ol id="serviceProcess" class="list-decimal pl-5 space-y-2 text-gray-600 ml-2">
+                        <!-- Process steps will be populated by JavaScript -->
+                      </ol>
+                    </div>
                   </div>
-                  <div>
-                    <h4 class="font-semibold text-gray-800 mb-2">Biaya:</h4>
-                    <p id="serviceCost" class="text-gray-600"></p>
+                  
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <div class="flex items-center p-4 bg-white rounded-lg shadow-sm">
+                      <div class="mr-4 p-3 bg-blue-100 rounded-lg">
+                        <i class="fas fa-clock text-blue-600"></i>
+                      </div>
+                      <div>
+                        <h4 class="font-semibold text-gray-800">Waktu Pengerjaan:</h4>
+                        <p id="serviceTime" class="text-gray-600"></p>
+                      </div>
+                    </div>
+                    <div class="flex items-center p-4 bg-white rounded-lg shadow-sm">
+                      <div class="mr-4 p-3 bg-green-100 rounded-lg">
+                        <i class="fas fa-tag text-green-600"></i>
+                      </div>
+                      <div>
+                        <h4 class="font-semibold text-gray-800">Biaya:</h4>
+                        <p id="serviceCost" class="text-gray-600"></p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            
+                        
             <form id="umkmApplicationForm" class="space-y-6">
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label for="applicantName" class="block text-gray-700 font-medium mb-1">Nama Lengkap</label>
-                  <input type="text" id="applicantName" name="applicantName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+                  <label for="applicantName" class="form-label">Nama Lengkap</label>
+                  <input type="text" id="applicantName" name="applicantName" class="form-input" required>
                 </div>
                 <div>
-                  <label for="applicantEmail" class="block text-gray-700 font-medium mb-1">Alamat Email</label>
-                  <input type="email" id="applicantEmail" name="applicantEmail" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+                  <label for="applicantEmail" class="form-label">Alamat Email</label>
+                  <input type="email" id="applicantEmail" name="applicantEmail" class="form-input" required>
                 </div>
               </div>
               
               <div>
-                <label for="businessName" class="block text-gray-700 font-medium mb-1">Nama Usaha</label>
-                <input type="text" id="businessName" name="businessName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+                <label for="businessName" class="form-label">Nama Usaha</label>
+                <input type="text" id="businessName" name="businessName" class="form-input" required>
               </div>
               
               <div>
-                <label for="businessAddress" class="block text-gray-700 font-medium mb-1">Alamat Usaha</label>
-                <textarea id="businessAddress" name="businessAddress" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required></textarea>
-              </div>
-              
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label for="businessPhone" class="block text-gray-700 font-medium mb-1">Nomor Telepon</label>
-                  <input type="tel" id="businessPhone" name="businessPhone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
-                </div>
-                <div>
-                  <!-- Jenis Usaha field removed as it's now auto-populated from service data -->
-                </div>
+                <label for="businessAddress" class="form-label">Alamat Usaha</label>
+                <textarea id="businessAddress" name="businessAddress" rows="3" class="form-input" required></textarea>
               </div>
               
               <div>
-                <label for="additionalInfo" class="block text-gray-700 font-medium mb-1">Informasi Tambahan</label>
-                <textarea id="additionalInfo" name="additionalInfo" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Tulis informasi tambahan tentang usaha Anda..."></textarea>
-              </div>
-              
-              <!-- File Upload Section -->
-              <div id="fileUploadSection" class="mt-6">
-                <h3 class="text-lg font-semibold text-gray-800 mb-3">Dokumen Persyaratan</h3>
-                <p class="text-gray-600 text-sm mb-4">Silakan unggah dokumen yang diperlukan sesuai dengan persyaratan layanan yang dipilih.</p>
-                <div id="fileUploadFields" class="space-y-4">
-                  <!-- File upload fields will be populated dynamically based on service requirements -->
-                </div>
+                <label for="businessPhone" class="form-label">Nomor Telepon</label>
+                <input type="tel" id="businessPhone" name="businessPhone" class="form-input" required>
               </div>
               
               <div>
-                <label class="flex items-start space-x-3">
-                  <input type="checkbox" id="agreement" name="agreement" class="mt-1" required>
-                  <span class="text-gray-600 text-sm">Saya menyetujui syarat dan ketentuan yang berlaku serta menyatakan bahwa informasi yang saya berikan adalah benar.</span>
+                <label for="businessDescription" class="form-label">Deskripsi Usaha</label>
+                <textarea id="businessDescription" name="businessDescription" rows="4" class="form-input" required></textarea>
+              </div>
+              
+              <div>
+                <label class="form-label">Dokumen Pendukung</label>
+                <div id="fileUploadContainer" class="space-y-3">
+                  <div class="file-upload">
+                    <label for="file1" class="file-upload-label">
+                      <i class="fas fa-cloud-upload-alt"></i>
+                      Unggah Dokumen (PDF, JPG, PNG)
+                    </label>
+                    <input type="file" id="file1" name="files[]" accept=".pdf,.jpg,.jpeg,.png">
+                  </div>
+                </div>
+                <button type="button" id="addFileBtn" class="mt-2 text-primary hover:text-blue-700 font-medium">
+                  <i class="fas fa-plus mr-1"></i>Tambah Dokumen
+                </button>
+              </div>
+              
+              <div class="flex items-start">
+                <input type="checkbox" id="agreement" name="agreement" class="mt-1" required>
+                <label for="agreement" class="ml-2 text-gray-700">
+                  Saya menyetujui syarat dan ketentuan yang berlaku serta menyatakan bahwa informasi yang saya berikan adalah benar.
                 </label>
               </div>
               
               <div>
-                <button type="submit" class="w-full bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300">Kirim Pengajuan ke WhatsApp</button>
+                <button type="submit" class="btn-primary">Kirim Pengajuan</button>
               </div>
               
               <div id="formError" class="mt-2 text-center text-red-500 hidden"></div>

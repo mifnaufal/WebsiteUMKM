@@ -411,7 +411,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
       
       // Validation
-      if (!applicantName || !businessName || !businessAddress || !businessPhone || !businessType || !agreement) {
+      if (!applicantName || !businessName || !businessAddress || !businessPhone || !agreement) {
         formError.textContent = 'Harap lengkapi semua field yang wajib diisi dan setujui syarat & ketentuan.';
         formError.classList.remove('hidden');
         return;
@@ -459,8 +459,7 @@ document.addEventListener("DOMContentLoaded", () => {
 *Email:* ${applicantEmail}
 *Nama Usaha:* ${businessName}
 *Alamat Usaha:* ${businessAddress}
-*Telepon:* ${businessPhone}
-*Jenis Usaha:* ${businessType}`;
+*Telepon:* ${businessPhone}`;
       
       if (uploadedFilesInfo) {
         waMessage += `\n\n*Dokumen Persyaratan:*
