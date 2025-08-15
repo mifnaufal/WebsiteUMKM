@@ -107,9 +107,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const match = /translateZ\((-?\d+(?:\.\d+)?)px\)/.exec(p.style.transform || '');
         const z = match ? parseFloat(match[1]) : 0;
         const move = y * (z / 100);
+        // Diperbaiki: Gabungkan translateY dengan translateZ existing untuk menghindari overwrite
         p.style.transform = `translateY(${move}px) translateZ(${z}px)`;
       });
     }
+
+    // Perbaikan: Tambahkan event listener untuk mengaktifkan parallax
+    window.addEventListener('scroll', parallaxEffect);
 
     // Viewport height CSS var for mobile browsers
     function setVH() {
