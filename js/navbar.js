@@ -78,6 +78,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Particles generation
     if (particlesContainer) {
+      // Perbaikan: Set pointer-events none pada container particles untuk menghindari penutupan interaksi
+      particlesContainer.style.pointerEvents = 'none';
       createParticles(particlesContainer, 30);
     }
 
@@ -96,6 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
         particle.style.animationDelay = `${Math.random() * 12}s`;
         const z = Math.floor(Math.random() * 100) - 50;
         particle.style.transform = `translateZ(${z}px)`;
+        // Perbaikan: Set pointer-events none pada setiap particle untuk memastikan klik melewati mereka
+        particle.style.pointerEvents = 'none';
         container.appendChild(particle);
       }
     }
