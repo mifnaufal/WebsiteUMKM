@@ -104,6 +104,35 @@
         transform: translateY(-2px);
         box-shadow: 0 8px 25px rgba(29, 78, 216, 0.4);
       }
+      
+      .contact-info-text h4 {
+        color: #111827; /* text-gray-900 */
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+      }
+      
+      .contact-info-text p {
+        color: #4b5563; /* text-gray-700 */
+      }
+      
+      input[type='text'],
+      input[type='email'],
+      textarea {
+        color: #111827; /* text-gray-900 */
+      }
+      
+      input::placeholder,
+      textarea::placeholder {
+        color: #9ca3af; /* text-gray-400 */
+      }
+      
+      textarea {
+        color: #111827 !important; /* text-gray-900 */
+      }
+      
+      textarea::placeholder {
+        color: #9ca3af !important; /* text-gray-400 */
+      }
     </style>
 </head>
 <body class="bg-gray-50 font-sans">
@@ -132,38 +161,40 @@
         <!-- Contact Info -->
         <div class="md:w-1/2 space-y-6 modern-card p-8 fade-in-up">
           <h3 class="text-2xl font-semibold text-primary mb-4">Informasi Kontak</h3>
-          <div class="flex items-start space-x-4">
-            <i class="fas fa-map-marker-alt text-primary text-2xl mt-1"></i>
-            <div>
-              <h4 class="font-semibold">Alamat</h4>
-              <p class="text-gray-600">Tambak, Berjo, Kec. Ngargoyoso, Kab. Karanganyar 57793 Karanganyar Central Java</p>
+          <div class="space-y-4">
+            <div class="contact-info-item">
+              <i class="fas fa-map-marker-alt text-primary text-2xl mt-1"></i>
+              <div class="contact-info-text">
+                <h4 class="font-semibold">Alamat</h4>
+                <p class="text-gray-600">Tambak, Berjo, Kec. Ngargoyoso, Kab. Karanganyar 57793 Karanganyar Central Java</p>
+              </div>
             </div>
-          </div>
-          <div class="flex items-center space-x-4">
-            <i class="fas fa-phone-alt text-primary text-2xl"></i>
-            <div>
-              <h4 class="font-semibold">Telepon</h4>
-              <p class="text-gray-600">+62 856-4178-3101</p>
+            <div class="contact-info-item">
+              <i class="fas fa-phone-alt text-primary text-2xl"></i>
+              <div class="contact-info-text">
+                <h4 class="font-semibold">Telepon</h4>
+                <p class="text-gray-600">+62 856-4178-3101</p>
+              </div>
             </div>
-          </div>
-          <div class="flex items-center space-x-4">
-            <i class="fas fa-envelope text-primary text-2xl"></i>
-            <div>
-              <h4 class="font-semibold">Email</h4>
-              <p class="text-gray-600">naufalhhdd@gmail.com</p>
+            <div class="contact-info-item">
+              <i class="fas fa-envelope text-primary text-2xl"></i>
+              <div class="contact-info-text">
+                <h4 class="font-semibold">Email</h4>
+                <p class="text-gray-600">naufalhhdd@gmail.com</p>
+              </div>
             </div>
-          </div>
-          <div class="flex items-center space-x-4">
-            <i class="fab fa-whatsapp text-primary text-2xl"></i>
-            <div>
-              <h4 class="font-semibold">WhatsApp</h4>
-              <p class="text-gray-600">+62 856-4178-3101</p>
+            <div class="contact-info-item">
+              <i class="fab fa-whatsapp text-primary text-2xl"></i>
+              <div class="contact-info-text">
+                <h4 class="font-semibold">WhatsApp</h4>
+                <p class="text-gray-600">+62 856-4178-3101</p>
+              </div>
             </div>
-          </div>
-          <div class="mt-8">
-            <h4 class="font-semibold mb-2">Lokasi Kami</h4>
-            <div class="w-full h-64 rounded-lg overflow-hidden">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3954.908493399999!2d111.1256228!3d-7.6280779!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e798b74e967fcc7%3A0xfd95abd1ddf99dbc!2sSMP%20%26%20SMK%20IDN%20Boarding%20School%20Solo!5e0!3m2!1sen!2sid!4v1723381506000!5m2!1sen!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="mt-8">
+              <h4 class="font-semibold mb-2">Lokasi Kami</h4>
+              <div class="w-full h-64 rounded-lg overflow-hidden">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3954.908493399999!2d111.1256228!3d-7.6280779!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e798b74e967fcc7%3A0xfd95abd1ddf99dbc!2sSMP%20%26%20SMK%20IDN%20Boarding%20School%20Solo!5e0!3m2!1sen!2sid!4v1723381506000!5m2!1sen!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
             </div>
           </div>
         </div>
@@ -293,12 +324,13 @@
           .footer-section::before {
               content: '';
               position: absolute;
-              left: 0;
-              bottom: 0;
+              bottom: -2px;
+              left: 50%;
               width: 0;
               height: 2px;
               background: linear-gradient(90deg, #ffffff, #1d4ed8);
-              transition: width 0.3s ease;
+              transition: all 0.3s ease;
+              transform: translateX(-50%);
           }
           
           .footer-section:hover::before {
@@ -378,7 +410,7 @@
               border-radius: 8px;
           }
           
-          .footer-link::before {
+          .footer-link::after {
               content: '';
               position: absolute;
               bottom: -2px;
@@ -390,7 +422,7 @@
               transform: translateX(-50%);
           }
           
-          .footer-link:hover::before {
+          .footer-link:hover::after {
               width: 100%;
           }
           

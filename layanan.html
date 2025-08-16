@@ -185,6 +185,55 @@
         50% { transform: translateY(-20px); }
       }
 
+      /* Process timeline line fix */
+      .process-step {
+        position: relative;
+        padding-left: 36px;
+      }
+      .process-step::before {
+        content: "";
+        position: absolute;
+        top: 26px;
+        left: 10px;
+        width: 2px;
+        height: calc(100% + 8px);
+        background: #dbeafe;
+        z-index: -1;
+      }
+      .process-step:last-child::before {
+        display: none;
+      }
+
+      /* Responsive small fixes */
+      .search-container {
+        position: relative;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.06);
+      }
+      .search-container:focus-within {
+        box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.35);
+      }
+
+      /* Services container adjustments */
+      #servicesContainer {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 2rem;
+        padding: 2rem 0;
+      }
+      
+      /* Service details text */
+      .service-details {
+        color: #374151; /* text-gray-700 */
+      }
+
+      .service-details .text-gray-600 {
+        color: #374151 !important; /* text-gray-700 */
+      }
+
+      .requirement-item span {
+        color: #374151; /* text-gray-700 */
+      }
+
       /* Details collapse */
       .service-details {
         position: relative;
@@ -274,41 +323,6 @@
         100% { transform: translateZ(-30px) rotate(360deg); }
       }
 
-      /* Process timeline line fix */
-      .process-step {
-        position: relative;
-        padding-left: 36px;
-      }
-      .process-step::before {
-        content: "";
-        position: absolute;
-        top: 26px;
-        left: 10px;
-        width: 2px;
-        height: calc(100% + 8px);
-        background: #dbeafe;
-        z-index: -1;
-      }
-      .process-step:last-child::before {
-        display: none;
-      }
-
-      /* Responsive small fixes */
-      .search-container {
-        position: relative;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.06);
-      }
-      .search-container:focus-within {
-        box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.35);
-      }
-
-      /* Services container adjustments */
-      #servicesContainer {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-        gap: 2rem;
-        padding: 2rem 0;
-      }
     </style>
 
     <!-- Navbar -->
@@ -770,12 +784,13 @@
           .footer-section::before {
               content: '';
               position: absolute;
-              left: 0;
-              bottom: 0;
+              bottom: -2px;
+              left: 50%;
               width: 0;
               height: 2px;
               background: linear-gradient(90deg, #ffffff, #1d4ed8);
-              transition: width 0.3s ease;
+              transition: all 0.3s ease;
+              transform: translateX(-50%);
           }
           
           .footer-section:hover::before {
