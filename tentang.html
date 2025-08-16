@@ -127,6 +127,7 @@
       }
       .highlight-box {
         position: relative;
+        color: #111827 !important; /* text-gray-900 */
       }
       .highlight-box::before {
         content: "";
@@ -140,6 +141,9 @@
         z-index: -1;
         opacity: 0;
         transition: opacity 0.3s ease;
+      }
+      .highlight-box:hover {
+        background-color: #f9fafb !important; /* bg-gray-50 */
       }
       .highlight-box:hover::before {
         opacity: 1;
@@ -614,12 +618,13 @@
           .footer-link::before {
               content: '';
               position: absolute;
-              left: 0;
-              bottom: 0;
+              bottom: -2px;
+              left: 50%;
               width: 0;
               height: 2px;
               background: linear-gradient(90deg, #ffffff, #1d4ed8);
-              transition: width 0.3s ease;
+              transition: all 0.3s ease;
+              transform: translateX(-50%);
           }
           
           .footer-link:hover::before {
