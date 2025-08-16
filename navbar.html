@@ -609,62 +609,59 @@
 <body>
 
     <!-- Navbar dengan efek 3D modern -->
-    <header class="navbar-3d">        
-        <!-- Logo -->
-        <a href="index.html" class="logo-3d">Izin.In</a>
-
-        <!-- Desktop Navigation -->
+    <header class="navbar-3d">
+        <div class="logo-container">
+            <a href="index.html" class="logo-3d">Izin.In</a>
+        </div>
+        
         <nav class="nav-desktop">
-            <a href="index.html" class="nav-link-3d active" data-text="Beranda">
+            <a href="index.html" class="nav-link-3d active">
                 <i class="fas fa-home mr-2"></i>Beranda
             </a>
-            <a href="layanan.html" class="nav-link-3d" data-text="Layanan">
-                <i class="fas fa-tasks mr-2"></i>Layanan
-            </a>
-            <a href="berita.html" class="nav-link-3d" data-text="Berita">
+            <a href="berita.html" class="nav-link-3d">
                 <i class="fas fa-newspaper mr-2"></i>Berita
             </a>
-            <a href="tentang.html" class="nav-link-3d" data-text="Tentang">
-                <i class="fas fa-info-circle mr-2"></i>Tentang
+            <a href="layanan.html" class="nav-link-3d">
+                <i class="fas fa-cogs mr-2"></i>Layanan
             </a>
-            <a href="kontak.html" class="nav-link-3d" data-text="Kontak">
+            <a href="pengaduan.html" class="nav-link-3d">
+                <i class="fas fa-comment-dots mr-2"></i>Pengaduan
+            </a>
+            <a href="tentang.html" class="nav-link-3d">
+                <i class="fas fa-info-circle mr-2"></i>Tentang Kami
+            </a>
+            <a href="kontak.html" class="nav-link-3d">
                 <i class="fas fa-envelope mr-2"></i>Kontak
-            </a>
-            <a href="login.html" class="nav-link-3d nav-btn" data-text="Masuk">
-                <i class="fas fa-sign-in-alt mr-2"></i>Masuk
             </a>
         </nav>
 
-        <!-- Mobile Menu Button -->
-        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
             <span class="hamburger-line"></span>
             <span class="hamburger-line"></span>
             <span class="hamburger-line"></span>
         </button>
     </header>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="index.html" class="mobile-link active">
+    <div id="mobileMenu" class="mobile-menu">
+        <a href="index.html" class="mobile-link">
             <i class="fas fa-home mr-3"></i>Beranda
-        </a>
-        <a href="layanan.html" class="mobile-link">
-            <i class="fas fa-tasks mr-3"></i>Layanan
         </a>
         <a href="berita.html" class="mobile-link">
             <i class="fas fa-newspaper mr-3"></i>Berita
         </a>
+        <a href="layanan.html" class="mobile-link">
+            <i class="fas fa-cogs mr-3"></i>Layanan
+        </a>
+        <a href="pengaduan.html" class="mobile-link">
+            <i class="fas fa-comment-dots mr-3"></i>Pengaduan
+        </a>
         <a href="tentang.html" class="mobile-link">
-            <i class="fas fa-info-circle mr-3"></i>Tentang
+            <i class="fas fa-info-circle mr-3"></i>Tentang Kami
         </a>
         <a href="kontak.html" class="mobile-link">
             <i class="fas fa-envelope mr-3"></i>Kontak
         </a>
-        <a href="login.html" class="mobile-link">
-            <i class="fas fa-sign-in-alt mr-3"></i>Masuk
-        </a>
     </div>
-
 
     <script>
         // Efek hover 3D untuk link navigasi

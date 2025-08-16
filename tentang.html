@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tentang Kami - Izin.In</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -100,10 +100,16 @@
       }
       
       .card {
-        @apply bg-white rounded-xl shadow-md overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 transform;
+        background-color: #ffffff;
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        overflow: hidden;
+        transition: all 500ms;
       }
       
       .card:hover {
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        transform: translateY(-0.5rem);
         transform: translateY(-8px) scale(1.02);
       }
       
@@ -436,7 +442,7 @@
           
           .footer-3d::before {
               content: '';
-              position: absolute;a
+              position: absolute;
               top: 0;
               left: 0;
               right: 0;
@@ -524,7 +530,7 @@
               bottom: 0;
               width: 0;
               height: 2px;
-              background: linear-gradient(90deg, #1d4ed8, #0f172a);
+              background: linear-gradient(90deg, #ffffff, #1d4ed8);
               transition: width 0.3s ease;
           }
           
@@ -853,68 +859,75 @@
       });
       
       // Scroll-based animations
-      const observerOptions = {
+      let observerOptions;
+      if (typeof observerOptions === 'undefined') {
+        observerOptions = {
           threshold: 0.1,
           rootMargin: '0px 0px -50px 0px'
-      };
-      
-      const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                  entry.target.style.opacity = '1';
-                  entry.target.style.transform = 'translateY(0)';
-              }
+        };
+      }
+
+      let observer;
+      if (typeof observer === 'undefined') {
+        observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              // The animation is applied via CSS, this just triggers it
+              entry.target.style.opacity = '1';
+              observer.unobserve(entry.target);
+            }
           });
-      }, observerOptions);
+        }, observerOptions);
+      }
       
       // Observe footer sections
-      document.querySelectorAll('.footer-section').forEach(section => {
-          section.style.opacity = '0';
-          section.style.transform = 'translateY(50px)';
-          section.style.transition = 'all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-          observer.observe(section);
+      document.querySelectorAll('.footer-section').forEach((section) => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(50px)';
+        section.style.transition = 'all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+        observer.observe(section);
       });
       
       // Add stagger effect
       document.querySelectorAll('.footer-section').forEach((section, index) => {
-          section.style.transitionDelay = `${index * 0.1}s`;
+        section.style.transitionDelay = `${index * 0.1}s`;
       });
       
       // Interactive hover effects for contact items
-      document.querySelectorAll('.contact-item').forEach(item => {
-          item.addEventListener('mouseenter', () => {
-              item.style.transform = 'translateX(10px) scale(1.02)';
-          });
-          
-          item.addEventListener('mouseleave', () => {
-              item.style.transform = 'translateX(0) scale(1)';
-          });
+      document.querySelectorAll('.contact-item').forEach((item) => {
+        item.addEventListener('mouseenter', () => {
+          item.style.transform = 'translateX(10px) scale(1.02)';
+        });
+        
+        item.addEventListener('mouseleave', () => {
+          item.style.transform = 'translateX(0) scale(1)';
+        });
       });
       
       // Social icons animation
-      document.querySelectorAll('.social-icon').forEach(icon => {
-          icon.addEventListener('mouseenter', () => {
-              icon.style.transform = 'translateY(-5px) scale(1.15) rotateZ(5deg)';
-          });
-          
-          icon.addEventListener('mouseleave', () => {
-              icon.style.transform = 'translateY(0) scale(1) rotateZ(0deg)';
-          });
+      document.querySelectorAll('.social-icon').forEach((icon) => {
+        icon.addEventListener('mouseenter', () => {
+          icon.style.transform = 'translateY(-5px) scale(1.15) rotateZ(5deg)';
+        });
+        
+        icon.addEventListener('mouseleave', () => {
+          icon.style.transform = 'translateY(0) scale(1) rotateZ(0deg)';
+        });
       });
       
       // Floating shapes interaction
       document.addEventListener('mousemove', (e) => {
-          const shapes = document.querySelectorAll('.shape');
-          const mouseX = e.clientX / window.innerWidth;
-          const mouseY = e.clientY / window.innerHeight;
+        const shapes = document.querySelectorAll('.shape');
+        const mouseX = e.clientX / window.innerWidth;
+        const mouseY = e.clientY / window.innerHeight;
+        
+        shapes.forEach((shape, index) => {
+          const speed = (index + 1) * 10;
+          const x = (mouseX - 0.5) * speed;
+          const y = (mouseY - 0.5) * speed;
           
-          shapes.forEach((shape, index) => {
-              const speed = (index + 1) * 10;
-              const x = (mouseX - 0.5) * speed;
-              const y = (mouseY - 0.5) * speed;
-              
-              shape.style.transform = `translate(${x}px, ${y}px) rotate(${x + y}deg)`;
-          });
+          shape.style.transform = `translate(${x}px, ${y}px) rotate(${x + y}deg)`;
+        });
       });
   </script>
 
@@ -944,20 +957,20 @@
 
       // Script untuk fade-in sections saat scroll
       const sections = document.querySelectorAll('.fade-in-section');
-      const observer = new IntersectionObserver(
+      const observer2 = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               // The animation is applied via CSS, this just triggers it
               entry.target.style.opacity = '1';
-              observer.unobserve(entry.target);
+              observer2.unobserve(entry.target);
             }
           });
         },
         { threshold: 0.1 }
       );
       sections.forEach((section) => {
-        observer.observe(section);
+        observer2.observe(section);
       });
 
       // Script untuk smooth scroll
