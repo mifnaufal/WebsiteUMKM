@@ -224,7 +224,6 @@
         }
         
         /* Tombol menu mobile */
-        /* Tombol menu mobile */
         .mobile-menu-btn {
             display: none;
             width: 44px;
@@ -237,6 +236,9 @@
             position: relative;
             z-index: 1000;
             cursor: pointer;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             border: none;
             border-radius: 12px;
@@ -244,11 +246,6 @@
             position: relative;
             transform-style: preserve-3d;
             transform: translateZ(0px);
-            transition: all 0.3s ease;
-            box-shadow: 
-                0 4px 10px rgba(0, 0, 0, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            z-index: 101;
         }
         
         .mobile-menu-btn:hover {
@@ -260,11 +257,10 @@
             width: 20px;
             height: 2px;
             background-color: white;
-            margin: 4px 0;
+            margin: 3px 0;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             border-radius: 2px;
             display: block;
-            position: relative;
         }
         
         .mobile-menu-btn.active .hamburger-line:nth-child(1) {
@@ -470,22 +466,7 @@
         }
         
         /* Enhanced Responsive Design */
-        @media (max-width: 1024px) {
-            .navbar-3d {
-                padding: 0 1.5rem;
-            }
-            
-            .nav-link-3d {
-                padding: 10px 18px;
-                font-size: 0.9rem;
-            }
-            
-            .mobile-menu {
-                top: 80px;
-            }
-        }
-        
-        @media (max-width: 768px) {
+        @media (max-width: 1071px) {
             .nav-desktop {
                 display: none;
             }
@@ -495,7 +476,9 @@
                 align-items: center;
                 justify-content: center;
             }
-            
+        }
+        
+        @media (max-width: 768px) {
             .navbar-3d {
                 padding: 0 1rem;
                 height: 70px;
@@ -529,19 +512,6 @@
         }
         
         /* Responsive styles */
-        @media (max-width: 1024px) {
-            .nav-desktop {
-                display: none;
-            }
-            
-            .mobile-menu-btn {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-            }
-        }
-        
         @media (max-width: 768px) {
             .navbar-3d {
                 width: calc(100% - 1.5rem);
@@ -766,7 +736,14 @@
             window.addEventListener('scroll', updateNavbar);
         }
         
-        // Inisialisasi saat halaman dimuat
+        // Function to handle nav item clicks
+        function handleNavClick() {
+            document.querySelectorAll('.nav-link-3d, .mobile-link').forEach(l => 
+                l.classList.remove('active'));
+            this.classList.add('active');
+        }
+        
+        // Update active nav items on click
         document.addEventListener('DOMContentLoaded', () => {
             // Set active nav link based on current page
             const currentPage = window.location.pathname.split('/').pop() || 'index.html';
