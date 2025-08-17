@@ -54,6 +54,20 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .then((html) => {
       navbarContainer.innerHTML = html;
+      
+      // Set active link based on current page (works across all pages)
+const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+const allLinks = navbarContainer.querySelectorAll('.nav-link-3d, .mobile-link');
+allLinks.forEach((link) => {
+  const href = link.getAttribute('href');
+  if (!href) return;
+  const target = href.split('/').pop();
+  if (target === currentPage) {
+    link.classList.add('active');
+  } else {
+    link.classList.remove('active');
+  }
+});
 
       // After injecting HTML, scripts inside won't execute. Initialize behaviors here.
       initNavbar();
