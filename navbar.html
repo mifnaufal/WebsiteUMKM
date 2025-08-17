@@ -689,8 +689,8 @@
                 });
                 
                 // Close menu when switching to desktop view
-                window.addEventListener('resize', () => {
-                    if (window.innerWidth > 1125) {
+                window.addEventListener('resize', function() {
+                    if (window.innerWidth > 1125 && mobileMenu.classList.contains('active')) {
                         mobileMenu.classList.remove('active');
                         mobileMenuBtn.classList.remove('active');
                         document.body.style.overflow = '';
