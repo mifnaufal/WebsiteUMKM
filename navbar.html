@@ -279,13 +279,14 @@
         .mobile-menu {
             position: fixed;
             top: 90px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: calc(100% - 3rem);
-            max-width: 1380px;
+            left: 1rem;
+            right: 1rem;
+            transform: translateX(0);
+            width: calc(100% - 2rem);
+            max-height: 80vh;
+            overflow-y: auto;
             background: rgba(15, 23, 42, 0.98);
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             border-radius: 16px;
             padding: 1rem 0;
             opacity: 0;
@@ -294,10 +295,8 @@
             z-index: 999;
             box-shadow: 
                 0 15px 40px rgba(0, 0, 0, 0.4),
-                0 0 30px rgba(59, 130, 246, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            overflow: hidden;
-            max-height: calc(100vh - 100px);
+                0 0 30px rgba(59, 130, 246, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
         
         .mobile-menu.active {
@@ -466,15 +465,16 @@
         }
         
         /* Enhanced Responsive Design */
-        @media (max-width: 1071px) {
+        @media (max-width: 1125px) {
             .nav-desktop {
                 display: none;
             }
             
             .mobile-menu-btn {
                 display: flex;
-                align-items: center;
+                flex-direction: column;
                 justify-content: center;
+                align-items: center;
             }
         }
         
@@ -679,6 +679,22 @@
                     mobileMenuBtn.classList.toggle('active');
                     mobileMenu.classList.toggle('active');
                     document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+                });
+                
+                // Close menu when window loses focus
+                window.addEventListener('blur', () => {
+                    mobileMenu.classList.remove('active');
+                    mobileMenuBtn.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+                
+                // Close menu when switching to desktop view
+                window.addEventListener('resize', () => {
+                    if (window.innerWidth > 1125) {
+                        mobileMenu.classList.remove('active');
+                        mobileMenuBtn.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
                 });
                 
                 // Close menu when clicking on links
