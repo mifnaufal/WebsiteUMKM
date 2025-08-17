@@ -120,6 +120,24 @@
         font-weight: 600 !important;
         margin-bottom: 0.25rem !important;
       }
+      
+      .contact-info-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      
+      .contact-info-item i {
+        font-size: 1.5rem;
+        min-width: 2rem;
+        text-align: center;
+      }
+      
+      .contact-info-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
     </style>
   </head>
   <body class="bg-gray-50 font-sans">
@@ -177,28 +195,28 @@
           <h3 class="text-2xl font-semibold text-primary mb-4">Kontak Bantuan</h3>
           <div class="contact-info-item">
             <i class="fas fa-map-marker-alt text-primary text-2xl mt-1"></i>
-            <div>
+            <div class="contact-info-text">
               <h4 class="font-semibold">Alamat</h4>
               <p class="text-gray-600">Tambak, Berjo, Kec. Ngargoyoso, Kab. Karanganyar 57793 Karanganyar Central Java</p>
             </div>
           </div>
           <div class="contact-info-item">
             <i class="fas fa-phone-alt text-primary text-2xl"></i>
-            <div>
+            <div class="contact-info-text">
               <h4 class="font-semibold">Telepon</h4>
               <p class="text-gray-600">+62 856-4178-3101</p>
             </div>
           </div>
           <div class="contact-info-item">
             <i class="fas fa-envelope text-primary text-2xl"></i>
-            <div>
+            <div class="contact-info-text">
               <h4 class="font-semibold">Email</h4>
               <p class="text-gray-600">naufalhhdd@gmail.com</p>
             </div>
           </div>
           <div class="contact-info-item">
             <i class="fab fa-whatsapp text-primary text-2xl"></i>
-            <div>
+            <div class="contact-info-text">
               <h4 class="font-semibold">WhatsApp</h4>
               <p class="text-gray-600">+62 856-4178-3101</p>
             </div>
@@ -402,12 +420,13 @@
           .footer-link::before {
               content: '';
               position: absolute;
-              left: 0;
-              bottom: 0;
+              bottom: -2px;
+              left: 50%;
               width: 0;
               height: 2px;
               background: linear-gradient(90deg, #ffffff, #1d4ed8);
-              transition: width 0.3s ease;
+              transition: all 0.3s ease;
+              transform: translateX(-50%);
           }
           
           .footer-link:hover::before {
