@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Izin.In - Solusi Perizinan UMKM</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -28,140 +31,171 @@
         height: 16rem; /* h-64 */
         object-fit: cover; /* object-cover */
         border-radius: 0.5rem; /* rounded-lg */
-        box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06); /* shadow */
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06); /* shadow */
       }
-      
+
       .card {
         background-color: #ffffff; /* bg-white */
         border-radius: 0.75rem; /* rounded-xl */
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* shadow-md */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
         overflow: hidden; /* overflow-hidden */
         transition: all 0.5s ease; /* transition-all duration-500 */
         transform: translateZ(0); /* enable transform */
       }
-      
+
       .card:hover {
         transform: translateY(-8px) scale(1.02);
-        box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); /* shadow-2xl */
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* shadow-2xl */
       }
-      
+
       .btn-primary {
         background-color: #1d4ed8; /* primary */
         color: #ffffff; /* text-white */
         padding: 1rem 2rem; /* py-4 px-8 */
         border-radius: 0.75rem; /* rounded-xl */
         font-weight: 600; /* font-semibold */
-        transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* transition-all duration-300 */
+        transition: transform 0.3s ease, background-color 0.3s ease,
+          box-shadow 0.3s ease; /* transition-all duration-300 */
         transform: translateZ(0);
-        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05); /* shadow-lg */
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
       }
       .btn-primary:hover {
         background-color: #1e40af; /* hover:bg-blue-800 */
         transform: scale(1.05); /* hover:scale-105 */
-        box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04); /* hover:shadow-xl */
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04); /* hover:shadow-xl */
       }
-      
+
       .btn-secondary {
         background-color: #ffffff; /* bg-white */
         color: #1d4ed8; /* text-primary */
         padding: 1rem 2rem; /* py-4 px-8 */
         border-radius: 0.75rem; /* rounded-xl */
         font-weight: 600; /* font-semibold */
-        transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* transition-all duration-300 */
+        transition: transform 0.3s ease, background-color 0.3s ease,
+          box-shadow 0.3s ease; /* transition-all duration-300 */
         transform: translateZ(0);
-        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05); /* shadow-lg */
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
         border: 2px solid #1d4ed8; /* border-2 border-primary */
       }
       .btn-secondary:hover {
         background-color: #f3f4f6; /* hover:bg-gray-100 */
         transform: scale(1.05); /* hover:scale-105 */
       }
-      
+
       .btn-whatsapp {
         background-color: #22c55e; /* green-500 */
         color: #ffffff; /* text-white */
         padding: 1rem 2rem; /* py-4 px-8 */
         border-radius: 0.75rem; /* rounded-xl */
         font-weight: 600; /* font-semibold */
-        transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* transition-all duration-300 */
+        transition: transform 0.3s ease, background-color 0.3s ease,
+          box-shadow 0.3s ease; /* transition-all duration-300 */
         transform: translateZ(0);
-        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05); /* shadow-lg */
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
       }
       .btn-whatsapp:hover {
         background-color: #16a34a; /* green-600 */
         transform: scale(1.05); /* hover:scale-105 */
       }
-      
+
       /* Advanced 3D Hero Background */
       .hero-bg {
-        background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 50%, #1e40af 100%);
+        background: linear-gradient(
+          135deg,
+          #1d4ed8 0%,
+          #3b82f6 50%,
+          #1e40af 100%
+        );
         position: relative;
         overflow: hidden;
         perspective: 1000px;
         transform-style: preserve-3d;
       }
-      
+
       .hero-bg::before {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>') repeat;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>')
+          repeat;
         opacity: 0.3;
         animation: float3D 20s ease-in-out infinite;
         transform: translateZ(-50px);
       }
-      
+
       .hero-bg::after {
-        content: '';
+        content: "";
         position: absolute;
         top: -50%;
         left: -50%;
         width: 200%;
         height: 200%;
-        background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.1) 1px,
+          transparent 1px
+        );
         background-size: 50px 50px;
         animation: rotate3D 30s linear infinite;
         transform: translateZ(-30px);
       }
-      
+
       .hero-content {
         position: relative;
         z-index: 2;
       }
-      
+
       .floating-animation {
         animation: float 6s ease-in-out infinite;
       }
-      
+
       /* Advanced 3D Animations */
       @keyframes float {
-        0%, 100% { transform: translateY(0px) rotate(0deg); }
-        50% { transform: translateY(-20px) rotate(2deg); }
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(2deg);
+        }
       }
-      
+
       @keyframes float3D {
-        0%, 100% { 
-          transform: translateZ(-50px) translateY(0px) rotateX(0deg) rotateY(0deg); 
+        0%,
+        100% {
+          transform: translateZ(-50px) translateY(0px) rotateX(0deg)
+            rotateY(0deg);
         }
-        25% { 
-          transform: translateZ(-30px) translateY(-10px) rotateX(2deg) rotateY(1deg); 
+        25% {
+          transform: translateZ(-30px) translateY(-10px) rotateX(2deg)
+            rotateY(1deg);
         }
-        50% { 
-          transform: translateZ(-40px) translateY(-20px) rotateX(0deg) rotateY(2deg); 
+        50% {
+          transform: translateZ(-40px) translateY(-20px) rotateX(0deg)
+            rotateY(2deg);
         }
-        75% { 
-          transform: translateZ(-35px) translateY(-10px) rotateX(-1deg) rotateY(1deg); 
+        75% {
+          transform: translateZ(-35px) translateY(-10px) rotateX(-1deg)
+            rotateY(1deg);
         }
       }
-      
+
       @keyframes rotate3D {
-        0% { transform: translateZ(-30px) rotate(0deg); }
-        100% { transform: translateZ(-30px) rotate(360deg); }
+        0% {
+          transform: translateZ(-30px) rotate(0deg);
+        }
+        100% {
+          transform: translateZ(-30px) rotate(360deg);
+        }
       }
-      
+
       @keyframes fadeInUp {
         from {
           opacity: 0;
@@ -172,7 +206,7 @@
           transform: translateY(0) rotateX(0deg);
         }
       }
-      
+
       @keyframes fadeInUp3D {
         from {
           opacity: 0;
@@ -189,45 +223,57 @@
           transform: translateY(0);
         }
       }
-      
+
       .fade-in-up {
         opacity: 0;
         animation: fadeInUp 0.8s ease-out forwards;
       }
-      
+
       .fade-in-up-3d {
         opacity: 0;
         animation: fadeInUp3D 1s ease-out forwards;
       }
-      
-      .stagger-1 { animation-delay: 0.1s; }
-      .stagger-2 { animation-delay: 0.2s; }
-      .stagger-3 { animation-delay: 0.3s; }
-      .stagger-4 { animation-delay: 0.4s; }
-      .stagger-5 { animation-delay: 0.5s; }
-      .stagger-6 { animation-delay: 0.6s; }
-      
+
+      .stagger-1 {
+        animation-delay: 0.1s;
+      }
+      .stagger-2 {
+        animation-delay: 0.2s;
+      }
+      .stagger-3 {
+        animation-delay: 0.3s;
+      }
+      .stagger-4 {
+        animation-delay: 0.4s;
+      }
+      .stagger-5 {
+        animation-delay: 0.5s;
+      }
+      .stagger-6 {
+        animation-delay: 0.6s;
+      }
+
       .glass-effect {
         background: rgba(255, 255, 255, 0.1);
         backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.2);
       }
-      
+
       .gradient-text {
         background: linear-gradient(135deg, #1d4ed8, #3b82f6);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
       }
-      
+
       .icon-bounce {
         transition: all 0.3s ease;
       }
-      
+
       .icon-bounce:hover {
         transform: scale(1.2) rotate(5deg);
       }
-      
+
       .stats-counter {
         font-size: 3rem;
         font-weight: 800;
@@ -236,13 +282,13 @@
         -webkit-text-fill-color: transparent;
         background-clip: text;
       }
-      
+
       @media (max-width: 768px) {
         .stats-counter {
           font-size: 2rem;
         }
       }
-      
+
       /* Quick Access cards */
       .card span {
         color: #111827; /* text-gray-900 */
@@ -264,22 +310,31 @@
     <div id="navbar-container"></div>
 
     <!-- Hero Section -->
-    <section class="hero-bg text-white py-20 md:py-32 min-h-screen flex items-center">
+    <section
+      class="hero-bg text-white py-20 md:py-32 min-h-screen flex items-center"
+    >
       <div class="container mx-auto px-4 text-center hero-content">
         <div class="floating-animation">
           <div class="inline-block p-4 rounded-full glass-effect mb-8">
             <i class="fas fa-certificate text-4xl md:text-6xl"></i>
           </div>
         </div>
-        <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 fade-in-up stagger-1">
+        <h1
+          class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 fade-in-up stagger-1"
+        >
           Selamat Datang di <span class="text-yellow-300">Izin.In</span>
         </h1>
-        <p class="text-xl md:text-2xl lg:text-3xl mb-12 max-w-4xl mx-auto leading-relaxed fade-in-up stagger-2">
-          Platform resmi untuk memudahkan perizinan UMKM di Indonesia dengan pelayanan 
-          <span class="font-semibold text-yellow-300">cepat</span> dan 
+        <p
+          class="text-xl md:text-2xl lg:text-3xl mb-12 max-w-4xl mx-auto leading-relaxed fade-in-up stagger-2"
+        >
+          Platform resmi untuk memudahkan perizinan UMKM di Indonesia dengan
+          pelayanan
+          <span class="font-semibold text-yellow-300">cepat</span> dan
           <span class="font-semibold text-yellow-300">transparan</span>
         </p>
-        <div class="flex flex-col sm:flex-row gap-6 justify-center items-center fade-in-up stagger-3">
+        <div
+          class="flex flex-col sm:flex-row gap-6 justify-center items-center fade-in-up stagger-3"
+        >
           <a href="/layanan.html" class="btn-primary text-lg">
             <i class="fas fa-rocket mr-3"></i>Mulai Sekarang
           </a>
@@ -287,9 +342,11 @@
             <i class="fas fa-info-circle mr-3"></i>Pelajari Lebih Lanjut
           </a>
         </div>
-        
+
         <!-- Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 fade-in-up stagger-4">
+        <div
+          class="absolute bottom-8 left-1/2 transform -translate-x-1/2 fade-in-up stagger-4"
+        >
           <div class="animate-bounce">
             <i class="fas fa-chevron-down text-2xl opacity-70"></i>
           </div>
@@ -301,45 +358,97 @@
     <section class="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-white">
       <div class="container mx-auto px-4">
         <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">Akses Cepat</h2>
-          <p class="text-gray-600 text-lg max-w-2xl mx-auto">Temukan layanan yang Anda butuhkan dengan mudah dan cepat</p>
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">
+            Akses Cepat
+          </h2>
+          <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+            Temukan layanan yang Anda butuhkan dengan mudah dan cepat
+          </p>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-          <a href="/layanan.html" class="card flex flex-col items-center p-8 text-center group fade-in-up stagger-1">
-            <div class="bg-gradient-to-br from-blue-100 to-blue-200 text-primary w-20 h-20 rounded-2xl flex items-center justify-center mb-6 icon-bounce">
+          <a
+            href="/layanan.html"
+            class="card flex flex-col items-center p-8 text-center group fade-in-up stagger-1"
+          >
+            <div
+              class="bg-gradient-to-br from-blue-100 to-blue-200 text-primary w-20 h-20 rounded-2xl flex items-center justify-center mb-6 icon-bounce"
+            >
               <i class="fas fa-file-alt text-3xl"></i>
             </div>
-            <span class="font-semibold text-gray-800 group-hover:text-primary transition-colors">Layanan Publik</span>
+            <span
+              class="font-semibold text-gray-800 group-hover:text-primary transition-colors"
+              >Layanan Publik</span
+            >
           </a>
-          <a href="/berita.html" class="card flex flex-col items-center p-8 text-center group fade-in-up stagger-2">
-            <div class="bg-gradient-to-br from-green-100 to-green-200 text-green-600 w-20 h-20 rounded-2xl flex items-center justify-center mb-6 icon-bounce">
+          <a
+            href="/berita.html"
+            class="card flex flex-col items-center p-8 text-center group fade-in-up stagger-2"
+          >
+            <div
+              class="bg-gradient-to-br from-green-100 to-green-200 text-green-600 w-20 h-20 rounded-2xl flex items-center justify-center mb-6 icon-bounce"
+            >
               <i class="fas fa-newspaper text-3xl"></i>
             </div>
-            <span class="font-semibold text-gray-800 group-hover:text-green-600 transition-colors">Berita</span>
+            <span
+              class="font-semibold text-gray-800 group-hover:text-green-600 transition-colors"
+              >Berita</span
+            >
           </a>
-          <a href="/pengaduan.html" class="card flex flex-col items-center p-8 text-center group fade-in-up stagger-3">
-            <div class="bg-gradient-to-br from-orange-100 to-orange-200 text-orange-600 w-20 h-20 rounded-2xl flex items-center justify-center mb-6 icon-bounce">
+          <a
+            href="/pengaduan.html"
+            class="card flex flex-col items-center p-8 text-center group fade-in-up stagger-3"
+          >
+            <div
+              class="bg-gradient-to-br from-orange-100 to-orange-200 text-orange-600 w-20 h-20 rounded-2xl flex items-center justify-center mb-6 icon-bounce"
+            >
               <i class="fas fa-comments text-3xl"></i>
             </div>
-            <span class="font-semibold text-gray-800 group-hover:text-orange-600 transition-colors">Pengaduan</span>
+            <span
+              class="font-semibold text-gray-800 group-hover:text-orange-600 transition-colors"
+              >Pengaduan</span
+            >
           </a>
-          <a href="/data/news.json" class="card flex flex-col items-center p-8 text-center group fade-in-up stagger-4">
-            <div class="bg-gradient-to-br from-purple-100 to-purple-200 text-purple-600 w-20 h-20 rounded-2xl flex items-center justify-center mb-6 icon-bounce">
+          <a
+            href="/data/news.json"
+            class="card flex flex-col items-center p-8 text-center group fade-in-up stagger-4"
+          >
+            <div
+              class="bg-gradient-to-br from-purple-100 to-purple-200 text-purple-600 w-20 h-20 rounded-2xl flex items-center justify-center mb-6 icon-bounce"
+            >
               <i class="fas fa-download text-3xl"></i>
             </div>
-            <span class="font-semibold text-gray-800 group-hover:text-purple-600 transition-colors">Unduhan</span>
+            <span
+              class="font-semibold text-gray-800 group-hover:text-purple-600 transition-colors"
+              >Unduhan</span
+            >
           </a>
-          <a href="/kontak.html" class="card flex flex-col items-center p-8 text-center group fade-in-up stagger-5">
-            <div class="bg-gradient-to-br from-red-100 to-red-200 text-red-600 w-20 h-20 rounded-2xl flex items-center justify-center mb-6 icon-bounce">
+          <a
+            href="/kontak.html"
+            class="card flex flex-col items-center p-8 text-center group fade-in-up stagger-5"
+          >
+            <div
+              class="bg-gradient-to-br from-red-100 to-red-200 text-red-600 w-20 h-20 rounded-2xl flex items-center justify-center mb-6 icon-bounce"
+            >
               <i class="fas fa-map-marker-alt text-3xl"></i>
             </div>
-            <span class="font-semibold text-gray-800 group-hover:text-red-600 transition-colors">Lokasi</span>
+            <span
+              class="font-semibold text-gray-800 group-hover:text-red-600 transition-colors"
+              >Lokasi</span
+            >
           </a>
-          <a href="/berita.html" class="card flex flex-col items-center p-8 text-center group fade-in-up stagger-6">
-            <div class="bg-gradient-to-br from-indigo-100 to-indigo-200 text-indigo-600 w-20 h-20 rounded-2xl flex items-center justify-center mb-6 icon-bounce">
+          <a
+            href="/berita.html"
+            class="card flex flex-col items-center p-8 text-center group fade-in-up stagger-6"
+          >
+            <div
+              class="bg-gradient-to-br from-indigo-100 to-indigo-200 text-indigo-600 w-20 h-20 rounded-2xl flex items-center justify-center mb-6 icon-bounce"
+            >
               <i class="fas fa-bullhorn text-3xl"></i>
             </div>
-            <span class="font-semibold text-gray-800 group-hover:text-indigo-600 transition-colors">Pengumuman</span>
+            <span
+              class="font-semibold text-gray-800 group-hover:text-indigo-600 transition-colors"
+              >Pengumuman</span
+            >
           </a>
         </div>
       </div>
@@ -348,55 +457,93 @@
     <!-- Highlight Berita Terbaru -->
     <section class="py-16 md:py-24 bg-white">
       <div class="container mx-auto px-4">
-        <div class="flex flex-col md:flex-row items-center justify-between mb-12">
+        <div
+          class="flex flex-col md:flex-row items-center justify-between mb-12"
+        >
           <div>
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">Berita Terbaru</h2>
-            <p class="text-gray-600 text-lg">Informasi terkini seputar perizinan UMKM</p>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">
+              Berita Terbaru
+            </h2>
+            <p class="text-gray-600 text-lg">
+              Informasi terkini seputar perizinan UMKM
+            </p>
           </div>
           <a href="/berita.html" class="btn-secondary mt-4 md:mt-0">
             <i class="fas fa-arrow-right mr-2"></i>Lihat Semua Berita
           </a>
         </div>
-        <div id="latest-news-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <div
+          id="latest-news-container"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+        >
           <!-- Berita terbaru akan dimuat di sini oleh JavaScript -->
         </div>
       </div>
     </section>
 
     <!-- Tentang Instansi (Singkat) -->
-    <section class="py-16 md:py-24 bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+    <section
+      class="py-16 md:py-24 bg-gradient-to-br from-blue-50 via-white to-indigo-50"
+    >
       <div class="container mx-auto px-4">
         <div class="max-w-6xl mx-auto">
           <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6 gradient-text">Tentang Izin.In</h2>
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 gradient-text">
+              Tentang Izin.In
+            </h2>
             <p class="text-xl leading-relaxed text-gray-700 max-w-4xl mx-auto">
-              Izin.In adalah platform digital yang memudahkan proses perizinan UMKM di Indonesia. 
-              Kami berkomitmen untuk memberikan pelayanan yang 
-              <span class="font-semibold text-primary">cepat</span>, 
-              <span class="font-semibold text-primary">transparan</span>, dan 
-              <span class="font-semibold text-primary">mudah diakses</span> 
+              Izin.In adalah platform digital yang memudahkan proses perizinan
+              UMKM di Indonesia. Kami berkomitmen untuk memberikan pelayanan
+              yang
+              <span class="font-semibold text-primary">cepat</span>,
+              <span class="font-semibold text-primary">transparan</span>, dan
+              <span class="font-semibold text-primary">mudah diakses</span>
               oleh seluruh pelaku usaha mikro, kecil, dan menengah.
             </p>
           </div>
-          
+
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             <div class="card p-8 text-center group">
-              <div class="stats-counter mb-4 group-hover:scale-110 transition-transform">1000+</div>
-              <div class="text-gray-600 font-semibold text-lg">UMKM Terdaftar</div>
-              <div class="w-16 h-1 bg-gradient-to-r from-primary to-blue-400 mx-auto mt-4 rounded-full"></div>
+              <div
+                class="stats-counter mb-4 group-hover:scale-110 transition-transform"
+              >
+                1000+
+              </div>
+              <div class="text-gray-600 font-semibold text-lg">
+                UMKM Terdaftar
+              </div>
+              <div
+                class="w-16 h-1 bg-gradient-to-r from-primary to-blue-400 mx-auto mt-4 rounded-full"
+              ></div>
             </div>
             <div class="card p-8 text-center group">
-              <div class="stats-counter mb-4 group-hover:scale-110 transition-transform">24/7</div>
-              <div class="text-gray-600 font-semibold text-lg">Layanan Online</div>
-              <div class="w-16 h-1 bg-gradient-to-r from-green-500 to-green-400 mx-auto mt-4 rounded-full"></div>
+              <div
+                class="stats-counter mb-4 group-hover:scale-110 transition-transform"
+              >
+                24/7
+              </div>
+              <div class="text-gray-600 font-semibold text-lg">
+                Layanan Online
+              </div>
+              <div
+                class="w-16 h-1 bg-gradient-to-r from-green-500 to-green-400 mx-auto mt-4 rounded-full"
+              ></div>
             </div>
             <div class="card p-8 text-center group">
-              <div class="stats-counter mb-4 group-hover:scale-110 transition-transform">50+</div>
-              <div class="text-gray-600 font-semibold text-lg">Jenis Perizinan</div>
-              <div class="w-16 h-1 bg-gradient-to-r from-purple-500 to-purple-400 mx-auto mt-4 rounded-full"></div>
+              <div
+                class="stats-counter mb-4 group-hover:scale-110 transition-transform"
+              >
+                50+
+              </div>
+              <div class="text-gray-600 font-semibold text-lg">
+                Jenis Perizinan
+              </div>
+              <div
+                class="w-16 h-1 bg-gradient-to-r from-purple-500 to-purple-400 mx-auto mt-4 rounded-full"
+              ></div>
             </div>
           </div>
-          
+
           <div class="text-center">
             <a href="/tentang.html" class="btn-primary text-lg">
               <i class="fas fa-info-circle mr-3"></i>Selengkapnya tentang Kami
@@ -410,57 +557,96 @@
     <section class="py-16 md:py-24 bg-gradient-to-br from-white to-gray-50">
       <div class="container mx-auto px-4">
         <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold mb-6 gradient-text">Layanan Unggulan</h2>
-          <p class="text-gray-600 text-lg max-w-2xl mx-auto">Solusi perizinan terpercaya untuk mengembangkan bisnis Anda</p>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6 gradient-text">
+            Layanan Unggulan
+          </h2>
+          <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+            Solusi perizinan terpercaya untuk mengembangkan bisnis Anda
+          </p>
         </div>
-        
+
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div class="card p-8 group relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full -mr-16 -mt-16 opacity-20"></div>
+            <div
+              class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full -mr-16 -mt-16 opacity-20"
+            ></div>
             <div class="relative z-10">
               <div class="text-primary text-5xl mb-6 icon-bounce">
                 <i class="fas fa-store"></i>
               </div>
-              <h3 class="text-2xl font-bold mb-4 text-gray-800">Izin Usaha UMKM</h3>
-              <p class="text-gray-600 mb-6 leading-relaxed">Pengurusan izin usaha untuk UMKM dengan proses yang mudah dan cepat.</p>
-              <a href="/layanan.html" class="inline-flex items-center text-primary font-semibold hover:text-blue-800 transition-colors group">
+              <h3 class="text-2xl font-bold mb-4 text-gray-800">
+                Izin Usaha UMKM
+              </h3>
+              <p class="text-gray-600 mb-6 leading-relaxed">
+                Pengurusan izin usaha untuk UMKM dengan proses yang mudah dan
+                cepat.
+              </p>
+              <a
+                href="/layanan.html"
+                class="inline-flex items-center text-primary font-semibold hover:text-blue-800 transition-colors group"
+              >
                 Pelajari lebih lanjut
-                <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                <i
+                  class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"
+                ></i>
               </a>
             </div>
           </div>
-          
+
           <div class="card p-8 group relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-100 to-green-200 rounded-full -mr-16 -mt-16 opacity-20"></div>
+            <div
+              class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-100 to-green-200 rounded-full -mr-16 -mt-16 opacity-20"
+            ></div>
             <div class="relative z-10">
               <div class="text-green-600 text-5xl mb-6 icon-bounce">
                 <i class="fas fa-utensils"></i>
               </div>
-              <h3 class="text-2xl font-bold mb-4 text-gray-800">Izin Usaha Kuliner</h3>
-              <p class="text-gray-600 mb-6 leading-relaxed">Perizinan khusus untuk usaha kuliner dan makanan minuman.</p>
-              <a href="/layanan.html" class="inline-flex items-center text-green-600 font-semibold hover:text-green-800 transition-colors group">
+              <h3 class="text-2xl font-bold mb-4 text-gray-800">
+                Izin Usaha Kuliner
+              </h3>
+              <p class="text-gray-600 mb-6 leading-relaxed">
+                Perizinan khusus untuk usaha kuliner dan makanan minuman.
+              </p>
+              <a
+                href="/layanan.html"
+                class="inline-flex items-center text-green-600 font-semibold hover:text-green-800 transition-colors group"
+              >
                 Pelajari lebih lanjut
-                <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                <i
+                  class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"
+                ></i>
               </a>
             </div>
           </div>
-          
+
           <div class="card p-8 group relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-100 to-purple-200 rounded-full -mr-16 -mt-16 opacity-20"></div>
+            <div
+              class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-100 to-purple-200 rounded-full -mr-16 -mt-16 opacity-20"
+            ></div>
             <div class="relative z-10">
               <div class="text-purple-600 text-5xl mb-6 icon-bounce">
                 <i class="fas fa-industry"></i>
               </div>
-              <h3 class="text-2xl font-bold mb-4 text-gray-800">Izin Usaha Manufaktur</h3>
-              <p class="text-gray-600 mb-6 leading-relaxed">Pengurusan perizinan untuk usaha manufaktur skala kecil dan menengah.</p>
-              <a href="/layanan.html" class="inline-flex items-center text-purple-600 font-semibold hover:text-purple-800 transition-colors group">
+              <h3 class="text-2xl font-bold mb-4 text-gray-800">
+                Izin Usaha Manufaktur
+              </h3>
+              <p class="text-gray-600 mb-6 leading-relaxed">
+                Pengurusan perizinan untuk usaha manufaktur skala kecil dan
+                menengah.
+              </p>
+              <a
+                href="/layanan.html"
+                class="inline-flex items-center text-purple-600 font-semibold hover:text-purple-800 transition-colors group"
+              >
                 Pelajari lebih lanjut
-                <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                <i
+                  class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"
+                ></i>
               </a>
             </div>
           </div>
         </div>
-        
+
         <div class="text-center mt-12">
           <a href="/layanan.html" class="btn-primary text-lg">
             <i class="fas fa-th-large mr-3"></i>Lihat Semua Layanan
@@ -473,12 +659,21 @@
     <section class="py-16 bg-primary text-white">
       <div class="container mx-auto px-4 text-center">
         <h2 class="text-2xl font-bold mb-4">Butuh Bantuan?</h2>
-        <p class="mb-6 max-w-2xl mx-auto">Tim kami siap membantu Anda dalam proses perizinan usaha. Hubungi kami sekarang juga!</p>
+        <p class="mb-6 max-w-2xl mx-auto">
+          Tim kami siap membantu Anda dalam proses perizinan usaha. Hubungi kami
+          sekarang juga!
+        </p>
         <div class="flex flex-col md:flex-row justify-center gap-4">
-          <a href="/pengaduan.html" class="bg-white text-primary hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold transition-colors duration-300 inline-flex items-center">
+          <a
+            href="/pengaduan.html"
+            class="bg-white text-primary hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold transition-colors duration-300 inline-flex items-center"
+          >
             <i class="fas fa-comment-alt mr-2"></i> Kirim Pengaduan
           </a>
-          <a href="https://wa.me/6285641783101" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300 inline-flex items-center">
+          <a
+            href="https://wa.me/6285641783101"
+            class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300 inline-flex items-center"
+          >
             <i class="fab fa-whatsapp text-xl mr-2"></i> WhatsApp
           </a>
         </div>
@@ -488,334 +683,385 @@
     <!-- Footer -->
     <footer class="footer-3d text-white pt-16 pb-8 relative">
       <style>
-          @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-          
-          * {
-              font-family: 'Inter', sans-serif;
+        @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+        * {
+          font-family: "Inter", sans-serif;
+        }
+
+        .footer-3d {
+          background: linear-gradient(
+            135deg,
+            #1d4ed8 0%,
+            #1a1a2e 50%,
+            #1d4ed8 100%
+          );
+          position: relative;
+          overflow: hidden;
+          perspective: 1000px;
+        }
+
+        .footer-3d::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: radial-gradient(
+              circle at 20% 50%,
+              rgba(120, 119, 198, 0.3) 0%,
+              transparent 50%
+            ),
+            radial-gradient(
+              circle at 80% 20%,
+              rgba(255, 119, 198, 0.3) 0%,
+              transparent 50%
+            ),
+            radial-gradient(
+              circle at 40% 80%,
+              rgba(119, 198, 255, 0.3) 0%,
+              transparent 50%
+            );
+          animation: gradientShift 8s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+          0%,
+          100% {
+            opacity: 0.3;
           }
-          
-          .footer-3d {
-              background: linear-gradient(135deg, #1d4ed8 0%, #1a1a2e 50%, #1d4ed8 100%);
-              position: relative;
-              overflow: hidden;
-              perspective: 1000px;
+          50% {
+            opacity: 0.6;
           }
-          
-          .footer-3d::before {
-              content: '';
-              position: absolute;
-              top: 0;
-              left: 0;
-              right: 0;
-              bottom: 0;
-              background: 
-                  radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                  radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-                  radial-gradient(circle at 40% 80%, rgba(119, 198, 255, 0.3) 0%, transparent 50%);
-              animation: gradientShift 8s ease-in-out infinite;
+        }
+
+        .floating-shapes {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+          z-index: 1;
+        }
+
+        .shape {
+          position: absolute;
+          background: linear-gradient(
+            45deg,
+            #1d4ed8,
+            rgba(255, 255, 255, 0.05)
+          );
+          border-radius: 50%;
+          animation: float 6s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) {
+          width: 80px;
+          height: 80px;
+          top: 10%;
+          left: 10%;
+          animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+          width: 120px;
+          height: 120px;
+          top: 60%;
+          right: 15%;
+          animation-delay: 2s;
+        }
+
+        .shape:nth-child(3) {
+          width: 60px;
+          height: 60px;
+          bottom: 20%;
+          left: 70%;
+          animation-delay: 4s;
+        }
+
+        @keyframes float {
+          0%,
+          100% {
+            transform: translateY(0px) rotate(0deg);
           }
-          
-          @keyframes gradientShift {
-              0%, 100% { opacity: 0.3; }
-              50% { opacity: 0.6; }
+          50% {
+            transform: translateY(-20px) rotate(180deg);
           }
-          
-          .floating-shapes {
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              pointer-events: none;
-              z-index: 1;
+        }
+
+        .content-3d {
+          position: relative;
+          z-index: 2;
+          transform-style: preserve-3d;
+        }
+
+        .footer-section {
+          background: rgba(255, 255, 255, 0.05);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 20px;
+          padding: 2rem;
+          transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          transform-style: preserve-3d;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .footer-section::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 0;
+          height: 2px;
+          background: linear-gradient(90deg, #1d4ed8, #0f172a);
+          transition: width 0.3s ease;
+        }
+
+        .footer-section:hover::before {
+          width: 100%;
+        }
+
+        .footer-section:hover {
+          transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3),
+            0 0 20px rgba(120, 119, 198, 0.2);
+        }
+
+        .footer-title {
+          background: linear-gradient(135deg, #ffffff, #1d4ed8);
+          background-size: 200% 200%;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          animation: gradientAnimation 3s ease infinite;
+          font-weight: 700;
+          font-size: 1.25rem;
+          margin-bottom: 1rem;
+        }
+
+        @keyframes gradientAnimation {
+          0% {
+            background-position: 0% 50%;
           }
-          
-          .shape {
-              position: absolute;
-              background: linear-gradient(45deg, #1d4ed8, rgba(255, 255, 255, 0.05));
-              border-radius: 50%;
-              animation: float 6s ease-in-out infinite;
+          50% {
+            background-position: 100% 50%;
           }
-          
-          .shape:nth-child(1) {
-              width: 80px;
-              height: 80px;
-              top: 10%;
-              left: 10%;
-              animation-delay: 0s;
+          100% {
+            background-position: 0% 50%;
           }
-          
-          .shape:nth-child(2) {
-              width: 120px;
-              height: 120px;
-              top: 60%;
-              right: 15%;
-              animation-delay: 2s;
+        }
+
+        .social-icon {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 45px;
+          height: 45px;
+          background: linear-gradient(
+            135deg,
+            rgba(120, 119, 198, 0.2),
+            rgba(255, 119, 198, 0.2)
+          );
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          border-radius: 12px;
+          transition: all 0.3s ease;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .social-icon::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(135deg, #1d4ed8, #0f172a);
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+
+        .social-icon:hover::before {
+          opacity: 1;
+        }
+
+        .social-icon i {
+          position: relative;
+          z-index: 1;
+          transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+          transform: translateY(-3px) scale(1.1);
+          box-shadow: 0 10px 20px #1d4ed8;
+        }
+
+        .footer-link {
+          position: relative;
+          transition: all 0.3s ease;
+          padding: 0.5rem 0;
+          border-radius: 8px;
+        }
+
+        .footer-link::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 0;
+          height: 2px;
+          background: linear-gradient(90deg, #ffffff, #1d4ed8);
+          transition: width 0.3s ease;
+        }
+
+        .footer-link:hover::before {
+          width: 100%;
+        }
+
+        .footer-link:hover {
+          color: #ffffff !important;
+          transform: translateX(5px);
+          padding-left: 0.5rem;
+        }
+
+        .contact-item {
+          background: rgba(255, 255, 255, 0.03);
+          border-radius: 12px;
+          padding: 1rem;
+          margin: 0.5rem 0;
+          transition: all 0.3s ease;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-item:hover {
+          background: #1d4ed8;
+          transform: translateX(5px);
+          border-color: rgba(120, 119, 198, 0.3);
+        }
+
+        .contact-icon {
+          color: #ffffff;
+          transition: all 0.3s ease;
+        }
+
+        .contact-item:hover .contact-icon {
+          color: #ffffff;
+          transform: scale(1.2);
+        }
+
+        .quotes-section {
+          background: rgba(0, 0, 0, 0.3);
+          backdrop-filter: blur(15px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 20px;
+          padding: 2rem;
+          margin-top: 3rem;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .quotes-section::before {
+          content: "";
+          position: absolute;
+          top: -50%;
+          left: -50%;
+          width: 200%;
+          height: 200%;
+          background: conic-gradient(
+            from 0deg,
+            transparent,
+            rgba(120, 119, 198, 0.1),
+            transparent
+          );
+          animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+          0% {
+            transform: rotate(0deg);
           }
-          
-          .shape:nth-child(3) {
-              width: 60px;
-              height: 60px;
-              bottom: 20%;
-              left: 70%;
-              animation-delay: 4s;
+          100% {
+            transform: rotate(360deg);
           }
-          
-          @keyframes float {
-              0%, 100% { transform: translateY(0px) rotate(0deg); }
-              50% { transform: translateY(-20px) rotate(180deg); }
-          }
-          
-          .content-3d {
-              position: relative;
-              z-index: 2;
-              transform-style: preserve-3d;
-          }
-          
+        }
+
+        .quote-text {
+          position: relative;
+          z-index: 1;
+          transition: all 0.3s ease;
+        }
+
+        .quote-text:hover {
+          transform: scale(1.02);
+          color: #ffffff;
+        }
+
+        .parallax-element {
+          transition: transform 0.1s ease-out;
+        }
+
+        .copyright-section {
+          background: rgba(0, 0, 0, 0.5);
+          backdrop-filter: blur(10px);
+          border-radius: 15px;
+          padding: 1.5rem;
+          margin-top: 2rem;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .policy-link {
+          position: relative;
+          transition: all 0.3s ease;
+        }
+
+        .policy-link::after {
+          content: "";
+          position: absolute;
+          bottom: -2px;
+          left: 50%;
+          width: 0;
+          height: 2px;
+          background: linear-gradient(90deg, #ffffff, #1d4ed8);
+          transition: all 0.3s ease;
+          transform: translateX(-50%);
+        }
+
+        .policy-link:hover::after {
+          width: 100%;
+        }
+
+        .policy-link:hover {
+          color: #ffffff !important;
+        }
+
+        @media (max-width: 768px) {
           .footer-section {
-              background: rgba(255, 255, 255, 0.05);
-              backdrop-filter: blur(10px);
-              border: 1px solid rgba(255, 255, 255, 0.1);
-              border-radius: 20px;
-              padding: 2rem;
-              transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-              transform-style: preserve-3d;
-              position: relative;
-              overflow: hidden;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
           }
-          
-          .footer-section::before {
-              content: '';
-              position: absolute;
-              left: 0;
-              bottom: 0;
-              width: 0;
-              height: 2px;
-              background: linear-gradient(90deg, #1d4ed8, #0f172a);
-              transition: width 0.3s ease;
+
+          .shape {
+            display: none;
           }
-          
-          .footer-section:hover::before {
-              width: 100%;
-          }
-          
-          .footer-section:hover {
-              transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
-              box-shadow: 
-                  0 20px 40px rgba(0, 0, 0, 0.3),
-                  0 0 20px rgba(120, 119, 198, 0.2);
-          }
-          
-          .footer-title {
-              background: linear-gradient(135deg, #ffffff, #1d4ed8);
-              background-size: 200% 200%;
-              -webkit-background-clip: text;
-              -webkit-text-fill-color: transparent;
-              background-clip: text;
-              animation: gradientAnimation 3s ease infinite;
-              font-weight: 700;
-              font-size: 1.25rem;
-              margin-bottom: 1rem;
-          }
-          
-          @keyframes gradientAnimation {
-              0% { background-position: 0% 50%; }
-              50% { background-position: 100% 50%; }
-              100% { background-position: 0% 50%; }
-          }
-          
-          .social-icon {
-              display: inline-flex;
-              align-items: center;
-              justify-content: center;
-              width: 45px;
-              height: 45px;
-              background: linear-gradient(135deg, rgba(120, 119, 198, 0.2), rgba(255, 119, 198, 0.2));
-              border: 1px solid rgba(255, 255, 255, 0.2);
-              border-radius: 12px;
-              transition: all 0.3s ease;
-              position: relative;
-              overflow: hidden;
-          }
-          
-          .social-icon::before {
-              content: '';
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              background: linear-gradient(135deg, #1d4ed8, #0f172a);
-              opacity: 0;
-              transition: opacity 0.3s ease;
-          }
-          
-          .social-icon:hover::before {
-              opacity: 1;
-          }
-          
-          .social-icon i {
-              position: relative;
-              z-index: 1;
-              transition: all 0.3s ease;
-          }
-          
-          .social-icon:hover {
-              transform: translateY(-3px) scale(1.1);
-              box-shadow: 0 10px 20px #1d4ed8;
-          }
-          
-          .footer-link {
-              position: relative;
-              transition: all 0.3s ease;
-              padding: 0.5rem 0;
-              border-radius: 8px;
-          }
-          
-          .footer-link::before {
-              content: '';
-              position: absolute;
-              left: 0;
-              bottom: 0;
-              width: 0;
-              height: 2px;
-              background: linear-gradient(90deg, #ffffff, #1d4ed8);
-              transition: width 0.3s ease;
-          }
-          
-          .footer-link:hover::before {
-              width: 100%;
-          }
-          
-          .footer-link:hover {
-              color: #ffffff !important;
-              transform: translateX(5px);
-              padding-left: 0.5rem;
-          }
-          
-          .contact-item {
-              background: rgba(255, 255, 255, 0.03);
-              border-radius: 12px;
-              padding: 1rem;
-              margin: 0.5rem 0;
-              transition: all 0.3s ease;
-              border: 1px solid rgba(255, 255, 255, 0.1);
-          }
-          
-          .contact-item:hover {
-              background: #1d4ed8;
-              transform: translateX(5px);
-              border-color: rgba(120, 119, 198, 0.3);
-          }
-          
-          .contact-icon {
-              color: #ffffff;
-              transition: all 0.3s ease;
-          }
-          
-          .contact-item:hover .contact-icon {
-              color: #ffffff;
-              transform: scale(1.2);
-          }
-          
-          .quotes-section {
-              background: rgba(0, 0, 0, 0.3);
-              backdrop-filter: blur(15px);
-              border: 1px solid rgba(255, 255, 255, 0.1);
-              border-radius: 20px;
-              padding: 2rem;
-              margin-top: 3rem;
-              position: relative;
-              overflow: hidden;
-          }
-          
-          .quotes-section::before {
-              content: '';
-              position: absolute;
-              top: -50%;
-              left: -50%;
-              width: 200%;
-              height: 200%;
-              background: conic-gradient(from 0deg, transparent, rgba(120, 119, 198, 0.1), transparent);
-              animation: rotate 10s linear infinite;
-          }
-          
-          @keyframes rotate {
-              0% { transform: rotate(0deg); }
-              100% { transform: rotate(360deg); }
-          }
-          
-          .quote-text {
-              position: relative;
-              z-index: 1;
-              transition: all 0.3s ease;
-          }
-          
-          .quote-text:hover {
-              transform: scale(1.02);
-              color: #ffffff;
-          }
-          
-          .parallax-element {
-              transition: transform 0.1s ease-out;
-          }
-          
-          .copyright-section {
-              background: rgba(0, 0, 0, 0.5);
-              backdrop-filter: blur(10px);
-              border-radius: 15px;
-              padding: 1.5rem;
-              margin-top: 2rem;
-              border: 1px solid rgba(255, 255, 255, 0.1);
-          }
-          
-          .policy-link {
-              position: relative;
-              transition: all 0.3s ease;
-          }
-          
-          .policy-link::after {
-              content: '';
-              position: absolute;
-              bottom: -2px;
-              left: 50%;
-              width: 0;
-              height: 2px;
-              background: linear-gradient(90deg, #ffffff, #1d4ed8);
-              transition: all 0.3s ease;
-              transform: translateX(-50%);
-          }
-          
-          .policy-link:hover::after {
-              width: 100%;
-          }
-          
-          .policy-link:hover {
-              color: #ffffff !important;
-          }
-          
-          @media (max-width: 768px) {
-              .footer-section {
-                  padding: 1.5rem;
-                  margin-bottom: 1.5rem;
-              }
-              
-              .shape {
-                  display: none;
-              }
-          }
+        }
       </style>
       <!-- Floating Shapes -->
       <div class="floating-shapes">
-          <div class="shape"></div>
-          <div class="shape"></div>
-          <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
       </div>
       <div class="container mx-auto px-4 content-3d">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div class="footer-section parallax-element">
             <h4 class="footer-title">Izin.In</h4>
-            <p class="text-gray-300 mb-6 leading-relaxed">Platform resmi untuk memudahkan perizinan UMKM di Indonesia dengan pelayanan cepat dan transparan.</p>
+            <p class="text-gray-300 mb-6 leading-relaxed">
+              Platform resmi untuk memudahkan perizinan UMKM di Indonesia dengan
+              pelayanan cepat dan transparan.
+            </p>
             <div class="flex space-x-3">
               <a href="#" class="social-icon text-gray-300 hover:text-white">
                 <i class="fab fa-facebook text-lg"></i>
@@ -834,21 +1080,81 @@
           <div class="footer-section parallax-element">
             <h4 class="footer-title">Layanan</h4>
             <ul class="space-y-3">
-              <li><a href="#" class="footer-link text-gray-300 hover:text-white block">Izin Usaha UMKM</a></li>
-              <li><a href="#" class="footer-link text-gray-300 hover:text-white block">Izin Usaha Kuliner</a></li>
-              <li><a href="#" class="footer-link text-gray-300 hover:text-white block">Izin Usaha Manufaktur</a></li>
-              <li><a href="#" class="footer-link text-gray-300 hover:text-white block">Perpanjangan Izin Usaha</a></li>
-              <li><a href="#" class="footer-link text-gray-300 hover:text-white block">Cek Status Perizinan</a></li>
+              <li>
+                <a
+                  href="#"
+                  class="footer-link text-gray-300 hover:text-white block"
+                  >Izin Usaha UMKM</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="footer-link text-gray-300 hover:text-white block"
+                  >Izin Usaha Kuliner</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="footer-link text-gray-300 hover:text-white block"
+                  >Izin Usaha Manufaktur</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="footer-link text-gray-300 hover:text-white block"
+                  >Perpanjangan Izin Usaha</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="footer-link text-gray-300 hover:text-white block"
+                  >Cek Status Perizinan</a
+                >
+              </li>
             </ul>
           </div>
           <div class="footer-section parallax-element">
             <h4 class="footer-title">Tautan</h4>
             <ul class="space-y-3">
-              <li><a href="/" class="footer-link text-gray-300 hover:text-white block">Beranda</a></li>
-              <li><a href="/tentang.html" class="footer-link text-gray-300 hover:text-white block">Tentang Kami</a></li>
-              <li><a href="/berita.html" class="footer-link text-gray-300 hover:text-white block">Berita</a></li>
-              <li><a href="/pengaduan.html" class="footer-link text-gray-300 hover:text-white block">Pengaduan</a></li>
-              <li><a href="/kontak.html" class="footer-link text-gray-300 hover:text-white block">Kontak</a></li>
+              <li>
+                <a
+                  href="/"
+                  class="footer-link text-gray-300 hover:text-white block"
+                  >Beranda</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/tentang.html"
+                  class="footer-link text-gray-300 hover:text-white block"
+                  >Tentang Kami</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/berita.html"
+                  class="footer-link text-gray-300 hover:text-white block"
+                  >Berita</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/pengaduan.html"
+                  class="footer-link text-gray-300 hover:text-white block"
+                  >Pengaduan</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/kontak.html"
+                  class="footer-link text-gray-300 hover:text-white block"
+                  >Kontak</a
+                >
+              </li>
             </ul>
           </div>
           <div class="footer-section parallax-element">
@@ -857,7 +1163,10 @@
               <li class="contact-item">
                 <div class="flex items-start">
                   <i class="contact-icon fas fa-map-marker-alt mt-1 mr-3"></i>
-                  <span>Tambak, Berjo, Kec. Ngargoyoso, Kab. Karanganyar 57793 Karanganyar Central Java</span>
+                  <span
+                    >Tambak, Berjo, Kec. Ngargoyoso, Kab. Karanganyar 57793
+                    Karanganyar Central Java</span
+                  >
                 </div>
               </li>
               <li class="contact-item">
@@ -884,135 +1193,162 @@
         <div class="quotes-section">
           <div class="text-center text-gray-400 relative z-10">
             <div class="text-sm space-y-4">
-              <p class="quote-text italic">"Web developer? More like an open invitation to get breached." – <span class="font-semibold text-white">Naufal (Leader & Underground Hacker)</span></p>
-              <p class="quote-text italic">"You drain my time, code feeds my mind." – <span class="font-semibold text-white">Bowo (Fullstack Developer & Student Leader)</span></p>
-              <p class="quote-text italic">"I am the architect of order in a realm of entropy, Intelligence on an immutable chain." – <span class="font-semibold text-white">Iqbal (Genius Coder & Product Architect)</span></p>
+              <p class="quote-text italic">
+                "Web developer? More like an open invitation to get breached." –
+                <span class="font-semibold text-white"
+                  >Naufal (Leader & Underground Hacker)</span
+                >
+              </p>
+              <p class="quote-text italic">
+                "You drain my time, code feeds my mind." –
+                <span class="font-semibold text-white"
+                  >Bowo (Fullstack Developer & Student Leader)</span
+                >
+              </p>
+              <p class="quote-text italic">
+                "I am the architect of order in a realm of entropy, Intelligence
+                on an immutable chain." –
+                <span class="font-semibold text-white"
+                  >Iqbal (Genius Coder & Product Architect)</span
+                >
+              </p>
             </div>
           </div>
         </div>
-        
+
         <div class="copyright-section text-center text-gray-400">
           <p class="mb-1">&copy; 2025 Izin.In. Hak Cipta Dilindungi.</p>
           <div class="flex justify-center space-x-8 text-sm flex-wrap">
-            <a href="#" class="policy-link hover:text-white">Kebijakan Privasi</a>
-            <a href="#" class="policy-link hover:text-white">Syarat & Ketentuan</a>
+            <a href="#" class="policy-link hover:text-white"
+              >Kebijakan Privasi</a
+            >
+            <a href="#" class="policy-link hover:text-white"
+              >Syarat & Ketentuan</a
+            >
             <a href="#" class="policy-link hover:text-white">Peta Situs</a>
           </div>
         </div>
       </div>
     </footer>
 
-  <script>
+    <script>
       // Parallax Effect
-      document.addEventListener('mousemove', (e) => {
-          const mouseX = e.clientX / window.innerWidth;
-          const mouseY = e.clientY / window.innerHeight;
-          
-          const parallaxElements = document.querySelectorAll('.parallax-element');
-          
-          parallaxElements.forEach((element, index) => {
-              const speed = (index + 1) * 0.5;
-              const x = (mouseX - 0.5) * speed;
-              const y = (mouseY - 0.5) * speed;
-              
-              element.style.transform = `translate3d(${x}px, ${y}px, 0) rotateX(${y * 2}deg) rotateY(${x * 2}deg)`;
-          });
+      document.addEventListener("mousemove", (e) => {
+        const mouseX = e.clientX / window.innerWidth;
+        const mouseY = e.clientY / window.innerHeight;
+
+        const parallaxElements = document.querySelectorAll(".parallax-element");
+
+        parallaxElements.forEach((element, index) => {
+          const speed = (index + 1) * 0.5;
+          const x = (mouseX - 0.5) * speed;
+          const y = (mouseY - 0.5) * speed;
+
+          element.style.transform = `translate3d(${x}px, ${y}px, 0) rotateX(${
+            y * 2
+          }deg) rotateY(${x * 2}deg)`;
+        });
       });
-      
+
       // Scroll-based animations
       let observerOptions;
-      if (typeof observerOptions === 'undefined') {
+      if (typeof observerOptions === "undefined") {
         observerOptions = {
           threshold: 0.1,
-          rootMargin: '0px 0px -50px 0px'
+          rootMargin: "0px 0px -50px 0px",
         };
       }
-      
+
       let observer;
-      if (typeof observer === 'undefined') {
+      if (typeof observer === "undefined") {
         observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
+          entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              entry.target.style.opacity = '1';
-              entry.target.style.transform = 'translateY(0)';
+              entry.target.style.opacity = "1";
+              entry.target.style.transform = "translateY(0)";
             }
           });
         }, observerOptions);
       }
-      
+
       // Observe footer sections
-      document.querySelectorAll('.footer-section').forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(50px)';
-        section.style.transition = 'all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+      document.querySelectorAll(".footer-section").forEach((section) => {
+        section.style.opacity = "0";
+        section.style.transform = "translateY(50px)";
+        section.style.transition =
+          "all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
         observer.observe(section);
       });
-      
+
       // Add stagger effect
-      document.querySelectorAll('.footer-section').forEach((section, index) => {
+      document.querySelectorAll(".footer-section").forEach((section, index) => {
         section.style.transitionDelay = `${index * 0.1}s`;
       });
-      
+
       // Interactive hover effects for contact items
-      document.querySelectorAll('.contact-item').forEach(item => {
-        item.addEventListener('mouseenter', () => {
-          item.style.transform = 'translateX(10px) scale(1.02)';
+      document.querySelectorAll(".contact-item").forEach((item) => {
+        item.addEventListener("mouseenter", () => {
+          item.style.transform = "translateX(10px) scale(1.02)";
         });
-        
-        item.addEventListener('mouseleave', () => {
-          item.style.transform = 'translateX(0) scale(1)';
+
+        item.addEventListener("mouseleave", () => {
+          item.style.transform = "translateX(0) scale(1)";
         });
       });
-      
+
       // Social icons animation
-      document.querySelectorAll('.social-icon').forEach(icon => {
-        icon.addEventListener('mouseenter', () => {
-          icon.style.transform = 'translateY(-5px) scale(1.15) rotateZ(5deg)';
+      document.querySelectorAll(".social-icon").forEach((icon) => {
+        icon.addEventListener("mouseenter", () => {
+          icon.style.transform = "translateY(-5px) scale(1.15) rotateZ(5deg)";
         });
-        
-        icon.addEventListener('mouseleave', () => {
-          icon.style.transform = 'translateY(0) scale(1) rotateZ(0deg)';
+
+        icon.addEventListener("mouseleave", () => {
+          icon.style.transform = "translateY(0) scale(1) rotateZ(0deg)";
         });
       });
-      
+
       // Floating shapes interaction
-      document.addEventListener('mousemove', (e) => {
-        const shapes = document.querySelectorAll('.shape');
+      document.addEventListener("mousemove", (e) => {
+        const shapes = document.querySelectorAll(".shape");
         const mouseX = e.clientX / window.innerWidth;
         const mouseY = e.clientY / window.innerHeight;
-        
+
         shapes.forEach((shape, index) => {
           const speed = (index + 1) * 10;
           const x = (mouseX - 0.5) * speed;
           const y = (mouseY - 0.5) * speed;
-          
-          shape.style.transform = `translate(${x}px, ${y}px) rotate(${x + y}deg)`;
+
+          shape.style.transform = `translate(${x}px, ${y}px) rotate(${
+            x + y
+          }deg)`;
         });
       });
-  </script>
+    </script>
 
     <!-- JavaScript for Navbar -->
     <script src="js/navbar.js"></script>
     <script src="/js/news.js"></script>
-    
+
     <!-- Advanced 3D Interactive Animations -->
     <script>
       // Advanced 3D Mouse Tracking and Parallax
-      let mouseX = 0, mouseY = 0;
-      let targetX = 0, targetY = 0;
-      
-      document.addEventListener('mousemove', (e) => {
+      let mouseX = 0,
+        mouseY = 0;
+      let targetX = 0,
+        targetY = 0;
+
+      document.addEventListener("mousemove", (e) => {
         mouseX = (e.clientX / window.innerWidth) * 2 - 1;
         mouseY = (e.clientY / window.innerHeight) * 2 - 1;
       });
-      
+
       // Smooth animation loop for 3D effects
       function animate3D() {
         targetX += (mouseX - targetX) * 0.05;
         targetY += (mouseY - targetY) * 0.05;
-        
+
         // Apply 3D transforms to hero content
-        const heroContent = document.querySelector('.hero-content');
+        const heroContent = document.querySelector(".hero-content");
         if (heroContent) {
           heroContent.style.transform = `
             translateZ(50px) 
@@ -1020,9 +1356,11 @@
             rotateX(${-targetY * 5}deg)
           `;
         }
-        
+
         // Apply parallax to floating elements
-        const floatingElements = document.querySelectorAll('.floating-animation');
+        const floatingElements = document.querySelectorAll(
+          ".floating-animation"
+        );
         floatingElements.forEach((el, index) => {
           const intensity = (index + 1) * 0.5;
           el.style.transform = `
@@ -1031,35 +1369,36 @@
             rotateY(${targetX * intensity * 2}deg)
           `;
         });
-        
+
         requestAnimationFrame(animate3D);
       }
-      
+
       // Advanced 3D Card Interactions
       function init3DCards() {
-        const cards = document.querySelectorAll('.modern-card');
-        
-        cards.forEach(card => {
-          card.addEventListener('mouseenter', (e) => {
+        const cards = document.querySelectorAll(".modern-card");
+
+        cards.forEach((card) => {
+          card.addEventListener("mouseenter", (e) => {
             const rect = card.getBoundingClientRect();
             const centerX = rect.left + rect.width / 2;
             const centerY = rect.top + rect.height / 2;
-            
-            card.style.transformOrigin = 'center center';
-            card.style.transition = 'transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+
+            card.style.transformOrigin = "center center";
+            card.style.transition =
+              "transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
           });
-          
-          card.addEventListener('mousemove', (e) => {
+
+          card.addEventListener("mousemove", (e) => {
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            
+
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
-            
-            const rotateX = (y - centerY) / centerY * -10;
-            const rotateY = (x - centerX) / centerX * 10;
-            
+
+            const rotateX = ((y - centerY) / centerY) * -10;
+            const rotateY = ((x - centerX) / centerX) * 10;
+
             card.style.transform = `
               translateY(-15px) 
               rotateX(${rotateX}deg) 
@@ -1068,39 +1407,42 @@
               translateZ(50px)
             `;
           });
-          
-          card.addEventListener('mouseleave', () => {
-            card.style.transform = 'translateY(0) rotateX(0) rotateY(0) scale(1) translateZ(0)';
+
+          card.addEventListener("mouseleave", () => {
+            card.style.transform =
+              "translateY(0) rotateX(0) rotateY(0) scale(1) translateZ(0)";
           });
         });
       }
 
       // Initialize everything when DOM is loaded
-      document.addEventListener('DOMContentLoaded', () => {
-        const fadeElements = document.querySelectorAll('.fade-in-up, .fade-in-up-3d');
-        fadeElements.forEach(el => observer.observe(el));
-        
+      document.addEventListener("DOMContentLoaded", () => {
+        const fadeElements = document.querySelectorAll(
+          ".fade-in-up, .fade-in-up-3d"
+        );
+        fadeElements.forEach((el) => observer.observe(el));
+
         // Start 3D animation loop
         animate3D();
-        
+
         // Initialize 3D card interactions
         init3DCards();
-        
+
         // Add staggered animations
-        const staggerElements = document.querySelectorAll('.modern-card');
+        const staggerElements = document.querySelectorAll(".modern-card");
         staggerElements.forEach((el, index) => {
           el.style.animationDelay = `${index * 0.1}s`;
         });
-        
+
         // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-          anchor.addEventListener('click', function (e) {
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const target = document.querySelector(this.getAttribute("href"));
             if (target) {
               target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+                behavior: "smooth",
+                block: "start",
               });
             }
           });
@@ -1110,9 +1452,9 @@
         let ticking = false;
         function updateParallax() {
           const scrolled = window.pageYOffset;
-          const parallaxElements = document.querySelectorAll('.hero-bg');
-          
-          parallaxElements.forEach(element => {
+          const parallaxElements = document.querySelectorAll(".hero-bg");
+
+          parallaxElements.forEach((element) => {
             const speed = 0.5;
             const yPos = -(scrolled * speed);
             element.style.transform = `translateY(${yPos}px)`;
@@ -1128,28 +1470,60 @@
         }
 
         // Add parallax scroll effect
-        window.addEventListener('scroll', requestParallaxUpdate);
+        window.addEventListener("scroll", requestParallaxUpdate);
 
         // Add hover effects to cards
-        const cards = document.querySelectorAll('.card');
-        cards.forEach(card => {
-          card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-12px) scale(1.03)';
+        const cards = document.querySelectorAll(".card");
+        cards.forEach((card) => {
+          card.addEventListener("mouseenter", function () {
+            this.style.transform = "translateY(-12px) scale(1.03)";
           });
-          
-          card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
+
+          card.addEventListener("mouseleave", function () {
+            this.style.transform = "translateY(0) scale(1)";
           });
         });
 
         // Counter animation for statistics
         function animateCounters() {
-          const counters = document.querySelectorAll('.stats-counter');
-          counters.forEach(counter => {
-            const target = parseInt(counter.textContent.replace(/\D/g, '')) || 0;
-            const suffix = counter.textContent.replace(/[0-9]/g, '');
+          const counters = document.querySelectorAll(".stats-counter");
+          counters.forEach((counter) => {
+            const originalText = counter.textContent.trim();
+
+            // Jika format angka dengan "/", misalnya 24/7
+            if (/^\d+\/\d+$/.test(originalText)) {
+              const [num1, num2] = originalText
+                .split("/")
+                .map((n) => parseInt(n, 10));
+              let current1 = 0;
+              let current2 = 0;
+              const increment1 = num1 / 100;
+              const increment2 = num2 / 100;
+
+              const timer = setInterval(() => {
+                current1 += increment1;
+                current2 += increment2;
+
+                if (current1 >= num1 && current2 >= num2) {
+                  counter.textContent = `${num1}/${num2}`;
+                  clearInterval(timer);
+                } else {
+                  const display1 =
+                    current1 >= num1 ? num1 : Math.ceil(current1);
+                  const display2 =
+                    current2 >= num2 ? num2 : Math.ceil(current2);
+                  counter.textContent = `${display1}/${display2}`;
+                }
+              }, 20);
+              return;
+            }
+
+            // Format angka biasa dengan suffix (contoh: 100+, 75%, 1k)
+            const target = parseInt(originalText.replace(/\D/g, "")) || 0;
+            const suffix = originalText.replace(/[0-9]/g, "");
             let current = 0;
             const increment = target / 100;
+
             const timer = setInterval(() => {
               current += increment;
               if (current >= target) {
@@ -1163,31 +1537,34 @@
         }
 
         // Trigger counter animation when stats section is visible
-        const statsSection = document.querySelector('.stats-counter');
+        const statsSection = document.querySelector(".stats-counter");
         if (statsSection) {
-          const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                animateCounters();
-                statsObserver.unobserve(entry.target);
-              }
-            });
-          }, { threshold: 0.5 });
-          
-          const statsContainer = statsSection.closest('section');
+          const statsObserver = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  animateCounters();
+                  statsObserver.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.5 }
+          );
+
+          const statsContainer = statsSection.closest("section");
           if (statsContainer) {
             statsObserver.observe(statsContainer);
           }
         }
 
         // Add loading animation
-        window.addEventListener('load', function() {
-          document.body.classList.add('loaded');
+        window.addEventListener("load", function () {
+          document.body.classList.add("loaded");
         });
 
         // Mobile touch interactions
-        if ('ontouchstart' in window) {
-          document.body.classList.add('touch-device');
+        if ("ontouchstart" in window) {
+          document.body.classList.add("touch-device");
         }
       });
 
@@ -1208,7 +1585,7 @@
           }
         </style>
       `;
-      document.head.insertAdjacentHTML('beforeend', loadingStyles);
+      document.head.insertAdjacentHTML("beforeend", loadingStyles);
     </script>
   </body>
 </html>
